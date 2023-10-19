@@ -71,4 +71,9 @@ public class UserController {
 		return "/user/ticketBooking";
 	}
 	
+	@GetMapping("/seat_sel")
+	public String showSeat_sel() {
+		return "/user/seat_sel";
+	}
+	
 }
