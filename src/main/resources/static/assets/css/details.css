@@ -1,0 +1,22 @@
+div.card.single_post {
+    border: none;
+}
+
+.details.col-md-8 p:nth-of-type(1) {
+    margin-top: 5%;
+}
+.details.col-md-8 p span {
+    font-weight: bold;
+}
+
+
+.text-center button.btn.btn-primary {
+    border-radius: 20px;
+    width: 100px;
+}
+.center-iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Đảm bảo iframe lấp đầy chiều cao của container */
+}
