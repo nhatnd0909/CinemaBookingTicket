@@ -1,50 +1,30 @@
 package com.project.csm.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import com.project.csm.model.Admin;
+import com.project.csm.service.AdminService;
+
+@RestController
+@RequestMapping("/admin")
 public class AdminController {
+	@Autowired
+	private AdminService adminService;
 
-	@GetMapping("/adminDashboard")
-	public String showAdminDashboard() {
-
-		return "admin/adminDashboard";
+	@PostMapping("/add")
+	public Admin addAdmin(@RequestBody Admin admin) {
+		return adminService.addAdmin(admin);
 	}
 
-	@GetMapping("/blank-page")
-	public String showBlankPage() {
-
-		return "admin/blank-page";
+	@GetMapping("/{adminID}")
+	public Admin getAdminById(@PathVariable int adminID) {
+		return adminService.getAdminById(adminID);
 	}
 
-	@GetMapping("/chart")
-	public String showChart() {
-
-		return "admin/chart";
-	}
-
-	@GetMapping("/employeeDashboard")
-	public String showEmployeeAdmin() {
-
-		return "admin/employeeDashboard";
-	}
-
-	@GetMapping("/movieDashboard")
-	public String showMovieAdmin() {
-
-		return "admin/movieDashboard";
-	}
-
-	@GetMapping("/revenue")
-	public String showRevenue() {
-
-		return "admin/revenue";
-	}
-
-	@GetMapping("/userDashboard")
-	public String showUserDashboard() {
-
-		return "admin/userDashboard";
-	}
 }
