@@ -48,7 +48,7 @@
         </nav>
     </header>
 
-    <div class="container_signup_signin" id="container_signup_signin">
+    <div class="container_signup_signin right-panel-active" id="container_signup_signin">
         <div class="form-container sign-up-container">
             <form name="sign-up-form" action="#" onsubmit="return signUpValidateForm()">
                 <h1>Create Account</h1>
@@ -64,22 +64,6 @@
                 <button>Sign Up</button>
             </form>
         </div>
-        <!-- <div class="form-container sign-in-container">
-            <form name="sign-in-form" style="color: var(--theme-title);" action="#" onsubmit="return signInValidateForm()">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social" style="color: var(--theme-title);"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social" style="color: var(--theme-title);"><i
-							class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social" style="color: var(--theme-title);"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your account</span>
-                <input name="sign-in-email" type="email" placeholder="Email" />
-                <input name="sign-in-passwd" type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-            </form>
-        </div> -->
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
@@ -87,15 +71,9 @@
                     <p>To keep connected with us please login with your login details</p>
                     <button class="ghost" id="signIn"><a href="/signin">Sign In</a></button>
                 </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register and book your tickets now!!!</p>
-                    <button class="ghost" id="signUp"><a href="/signup">Sign Up</a></button>
-                </div>
             </div>
         </div>
     </div>
-
     <script type="text/javascript" src="assets/js/as-alert-message.min.js"></script>
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <!--/theme-change-->
