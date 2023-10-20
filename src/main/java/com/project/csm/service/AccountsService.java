@@ -19,7 +19,6 @@ public class AccountsService {
 		return accountRepository.save(account);
 	}
 
-	
 	public Account updateAccountById(Long accountId, Account updatedAccountDetails) {
 		Optional<Account> optionalAccount = accountRepository.findById(accountId);
 
@@ -38,5 +37,11 @@ public class AccountsService {
 		}
 		return null; // Account with given ID not found
 	}
+
+	public boolean checkEmailAndPassword(String email, String password) {
+		Account account = accountRepository.findByEmailAndPassword(email, password);
+		return account != null;
+	}
+	
 
 }

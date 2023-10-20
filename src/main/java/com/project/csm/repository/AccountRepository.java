@@ -8,4 +8,6 @@ import com.project.csm.model.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long>{
 
+	Account findByEmailAndPassword(String email, String password);
+
 }

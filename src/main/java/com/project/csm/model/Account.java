@@ -25,6 +25,14 @@ public class Account {
 		this.password = password;
 	}
 
+	public Account(String userName, String email, String password, String role) {
+		super();
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+	}
+
 	public Account(Long accountID, String userName, String email, String password, String role) {
 		this.accountID = accountID;
 		this.userName = userName;
@@ -32,7 +40,7 @@ public class Account {
 		this.password = password;
 		this.role = role;
 	}
-	
+
 	public Long getAccountID() {
 		return accountID;
 	}
