@@ -1,4 +1,4 @@
-package com.project.csm.controllers;
+package com.project.csm.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,11 +64,6 @@ public class UserController {
 	@GetMapping("/signin") 
 	public String showSignin() {
 		return "/user/signin";
-	}
-	
-	@GetMapping("/signup") 
-	public String showSignup() {
-		return "/user/signup";
 	}
 	
 	@GetMapping("/ticketBooking") 
