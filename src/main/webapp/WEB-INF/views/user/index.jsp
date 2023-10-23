@@ -132,7 +132,7 @@
 						<div class="slider-info banner-view bg bg2">
 							<div class="banner-info">
 								<h3>Latest movies Trailers</h3>
-								<p>
+								<p> 	
 									Lorem ipsum dolor sit amet consectetur adipisicing elit.<span
 										class="over-para"> Consequuntur hic odio voluptatem
 										tenetur consequatur.</span>
