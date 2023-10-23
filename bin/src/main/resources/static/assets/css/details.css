@@ -1,0 +1,87 @@
+div.card.single_post {
+    border: none;
+}
+
+.details.col-md-8 p:nth-of-type(1) {
+    margin-top: 5%;
+}
+.details.col-md-8 p span {
+    font-weight: bold;
+}
+
+
+.text-center button.btn.btn-primary {
+    border-radius: 20px;
+    width: 100px;
+}
+.center-iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Đảm bảo iframe lấp đầy chiều cao của container */
+}
+
+.center-iframe iframe {
+    border-radius: 8px;
+}
+
+.img-post img {
+    width: 100%;
+    padding: 20px;
+}
+
+.details {
+    padding-right: 20px;
+}
+
+.details h2 {
+    margin-top: 20px;
+}
+
+.details p {
+    font-size: 17px;
+    line-height: 40px;
+}
+
+.description {
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+
+/* CSS cho phần đánh giá */
+
+.rating {
+    margin-top: 2%;
+    padding: 0 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-rating {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comment img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
