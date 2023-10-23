@@ -43,7 +43,110 @@ public class Customer {
 	private Account account;
 
 	@ManyToOne
-    @JoinColumn(name = "RankID")
-    private Rank rank;
+	@JoinColumn(name = "RankID")
+	private Rank rank;
+
+	public Customer() {
+	}
+
+	public Customer(String name, String gender, Date dateOfBirth, String phoneNumber, String address, Date createDate) {
+		this.name = name;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.createDate = createDate;
+	}
+
+	public Customer(String name, String gender, Date dateOfBirth, String phoneNumber, String address, Date createDate,
+			Account account, Rank rank) {
+		this.name = name;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.createDate = createDate;
+		this.account = account;
+		this.rank = rank;
+	}
+
+	public Long getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(Long customerID) {
+		this.customerID = customerID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Rank getRank() {
+		return rank;
+	}
+
+	public void setRank(Rank rank) {
+		this.rank = rank;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerID=" + customerID + ", name=" + name + ", gender=" + gender + ", dateOfBirth="
+				+ dateOfBirth + ", phoneNumber=" + phoneNumber + ", address=" + address + ", createDate=" + createDate
+				+ ", account=" + account + ", rank=" + rank + "]";
+	}
 
 }

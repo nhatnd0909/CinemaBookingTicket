@@ -2,81 +2,84 @@ package com.project.csm.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserController {
-	
-	@GetMapping("/") 
+
+	@GetMapping("/")
 	public String showDefaultPage() {
 		return "/user/index";
 	}
-	
-	@GetMapping("/home") 
+
+	@GetMapping("/home")
 	public String showUserIndex() {
 		return "/user/index";
 	}
-	
-	@GetMapping("/about") 
+
+	@GetMapping("/about")
 	public String showAbout() {
 		return "/user/about";
 	}
-	
-	@GetMapping("/contact") 
+
+	@GetMapping("/contact")
 	public String showContact() {
 		return "/user/contactUs";
 	}
-	
-	@GetMapping("/details") 
+
+	@GetMapping("/details")
 	public String showDetails() {
 		return "/user/details";
 	}
-	
-	@GetMapping("/e-ticket") 
+
+	@GetMapping("/e-ticket")
 	public String showETicket() {
 		return "/user/e-ticket";
 	}
-	
-	@GetMapping("/history") 
+
+	@GetMapping("/history")
 	public String showHistory() {
 		return "/user/history";
 	}
-	
-	@GetMapping("/history1") 
+
+	@GetMapping("/history1")
 	public String showHistory1() {
 		return "/user/history1";
 	}
-	
-	@GetMapping("/movies") 
+
+	@GetMapping("/movies")
 	public String showMovie() {
 		return "/user/movies";
 	}
-	
-	@GetMapping("/password") 
+
+	@GetMapping("/password")
 	public String showPassword() {
 		return "/user/password";
 	}
-	
-	@GetMapping("/profileUser") 
+
+	@GetMapping("/profileUser")
 	public String showProfileUser() {
 		return "/user/profileUser";
 	}
-	
-	@GetMapping("/signin") 
+
+	@GetMapping("/signin")
 	public String showSignin() {
 		return "/user/signin";
 	}
-	@GetMapping("/signup") 
+
+	@GetMapping("/signup")
 	public String showSignup() {
 		return "/user/signup";
 	}
-	@GetMapping("/ticketBooking") 
+
+	@GetMapping("/ticketBooking")
 	public String showTicketBooking() {
 		return "/user/ticketBooking";
 	}
-	
+
 	@GetMapping("/seat_sel")
 	public String showSeat_sel() {
 		return "/user/seat_sel";
 	}
-	
+
 }
