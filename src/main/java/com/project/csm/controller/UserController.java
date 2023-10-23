@@ -65,7 +65,10 @@ public class UserController {
 	public String showSignin() {
 		return "/user/signin";
 	}
-	
+	@GetMapping("/signup") 
+	public String showSignup() {
+		return "/user/signup";
+	}
 	@GetMapping("/ticketBooking") 
 	public String showTicketBooking() {
 		return "/user/ticketBooking";

@@ -17,7 +17,7 @@ public class Seat {
 	@Column(name = "SeatID")
 	private int seatID;
 
-	@Column(name = "Row")
+	@Column(name = "Rows")
 	private String row;
 
 	@Column(name = "Columns")
