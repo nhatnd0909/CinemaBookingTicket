@@ -15,7 +15,7 @@ public class SeatOfCinema {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "SOCID")
-	private int socID;
+	private Long socID;
 
 	@ManyToOne
 	@JoinColumn(name = "RoomID")

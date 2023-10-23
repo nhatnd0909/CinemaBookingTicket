@@ -18,7 +18,7 @@ public class Show {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ShowID")
-	private int showID;
+	private Long showID;
 
 	@ManyToOne
 	@JoinColumn(name = "EmployeeID")

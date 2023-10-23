@@ -15,7 +15,7 @@ public class Rank {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "RankID")
-	private int rankID;
+	private Long rankID;
 
 	@Column(name = "Type")
 	private String type;
