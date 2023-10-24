@@ -1,5 +1,7 @@
 package com.project.csm.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,5 +26,10 @@ public class RankController {
 	@GetMapping("/get/{rankID}")
 	public Rank getRankByID(@PathVariable Long rankID) {
 		return rankService.getRankByID(rankID);
+	}
+
+	@GetMapping("/getall")
+	public List<Rank> getALLRank() {
+		return rankService.getAll();
 	}
 }
