@@ -14,7 +14,7 @@ public class AccountService {
 	private AccountRepository accountRepository;
 
 	public Account createUserAccount(Account account) {
-		account.setRole("user");
+		account.setRole("USER");
 		return accountRepository.save(account);
 	}
 
