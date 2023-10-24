@@ -84,6 +84,14 @@ https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl --
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
 		</dependency>
+
+		<!--
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		-->
 	</dependencies>
 
 	<build>

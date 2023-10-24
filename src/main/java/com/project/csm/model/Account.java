@@ -30,11 +30,14 @@ public class Account {
 	public Account() {
 	}
 
-	public Account(String userName, String email, String password) {
-		this.userName = userName;
+	
+
+	public Account(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
+
+
 
 	public Account(String userName, String email, String password, String role) {
 		this.userName = userName;

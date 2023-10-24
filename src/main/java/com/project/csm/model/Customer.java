@@ -38,6 +38,9 @@ public class Customer {
 	@Column(name = "CreateDate")
 	private Date createDate;
 
+	@Column(name = "Times")
+	private int times;
+
 	@OneToOne
 	@JoinColumn(name = "AccountID")
 	private Account account;
@@ -49,25 +52,37 @@ public class Customer {
 	public Customer() {
 	}
 
-	public Customer(String name, String gender, Date dateOfBirth, String phoneNumber, String address, Date createDate) {
+	public Customer(String name, String gender, Date dateOfBirth, String phoneNumber, String address, Date createDate,
+			int times) {
+		super();
 		this.name = name;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
 		this.createDate = createDate;
+		this.times = times;
 	}
 
 	public Customer(String name, String gender, Date dateOfBirth, String phoneNumber, String address, Date createDate,
-			Account account, Rank rank) {
+			int times, Account account, Rank rank) {
 		this.name = name;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
 		this.createDate = createDate;
+		this.times = times;
 		this.account = account;
 		this.rank = rank;
+	}
+
+	public int getTimes() {
+		return times;
+	}
+
+	public void setTimes(int times) {
+		this.times = times;
 	}
 
 	public Long getCustomerID() {
@@ -146,7 +161,7 @@ public class Customer {
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", name=" + name + ", gender=" + gender + ", dateOfBirth="
 				+ dateOfBirth + ", phoneNumber=" + phoneNumber + ", address=" + address + ", createDate=" + createDate
-				+ ", account=" + account + ", rank=" + rank + "]";
+				+ ", times=" + times + ", account=" + account + ", rank=" + rank + "]";
 	}
 
 }

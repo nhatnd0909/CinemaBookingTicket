@@ -50,17 +50,19 @@
 
     <div class="container_signup_signin right-panel-active" id="container_signup_signin">
         <div class="form-container sign-up-container">
-            <form name="sign-up-form" action="#" onsubmit="return signUpValidateForm()">
-                <h1>Create Account</h1>
+            <form name="sign-up-form" action="signup" method="post" onsubmit="return signUpValidateForm()" >
+           
+                <h2>Create Account</h2>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <span>or use your email for registration</span>
-                <input name="sign-up-name" type="text" placeholder="Name" />
-                <input name="sign-up-email" type="email" placeholder="Email" />
-                <input name="sign-up-passwd" type="password" placeholder="Password" />
+                 ${mess}
+                <input name="name" type="text" placeholder="Name" value=""/>
+                <input name="email" type="email" placeholder="Email" />
+                 <input name="password" type="password" placeholder="Password" />
+                <input name="rePassword" type="password" placeholder="Re-Password" />
                 <button>Sign Up</button>
             </form>
         </div>

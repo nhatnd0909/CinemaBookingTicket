@@ -1,8 +1,8 @@
 package com.project.csm.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserController {
@@ -63,12 +63,14 @@ public class UserController {
 	}
 
 	@GetMapping("/signin")
-	public String showSignin() {
+	public String showSignin(Model model) {
+		model.addAttribute("mess", "");
 		return "/user/signin";
 	}
 
 	@GetMapping("/signup")
-	public String showSignup() {
+	public String showSignup(Model model) {
+		model.addAttribute("mess", "");
 		return "/user/signup";
 	}
 

@@ -66,10 +66,10 @@
 						style="color: var(--theme-title);"><i
 						class="fab fa-linkedin-in"></i></a>
 				</div>
-				<span>or use your account</span> <input name="sign-in-email"
-					type="email" placeholder="Email" /> <input name="sign-in-passwd"
-					type="password" placeholder="Password" /> <a href="#">Forgot
-					your password?</a>
+				${mess} 
+				<input name="sign-in-email" type="email" placeholder="Email" />
+				<input name="sign-in-passwd" type="password" placeholder="Password" />
+				<a href="#">Forgot your password?</a>
 				<button>Sign In</button>
 			</form>
 		</div>

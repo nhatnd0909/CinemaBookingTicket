@@ -3,9 +3,9 @@ package com.project.csm.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.project.csm.model.Account;
+import com.project.csm.model.Customer;
 
 @Repository
-public interface AccountRepository extends JpaRepository<Account, Long> {
-	boolean existsByEmail(String email);
+public interface CustomerRepository extends JpaRepository<Customer, Long>{
+
 }
