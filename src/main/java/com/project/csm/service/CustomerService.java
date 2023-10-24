@@ -10,10 +10,10 @@ import com.project.csm.repository.CustomerRepository;
 public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
-	
-	
+
 	public Customer addNewCusstomer(Customer customer) {
-		
+
 		return customerRepository.save(customer);
 	}
+
 }

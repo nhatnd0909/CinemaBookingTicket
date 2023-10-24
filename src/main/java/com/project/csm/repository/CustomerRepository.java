@@ -8,4 +8,5 @@ import com.project.csm.model.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long>{
 
+
 }

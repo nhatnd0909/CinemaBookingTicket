@@ -62,17 +62,17 @@ public class UserController {
 		return "/user/profileUser";
 	}
 
-	@GetMapping("/signin")
-	public String showSignin(Model model) {
-		model.addAttribute("mess", "");
-		return "/user/signin";
-	}
+//	@GetMapping("/signin")
+//	public String showSignin(Model model) {
+//		model.addAttribute("mess", "");
+//		return "/user/signin";
+//	}
 
-	@GetMapping("/signup")
-	public String showSignup(Model model) {
-		model.addAttribute("mess", "");
-		return "/user/signup";
-	}
+//	@GetMapping("/signup")
+//	public String showSignup(Model model) {
+//		model.addAttribute("mess", "");
+//		return "/user/signup";
+//	}
 
 	@GetMapping("/ticketBooking")
 	public String showTicketBooking() {

@@ -55,7 +55,7 @@
 
 	<div class="container_signup_signin" id="container_signup_signin">
 		<div class="form-container sign-in-container">
-			<form name="sign-in-form" style="color: var(--theme-title);"
+			<form name="signin" method="post" style="color: var(--theme-title);"
 				action="#" onsubmit="return signInValidateForm()">
 				<h1>Sign in</h1>
 				<div class="social-container">
@@ -67,8 +67,8 @@
 						class="fab fa-linkedin-in"></i></a>
 				</div>
 				${mess} 
-				<input name="sign-in-email" type="email" placeholder="Email" />
-				<input name="sign-in-passwd" type="password" placeholder="Password" />
+				<input name="email" type="email" placeholder="Email" />
+				<input name="password" type="password" placeholder="Password" />
 				<a href="#">Forgot your password?</a>
 				<button>Sign In</button>
 			</form>

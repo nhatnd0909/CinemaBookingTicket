@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -24,6 +25,12 @@ public class SignupController {
 	@Autowired
 	private CustomerService customerService;
 
+	@GetMapping("/signup")
+	public String showSignup(Model model) {
+		model.addAttribute("mess", "");
+		return "/user/signup";
+	}
+
 	@PostMapping("/signup")
 	public String signup(Model model, @RequestParam String name, @RequestParam String email,
 			@RequestParam String password, @RequestParam String rePassword) {
@@ -35,7 +42,7 @@ public class SignupController {
 			model.addAttribute("mess", "Re Password dose not match");
 			return "/user/signup";
 		}
-		
+
 		Account account = new Account(email, password);
 		accountService.createUserAccount(account);
 		Rank rank = rankService.getRankByID(1L);
