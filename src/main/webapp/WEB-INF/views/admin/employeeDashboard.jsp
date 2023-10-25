@@ -343,7 +343,11 @@
 																<td>${employee.phoneNumber}</td>
 																<td>${employee.theater.name}</td>
 																<td>
-																	<div class="badge badge-outline-success"><i class="mdi mdi-eye"></i></div>
+																	<div class="badge badge-outline-success">
+																		<a href="<c:url value='/employeeDashboard/update/${employee.employeeID}'/>" style="text-decoration: none; color: inherit;" >
+																			<i class="mdi mdi-eye"></i>
+																		</a>
+																	</div>
 																	<div class="badge badge-outline-success">
 																		<a href="<c:url value='/deleteEmployee/${employee.employeeID}'/>" style="text-decoration: none; color: inherit;" >
 																			<i class="mdi mdi-delete"></i>

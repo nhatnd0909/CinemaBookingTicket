@@ -28,6 +28,12 @@ public class EmployeeService {
   public Employee getEmployeeById(int employeeId) {
       return employeeRepository.findById(employeeId).orElse(null);
   }
+  
+  public void updateEmployee(Employee employee) {
+      employeeRepository.save(employee);
+  }
+  
+ 
   public void deleteEmployeeById(int employeeId) {
 	  employeeRepository.deleteById(employeeId);
 	  }

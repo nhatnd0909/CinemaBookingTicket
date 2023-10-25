@@ -13,7 +13,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 @Entity
 @Table(name = "Employee")
 public class Employee {
@@ -33,6 +34,7 @@ public class Employee {
 
 	@Column(name = "DateOfBirth")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 
 	@OneToOne

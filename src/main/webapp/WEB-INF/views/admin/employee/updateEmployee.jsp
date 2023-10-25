@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html >
 <head>
@@ -308,52 +309,54 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Add New Employee</h4>
-                                    <p class="mb-0"><a href="/employeeDashboard" style="text-decoration: none; color: inherit;"> Employee</a> / <span>Add New</span></p>
+                                    <h4 class="card-title">Update Employee</h4>
+                                    <p class="mb-0"><a href="/employeeDashboard" style="text-decoration: none; color: inherit;"> Employee</a> / <span>Update</span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="/employeeDashboard/create">
+								<form class="forms-sample" method="post" action="/employeeDashboard/update/${employee.employeeID}">
 									<div class="form-group">
 										<label for="exampleInputName1">User Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName"  th:field="${employee.account.userName}" value="${employee.account.userName}">
 										
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail3">Email</label> 
-                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email">
+                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email"  value="${employee.account.email}">
 									</div>
 									<div class="form-group">
 										<label for="exampleInputPassword4">Password</label> 
-                                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
+                                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password"  value="${employee.account.password}">
 									</div>
                                     <div class="form-group">
 										<label for="exampleInputName1">Role</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" value="employee" name="role">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" value="employee" name="role"  value="${employee.account.role}">
 									</div>
                                     <div class="form-group">
 										<label for="exampleInputName1">Full Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="name" >
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="name"  value="${employee.name}">
 									</div>
                                     <div class="form-group">
 										<label for="exampleInputName1">Addres</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="address">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="address"  value="${employee.address}">
 									</div>
-                                    <div class="form-group">
-                                        <label for="dateOfBirth">Date of Birth</label>
-                                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
-                                    </div>                                      
+									<div class="form-group">
+										<label for="dateOfBirth">Date of Birth</label>
+										<c:if test="${not empty employee.dateOfBirth}">
+											<input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" value="<fmt:formatDate value="${employee.dateOfBirth}" pattern="yyyy-MM-dd" />">
+										</c:if>
+									</div>																  
                                     <div class="form-group">
 										<label for="exampleInputName1">Phone Number</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber"  value="${employee.phoneNumber}">
 									</div>
-                                    <div class="form-group">
-                                        <label for="exampleSelectGender">Genre</label> 
-                                        <select class="form-control" id="exampleSelectGender" name="theaterId">
-                                            <option value="">Select Theater</option>
-                                            <c:forEach items="${theaters}" var="theater">
-                                                <option value="${theater.theaterID}">${theater.name}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>                                                                    
+									<div class="form-group">
+										<label for="allTheaters">Select a Different Theater</label>
+										<select class="form-control" id="allTheaters" name="theaterId">
+											<option value="">Select Theater</option>
+											<c:forEach items="${theaters}" var="theater">
+												<option value="${theater.theaterID}">${theater.name}</option>
+											</c:forEach>
+										</select>
+									</div>																	   
 									<button type="submit" class="btn btn-primary mr-2">Update</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>

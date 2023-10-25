@@ -40,7 +40,7 @@ public class EmployeeController {
 	public String showEmployeeAdmin(Model model  , @RequestParam(defaultValue = "0") int page) {
 		List<Account> employeeAccounts = accountService.getEmployees();
 		List<Employee> allEmployees = employeeService.getAllEmployees();
-		int pageSize = 2; 
+		int pageSize = 5; 
 	    int totalPages = (int) Math.ceil((double) allEmployees.size() / pageSize);
 
 	    List<Employee> pagedEmployees = allEmployees.subList(page * pageSize, Math.min((page + 1) * pageSize, allEmployees.size()));
@@ -77,9 +77,44 @@ public class EmployeeController {
 	
 	
 	@GetMapping("/employeeDashboard/update/{employeeId}")
-	public String updateAccountEmployeee() {
+	public String updateAccountEmployeee(@PathVariable int employeeId, Model model ) {
+		Employee employee = employeeService.getEmployeeById(employeeId);
+		List<Theater> theaters = theaterService.gettAllTheaters();
+		model.addAttribute("theaters", theaters);
+		model.addAttribute("employee", employee);
+		System.out.println(employee);
 		return "admin/employee/updateEmployee";
 	}
+	
+	@PostMapping("/employeeDashboard/update/{employeeId}")
+	public String updateAccountEmployee(
+		    @PathVariable int employeeId,
+		    @ModelAttribute Employee employee,
+		    @ModelAttribute Account account,
+		    @RequestParam("theaterId") int theaterId
+		) {
+		    Employee existingEmployee = employeeService.getEmployeeById(employeeId);
+
+		    existingEmployee.setName(employee.getName());
+		    existingEmployee.setAddress(employee.getAddress());
+		    existingEmployee.setDateOfBirth(employee.getDateOfBirth());
+		    existingEmployee.setPhoneNumber(employee.getPhoneNumber());
+
+
+		    Account existingAccount = existingEmployee.getAccount();
+
+		    existingAccount.setUserName(account.getUserName());
+		    existingAccount.setEmail(account.getEmail());
+		    existingAccount.setPassword(account.getPassword());
+		    
+		    Theater theater = theaterService.getTheaterById(theaterId);
+		    existingEmployee.setTheater(theater);
+		    
+		    employeeService.updateEmployee(existingEmployee);
+		    accountService.updateAccount(existingAccount);
+
+		    return "redirect:/employeeDashboard";
+		}
 								
 	@GetMapping("/deleteEmployee/{employeeId}")
     public String deleteEmployee(@PathVariable("employeeId") int employeeId) {

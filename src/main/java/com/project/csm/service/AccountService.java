@@ -21,7 +21,11 @@ public class AccountService {
 		accountRepository.save(account);
 	}
 	
-	 public void deleteAccountById(int accountId) {
-	        accountRepository.deleteById(accountId);
-	    }
+	public void updateAccount(Account account) {
+        accountRepository.save(account);
+    }
+
+	public void deleteAccountById(int accountId) {
+	    accountRepository.deleteById(accountId);
+	 }
 }
