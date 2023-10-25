@@ -8,7 +8,7 @@ public class EmployeeDTO {
 
 	@NotBlank(message = "User Name is required")
 	private String userName;
-
+	int  n ;
 	public String getUserName() {
 		return userName;
 	}

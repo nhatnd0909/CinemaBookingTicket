@@ -21,7 +21,7 @@ public class EmployeeService {
   public List<Employee> getAllEmployees() {
       return employeeRepository.findAll();
   }
-  
+  int  n ;
   public void createEmployee(Employee employee) {
 	  employeeRepository.save(employee);
   }
