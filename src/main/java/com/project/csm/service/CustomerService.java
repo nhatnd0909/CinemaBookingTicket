@@ -1,6 +1,8 @@
 package com.project.csm.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,21 @@ public class CustomerService {
 			}
 		}
 		return null;
+	}
+
+	public Customer getCustomerByID(Long id) {
+		List<Customer> list = new ArrayList<>();
+		list = getAllCustomer();
+		for (Customer c : list) {
+			if (c.getCustomerID() == id) {
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	public String parseDatetoString(Date inputDate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(inputDate);
 	}
 }

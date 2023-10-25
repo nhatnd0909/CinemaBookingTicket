@@ -115,7 +115,7 @@
 								class="fa fa-user-circle-o"></i></a>
 							<!-- </li> -->
 						</div>
-						${loggedInAccount.getName()}
+						${customer.getName()}
 						<div style="padding-left: 15px">
 							<a href="logout">Logout</a>
 						</div>
@@ -162,8 +162,8 @@
 												</div>
 											</div>
 											<div class="mt-3">
-												<h4>${loggedInAccount.getName()}</h4>
-												<p class="text-muted font-size-sm">${loggedInAccount.getAddress()}</p>
+												<h4>${customer.getName()}</h4>
+												<p class="text-muted font-size-sm">${customer.getAddress()}</p>
 												<button id="saveButton" class="btn btn-outline-primary"
 													style="display: none;">Save</button>
 											</div>
@@ -210,94 +210,97 @@
 								</div>
 							</div>
 							<div class="col-lg-8">
-								<div class="card">
-									<div class="card-body">
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Full Name</h6>
+								<form action="profileUser" method="post">
+									<div class="card">
+										<div class="card-body">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Full Name</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="name" type="text" class="form-control"
+														value="${customer.getName()}">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="${loggedInAccount.getName()}">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Email</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" class="form-control"
+														value="${customer.getAccount().getEmail()}"
+														readonly="readonly">
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Email</h6>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Gender</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<select id="gender" name="gender" class="form-control">
+														<option value="${customer.getGender()}">${customer.getGender()}</option>
+														<option value="female">Female</option>
+														<option value="male">Male</option>
+													</select>
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="${loggedInAccount.getAccount().getEmail()}"
-													readonly="readonly">
-											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Gender</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<select id="gender" name="gender" class="form-control">
-													<option value="male">${loggedInAccount.getGender()}</option>
-													<option value="female">Female</option>
-												</select>
-											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Date of Birth</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="datetime" class="form-control"
-													value="${loggedInAccount.getDateOfBirth()}">
-											</div>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Date of Birth</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input class="form-control" name="dob" type="date"
+														id="start" value="${dob}" max="${maxDate}">
+												</div>
 
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Phone</h6>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="${loggedInAccount.getPhoneNumber()}">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Phone</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="phone" type="text" class="form-control"
+														value="${customer.getPhoneNumber()}">
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Address</h6>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Address</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="address" type="text" class="form-control"
+														value="${customer.getAddress()}">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="${loggedInAccount.getAddress()}">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Create Date</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" class="form-control"
+														value="${customer.getCreateDate()}" readonly="readonly">
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Create Date</h6>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Number of purchases</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" class="form-control"
+														value="${customer.getTimes()}" readonly="readonly">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="${loggedInAccount.getCreateDate()}"
-													readonly="readonly">
-											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Number of purchases</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="${loggedInAccount.getTimes()}" readonly="readonly">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-3"></div>
-											<div class="col-sm-9 text-secondary">
-												<input type="button" class="btn btn-primary px-4"
-													value="Save Changes">
+											<div class="row">
+												<div class="col-sm-3"></div>
+												<div class="col-sm-9 text-secondary">
+													<input type="submit" class="btn btn-primary px-4"
+														value="Save Changes">
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								</form>
+
 							</div>
 						</div>
 					</div>

@@ -84,4 +84,10 @@ public class TestConroller {
 
 		return customerService.addNewCusstomer(customer);
 	}
+
+	@GetMapping("/getCusById")
+	public Customer getCusByID() {
+
+		return customerService.getCustomerByID(2L);
+	}
 }
