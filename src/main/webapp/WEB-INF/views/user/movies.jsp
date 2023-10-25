@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,12 +44,10 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="home">Home</a>
 						</li>
-						<li class="nav-item active"><a class="nav-link"
-							href="movies">Movies</a></li>
+						<li class="nav-item active"><a class="nav-link" href="movies">Movies</a></li>
 						<li class="nav-item"><a class="nav-link" href="about">About</a>
 						</li>
-						<li class="nav-item"><a class="nav-link"
-							href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -94,13 +93,25 @@
 						<!-- /search popup -->
 						<!--/search-right-->
 					</div>
-					<div class="Login_SignUp" id="login"
-						style="font-size: 2rem; display: inline-block; position: relative;">
-						<!-- <li class="nav-item"> -->
-						<a class="nav-link" href="signin"><i
-							class="fa fa-user-circle-o"></i></a>
-						<!-- </li> -->
-					</div>
+					<c:if test="${loggedIn eq 0}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="signin"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+					</c:if>
+					<c:if test="${loggedIn eq 1}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="history"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+						${loggedInAccount.getName()}
+					</c:if>
 
 				</div>
 				<!-- toggle switch for light and dark theme -->
@@ -586,8 +597,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Long
-													Shot</a>
+												<a class="author-book-title" href="movies">Long Shot</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -629,8 +639,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Little
-													Women</a>
+												<a class="author-book-title" href="movies">Little Women</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -672,8 +681,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Doctor
-													Sleep</a>
+												<a class="author-book-title" href="movies">Doctor Sleep</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -694,8 +702,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Knives
-													Out</a>
+												<a class="author-book-title" href="movies">Knives Out</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -713,8 +720,8 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">No Time
-													to Die</a>
+												<a class="author-book-title" href="movies">No Time to
+													Die</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -803,8 +810,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Doctor
-													Sleep</a>
+												<a class="author-book-title" href="movies">Doctor Sleep</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -825,8 +831,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Knives
-													Out</a>
+												<a class="author-book-title" href="movies">Knives Out</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -868,8 +873,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Toy
-													Story 4</a>
+												<a class="author-book-title" href="movies">Toy Story 4</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -937,8 +941,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">Toy
-													Story 4</a>
+												<a class="author-book-title" href="movies">Toy Story 4</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
@@ -1023,8 +1026,7 @@
 											</div>
 											<div class="message">
 												<p>English</p>
-												<a class="author-book-title" href="movies">The
-													Hustle</a>
+												<a class="author-book-title" href="movies">The Hustle</a>
 												<h4>
 													<span class="post"><span class="fa fa-clock-o">
 													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>

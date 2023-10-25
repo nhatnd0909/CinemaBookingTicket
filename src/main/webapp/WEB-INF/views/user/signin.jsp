@@ -29,13 +29,14 @@
 				</h1>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				</div>
-				<div class="Login_SignUp" id="login_s">
-					<!-- style="font-size: 2rem ; display: inline-block; position: relative;" -->
+				<div class="Login_SignUp" id="login"
+					style="font-size: 2rem; display: inline-block; position: relative;">
 					<!-- <li class="nav-item"> -->
 					<a class="nav-link" href="signin"><i
 						class="fa fa-user-circle-o"></i></a>
 					<!-- </li> -->
 				</div>
+
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
 					<nav class="navigation">
@@ -66,10 +67,9 @@
 						style="color: var(--theme-title);"><i
 						class="fab fa-linkedin-in"></i></a>
 				</div>
-				${mess} 
-				<input name="email" type="email" placeholder="Email" />
-				<input name="password" type="password" placeholder="Password" />
-				<a href="#">Forgot your password?</a>
+				${mess} <input name="email" type="email" placeholder="Email" /> <input
+					name="password" type="password" placeholder="Password" /> <a
+					href="#">Forgot your password?</a>
 				<button>Sign In</button>
 			</form>
 		</div>

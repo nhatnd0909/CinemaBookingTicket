@@ -38,18 +38,29 @@ public class SigninController {
 		}
 		Customer customer = customerService.findCustomerByEmail(email);
 		session.setAttribute("loggedInAccount", customer);
+		///////////////////////////////////////////////////////////////////////////////////////////////
+		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		int loggedIn = 0;
+		if (loggedInAccount == null) {
+			loggedIn = 0; 
+		} else {
+			loggedIn = 1; 
+		}
+		model.addAttribute("loggedIn", loggedIn);
+		model.addAttribute("loggedInAccount", loggedInAccount);
 		return "/user/index";
 	}
+
 	@GetMapping("/getSession")
 	public String viewProfile(HttpSession session, Model model) {
-	    Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 
-	    if (loggedInAccount == null) {
+		if (loggedInAccount == null) {
 
-	        return null;
-	    }
+			return null;
+		}
 
-	    return loggedInAccount.toString();
+		return loggedInAccount.toString();
 	}
-	
+
 }
