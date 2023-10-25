@@ -1,7 +1,6 @@
 package com.project.csm.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -83,5 +82,9 @@ public class UserController {
 	public String showSeat_sel() {
 		return "/user/seat_sel";
 	}
+//	@GetMapping("/verify")
+//	public String verify() {
+//		return "/user/verifyEmail";
+//	}
 
 }

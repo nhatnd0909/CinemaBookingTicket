@@ -14,7 +14,10 @@ import com.project.csm.model.Customer;
 import com.project.csm.model.Rank;
 import com.project.csm.service.AccountService;
 import com.project.csm.service.CustomerService;
+import com.project.csm.service.MailService;
 import com.project.csm.service.RankService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class SignupController {
@@ -24,6 +27,10 @@ public class SignupController {
 	private RankService rankService;
 	@Autowired
 	private CustomerService customerService;
+	@Autowired
+	private MailService mailService;
+
+	private static final int CODE = MailService.generateRandomNumber();
 
 	@GetMapping("/signup")
 	public String showSignup(Model model) {
@@ -33,7 +40,7 @@ public class SignupController {
 
 	@PostMapping("/signup")
 	public String signup(Model model, @RequestParam String name, @RequestParam String email,
-			@RequestParam String password, @RequestParam String rePassword) {
+			@RequestParam String password, @RequestParam String rePassword, HttpSession session) {
 		if (accountService.isEmailExists(email)) {
 			model.addAttribute("mess", "Email aready exist");
 			return "/user/signup";
@@ -42,13 +49,33 @@ public class SignupController {
 			model.addAttribute("mess", "Re Password dose not match");
 			return "/user/signup";
 		}
-
+		mailService.sendMail(email, CODE);
 		Account account = new Account(email, password);
 		accountService.createUserAccount(account);
 		Rank rank = rankService.getRankByID(1L);
 		Customer customer = new Customer(name, null, null, null, null, new Date(), 0, account, rank);
+		session.setAttribute("customer", customer);
+		model.addAttribute("mess", "Check your email to get Verify Code");
+		return "/user/verifyEmail";
+	}
+
+	@GetMapping("/verify")
+	public String getVerifyMail(Model model) {
+		model.addAttribute("mess", "");
+		return "/user/verifyEmail";
+	}
+
+	@PostMapping("/verify")
+	public String verifyMail(Model model, @RequestParam String code, HttpSession session) {
+		int codeInput = Integer.parseInt(code);
+		if (codeInput != CODE) {
+			model.addAttribute("mess", "Invalid code. Please enter again");
+			return "/user/verifyEmail";
+		}
+		Customer customer = (Customer) session.getAttribute("customer");
 		customerService.addNewCusstomer(customer);
 		model.addAttribute("mess", "Sign Up Success. Please log in");
 		return "/user/signin";
 	}
+
 }
