@@ -111,6 +111,9 @@
 							<!-- </li> -->
 						</div>
 						${loggedInAccount.getName()}
+						<div style="padding-left: 15px">
+							<a href="logout">Logout</a>
+						</div>
 					</c:if>
 
 				</div>

@@ -58,7 +58,10 @@
 						<!-- </li> -->
 					</div>
 						${loggedInAccount.getName()}
-					</c:if>
+						<div style="padding-left: 15px">
+						<a href="logout">Logout</a>
+					</div>
+				</c:if>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
 					<nav class="navigation">

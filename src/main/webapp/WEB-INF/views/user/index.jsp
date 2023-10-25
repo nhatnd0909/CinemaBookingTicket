@@ -106,6 +106,7 @@
 								class="fa fa-user-circle-o"></i></a>
 							<!-- </li> -->
 						</div>
+						
 					</c:if>
 					<c:if test="${loggedIn eq 1}">
 						<div class="Login_SignUp" id="login"
@@ -116,6 +117,9 @@
 							<!-- </li> -->
 						</div>
 						${loggedInAccount.getName()}
+						<div style="padding-left: 15px">
+							<a href="logout">Logout</a>
+						</div>
 					</c:if>
 				</div>
 				<!-- toggle switch for light and dark theme -->
