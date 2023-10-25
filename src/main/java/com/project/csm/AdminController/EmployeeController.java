@@ -30,7 +30,6 @@ public class EmployeeController {
 	
 	@Autowired
 	private AccountService accountService;
-	int  n ;
 	@Autowired
 	private EmployeeService employeeService;
 	

@@ -17,7 +17,6 @@ public class AccountService {
 	public List<Account>getEmployees() {
         return accountRepository.findByRole("employee");
     }
-	int  n ;
 	public void createAccount(Account account) {
 		accountRepository.save(account);
 	}

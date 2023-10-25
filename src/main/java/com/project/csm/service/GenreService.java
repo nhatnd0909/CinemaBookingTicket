@@ -16,5 +16,4 @@ public class GenreService {
 	public void createGenre(Genre genre) {
 		genreResporsitory.save(genre);
 	}
-	int  n ;
 }

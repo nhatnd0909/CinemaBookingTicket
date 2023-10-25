@@ -6,6 +6,4 @@ import com.project.csm.model.Genre;
 
 public interface GenreRespository extends JpaRepository<Genre, Integer> {
 
-	int  n ;
-
 }

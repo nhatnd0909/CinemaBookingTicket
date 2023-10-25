@@ -17,8 +17,6 @@ public class TheaterService {
 	public List<Theater> gettAllTheaters(){
 		return theaterRepositoy.findAll();
 	}
-
-	int  n ;
 	public Theater getTheaterById(int theaterId) {
 		 return theaterRepositoy.findById(theaterId).orElse(null);
 	}

@@ -10,7 +10,6 @@ public class UserController {
 	public String showDefaultPage() {
 		return "/user/index";
 	}
-	int  n ;
 	@GetMapping("/home") 
 	public String showUserIndex() {
 		return "/user/index";

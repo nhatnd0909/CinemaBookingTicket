@@ -8,5 +8,4 @@ import com.project.csm.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee , Integer > {
-	int  n ;
 }

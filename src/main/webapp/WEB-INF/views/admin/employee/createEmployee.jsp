@@ -354,7 +354,7 @@
                                             </c:forEach>
                                         </select>
                                     </div>                                                                    
-									<button type="submit" class="btn btn-primary mr-2">Submit1</button>
+									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>
 							</div>
