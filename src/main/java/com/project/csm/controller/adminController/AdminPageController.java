@@ -1,4 +1,4 @@
-package com.project.csm.controller;
+package com.project.csm.controller.adminController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

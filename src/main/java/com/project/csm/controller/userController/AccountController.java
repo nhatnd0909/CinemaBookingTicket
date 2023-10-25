@@ -1,4 +1,4 @@
-package com.project.csm.controller;
+package com.project.csm.controller.userController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

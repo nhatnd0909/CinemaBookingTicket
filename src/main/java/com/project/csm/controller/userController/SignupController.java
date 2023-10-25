@@ -1,4 +1,4 @@
-package com.project.csm.controller;
+package com.project.csm.controller.userController;
 
 import java.util.Date;
 

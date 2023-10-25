@@ -49,6 +49,9 @@ public class Customer {
 	@JoinColumn(name = "RankID")
 	private Rank rank;
 
+	@Column(name = "UrlImage")
+	private String urlImage;
+
 	public Customer() {
 	}
 
@@ -75,6 +78,29 @@ public class Customer {
 		this.times = times;
 		this.account = account;
 		this.rank = rank;
+	}
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+
+	public Customer(String name, String gender, Date dateOfBirth, String phoneNumber, String address, Date createDate,
+			int times, Account account, Rank rank, String urlImage) {
+		super();
+		this.name = name;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.createDate = createDate;
+		this.times = times;
+		this.account = account;
+		this.rank = rank;
+		this.urlImage = urlImage;
 	}
 
 	public int getTimes() {
@@ -161,7 +187,7 @@ public class Customer {
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", name=" + name + ", gender=" + gender + ", dateOfBirth="
 				+ dateOfBirth + ", phoneNumber=" + phoneNumber + ", address=" + address + ", createDate=" + createDate
-				+ ", times=" + times + ", account=" + account + ", rank=" + rank + "]";
+				+ ", times=" + times + ", account=" + account + ", rank=" + rank + ", urlImage=" + urlImage + "]";
 	}
 
 }
