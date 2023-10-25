@@ -51,16 +51,5 @@ public class SigninController {
 		return "/user/index";
 	}
 
-	@GetMapping("/getSession")
-	public String viewProfile(HttpSession session, Model model) {
-		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
-
-		if (loggedInAccount == null) {
-
-			return null;
-		}
-
-		return loggedInAccount.toString();
-	}
 
 }

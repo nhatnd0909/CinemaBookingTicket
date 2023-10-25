@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.project.csm.model.Customer;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -22,7 +23,7 @@ public class UserController {
 		}
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
-		
+
 		return "/user/index";
 	}
 
@@ -166,18 +167,6 @@ public class UserController {
 		return "/user/profileUser";
 	}
 
-//	@GetMapping("/signin")
-//	public String showSignin(Model model) {
-//		model.addAttribute("mess", "");
-//		return "/user/signin";
-//	}
-
-//	@GetMapping("/signup")
-//	public String showSignup(Model model) {
-//		model.addAttribute("mess", "");
-//		return "/user/signup";
-//	}
-
 	@GetMapping("/ticketBooking")
 	public String showTicketBooking() {
 		return "/user/ticketBooking";
@@ -187,9 +176,15 @@ public class UserController {
 	public String showSeat_sel() {
 		return "/user/seat_sel";
 	}
-//	@GetMapping("/verify")
-//	public String verify() {
-//		return "/user/verifyEmail";
-//	}
+
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.invalidate();
+		}
+		
+		return "redirect:/";
+	}
 
 }
