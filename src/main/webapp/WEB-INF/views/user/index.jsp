@@ -97,7 +97,7 @@
 						<!--/search-right-->
 
 					</div>
-					
+
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
@@ -106,7 +106,7 @@
 								class="fa fa-user-circle-o"></i></a>
 							<!-- </li> -->
 						</div>
-						
+
 					</c:if>
 					<c:if test="${loggedIn eq 1}">
 						<div class="Login_SignUp" id="login"

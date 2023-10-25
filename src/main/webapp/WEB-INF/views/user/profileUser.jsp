@@ -162,9 +162,8 @@
 												</div>
 											</div>
 											<div class="mt-3">
-												<h4>John Doe</h4>
-												<p class="text-muted font-size-sm">Bay Area, San
-													Francisco, CA</p>
+												<h4>${loggedInAccount.getName()}</h4>
+												<p class="text-muted font-size-sm">${loggedInAccount.getAddress()}</p>
 												<button id="saveButton" class="btn btn-outline-primary"
 													style="display: none;">Save</button>
 											</div>
@@ -202,7 +201,7 @@
 															stroke-width="0.12" stroke-linecap="round"
 															stroke-linejoin="round" />
 												</svg>
-													<a href="/history.html" class="text-muted font-size-sm">
+													<a href="/history" class="text-muted font-size-sm">
 														History</a>
 												</h6>
 											</li>
@@ -218,7 +217,8 @@
 												<h6 class="mb-0">Full Name</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="John Doe">
+												<input type="text" class="form-control"
+													value="${loggedInAccount.getName()}">
 											</div>
 										</div>
 										<div class="row mb-4">
@@ -227,8 +227,30 @@
 											</div>
 											<div class="col-sm-9 text-secondary">
 												<input type="text" class="form-control"
-													value="john@example.com">
+													value="${loggedInAccount.getAccount().getEmail()}"
+													readonly="readonly">
 											</div>
+										</div>
+										<div class="row mb-4">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Gender</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<select id="gender" name="gender" class="form-control">
+													<option value="male">${loggedInAccount.getGender()}</option>
+													<option value="female">Female</option>
+												</select>
+											</div>
+										</div>
+										<div class="row mb-4">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Date of Birth</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input type="datetime" class="form-control"
+													value="${loggedInAccount.getDateOfBirth()}">
+											</div>
+
 										</div>
 										<div class="row mb-4">
 											<div class="col-sm-3">
@@ -236,16 +258,7 @@
 											</div>
 											<div class="col-sm-9 text-secondary">
 												<input type="text" class="form-control"
-													value="(239) 816-9029">
-											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Mobile</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="(320) 380-4539">
+													value="${loggedInAccount.getPhoneNumber()}">
 											</div>
 										</div>
 										<div class="row mb-4">
@@ -254,7 +267,26 @@
 											</div>
 											<div class="col-sm-9 text-secondary">
 												<input type="text" class="form-control"
-													value="Bay Area, San Francisco, CA">
+													value="${loggedInAccount.getAddress()}">
+											</div>
+										</div>
+										<div class="row mb-4">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Create Date</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input type="text" class="form-control"
+													value="${loggedInAccount.getCreateDate()}"
+													readonly="readonly">
+											</div>
+										</div>
+										<div class="row mb-4">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Number of purchases</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input type="text" class="form-control"
+													value="${loggedInAccount.getTimes()}" readonly="readonly">
 											</div>
 										</div>
 										<div class="row">
@@ -383,23 +415,16 @@
 					scrollFunction()
 				};
 
-				function scrollFunction() {
-					if (document.body.scrollTop > 20
-							|| document.documentElement.scrollTop > 20) {
-						document.getElementById("movetop").style.display = "block";
-					} else {
-						document.getElementById("movetop").style.display = "none";
-					}
-				}
-
-				// When the user clicks on the button, scroll to the top of the document
-				function topFunction() {
-					document.body.scrollTop = 0;
-					document.documentElement.scrollTop = 0;
-				}
-			</script>
+													function scrollFunction() { if (document.body.scrollTop >
+													20 || document.documentElement.scrollTop > 20) {
+													document.getElementById("movetop").style.display = "block";
+													} else { document.getElementById("movetop").style.display =
+													"none"; } } // When the user clicks on the button, scroll
+													to the top of the document function topFunction() {
+													document.body.scrollTop = 0;
+													document.documentElement.scrollTop = 0; }
+													</script>
 			<!-- /move top -->
-
 		</section>
 	</footer>
 	<!-- responsive tabs -->

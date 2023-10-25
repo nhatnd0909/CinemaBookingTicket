@@ -8,10 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.csm.model.Account;
 import com.project.csm.model.Customer;
+import com.project.csm.model.Rank;
 import com.project.csm.service.AccountService;
 import com.project.csm.service.CustomerService;
 import com.project.csm.service.MailService;
@@ -70,5 +73,15 @@ public class TestConroller {
 		mailService.sendMail(mail, code);
 		return "gửi mail thành công";
 	}
-	
+
+	@GetMapping("/addCustomet")
+	public Customer addNewCustomer() {
+		Account account = accountService.createUserAccount(new Account("123@gmail.com", "123"));
+		rankService.addNewRank();
+		Rank rank = rankService.getRankByID(1L);
+		Customer customer = new Customer("Nguyễn Đình Nhật", "male", new Date(), "0936152782", "Thừa Thiên Huế",
+				new Date(), 0, account, rank);
+
+		return customerService.addNewCusstomer(customer);
+	}
 }

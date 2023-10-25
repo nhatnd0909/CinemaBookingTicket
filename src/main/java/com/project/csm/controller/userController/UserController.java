@@ -153,19 +153,19 @@ public class UserController {
 		return "/user/password";
 	}
 
-	@GetMapping("/profileUser")
-	public String showProfileUser(HttpSession session, Model model) {
-		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
-		int loggedIn = 0;
-		if (loggedInAccount == null) {
-			loggedIn = 0;
-		} else {
-			loggedIn = 1;
-		}
-		model.addAttribute("loggedIn", loggedIn);
-		model.addAttribute("loggedInAccount", loggedInAccount);
-		return "/user/profileUser";
-	}
+//	@GetMapping("/profileUser")
+//	public String showProfileUser(HttpSession session, Model model) {
+//		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+//		int loggedIn = 0;
+//		if (loggedInAccount == null) {
+//			loggedIn = 0;
+//		} else {
+//			loggedIn = 1;
+//		}
+//		model.addAttribute("loggedIn", loggedIn);
+//		model.addAttribute("loggedInAccount", loggedInAccount);
+//		return "/user/profileUser";
+//	}
 
 	@GetMapping("/ticketBooking")
 	public String showTicketBooking() {
