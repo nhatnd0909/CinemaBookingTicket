@@ -75,7 +75,7 @@ public class SignupController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		customerService.addNewCusstomer(customer);
 		model.addAttribute("mess", "Sign Up Success. Please log in");
-		return "/user/signin";
+		return "redirect:/signin";
 	}
 
 }

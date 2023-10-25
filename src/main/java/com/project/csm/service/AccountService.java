@@ -1,5 +1,6 @@
 package com.project.csm.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,26 @@ public class AccountService {
 	}
 
 	public boolean isPasswordCorrect(String email, String password) {
-        Optional<Account> accountOptional = accountRepository.findByEmailAndPassword(email, password);
-        return accountOptional.isPresent();
-    }
+		Optional<Account> accountOptional = accountRepository.findByEmailAndPassword(email, password);
+		return accountOptional.isPresent();
+	}
+
+	public Account findAccountByEmail(String email) {
+		List<Account> list = accountRepository.findAll();
+		for (Account a : list) {
+			if (a.getEmail().equals(email)) {
+				return a;
+			}
+		}
+		return null;
+	}
+
+	public Account changePasswordByEmail(String email, String password) {
+		Account account = findAccountByEmail(email);
+		if (account != null) {
+			account.setPassword(password);
+			return accountRepository.save(account);
+		}
+		return null;
+	}
 }

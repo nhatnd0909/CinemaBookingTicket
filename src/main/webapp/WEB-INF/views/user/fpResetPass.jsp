@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signin</title>
+<title>Sign Up</title>
 <link rel="stylesheet" type="text/css"
 	href="assets/css/as-alert-message.min.css">
 <link rel="stylesheet" type="text/css"
@@ -24,7 +24,7 @@
 			class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
 			<div class="container">
 				<h1>
-					<a class="navbar-brand" href="home"><span
+					<a class="navbar-brand" href="index.html"><span
 						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz </a>
 				</h1>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -55,36 +55,17 @@
 	</header>
 
 	<div class="container_signup_signin" id="container_signup_signin">
-		<div class="form-container sign-in-container">
-			<form name="signin" method="post" style="color: var(--theme-title);"
-				action="#" onsubmit="return signInValidateForm()">
-				<h1>Sign in</h1>
-				<div class="social-container">
-					<a href="#" class="social" style="color: var(--theme-title);"><i
-						class="fab fa-facebook-f"></i></a> <a href="#" class="social"
-						style="color: var(--theme-title);"><i
-						class="fab fa-google-plus-g"></i></a> <a href="#" class="social"
-						style="color: var(--theme-title);"><i
-						class="fab fa-linkedin-in"></i></a>
-				</div>
-				${mess} <input name="email" type="email" placeholder="Email" /> <input
-					name="password" type="password" placeholder="Password" /> <a
-					href="forgotpassword">Forgot your password?</a>
-				<button>Sign In</button>
-			</form>
-		</div>
-		<div class="overlay-container">
-			<div class="overlay">
-				<div class="overlay-panel overlay-right">
-					<h1>Hello, Friend!</h1>
-					<p>Register and book your tickets now!!!</p>
-					<a href="/signup"><button class="ghost" id="signUp">Sign
-							Up</button></a>
-				</div>
-			</div>
-		</div>
+		<form name="verify" action=ressetpass method="post"
+			onsubmit="return signUpValidateForm()">
+			<h2>Reset Password</h2>
+			<p>Reset Your Password</p>
+			${mess} 
+			<input name="email" type="text" value="${email}" readonly="readonly"/>
+			<input name="pass" type="password" placeholder="Enter New Password" value="" />
+			<input name="rePass" type="password" placeholder="Re Enter Password" value="" />
+			<button>Submit</button>
+		</form>
 	</div>
-
 	<script type="text/javascript" src="assets/js/as-alert-message.min.js"></script>
 	<script src="assets/js/jquery-3.3.1.min.js"></script>
 	<!--/theme-change-->
@@ -99,32 +80,7 @@
 	</script>
 	<!-- disable body scroll which navbar is in active -->
 	<!--/MENU-JS-->
-	<script>
-		$(window).on("scroll", function() {
-			var scroll = $(window).scrollTop();
 
-			if (scroll >= 80) {
-				$("#site-header").addClass("nav-fixed");
-			} else {
-				$("#site-header").removeClass("nav-fixed");
-			}
-		});
-
-		//Main navigation Active Class Add Remove
-		$(".navbar-toggler").on("click", function() {
-			$("header").toggleClass("active");
-		});
-		$(document).on("ready", function() {
-			if ($(window).width() > 991) {
-				$("header").removeClass("active");
-			}
-			$(window).on("resize", function() {
-				if ($(window).width() > 991) {
-					$("header").removeClass("active");
-				}
-			});
-		});
-	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript" src="assets/js/sign-in.js"></script>

@@ -26,4 +26,14 @@ public class AccountController {
 	public boolean CheckEmailExist(@RequestParam String email) {
 		return accountService.isEmailExists(email);
 	}
+	
+	@GetMapping("/getByEmail")
+	public Account getByEmail(@RequestParam String email) {
+		return accountService.findAccountByEmail(email);
+	}
+	
+	@PostMapping("/changepass")
+	public Account changePass(@RequestParam String email,@RequestParam String pass) {
+		return accountService.changePasswordByEmail(email, pass);
+	}
 }

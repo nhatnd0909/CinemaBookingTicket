@@ -70,4 +70,5 @@ public class TestConroller {
 		mailService.sendMail(mail, code);
 		return "gửi mail thành công";
 	}
+	
 }
