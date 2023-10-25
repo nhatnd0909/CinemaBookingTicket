@@ -34,7 +34,7 @@ public class Movie {
 	@Column(name = "Language")
 	private String language;
 
-	@Column(name = "Description", columnDefinition = "TEXT")
+	@Column(name = "Description", columnDefinition = "NVARCHAR(MAX)")
 	private String description;
 
 	@Column(name = "Image")
