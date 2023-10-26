@@ -1,14 +1,22 @@
 package com.project.csm.model;
 
+
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Account")
+@Component
+@Valid
 public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +26,8 @@ public class Account {
 	@Column(name = "UserName")
 	private String userName;
 
+	@NotNull(message = "Email is required")
+    @Email (message = "Please enter a valid e-mail address")
 	@Column(name = "Email")
 	private String email;
 

@@ -85,7 +85,7 @@ https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl --
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
-			<version>3.1.4</version>
+			<version>3.1.2</version>
 		</dependency>
 
 

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,17 +62,21 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/employeeDashboard/create")
-	public String createAccountAndEmployee(@ModelAttribute Account account, @ModelAttribute Employee employee, @RequestParam("theaterId") int theaterId, BindingResult bindingResult, Model model) {
-	    if (accountService.isEmailExists(account.getEmail())) {
-	        bindingResult.rejectValue("account.email", "error.account", "Email đã tồn tại.");
+	public String createAccountAndEmployee(@ModelAttribute @Valid  Account account,
+			@ModelAttribute Employee employee,
+			@RequestParam("theaterId") int theaterId, 
+			BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+	        return "admin/employee/createEmployee";
+	    }else {
+	    	Theater theater = theaterService.getTheaterById(theaterId);
+			employee.setTheater(theater);
+			accountService.createAccount(account);
+			employee.setAccount(account);
+			employeeService.createEmployee(employee);
+			return "redirect:/employeeDashboard";
 	    }
-
-		Theater theater = theaterService.getTheaterById(theaterId);
-		employee.setTheater(theater);
-		accountService.createAccount(account);
-		employee.setAccount(account);
-		employeeService.createEmployee(employee);
-		return "redirect:/employeeDashboard";
+		
 	}
 	
 	

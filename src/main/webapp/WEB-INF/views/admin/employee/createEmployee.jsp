@@ -321,7 +321,6 @@
 									<div class="form-group">
 										<label for="exampleInputEmail3">Email</label> 
                                         <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email">
-										<form:errors path="email" cssClass="alert alert-danger" />
 									</div>
 									
 									<div class="form-group">
