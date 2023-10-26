@@ -160,9 +160,7 @@
 														accept=".png, .jpg, .jpeg" /> <label for="imageUpload"></label>
 												</div>
 												<div class="avatar-preview">
-													<div id="imagePreview"
-														style="background-image: url(http://i.pravatar.cc/500?img=7);">
-													</div>
+													<img id="imagePreview" src="assets/images/avatar.png" alt="Avatar Preview">
 												</div>
 											</div>
 											<div class="mt-3">

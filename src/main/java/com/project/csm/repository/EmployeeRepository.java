@@ -8,4 +8,5 @@ import com.project.csm.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee , Long > {
+	boolean existsByPhoneNumber(String phoneNumber);
 }

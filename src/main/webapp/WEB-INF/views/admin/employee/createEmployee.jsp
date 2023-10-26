@@ -128,6 +128,11 @@
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/rankDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Rank</span>
+				</a></li>
 			</ul>
 		</nav>
 		<!-- partial -->
@@ -315,41 +320,43 @@
 								<form class="forms-sample" method="post" action="/employeeDashboard/create">
 									<div class="form-group">
 										<label for="exampleInputName1">User Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName">
-										
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName" value="${userName}" required="required">
+										<span  class="text-danger">${useNamemess}</span> 
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail3">Email</label> 
-                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email">
+                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email" value="${email}"  required="required">
+										<span  class="text-danger">${Emailmess}</span> 
 									</div>
 									
 									<div class="form-group">
 										<label for="exampleInputPassword4">Password</label> 
-                                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
+                                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password" required="required">
 									</div>
                                     <div class="form-group">
 										<label for="exampleInputName1">Role</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" value="employee" name="role">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" value="employee" name="role" required="required" >
 									</div>
                                     <div class="form-group">
 										<label for="exampleInputName1">Full Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="name" >
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="name"  required="required" >
 									</div>
                                     <div class="form-group">
 										<label for="exampleInputName1">Addres</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="address">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="address"required="required" >
 									</div>
                                     <div class="form-group">
                                         <label for="dateOfBirth">Date of Birth</label>
-                                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required="required" >
                                     </div>                                      
                                     <div class="form-group">
 										<label for="exampleInputName1">Phone Number</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber"  value="${phoneNumber}"required="required">
+										<span  class="text-danger">${phoneNumberMess}</span> 
 									</div>
                                     <div class="form-group">
                                         <label for="exampleSelectGender">Genre</label> 
-                                        <select class="form-control" id="exampleSelectGender" name="theaterId">
+                                        <select class="form-control" id="exampleSelectGender" name="theaterId" required="required">
                                             <option value="">Select Theater</option>
                                             <c:forEach items="${theaters}" var="theater">
                                                 <option value="${theater.theaterID}">${theater.name}</option>

@@ -58,4 +58,5 @@ public class Rank {
 		return "Rank [rankID=" + rankID + ", type=" + type + ", discount=" + discount + "]";
 	}
 
+
 }

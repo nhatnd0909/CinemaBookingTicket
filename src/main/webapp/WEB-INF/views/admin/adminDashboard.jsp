@@ -115,6 +115,11 @@
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/rankDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Rank</span>
+				</a></li>
 			</ul>
 		</nav>
 		<!-- partial -->
