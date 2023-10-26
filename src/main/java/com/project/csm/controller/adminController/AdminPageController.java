@@ -24,11 +24,6 @@ public class AdminPageController {
 		return "admin/chart";
 	}
 
-	@GetMapping("/employeeDashboard")
-	public String showEmployeeAdmin() {
-
-		return "admin/employeeDashboard";
-	}
 
 	@GetMapping("/movieDashboard")
 	public String showMovieAdmin() {

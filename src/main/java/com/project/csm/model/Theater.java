@@ -29,4 +29,64 @@ public class Theater {
 	@ManyToOne
 	@JoinColumn(name = "AdminID")
 	private Admin admin;
+
+	public Theater() {
+		super();
+	}
+
+	public Theater(Long theaterID, String name, String address, int numCinemaRoom, Admin admin) {
+		super();
+		this.theaterID = theaterID;
+		this.name = name;
+		this.address = address;
+		this.numCinemaRoom = numCinemaRoom;
+		this.admin = admin;
+	}
+
+	public Long getTheaterID() {
+		return theaterID;
+	}
+
+	public void setTheaterID(Long theaterID) {
+		this.theaterID = theaterID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getNumCinemaRoom() {
+		return numCinemaRoom;
+	}
+
+	public void setNumCinemaRoom(int numCinemaRoom) {
+		this.numCinemaRoom = numCinemaRoom;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+	@Override
+	public String toString() {
+		return "Theater [theaterID=" + theaterID + ", name=" + name + ", address=" + address + ", numCinemaRoom="
+				+ numCinemaRoom + ", admin=" + admin + "]";
+	}
+	
 }
