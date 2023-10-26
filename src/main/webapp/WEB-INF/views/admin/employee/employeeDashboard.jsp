@@ -28,6 +28,8 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="admin_assets/assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- End layout styles -->
 <link rel="shortcut icon" href="admin_assets/assets/images/favicon.png" />
 </head>
@@ -349,10 +351,10 @@
 																		</a>
 																	</div>
 																	<div class="badge badge-outline-success">
-																		<a href="<c:url value='/deleteEmployee/${employee.employeeID}'/>" style="text-decoration: none; color: inherit;" >
+																		<a  onclick="deleteEmployee(${employee.employeeID});" type="submit"  style="text-decoration: none; color: inherit;" >
 																			<i class="mdi mdi-delete"></i>
 																		</a>
-																	</div>
+																	</div>																	
 																</td>
 															</tr>
 														</c:forEach>
@@ -431,5 +433,39 @@
 	<!-- Custom js for this page -->
 	<!-- End custom js for this page -->
 </body>
-
+<script>
+    function deleteEmployee(employeeId) {
+        Swal.fire({
+            title:'<span style="color: black;">Xác nhận xóa?</span>',
+            html: 'Bạn có chắc chắn muốn xóa nhân viên này?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Xóa',
+            cancelButtonText: 'Hủy',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/deleteEmployee',
+                    type: 'POST',
+                    data: {
+                        employeeId: employeeId
+                    },
+                    success: function(response) {
+                        if (response === 'Xóa thành công') {
+							Swal.fire({ title:'<span style="color: black;">Xóa thành công</span>',text: 'Dữ liệu đã được xóa thành công!',icon: 'success'});
+                            setTimeout(function() {
+								window.location.href = '/employeeDashboard';
+							}, 1000);
+                        } else {
+							Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy nhân viên',icon: 'error'});
+                        }
+                    },
+                    error: function() {
+						Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy nhân viên',icon: 'error'});
+                    }
+                });
+            }
+        });
+    }
+</script>
 </html>

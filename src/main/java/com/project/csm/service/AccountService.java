@@ -28,4 +28,13 @@ public class AccountService {
 	public void deleteAccountById(int accountId) {
 	    accountRepository.deleteById(accountId);
 	 }
+	
+	 public boolean isEmailExists(String email) {
+	        Account account = accountRepository.findByEmail(email);
+	        return account != null;
+	    }
+
+	    public Account findByEmail(String email) {
+	        return accountRepository.findByEmail(email);
+	    }
 }

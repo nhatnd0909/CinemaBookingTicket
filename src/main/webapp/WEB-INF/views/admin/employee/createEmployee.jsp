@@ -28,6 +28,7 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
@@ -320,7 +321,9 @@
 									<div class="form-group">
 										<label for="exampleInputEmail3">Email</label> 
                                         <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email">
+										<form:errors path="email" cssClass="alert alert-danger" />
 									</div>
+									
 									<div class="form-group">
 										<label for="exampleInputPassword4">Password</label> 
                                         <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
@@ -355,6 +358,7 @@
                                         </select>
                                     </div>                                                                    
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
+									<!-- <button class="btn btn-primary mr-2" onclick="createEmployee()">Create</button> -->
 									<button class="btn btn-dark">Cancel</button>
 								</form>
 							</div>

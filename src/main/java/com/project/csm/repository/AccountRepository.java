@@ -11,4 +11,6 @@ import com.project.csm.model.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 	List<Account> findByRole(String role);
+
+	Account findByEmail(String email);
 }
