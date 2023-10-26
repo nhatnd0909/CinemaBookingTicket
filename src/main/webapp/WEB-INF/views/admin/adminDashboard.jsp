@@ -106,9 +106,9 @@
 					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="userDashboard"> <span class="menu-icon"> <i
+					href="customerDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">User Management</span>
+					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="employeeDashboard"> <span class="menu-icon"> <i

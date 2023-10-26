@@ -16,6 +16,11 @@ public class adminAccountService {
 	public List<Account>getEmployees() {
         return accountRepository.findByRole("employee");
     }
+	
+	public List<Account>getCustomers() {
+        return accountRepository.findByRole("customer");
+    }
+	
 	public void createAccount(Account account) {
 		accountRepository.save(account);
 	}
@@ -31,9 +36,9 @@ public class adminAccountService {
 	 public boolean isEmailExists(String email) {
 	        Account account = accountRepository.findByEmail(email);
 	        return account != null;
-	    }
+	  }
 
-	    public Account findByEmail(String email) {
+	  public Account findByEmail(String email) {
 	        return accountRepository.findByEmail(email);
-	    }
+	  }
 }

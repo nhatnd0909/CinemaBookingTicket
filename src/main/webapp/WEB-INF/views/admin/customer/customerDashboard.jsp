@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +13,8 @@
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet" href="admin_assets/assets/vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet"
+	href="admin_assets/assets/vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- Plugin css for this page -->
 <link rel="stylesheet"
@@ -30,6 +32,8 @@
 <link rel="stylesheet" href="admin_assets/assets/css/style.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="admin_assets/assets/images/favicon.png" />
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -49,8 +53,8 @@
 						<div class="profile-pic">
 							<div class="count-indicator">
 								<img class="img-xs rounded-circle "
-									src="admin_assets/assets/images/faces/face15.jpg" alt=""> <span
-									class="count bg-success"></span>
+									src="admin_assets/assets/images/faces/face15.jpg" alt="">
+								<span class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
 								<h5 class="mb-0 font-weight-normal">Henry Klein</h5>
@@ -103,28 +107,28 @@
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="adminDashboard.html"> <span class="menu-icon"> <i
+					href="adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
 					</span> <span class="menu-title">Dashboard</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="revenue.html"> <span class="menu-icon"> <i
-							class="mdi mdi-playlist-play"></i>
+					href="revenue"> <span class="menu-icon"> <i
+							class="mdi mdi-cash-usd"></i>
 					</span> <span class="menu-title">Revenue Magagement</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="movieAdmin.html"> <span class="menu-icon"> <i
+					href="movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Movie Magagement</span>
+					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="userAdmin.html"> <span class="menu-icon"> <i
-							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">User Management</span>
+					href="customerDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="employeeAdmin.html"> <span class="menu-icon"> <i
-							class="mdi mdi-playlist-play"></i>
+					href="employeeDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
 			</ul>
@@ -169,8 +173,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="admin_assets/assets/images/faces/face4.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="admin_assets/assets/images/faces/face4.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Mark send you a
@@ -181,8 +185,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="admin_assets/assets/images/faces/face2.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="admin_assets/assets/images/faces/face2.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Cregh send you a
@@ -193,8 +197,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="admin_assets/assets/images/faces/face3.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="admin_assets/assets/images/faces/face3.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Profile picture
@@ -303,13 +307,128 @@
 			</nav>
 			<!-- partial -->
 			<div class="main-panel">
-				<div class="content-wrapper"></div>
-				<!-- content-wrapper ends -->
-				<!-- partial -->
+				<div class="content-wrapper">
+					<div class="row ">
+						<div class="col-12 grid-margin">
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex justify-content-between align-items-center">
+										<h4 class="card-title">Customer Management</h4>
+									</div>
+									<div class="table-responsive">
+										<c:choose>
+											<c:when test="${empty allCustomers}">
+												<p>Không có dữ liệu khách hàng .</p>
+											</c:when>
+											<c:otherwise>
+												<table class="table">
+													<thead>
+														<tr>
+															<th>User Name</th>
+															<th>Name</th>
+															<th>Phone Number</th>
+															<th>Gender</th>
+															<th>Address</th>
+															<th>Date Of Birth</th>
+															<th>Rank</th>
+															<th>Action</th>
+														</tr>
+													</thead>
+													<tbody>
+														<c:forEach var="customer" items="${allCustomers}">
+															<tr>
+
+																<td>${customer.account.userName}</td>
+																<td>${customer.name}</td>
+																<td>${customer.phoneNumber}</td>
+																<td>${customer.gender}</td>
+																<td>${customer.address}</td>
+																<td>${customer.dateOfBirth}</td>
+																<td>${customer.rank.type}</td>
+																<td>
+																	<div class="badge badge-outline-success">
+																		<a
+																			href="<c:url value='/customerDashboard/update/${customer.customerID}'/>"
+																			style="text-decoration: none; color: inherit;"> <i
+																			class="mdi mdi-eye"></i>
+																		</a>
+																	</div> 
+																	<div class="badge badge-outline-success">
+																		<a onclick="deleteCustomer(${customer.customerID});"
+																			type="submit"
+																			style="text-decoration: none; color: inherit;"> <i
+																			class="mdi mdi-delete"></i>
+																		</a>
+																	</div> 
+																</td>
+															</tr>
+														</c:forEach>
+													</tbody>
+												</table>
+
+												<nav aria-label="Page navigation example">
+													<ul class="pagination justify-content-end" style="margin-top: 20px"}>
+														<li
+															class="page-item ${currentPage == 0 ? 'disabled' : ''}">
+															<c:choose>
+																<c:when test="${currentPage == 0}">
+																	<a class="page-link" href="#" tabindex="-1">Previous</a>
+																</c:when>
+																<c:otherwise>
+																	<a class="page-link"
+																		href="${pageContext.request.contextPath}/customerDashboard?page=0">Previous</a>
+																</c:otherwise>
+															</c:choose>
+														</li>
+
+														<c:forEach var="pageNum" begin="0" end="${totalPages-1}">
+															<li
+																class="page-item ${pageNum == currentPage ? 'active' : ''}">
+																<c:choose>
+																	<c:when test="${pageNum == currentPage}">
+																		<span class="page-link">${pageNum + 1}</span>
+																	</c:when>
+																	<c:otherwise>
+																		<a class="page-link"
+																			href="${pageContext.request.contextPath}/customerDashboard?page=${pageNum}">${pageNum + 1}</a>
+																	</c:otherwise>
+																</c:choose>
+															</li>
+														</c:forEach>
+
+														<li
+															class="page-item ${currentPage == totalPages - 1 ? 'disabled' : ''}">
+															<c:choose>
+																<c:when test="${currentPage == totalPages - 1}">
+																	<a class="page-link" href="#" tabindex="-1">Next</a>
+																</c:when>
+																<c:otherwise>
+																	<a class="page-link"
+																		href="${pageContext.request.contextPath}/customerDashboard?page=${currentPage+1}">Next</a>
+																</c:otherwise>
+															</c:choose>
+														</li>
+													</ul>
+												</nav> 
+											</c:otherwise>
+										</c:choose>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
 			</div>
-			<!-- main-panel ends -->
+			<!-- content-wrapper ends -->
+			<!-- partial -->
 		</div>
-		<!-- page-body-wrapper ends -->
+		<!-- main-panel ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
 	</div>
 	<!-- container-scroller -->
 	<!-- plugins:js -->
@@ -323,9 +442,57 @@
 	<script src="admin_assets/assets/js/misc.js"></script>
 	<script src="admin_assets/assets/js/settings.js"></script>
 	<script src="admin_assets/assets/js/todolist.js"></script>
+	
 	<!-- endinject -->
 	<!-- Custom js for this page -->
 	<!-- End custom js for this page -->
 </body>
+<script>
+            function deleteCustomer(customerId) {
+                Swal.fire({
+                    title: '<span style="color: black;">Xác nhận xóa?</span>',
+                    html: 'Bạn có chắc chắn muốn xóa khách hàng này?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Xóa',
+                    cancelButtonText: 'Hủy',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/deleteCustomer',
+                            type: 'POST',
+                            data: {
+                                customerId: customerId
+                            },
+                            success: function(response) {
+                                if (response === 'Xóa thành công') {
+                                    Swal.fire({
+                                        title: '<span style="color: black;">Xóa thành công</span>',
+                                        text: 'Dữ liệu đã được xóa thành công!',
+                                        icon: 'success'
+                                    });
+                                    setTimeout(function() {
+                                        window.location.href = '/customerDashboard';
+                                    }, 1000);
+                                } else {
+                                    Swal.fire({
+                                        title: '<span style="color: black;">Lỗi khi xóa</span>',
+                                        text: 'Không tìm thấy nhân viên',
+                                        icon: 'error'
+                                    });
+                                }
+                            },
+                            error: function() {
+                                Swal.fire({
+                                    title: '<span style="color: black;">Lỗi khi xóa</span>',
+                                    text: 'Không tìm thấy nhân viên',
+                                    icon: 'error'
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        </script>
 
 </html>

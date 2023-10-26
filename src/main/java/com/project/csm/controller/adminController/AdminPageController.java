@@ -37,9 +37,4 @@ public class AdminPageController {
 		return "admin/revenue";
 	}
 
-	@GetMapping("/userDashboard")
-	public String showUserDashboard() {
-
-		return "admin/userDashboard";
-	}
 }
