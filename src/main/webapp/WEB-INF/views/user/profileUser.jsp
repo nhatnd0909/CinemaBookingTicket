@@ -227,7 +227,7 @@
 													<h6 class="mb-0">Email</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input type="text" class="form-control"
+													<input name="email" type="text" class="form-control"
 														value="${customer.getAccount().getEmail()}"
 														readonly="readonly">
 												</div>
@@ -239,8 +239,8 @@
 												<div class="col-sm-9 text-secondary">
 													<select id="gender" name="gender" class="form-control">
 														<option value="${customer.getGender()}">${customer.getGender()}</option>
-														<option value="female">Female</option>
-														<option value="male">Male</option>
+														<option value="Female">Female</option>
+														<option value="Male">Male</option>
 													</select>
 												</div>
 											</div>

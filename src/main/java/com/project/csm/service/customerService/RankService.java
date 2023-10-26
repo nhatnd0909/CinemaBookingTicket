@@ -1,4 +1,4 @@
-package com.project.csm.service;
+package com.project.csm.service.customerService;
 
 import java.util.List;
 import java.util.Optional;

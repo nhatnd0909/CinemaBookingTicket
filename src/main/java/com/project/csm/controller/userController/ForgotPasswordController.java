@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.project.csm.service.AccountService;
-import com.project.csm.service.CustomerService;
-import com.project.csm.service.MailService;
+import com.project.csm.service.customerService.AccountService;
+import com.project.csm.service.customerService.CustomerService;
+import com.project.csm.service.customerService.MailService;
 
 @Controller
 public class ForgotPasswordController {

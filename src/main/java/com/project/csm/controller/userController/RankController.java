@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.csm.model.Rank;
-import com.project.csm.service.RankService;
+import com.project.csm.service.customerService.RankService;
 
 @RestController
 @RequestMapping("/rank")

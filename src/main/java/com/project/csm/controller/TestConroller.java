@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.csm.model.Account;
 import com.project.csm.model.Customer;
 import com.project.csm.model.Rank;
-import com.project.csm.service.AccountService;
-import com.project.csm.service.CustomerService;
-import com.project.csm.service.MailService;
-import com.project.csm.service.RankService;
+import com.project.csm.service.customerService.AccountService;
+import com.project.csm.service.customerService.CustomerService;
+import com.project.csm.service.customerService.MailService;
+import com.project.csm.service.customerService.RankService;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;

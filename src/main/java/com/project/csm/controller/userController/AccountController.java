@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.csm.model.Account;
-import com.project.csm.service.AccountService;
+import com.project.csm.service.customerService.AccountService;
 
 @RestController
 @RequestMapping("/account")

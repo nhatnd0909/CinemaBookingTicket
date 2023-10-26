@@ -1,5 +1,6 @@
-package com.project.csm.service;
+package com.project.csm.service.customerService;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,9 +47,14 @@ public class CustomerService {
 		}
 		return null;
 	}
-	
+
 	public String parseDatetoString(Date inputDate) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(inputDate);
+		return sdf.format(inputDate);
+	}
+
+	public static Date parseStringToDate(String dateString) throws ParseException {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		return format.parse(dateString);
 	}
 }

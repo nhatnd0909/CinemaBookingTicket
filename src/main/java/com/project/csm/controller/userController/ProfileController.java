@@ -1,16 +1,17 @@
 package com.project.csm.controller.userController;
 
+import java.text.ParseException;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.model.Customer;
-import com.project.csm.service.CustomerService;
+import com.project.csm.service.customerService.CustomerService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -31,19 +32,46 @@ public class ProfileController {
 		}
 
 		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
-		Date dobRaw = customer.getDateOfBirth();
-		String dob = customerService.parseDatetoString(dobRaw);
+		Date dobRaw;
+		String dob = "";
+		if (loggedInAccount.getDateOfBirth() == null) {
+			model.addAttribute("dob", "");
+
+		} else {
+			dobRaw = customer.getDateOfBirth();
+			dob = customerService.parseDatetoString(dobRaw);
+		}
+
+		model.addAttribute("dob", dob);
+
 		String maxDate = customerService.parseDatetoString(new Date());
+		model.addAttribute("maxDate", maxDate);
+
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("customer", customer);
-		model.addAttribute("dob", dob);
-		model.addAttribute("maxDate", maxDate);
+
 		return "/user/profileUser";
 	}
 
 	@PostMapping("/profileUser")
-	public String editProfile() {
-		
+	public String editProfile(@RequestParam String name, @RequestParam String gender, @RequestParam String dob,
+			@RequestParam String phone, @RequestParam String address, @RequestParam String email, HttpSession session) {
+		Customer customer = customerService.findCustomerByEmail(email);
+		customer.setName(name);
+		customer.setGender(gender);
+
+		// parse date string to Date
+		try {
+			Date dobDate = CustomerService.parseStringToDate(dob);
+			customer.setDateOfBirth(dobDate);
+		} catch (ParseException e) {
+		}
+
+		customer.setPhoneNumber(phone);
+		customer.setAddress(address);
+		customerService.addNewCusstomer(customer);
+
+		session.setAttribute("loggedInAccount", customer);
 		return "redirect:/profileUser";
 	}
 
