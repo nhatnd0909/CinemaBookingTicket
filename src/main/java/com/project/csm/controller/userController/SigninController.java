@@ -22,6 +22,7 @@ public class SigninController {
 
 	@GetMapping("/signin")
 	public String showSignin(Model model) {
+		model.addAttribute("email", "");
 		model.addAttribute("mess", "");
 		return "/user/signin";
 	}
@@ -30,10 +31,12 @@ public class SigninController {
 	public String signin(Model model, @RequestParam String email, @RequestParam String password, HttpSession session) {
 		if (!accountService.isEmailExists(email)) {
 			model.addAttribute("mess", "Dont have any account with this email");
+			model.addAttribute("email", email);
 			return "/user/signin";
 		}
 		if (!accountService.isPasswordCorrect(email, password)) {
 			model.addAttribute("mess", "Wrong password");
+			model.addAttribute("email", email);
 			return "/user/signin";
 		}
 		Customer customer = customerService.findCustomerByEmail(email);

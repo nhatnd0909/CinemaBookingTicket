@@ -25,7 +25,7 @@
 			class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
 			<div class="container">
 				<h1>
-					<a class="navbar-brand" href="index.html"><span
+					<a class="navbar-brand" href="/"><span
 						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz </a>
 				</h1>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -66,10 +66,20 @@
 						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
 						href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 				</div>
-				${mess} <input name="name" type="text" placeholder="Name" value="" />
-				<input name="email" type="email" placeholder="Email" /> <input
-					name="password" type="password" placeholder="Password" /> <input
-					name="rePassword" type="password" placeholder="Re-Password" />
+
+				<span style="font-size: 17px" class="text-danger">${mess}</span> 
+				<input name="name" type="text" placeholder="Name" value="${name}" required="required" /> 
+				<input name="email" type="email" placeholder="Email" value="${email}" required="required"/> 
+				<input name="password" type="password"
+					placeholder="Password"
+					pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+					title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+					required="required" /> 
+				<input name="rePassword" type="password"
+					placeholder="Re-Password"
+					pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+					title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+					required="required" />
 				<button>Sign Up</button>
 			</form>
 		</div>

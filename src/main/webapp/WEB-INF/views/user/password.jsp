@@ -219,13 +219,14 @@
 								<div class="card">
 									<form action="changepass" method="post">
 										<div class="card-body">
-											${mess}
+											<span style="font-size: 17px" class="text-danger">${mess}</span>
 											<div class="row mb-5">
 												<div class="col-sm-3">
 													<h6 class="mb-0">Old Password</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input name="oldPass" type="password" class="form-control" value="">
+													<input name="oldPass" type="password" class="form-control"
+														value="" required="required">
 												</div>
 											</div>
 											<div class="row mb-5">
@@ -233,7 +234,11 @@
 													<h6 class="mb-0">New Password</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input name="newPass" type="password" class="form-control" value="">
+													<input name="newPass" type="password" class="form-control"
+														value=""
+														pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+														title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+														required="required">
 												</div>
 											</div>
 											<div class="row mb-5">
@@ -241,7 +246,11 @@
 													<h6 class="mb-0">Confim New Password</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input name="confirmNewPass" type="password" class="form-control" value="">
+													<input name="confirmNewPass" type="password"
+														class="form-control" value=""
+														pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+														title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+														required="required">
 												</div>
 											</div>
 											<div class="row">

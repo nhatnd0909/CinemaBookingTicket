@@ -67,9 +67,10 @@
 						style="color: var(--theme-title);"><i
 						class="fab fa-linkedin-in"></i></a>
 				</div>
-				${mess} <input name="email" type="email" placeholder="Email" /> <input
-					name="password" type="password" placeholder="Password" /> <a
-					href="forgotpassword">Forgot your password?</a>
+				<span style="font-size: 17px" class="text-danger">${mess}</span> 
+				<input name="email" type="email" placeholder="Email" value="${email}" required="required"/> 
+				<input name="password" type="password" placeholder="Password" required="required" /> 
+				<a href="forgotpassword">Forgot your password?</a>
 				<button>Sign In</button>
 			</form>
 		</div>
