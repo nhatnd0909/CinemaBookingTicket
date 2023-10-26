@@ -164,10 +164,9 @@
 												</div>
 											</div>
 											<div class="mt-3">
-												<h4>John Doe</h4>
+												<h4>${loggedInAccount.getName()}</h4>
 												<!-- <p class="text-secondary mb-1">Full Stack Developer</p> -->
-												<p class="text-muted font-size-sm">Bay Area, San
-													Francisco, CA</p>
+												<p class="text-muted font-size-sm">${loggedInAccount.getAddress()}</p>
 												<!-- <button class="btn btn-primary">Follow</button>
 												<button class="btn btn-outline-primary">Message</button> -->
 											</div>
@@ -218,31 +217,43 @@
 							</div>
 							<div class="col-lg-8">
 								<div class="card">
-									<div class="card-body">
-										<div class="row mb-5">
-											<div class="col-sm-3">
-												<h6 class="mb-0">New Password</h6>
+									<form action="changepass" method="post">
+										<div class="card-body">
+											${mess}
+											<div class="row mb-5">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Old Password</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="oldPass" type="password" class="form-control" value="">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="password" class="form-control" value="123123">
+											<div class="row mb-5">
+												<div class="col-sm-3">
+													<h6 class="mb-0">New Password</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="newPass" type="password" class="form-control" value="">
+												</div>
+											</div>
+											<div class="row mb-5">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Confim New Password</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="confirmNewPass" type="password" class="form-control" value="">
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-3"></div>
+												<div class="col-sm-9 text-secondary">
+													<input type="submit" class="btn btn-primary px-4"
+														value="Save Changes">
+												</div>
 											</div>
 										</div>
-										<div class="row mb-5">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Confim New Password</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="password" class="form-control" value="123123">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-3"></div>
-											<div class="col-sm-9 text-secondary">
-												<input type="button" class="btn btn-primary px-4"
-													value="Save Changes">
-											</div>
-										</div>
-									</div>
+									</form>
+
 								</div>
 							</div>
 						</div>
