@@ -128,6 +128,11 @@
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/rankDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Rank</span>
+				</a></li>
 			</ul>
 		</nav>
 		<!-- partial -->
@@ -315,13 +320,13 @@
 								<form class="forms-sample" method="post" action="/employeeDashboard/create">
 									<div class="form-group">
 										<label for="exampleInputName1">User Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName" required="required">
-										
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName" value="${userName}" required="required">
+										<span  class="text-danger">${useNamemess}</span> 
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail3">Email</label> 
                                         <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email" value="${email}"  required="required">
-										<span style="font-size: 17px" class="text-danger">${mess}</span> 
+										<span  class="text-danger">${Emailmess}</span> 
 									</div>
 									
 									<div class="form-group">
@@ -346,7 +351,8 @@
                                     </div>                                      
                                     <div class="form-group">
 										<label for="exampleInputName1">Phone Number</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber" required="required">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber"  value="${phoneNumber}"required="required">
+										<span  class="text-danger">${phoneNumberMess}</span> 
 									</div>
                                     <div class="form-group">
                                         <label for="exampleSelectGender">Genre</label> 

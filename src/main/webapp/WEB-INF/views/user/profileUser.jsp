@@ -156,11 +156,10 @@
 															accept=".png, .jpg, .jpeg" onchange="previewImage()" />
 														<label for="imageUpload"></label>
 													</div>
-													<div class="avatar-preview">
-														<div id="imagePreview"
-															style="background-image: url(https://www.w3schools.com/howto/img_avatar.png)">
-														</div>
+													<div class="avatar-preview">	
+															<img id="imagePreview" src="assets/images/avatar.png" alt="Avatar Preview">
 													</div>
+													
 												</div>
 												<div class="mt-3">
 													<h4>${customer.getName()}</h4>
@@ -659,13 +658,13 @@
 				var reader = new FileReader();
 
 				reader.onload = function(e) {
-					imagePreview.style.backgroundImage = 'url('
-							+ e.target.result + ')';
+					imagePreview.src = e.target.result; // Sử dụng thuộc tính src cho thẻ img
 					saveButton.style.display = 'block';
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
 	</script>
+
 </body>
 </html>

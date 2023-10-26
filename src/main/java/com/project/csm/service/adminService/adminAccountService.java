@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.csm.model.Account;
+import com.project.csm.model.Employee;
 import com.project.csm.repository.AccountRepository;
 
 @Service
@@ -33,17 +34,6 @@ public class adminAccountService {
 	    accountRepository.deleteById(accountId);
 	 }
 	
-	 public boolean isEmailExists(String email) {
-			return accountRepository.existsByEmail(email);
-		}
+	
 	 
-	 public Account findAccountByEmail(String email) {
-			List<Account> list = accountRepository.findAll();
-			for (Account a : list) {
-				if (a.getEmail().equals(email)) {
-					return a;
-				}
-			}
-			return null;
-		}
 }
