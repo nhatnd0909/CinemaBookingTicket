@@ -58,6 +58,8 @@ public class EmployeeController {
 	public String createEmployeeAdmin(Model model) {
 		List<Theater> theaters = theaterService.gettAllTheaters();
 		model.addAttribute("theaters", theaters);
+		model.addAttribute("mess", "");
+		model.addAttribute("email", "");
 		return "admin/employee/createEmployee";
 	}
 	
@@ -65,17 +67,19 @@ public class EmployeeController {
 	public String createAccountAndEmployee(@ModelAttribute  Account account,
 			@ModelAttribute Employee employee,
 			@RequestParam("theaterId") Long theaterId, 
-			BindingResult bindingResult, Model model) {
-		if (bindingResult.hasErrors()) {
-	        return "admin/employee/createEmployee";
-	    }else {
+			 Model model,
+			 @RequestParam String email) {
+			if (!accountService.isEmailExists(email)) {
+				model.addAttribute("mess", "Dont have any account with this email");
+				model.addAttribute("email", email);
+				return "admin/employee/createEmployee";
+			}
 	    	Theater theater = theaterService.getTheaterById(theaterId);
 			employee.setTheater(theater);
 			accountService.createAccount(account);
 			employee.setAccount(account);
 			employeeService.createEmployee(employee);
 			return "redirect:/employeeDashboard";
-	    }
 		
 	}
 	

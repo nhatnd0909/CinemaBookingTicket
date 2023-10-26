@@ -34,11 +34,16 @@ public class adminAccountService {
 	 }
 	
 	 public boolean isEmailExists(String email) {
-	        Account account = accountRepository.findByEmail(email);
-	        return account != null;
-	  }
-
-	  public Account findByEmail(String email) {
-	        return accountRepository.findByEmail(email);
-	  }
+			return accountRepository.existsByEmail(email);
+		}
+	 
+	 public Account findAccountByEmail(String email) {
+			List<Account> list = accountRepository.findAll();
+			for (Account a : list) {
+				if (a.getEmail().equals(email)) {
+					return a;
+				}
+			}
+			return null;
+		}
 }
