@@ -185,7 +185,7 @@
 														<g>
 														<path
 															d="M10 0.001C4.478 0.001 0 4.478 0 10s4.478 9.999 10 9.999c5.523 0 10 -4.477 10 -9.999S15.523 0.001 10 0.001zm0 2.99a3.308 3.308 0 1 1 0.001 6.615A3.308 3.308 0 0 1 10 2.991zm-0.003 14.395a7.339 7.339 0 0 1 -4.779 -1.763 1.409 1.409 0 0 1 -0.495 -1.072A3.336 3.336 0 0 1 8.075 11.217h3.848a3.331 3.331 0 0 1 3.347 3.335 1.406 1.406 0 0 1 -0.494 1.071 7.337 7.337 0 0 1 -4.779 1.763z" /></g></svg>
-													<a href="/profileuser.html" class="text-muted font-size-sm">
+													<a href="/profileUser" class="text-muted font-size-sm">
 														Profile</a>
 												</h6>
 											</li>
@@ -207,7 +207,7 @@
 															stroke-width="0.12" stroke-linecap="round"
 															stroke-linejoin="round" />
 												</svg>
-													<a href="/history.html" class="text-muted font-size-sm">
+													<a href="/history" class="text-muted font-size-sm">
 														History</a>
 												</h6>
 											</li>

@@ -74,5 +74,5 @@ public class ProfileController {
 		session.setAttribute("loggedInAccount", customer);
 		return "redirect:/profileUser";
 	}
-
+	
 }

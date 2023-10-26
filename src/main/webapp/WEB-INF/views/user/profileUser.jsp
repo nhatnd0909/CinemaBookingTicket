@@ -149,24 +149,27 @@
 								<div class="card">
 									<div class="card-body">
 										<div class="d-flex flex-column align-items-center text-center">
-											<div class="avatar-upload">
-												<div class="avatar-edit">
-													<input type='file' id="imageUpload"
-														accept=".png, .jpg, .jpeg" onchange="previewImage()" /> <label
-														for="imageUpload"></label>
-												</div>
-												<div class="avatar-preview">
-													<div id="imagePreview"
-														style="background-image: url(http://i.pravatar.cc/500?img=7);">
+											<form action="changeavatar" method="get">
+												<div class="avatar-upload">
+													<div class="avatar-edit">
+														<input name="urlimage" type='file' id="imageUpload"
+															accept=".png, .jpg, .jpeg" onchange="previewImage()" />
+														<label for="imageUpload"></label>
+													</div>
+													<div class="avatar-preview">
+														<div id="imagePreview"
+															style="background-image: url(https://www.w3schools.com/howto/img_avatar.png)">
+														</div>
 													</div>
 												</div>
-											</div>
-											<div class="mt-3">
-												<h4>${customer.getName()}</h4>
-												<p class="text-muted font-size-sm">${customer.getAddress()}</p>
-												<button id="saveButton" class="btn btn-outline-primary"
-													style="display: none;">Save</button>
-											</div>
+												<div class="mt-3">
+													<h4>${customer.getName()}</h4>
+													<p class="text-muted font-size-sm">${customer.getAddress()}</p>
+													<button id="saveButton" class="btn btn-outline-primary"
+														style="display: none;">Save</button>
+												</div>
+											</form>
+
 										</div>
 										<hr class="my-4">
 										<ul class="list-group list-group-flush">
