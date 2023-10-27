@@ -18,7 +18,7 @@ public class CustomerService {
 	private CustomerRepository customerRepository;
 
 	public Customer addNewCusstomer(Customer customer) {
-
+		customer.setUrlImage("avatar.png");
 		return customerRepository.save(customer);
 	}
 
@@ -32,6 +32,7 @@ public class CustomerService {
 		for (Customer c : list) {
 			if (c.getAccount().getEmail().equals(email)) {
 				return c;
+				
 			}
 		}
 		return null;
@@ -56,5 +57,11 @@ public class CustomerService {
 	public static Date parseStringToDate(String dateString) throws ParseException {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		return format.parse(dateString);
+	}
+	
+	public void changeImage(String email,String url) {
+		Customer customer = findCustomerByEmail(email);
+		customer.setUrlImage(url);
+		customerRepository.save(customer);
 	}
 }

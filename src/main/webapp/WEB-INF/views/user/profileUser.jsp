@@ -149,7 +149,7 @@
 								<div class="card">
 									<div class="card-body">
 										<div class="d-flex flex-column align-items-center text-center">
-											<form action="changeavatar" method="get">
+											<form action="changeavatar" method="post">
 												<div class="avatar-upload">
 													<div class="avatar-edit">
 														<input name="urlimage" type='file' id="imageUpload"
@@ -157,7 +157,7 @@
 														<label for="imageUpload"></label>
 													</div>
 													<div class="avatar-preview">	
-															<img id="imagePreview" src="assets/images/avatar.png" alt="Avatar Preview">
+															<img id="imagePreview" src="assets/images/${customer.getUrlImage()}" alt="Avatar Preview">
 													</div>
 													
 												</div>

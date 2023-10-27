@@ -74,5 +74,12 @@ public class ProfileController {
 		session.setAttribute("loggedInAccount", customer);
 		return "redirect:/profileUser";
 	}
-	
+
+	@PostMapping("/changeavatar")
+	public String changeAvatar(@RequestParam String urlimage, HttpSession session) {
+		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		String email = loggedInAccount.getAccount().getEmail();
+		customerService.changeImage(email, urlimage);
+		return "redirect:/profileUser";
+	}
 }
