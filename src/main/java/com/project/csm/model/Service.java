@@ -25,6 +25,9 @@ public class Service {
     @Column(name = "Price")
     private BigDecimal price;
     
+    @Column(name = "UrlImageService")
+	private String UrlImageService;
+    
     @ManyToOne
     @JoinColumn(name = "EmployeeID")
     private Employee employee;
