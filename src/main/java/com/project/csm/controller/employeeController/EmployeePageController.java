@@ -11,10 +11,6 @@ public class EmployeePageController {
 		return "employee/employeeDashboard";
 	}
 	
-	@GetMapping("/employee/service")
-	public String showEmployeeService() {
-		return "/employee/service/serviceDashboard"; 
-	}
 	
 	@GetMapping("/employee/show")
 	public String showEmployeeShow() {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +28,7 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
@@ -300,54 +302,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+									<c:forEach var="service" items="${services}">
                                     <tr>
-                                        <td><img src="/admin_assets/assets/images/faces/face1.jpg" alt="image"> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-                                        <td>02312</td>
+                                        <td><img src="/admin_assets/assets/images/serivce/${service.urlImageService}" alt="image"> <span class="pl-2">${service.name}</span></td>
+                                        <td>${service.price}</td>
                                         <td>
                                             <div class="badge badge-outline-success">
                                                 <a href="/employee/service/update" style="text-decoration: none; color: inherit;">
                                                     <i class="mdi mdi-eye"></i>
                                                 </a>
                                             </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
+											<div class="badge badge-outline-success">
+												<a  onclick="deleteService(${service.serviceID});" type="submit"  style="text-decoration: none; color: inherit;" >
+													<i class="mdi mdi-delete"></i>
+												</a>
+											</div>																
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><img src="/admin_assets/assets/images/faces/face1.jpg" alt="image"> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-                                        <td>02312</td>
-                                        <td>
-                                            <div class="badge badge-outline-success">
-                                                <a href="/employee/service/update" style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="/admin_assets/assets/images/faces/face1.jpg" alt="image"> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-                                        <td>02312</td>
-                                        <td>
-                                            <div class="badge badge-outline-success">
-                                                <a href="/employee/service/update" style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
+								</c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -387,3 +359,38 @@
 </body>
 
 </html>
+<script>
+    function deleteService(serviceID) {
+        Swal.fire({
+            title:'<span style="color: black;">Xác nhận xóa?</span>',
+            html: 'Bạn có chắc chắn muốn xóa nhân viên này?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Xóa',
+            cancelButtonText: 'Hủy',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/deleteService',
+                    type: 'POST',
+                    data: {
+                        serviceID: serviceID
+                    },
+                    success: function(response) {
+                        if (response === 'Xóa thành công') {
+							Swal.fire({ title:'<span style="color: black;">Xóa thành công</span>',text: 'Dữ liệu đã được xóa thành công!',icon: 'success'});
+                            setTimeout(function() {
+								window.location.href = '/employee/service';
+							}, 1000);
+                        } else {
+							Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy nhân viên',icon: 'error'});
+                        }
+                    },
+                    error: function() {
+						Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy nhân viên',icon: 'error'});
+                    }
+                });
+            }
+        });
+    }
+</script>

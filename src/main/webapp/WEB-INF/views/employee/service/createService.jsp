@@ -289,19 +289,19 @@
                                     <h4 class="card-title">Add New Service</h4>
                                     <p class="mb-0"><a href="/employee/service" style="text-decoration: none; color: inherit;"> Service</a> / <span>New Service</span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="">
+								<form class="forms-sample" method="post" action="/employee/service/create" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="exampleInputName1">Name</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name"  required="required">
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail3">Price</label> 
-                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Price" name="price"  required="required">
+                                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Price" name="price"  required="required">
 									</div>
 									
 									<div class="form-group">
 										<label for="exampleInputPassword4">Imgage</label> 
-                                        <input type="file" class="form-control" id="exampleInputPassword4" placeholder="Password" name="UrlImageService" required="required" onchange="previewImage()">
+                                        <input type="file" class="form-control" id="exampleInputPassword4" placeholder="Password" name="imageFile" required="required" onchange="previewImage()">
 									</div> 
                                     <div id="imagePreview" class="image-preview">
                                         
