@@ -17,4 +17,34 @@ public class Genre {
 
 	@Column(name = "GenreName")
 	private String genreName;
+
+	public Long getGenreID() {
+		return genreID;
+	}
+
+	public void setGenreID(Long genreID) {
+		this.genreID = genreID;
+	}
+
+	public String getGenreName() {
+		return genreName;
+	}
+
+	public void setGenreName(String genreName) {
+		this.genreName = genreName;
+	}
+	
+
+	public Genre() {
+	}
+
+	public Genre(String genreName) {
+		this.genreName = genreName;
+	}
+
+	@Override
+	public String toString() {
+		return "Genre [genreID=" + genreID + ", genreName=" + genreName + "]";
+	}
+	
 }

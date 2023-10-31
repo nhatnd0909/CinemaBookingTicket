@@ -25,7 +25,71 @@ public class Service {
     @Column(name = "Price")
     private BigDecimal price;
     
+    @Column(name = "UrlImageService")
+	private String urlImageService;
+    
     @ManyToOne
     @JoinColumn(name = "EmployeeID")
     private Employee employee;
+
+	public Service() {
+		super();
+	}
+
+	public Service(Long serviceID, String name, BigDecimal price, String urlImageService, Employee employee) {
+		super();
+		this.serviceID = serviceID;
+		this.name = name;
+		this.price = price;
+		this.urlImageService = urlImageService;
+		this.employee = employee;
+	}
+
+	public Long getServiceID() {
+		return serviceID;
+	}
+
+	public void setServiceID(Long serviceID) {
+		this.serviceID = serviceID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public String getUrlImageService() {
+		return urlImageService;
+	}
+
+	public void setUrlImageService(String urlImageService) {
+		this.urlImageService = urlImageService;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	@Override
+	public String toString() {
+		return "Service [serviceID=" + serviceID + ", name=" + name + ", price=" + price + ", UrlImageService="
+				+ urlImageService + ", employee=" + employee + "]";
+	}
+    
+    
 }

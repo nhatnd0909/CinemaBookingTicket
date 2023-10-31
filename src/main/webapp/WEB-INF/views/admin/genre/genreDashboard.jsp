@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +28,8 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="admin_assets/assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- End layout styles -->
 <link rel="shortcut icon" href="admin_assets/assets/images/favicon.png" />
 </head>
@@ -52,7 +55,8 @@
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Amin</h5>
+								<h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+								<span>Gold Member</span>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -83,7 +87,6 @@
 										Password</p>
 								</div>
 							</a>
-						</div>
 					</div>
 				</li>
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
@@ -116,7 +119,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Rank</span>
+					</span> <span class="menu-title">Genre</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -149,7 +152,10 @@
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
-						<li class="nav-item dropdown"><a
+						<li class="nav-item nav-settings d-none d-lg-block"><a
+							class="nav-link" href="#"> <i class="mdi mdi-view-grid"></i>
+						</a></li>
+						<li class="nav-item dropdown border-left"><a
 							class="nav-link count-indicator dropdown-toggle"
 							id="messageDropdown" href="#" data-toggle="dropdown"
 							aria-expanded="false"> <i class="mdi mdi-email"></i> <span
@@ -252,7 +258,8 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Henry
+										Klein</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
@@ -283,6 +290,7 @@
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
+								<p class="p-3 mb-0 text-center">Advanced settings</p>
 							</div></li>
 					</ul>
 					<button
@@ -295,136 +303,47 @@
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">
-					<div class="page-header">
-						<h3 class="page-title">Movie Management</h3>
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Movie</li>
-							</ol>
-						</nav>
-					</div>
+
 					<div class="row ">
 						<div class="col-12 grid-margin">
 							<div class="card">
 								<div class="card-body">
-									<h4 class="card-title">Ongoing Movie</h4>
+									<div class="d-flex justify-content-between align-items-center">
+										<h4 class="card-title">Genre Management</h4>
+										<div class="mb-0 icon icon-box-success">
+											<a href="/genreDashboard/create" style="text-decoration: none; color: inherit;" > 
+												<span class="mdi mdi-library-plus"></span>
+											</a>
+										</div>	
+									</div>
 									<div class="table-responsive">
 										<table class="table">
 											<thead>
 												<tr>
-													<!-- <th>
-                            <div class="form-check form-check-muted m-0">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                              </label>
-                            </div>
-                          </th> -->
-													<th>Movie Name</th>
-													<th>Movie No</th>
-													<th>Movie Cost</th>
-													<th>Income</th>
-													<th>Start Date</th>
-													<th>End Date</th>
-													<th>Status</th>
+													<th>ID</th>
+													<th>Name</th>
+													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
+												<c:forEach var="genre" items="${genres}">
 												<tr>
-													<!-- <td>
-                            <div class="form-check form-check-muted m-0">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                              </label>
-                            </div>
-                          </td> -->
-													<td><img src="admin_assets/assets/images/faces/face1.jpg"
-														alt="image" /> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-													<td>02312</td>
-													<td>$14,500</td>
-													<td>$14,500</td>
-													<td>04 Dec 2019</td>
-													<td>04 Dec 2019</td>
+													<td>${genre.genreID}</td>
+													<td>${genre.genreName}</td>
 													<td>
-														<div class="badge badge-outline-success">Ongoing</div>
+														<div class="badge badge-outline-success">
+															<a href="<c:url value='/genreDashboard/update/${genre.genreID}'/>" style="text-decoration: none; color: inherit;" >
+																<i class="mdi mdi-eye"></i>
+															</a>
+														</div>
+														<div class="badge badge-outline-success">
+															<a  onclick="deleteGenre(${genre.genreID});" type="submit"  style="text-decoration: none; color: inherit;" >
+																<i class="mdi mdi-delete"></i>
+															</a>
+														</div>		
 													</td>
 												</tr>
-												<tr>
-													<!-- <td>
-                            <div class="form-check form-check-muted m-0">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                              </label>
-                            </div>
-                          </td> -->
-													<td><img src="admin_assets/assets/images/faces/face1.jpg"
-														alt="image" /> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-													<td>02312</td>
-													<td>$14,500</td>
-													<td>$14,500</td>
-													<td>04 Dec 2019</td>
-													<td>04 Dec 2019</td>
-													<td>
-														<div class="badge badge-outline-success">Ongoing</div>
-													</td>
-												</tr>
-												<tr>
-													<!-- <td>
-                            <div class="form-check form-check-muted m-0">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                              </label>
-                            </div>
-                          </td> -->
-													<td><img src="admin_assets/assets/images/faces/face1.jpg"
-														alt="image" /> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-													<td>02312</td>
-													<td>$14,500</td>
-													<td>$14,500</td>
-													<td>04 Dec 2019</td>
-													<td>04 Dec 2019</td>
-													<td>
-														<div class="badge badge-outline-success">Ongoing</div>
-													</td>
-												</tr>
-												<tr>
-													<!-- <td>
-                            <div class="form-check form-check-muted m-0">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                              </label>
-                            </div>
-                          </td> -->
-													<td><img src="admin_assets/assets/images/faces/face1.jpg"
-														alt="image" /> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-													<td>02312</td>
-													<td>$14,500</td>
-													<td>$14,500</td>
-													<td>04 Dec 2019</td>
-													<td>04 Dec 2019</td>
-													<td>
-														<div class="badge badge-outline-success">Ongoing</div>
-													</td>
-												</tr>
-												<tr>
-													<!-- <td>
-                            <div class="form-check form-check-muted m-0">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                              </label>
-                            </div>
-                          </td> -->
-													<td><img src="admin_assets/assets/images/faces/face1.jpg"
-														alt="image" /> <span class="pl-2">Ác Quỷ Ma Sơ 2</span></td>
-													<td>02312</td>
-													<td>$14,500</td>
-													<td>$14,500</td>
-													<td>04 Dec 2019</td>
-													<td>04 Dec 2019</td>
-													<td>
-														<div class="badge badge-outline-success">Ongoing</div>
-													</td>
-												</tr>
+											</c:forEach>
 											</tbody>
 										</table>
 									</div>
@@ -433,89 +352,6 @@
 						</div>
 					</div>
 
-					<div class="col-12 grid-margin stretch-card">
-						<div class="card">
-							<div class="card-body">
-								<h4 class="card-title">Add New Movie</h4>
-								<!-- <p class="card-description"> Basic form elements </p> -->
-								<form class="forms-sample">
-									<div class="form-group">
-										<label for="exampleInputName1">Name Movie</label> <input
-											type="text" class="form-control" id="exampleInputName1"
-											placeholder="Name">
-									</div>
-									<div class="form-group">
-										<label for="exampleInputEmail3">Trailer URL</label> <input
-											type="email" class="form-control" id="exampleInputEmail3"
-											placeholder="Email">
-									</div>
-									<div class="form-group">
-										<label for="exampleInputPassword4">Actor</label> <input
-											type="password" class="form-control"
-											id="exampleInputPassword4" placeholder="Password">
-									</div>
-									<div class="form-group">
-										<label for="exampleSelectGender">Genre</label> <select
-											class="form-control" id="exampleSelectGender">
-											<option>Genre</option>
-											<option>Genre</option>
-											<option>Genre</option>
-											<option>Genre</option>
-											<option>Genre</option>
-											<option>Genre</option>
-											<option>Genre</option>
-										</select>
-									</div>
-
-									<div class="form-group">
-										<label>Upload Image</label> <input type="file" name="img[]"
-											class="file-upload-default">
-										<div class="input-group col-xs-12">
-											<input type="text" class="form-control file-upload-info"
-												disabled placeholder="Upload Image"> <span
-												class="input-group-append">
-												<button class="file-upload-browse btn btn-primary"
-													type="button">Upload</button>
-											</span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="exampleSelectGender">Theater Location</label>
-										<div class="form-check mx-sm-2">
-											<label class="form-check-label"> <input
-												type="checkbox" class="form-check-input" checked>
-												Theater Đà Nẵng
-											</label>
-										</div>
-										<div class="form-check mx-sm-2">
-											<label class="form-check-label"> <input
-												type="checkbox" class="form-check-input" checked>
-												Theater Đà Nẵng
-											</label>
-										</div>
-										<div class="form-check mx-sm-2">
-											<label class="form-check-label"> <input
-												type="checkbox" class="form-check-input" checked>
-												Theater Đà Nẵng
-											</label>
-										</div>
-										<div class="form-check mx-sm-2">
-											<label class="form-check-label"> <input
-												type="checkbox" class="form-check-input" checked>
-												Theater Đà Nẵng
-											</label>
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="exampleTextarea1">Decription</label>
-										<textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-									</div>
-									<button type="submit" class="btn btn-primary mr-2">Submit</button>
-									<button class="btn btn-dark">Cancel</button>
-								</form>
-							</div>
-						</div>
-					</div>
 				</div>
 				<!-- content-wrapper ends -->
 				<!-- partial -->
@@ -540,5 +376,39 @@
 	<!-- Custom js for this page -->
 	<!-- End custom js for this page -->
 </body>
-
+<script>
+    function deleteGenre(genreId) {
+        Swal.fire({
+            title:'<span style="color: black;">Xác nhận xóa?</span>',
+            html: 'Bạn có chắc chắn muốn xóa genre này?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Xóa',
+            cancelButtonText: 'Hủy',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/deleteGenre',
+                    type: 'POST',
+                    data: {
+                        genreId: genreId
+                    },
+                    success: function(response) {
+                        if (response === 'Xóa thành công') {
+							Swal.fire({ title:'<span style="color: black;">Xóa thành công</span>',text: 'Dữ liệu đã được xóa thành công!',icon: 'success'});
+                            setTimeout(function() {
+								window.location.href = '/genreDashboard';
+							}, 1000);
+                        } else {
+							Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy genre',icon: 'error'});
+                        }
+                    },
+                    error: function() {
+						Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy genre',icon: 'error'});
+                    }
+                });
+            }
+        });
+    }
+</script>
 </html>

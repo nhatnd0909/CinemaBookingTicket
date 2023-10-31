@@ -64,7 +64,7 @@
 						<div
 							class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
 							aria-labelledby="profile-dropdown">
-							<a href="#" class="dropdown-item preview-item">
+							<a href="/adminDashboard/profile" class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-settings text-primary"></i>
@@ -76,7 +76,7 @@
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="#" class="dropdown-item preview-item">
+							<a href="/adminDashboard/changepassword" class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
@@ -87,19 +87,6 @@
 										Password</p>
 								</div>
 							</a>
-							<div class="dropdown-divider"></div>
-							<a href="#" class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<div class="preview-icon bg-dark rounded-circle">
-										<i class="mdi mdi-calendar-today text-success"></i>
-									</div>
-								</div>
-								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">To-do
-										list</p>
-								</div>
-							</a>
-						</div>
 					</div>
 				</li>
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
@@ -133,6 +120,11 @@
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
 					</span> <span class="menu-title">Rank</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/genreDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Genre</span>
 				</a></li>
 			</ul>
 		</nav>

@@ -25,7 +25,7 @@ import com.project.csm.service.adminService.adminEmployeeService;
 import com.project.csm.service.adminService.adminTheaterService;
 
 @Controller
-public class EmployeeController {
+public class AdminEmployeeController {
 
 	@Autowired
 	private adminTheaterService theaterService;
