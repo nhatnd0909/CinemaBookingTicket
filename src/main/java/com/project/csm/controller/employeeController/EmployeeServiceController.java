@@ -1,10 +1,7 @@
 package com.project.csm.controller.employeeController;
 
-import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,59 +16,67 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.project.csm.model.Rank;
 import com.project.csm.model.Service;
 import com.project.csm.service.employeeService.employeeServiceService;
-
-import jakarta.persistence.criteria.Path;
 
 @Controller
 public class EmployeeServiceController {
 
-	@Autowired 
-	private employeeServiceService employeeServiceService ; 
-	
-	
+	@Autowired
+	private employeeServiceService employeeServiceService;
+
 	@GetMapping("/employee/service")
-	public String showEmployeeService(Model model ) {
-		List <Service> services   = employeeServiceService.getAllServices();
+	public String showEmployeeService(Model model) {
+		List<Service> services = employeeServiceService.getAllServices();
 		model.addAttribute("services", services);
 		System.out.println(services);
-		return "/employee/service/serviceDashboard"; 
+		return "/employee/service/serviceDashboard";
 	}
-	
+
 	@GetMapping("/employee/service/create")
 	public String getCreateEmployeeService() {
 		return "/employee/service/createService";
 	}
-	
+
 	@PostMapping("/employee/service/create")
-	public String postCreateEmployeeService(@ModelAttribute Service service, @RequestParam("imageFile") MultipartFile imageFile) {
+	public String postCreateEmployeeService(@ModelAttribute Service service,
+			@RequestParam("imageFile") MultipartFile imageFile) {
 		try {
 			employeeServiceService.createService(service, imageFile);
-			 return "redirect:/employee/service"; 
-        } catch (IOException e) {
-            return "createServiceForm";
-        }
-    }
-	
+			return "redirect:/employee/service";
+		} catch (IOException e) {
+			return "createServiceForm";
+		}
+	}
 
-	
 	@GetMapping("/employee/service/update/{serviceID}")
 	public String getUpdateEmployeeService(@PathVariable Long serviceID, Model model) {
-		Service services =  employeeServiceService.getServiceById(serviceID);
-		model.addAttribute("services",services);
+		Service services = employeeServiceService.getServiceById(serviceID);
+		model.addAttribute("services", services);
+		String imageUrl = services.getUrlImageService();
+		model.addAttribute("imageUrl", imageUrl);
+		System.out.println(imageUrl);
 		return "/employee/service/updateService";
 	}
-	
-	
-	@PostMapping("/employee/service/update")
-	public String postUpdateEmployeeService() {
+
+	@PostMapping("/employee/service/update/{serviceID}")
+	public String postUpdateEmployeeService(@PathVariable Long serviceID, @ModelAttribute Service updatedService,
+			@RequestParam("imageFile") MultipartFile imageFile) {
+		try {
+			Service existingService = employeeServiceService.getServiceById(serviceID);
+			existingService.setName(updatedService.getName());
+			existingService.setSize(updatedService.getSize());
+			existingService.setPrice(updatedService.getPrice());
+			if (imageFile != null && !imageFile.isEmpty()) {
+				employeeServiceService.processImage(existingService, imageFile);
+			}
+			employeeServiceService.updateService(existingService);
 			return "redirect:/employee/service";
+		} catch (Exception e) {
+			return "updateServiceForm";
+		}
 	}
-	
-	
+
 	@PostMapping("/deleteService")
 	@ResponseBody
 	public ResponseEntity<String> deleteService(@RequestParam("serviceID") Long serviceID) {

@@ -25,20 +25,43 @@ public class employeeServiceService {
 	public List<com.project.csm.model.Service> getAllServices() {
 		return serviceRepository.findAll();
 	} 
+
+	public com.project.csm.model.Service getServiceById(Long serviceID) {
+		 return serviceRepository.findById(serviceID).orElse(null);
+	}
 	
 	public void createService(com.project.csm.model.Service service, MultipartFile imageFile) throws IOException {
+	    processImage(service, imageFile);
+	    serviceRepository.save(service);
+	}
+	
+	public void updateService(com.project.csm.model.Service service ) {
+        serviceRepository.save(service);
+    }
+
+	public void deleteServiceById(Long serviceID) {
+		serviceRepository.deleteById(serviceID);
+	}
+	
+	public void processImage(com.project.csm.model.Service service, MultipartFile imageFile) throws IOException {
 	    if (imageFile != null && !imageFile.isEmpty()) {
 	        String fileName = generateRandomFileName(imageFile);
 	        String uploadDir = "src/main/resources/static/admin_assets/assets/images/serivce/";
 	        Path filePath = Paths.get(uploadDir, fileName);
 	        
+	        if (service.getUrlImageService() != null) {
+	            String oldFileName = service.getUrlImageService();
+	            Path oldFilePath = Paths.get(uploadDir, oldFileName);
+	            Files.deleteIfExists(oldFilePath);
+	        }
+
 	        try (InputStream inputStream = imageFile.getInputStream()) {
 	            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
 	            service.setUrlImageService(fileName);
 	        }
 	    }
-	    serviceRepository.save(service);
 	}
+
 	
 	private String generateRandomFileName(MultipartFile file) {
 	    String originalFileName = file.getOriginalFilename();
@@ -48,14 +71,6 @@ public class employeeServiceService {
 	    return newFileName;
 	}
 	
-	
-	public com.project.csm.model.Service getServiceById(Long serviceID) {
-		 return serviceRepository.findById(serviceID).orElse(null);
-	}
-	
-	public void deleteServiceById(Long serviceID) {
-		serviceRepository.deleteById(serviceID);
-	}
 
 }
 	

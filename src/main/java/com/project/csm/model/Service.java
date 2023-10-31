@@ -28,6 +28,9 @@ public class Service {
     @Column(name = "UrlImageService")
 	private String urlImageService;
     
+    @Column(name = "Size")
+	private String size;
+    
     @ManyToOne
     @JoinColumn(name = "EmployeeID")
     private Employee employee;
@@ -36,12 +39,14 @@ public class Service {
 		super();
 	}
 
-	public Service(Long serviceID, String name, BigDecimal price, String urlImageService, Employee employee) {
+	public Service(Long serviceID, String name, BigDecimal price, String urlImageService, String size,
+			Employee employee) {
 		super();
 		this.serviceID = serviceID;
 		this.name = name;
 		this.price = price;
 		this.urlImageService = urlImageService;
+		this.size = size;
 		this.employee = employee;
 	}
 
@@ -77,6 +82,14 @@ public class Service {
 		this.urlImageService = urlImageService;
 	}
 
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
 	public Employee getEmployee() {
 		return employee;
 	}
@@ -87,9 +100,11 @@ public class Service {
 
 	@Override
 	public String toString() {
-		return "Service [serviceID=" + serviceID + ", name=" + name + ", price=" + price + ", UrlImageService="
-				+ urlImageService + ", employee=" + employee + "]";
+		return "Service [serviceID=" + serviceID + ", name=" + name + ", price=" + price + ", urlImageService="
+				+ urlImageService + ", size=" + size + ", employee=" + employee + "]";
 	}
+
+
     
     
 }
