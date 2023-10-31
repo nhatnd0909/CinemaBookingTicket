@@ -21,7 +21,9 @@ public class CustomerService {
 		customer.setUrlImage("avatar.png");
 		return customerRepository.save(customer);
 	}
-
+	public Customer updateCustomer(Customer customer) {
+		return customerRepository.save(customer);
+	}
 	public List<Customer> getAllCustomer() {
 		return customerRepository.findAll();
 	}

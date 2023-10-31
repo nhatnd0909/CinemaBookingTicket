@@ -69,8 +69,9 @@ public class ProfileController {
 
 		customer.setPhoneNumber(phone);
 		customer.setAddress(address);
-		customerService.addNewCusstomer(customer);
-
+//		customerService.addNewCusstomer(customer);
+		
+		customerService.updateCustomer(customer);
 		session.setAttribute("loggedInAccount", customer);
 		return "redirect:/profileUser";
 	}
