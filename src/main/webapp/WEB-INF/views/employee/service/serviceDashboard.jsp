@@ -288,7 +288,7 @@
                             <h4 class="card-title">Service</h4>
                             <div class="mb-0 icon icon-box-success">
                                 <a href="/employee/service/create" style="text-decoration: none; color: inherit;"> 
-                                    <span class="mdi mdi-account-multiple-plus icon-item"></span>
+                                    <span class="mdi mdi-library-plus"></span>
                                 </a>
                             </div>	
                         </div>
@@ -297,6 +297,7 @@
                                 <thead>
                                     <tr>
                                         <th>Service Name</th>
+										<th>Size</th>
                                         <th>Price</th>
                                         <th>Action</th>
                                     </tr>
@@ -304,7 +305,8 @@
                                 <tbody>
 									<c:forEach var="service" items="${services}">
                                     <tr>
-                                        <td><img src="/admin_assets/assets/images/serivce/${service.urlImageService}" alt="image"> <span class="pl-2">${service.name}</span></td>
+                                        <td><img src="/admin_assets/assets/images/serivce/${service.urlImageService}" alt="image" style="width: 50px; height: 50px;"> <span class="pl-2">${service.name}</span></td>
+										<td>${service.size}</td>
                                         <td>${service.price}</td>
                                         <td>
                                             <div class="badge badge-outline-success">

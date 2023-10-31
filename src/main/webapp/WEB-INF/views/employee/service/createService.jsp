@@ -295,6 +295,11 @@
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name"  required="required">
 									</div>
 									<div class="form-group">
+										<label for="exampleInputEmail3">Size</label> 
+                                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Size" name="size"  required="required">
+									</div>
+									
+									<div class="form-group">
 										<label for="exampleInputEmail3">Price</label> 
                                         <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Price" name="price"  required="required">
 									</div>

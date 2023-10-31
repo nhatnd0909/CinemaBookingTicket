@@ -289,10 +289,14 @@
                                     <h4 class="card-title">Update Service</h4>
                                     <p class="mb-0"><a href="/employee/service" style="text-decoration: none; color: inherit;"> Service</a> / <span>Update Service</span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="">
+								<form class="forms-sample" method="post" action="/employee/service/update/${serviceID}" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="exampleInputName1">Name</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name" value="${services.name}" required="required">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail3">Size</label> 
+                                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Size" name="size" value="${services.size}" required="required">
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail3">Price</label> 
@@ -301,10 +305,10 @@
 									
 									<div class="form-group">
 										<label for="exampleInputPassword4">Imgage</label> 
-                                        <input type="file" class="form-control" id="exampleInputPassword4" placeholder="Password" name="UrlImageService" required="required" onchange="previewImage()">
+                                        <input type="file" class="form-control" id="exampleInputPassword4" placeholder="Password" name="imageFile" onchange="previewImage()">
 									</div> 
-                                    <div id="imagePreview" class="image-preview">
-                                        
+                                    <div id="imagePreview" class="image-preview" style="display: block;">
+                                        <img src="/admin_assets/assets/images/serivce/${imageUrl}" alt="image">
                                     </div>                                                                 
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 								</form>
