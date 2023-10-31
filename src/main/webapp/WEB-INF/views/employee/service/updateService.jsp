@@ -292,11 +292,11 @@
 								<form class="forms-sample" method="post" action="">
 									<div class="form-group">
 										<label for="exampleInputName1">Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name"  required="required">
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name" value="${services.name}" required="required">
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail3">Price</label> 
-                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Price" name="price"  required="required">
+                                        <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Price" name="price" value="${services.price}" required="required">
 									</div>
 									
 									<div class="form-group">

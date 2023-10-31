@@ -308,7 +308,7 @@
                                         <td>${service.price}</td>
                                         <td>
                                             <div class="badge badge-outline-success">
-                                                <a href="/employee/service/update" style="text-decoration: none; color: inherit;">
+                                                <a href="/employee/service/update/${service.serviceID}" style="text-decoration: none; color: inherit;">
                                                     <i class="mdi mdi-eye"></i>
                                                 </a>
                                             </div>

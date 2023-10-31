@@ -120,6 +120,11 @@
 							class="mdi mdi-seal"></i>
 					</span> <span class="menu-title">Rank</span>
 				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/genreDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Genre</span>
+				</a></li>
 			</ul>
 		</nav>
 		<!-- partial -->
