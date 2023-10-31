@@ -156,10 +156,12 @@
 															accept=".png, .jpg, .jpeg" onchange="previewImage()" />
 														<label for="imageUpload"></label>
 													</div>
-													<div class="avatar-preview">	
-															<img id="imagePreview" src="assets/images/${customer.getUrlImage()}" alt="Avatar Preview">
+													<div class="avatar-preview">
+														<img id="imagePreview"
+															src="assets/images/${customer.getUrlImage()}"
+															alt="Avatar Preview">
 													</div>
-													
+
 												</div>
 												<div class="mt-3">
 													<h4>${customer.getName()}</h4>
