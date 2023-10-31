@@ -29,8 +29,7 @@ public class adminEmployeeService {
 	public Employee getEmployeeById(Long employeeId) {
 		return employeeRepository.findById(employeeId).orElse(null);
 	}
-
-	public void updateEmployee(Employee employee) {
+public void updateEmployee(Employee employee) {
 		employeeRepository.save(employee);
 	}
 
@@ -38,6 +37,7 @@ public class adminEmployeeService {
 		employeeRepository.deleteById(employeeId);
 	}
 
+	
 	public boolean isEmailExists(String email) {
 		return accountRepository.existsByEmail(email);
 	}
