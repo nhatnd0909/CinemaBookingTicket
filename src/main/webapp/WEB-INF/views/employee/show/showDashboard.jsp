@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,8 @@
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet" href="/admin_assets/assets/vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet"
+	href="/admin_assets/assets/vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- Plugin css for this page -->
 <link rel="stylesheet"
@@ -48,8 +50,8 @@
 						<div class="profile-pic">
 							<div class="count-indicator">
 								<img class="img-xs rounded-circle "
-									src="/admin_assets/assets/images/faces/face15.jpg" alt=""> <span
-									class="count bg-success"></span>
+									src="/admin_assets/assets/images/faces/face15.jpg" alt="">
+								<span class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
 								<h5 class="mb-0 font-weight-normal">Employe</h5>
@@ -57,7 +59,7 @@
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
 							class="mdi mdi-dots-vertical"></i></a>
-							<div
+						<div
 							class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
 							aria-labelledby="profile-dropdown">
 							<a href="/employee/profile" class="dropdown-item preview-item">
@@ -72,7 +74,8 @@
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="/employee/changepassword" class="dropdown-item preview-item">
+							<a href="/employee/changepassword"
+								class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
@@ -106,8 +109,8 @@
 					</span> <span class="menu-title">Show</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employee/bookinghistory"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
+					href="/employee/bookinghistory"> <span class="menu-icon">
+							<i class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">User booking history</span>
 				</a></li>
 			</ul>
@@ -149,8 +152,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face4.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face4.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Mark send you a
@@ -161,8 +164,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face2.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face2.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Cregh send you a
@@ -173,8 +176,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face3.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face3.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Profile picture
@@ -281,85 +284,59 @@
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="card-title">Service</h4>
-                            <div class="mb-0 icon icon-box-success">
-                                <a href="/employee/show/create" style="text-decoration: none; color: inherit;"> 
-                                    <span class="mdi mdi-account-multiple-plus icon-item"></span>
-                                </a>
-                            </div>	
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Start Time</th>
-                                        <th>Price</th>
-                                        <th>Name Moive</th>
-                                        <th>Name Room</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>8:00 - 9:30</td>
-                                        <td>20$</td>
-                                        <td>Ác Quỷ Ma Sơ 2</td>
-                                        <td>Room 01 </td>
-                                        <td>
+					<div class="card-body">
+						<div class="d-flex justify-content-between align-items-center">
+							<h4 class="card-title">Service</h4>
+							<div class="mb-0 icon icon-box-success">
+								<a href="/employee/show/create"
+									style="text-decoration: none; color: inherit;"> <span
+									class="mdi mdi-account-multiple-plus icon-item"></span>
+								</a>
+							</div>
+						</div>
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Day Time</th>
+										<th>Start Time</th>
+										<th>End Time</th>
+										<th>Price</th>
+										<th>Movie</th>
+										<th>Room</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="show" items="${shows}">
+										<tr>
+											<c:forEach var="formattedDayTime"
+												items="${formattedDayTimes}">
+												<td>${formattedDayTime}</td>
+											</c:forEach>
+											<td>${show.startTime}</td>
+											<td>${show.endTime}</td>
+											<td>${show.price}</td>
+											<td>${show.movie.name}</td>
+											<td>${show.theaterRoom.name}</td>
+											<td>
                                             <div class="badge badge-outline-success">
                                                 <a href="/employee/show/update" style="text-decoration: none; color: inherit;">
                                                     <i class="mdi mdi-eye"></i>
                                                 </a>
                                             </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8:00 - 9:30</td>
-                                        <td>20$</td>
-                                        <td>Ác Quỷ Ma Sơ 2</td>
-                                        <td>Room 01 </td>
-                                        <td>
-                                            <div class="badge badge-outline-success">
-                                                <a href="/employee/show/update" style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8:00 - 9:30</td>
-                                        <td>20$</td>
-                                        <td>Ác Quỷ Ma Sơ 2</td>
-                                        <td>Room 01 </td>
-                                        <td>
-                                            <div class="badge badge-outline-success">
-                                                <a href="/employee/show/update" style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+											<div class="badge badge-outline-success">
+												<a  onclick="deleteShow(${show.showID});" type="submit"  style="text-decoration: none; color: inherit;" >
+													<i class="mdi mdi-delete"></i>
+												</a>
+											</div>																
+                                        </td> 
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 				<!-- content-wrapper ends -->
 				<!-- partial:partials/_footer.html -->
@@ -376,11 +353,14 @@
 	<!-- endinject -->
 	<!-- Plugin js for this page -->
 	<script src="/admin_assets/assets/vendors/chart.js/Chart.min.js"></script>
-	<script src="/admin_assets/assets/vendors/progressbar.js/progressbar.min.js"></script>
-	<script src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/progressbar.js/progressbar.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
 	<script
 		src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
 	<!-- End plugin js for this page -->
 	<!-- inject:js -->
 	<script src="/admin_assets/assets/js/off-canvas.js"></script>
