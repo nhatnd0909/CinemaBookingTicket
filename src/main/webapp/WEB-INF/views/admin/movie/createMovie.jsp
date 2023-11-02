@@ -458,13 +458,13 @@
 	</script>
 
 	<style>
-/* Style the input field as plain text */
 input[type="date"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	border: none;
 	background-color: transparent;
+	/* Style the input field as plain text */
 }
 </style>
 
