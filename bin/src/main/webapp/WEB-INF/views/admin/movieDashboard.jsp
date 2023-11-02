@@ -60,7 +60,7 @@
 						<div
 							class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
 							aria-labelledby="profile-dropdown">
-							<a href="#" class="dropdown-item preview-item">
+							<a href="/adminDashboard/profile" class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-settings text-primary"></i>
@@ -72,7 +72,7 @@
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="#" class="dropdown-item preview-item">
+							<a href="/adminDashboard/changepassword" class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
@@ -89,29 +89,39 @@
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="adminDashboard.html"> <span class="menu-icon"> <i
+					href="adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dash Board</span>
+					</span> <span class="menu-title">Dashboard</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="revenue.html"> <span class="menu-icon"> <i
+					href="revenue"> <span class="menu-icon"> <i
+							class="mdi mdi-cash-usd"></i>
+					</span> <span class="menu-title">Revenue Magagement</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Revenue Management</span>
+					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="adminDashboard.html"> <span class="menu-icon"> <i
-							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Movies Management</span>
+					href="customerDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="userAdmin.html"> <span class="menu-icon"> <i
-							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">User Management</span>
+					href="employeeDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="employeeAdmin.html"> <span class="menu-icon"> <i
-							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Employee Management</span>
+					href="/rankDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Rank</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/genreDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Genre</span>
 				</a></li>
 			</ul>
 		</nav>
