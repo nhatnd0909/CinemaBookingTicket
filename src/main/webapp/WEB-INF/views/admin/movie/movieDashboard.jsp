@@ -105,22 +105,22 @@
 					</span> <span class="menu-title">Revenue Magagement</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="movieDashboard"> <span class="menu-icon"> <i
+					href="/admin/movies"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
 					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="customerDashboard"> <span class="menu-icon"> <i
+					href="<c:url value='/customerDashboard' />"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="employeeDashboard"> <span class="menu-icon"> <i
+					href="<c:url value='/employeeDashboard' />"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Employe Management</span>
+					</span> <span class="menu-title">Employee Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/rankDashboard"> <span class="menu-icon"> <i
+					href="<c:url value='/rankDashboard' />"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
 					</span> <span class="menu-title">Rank</span>
 				</a></li>

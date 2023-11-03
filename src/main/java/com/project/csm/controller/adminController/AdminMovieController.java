@@ -7,8 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.project.csm.model.Account;
+import com.project.csm.model.Employee;
 import com.project.csm.model.Movie;
 import com.project.csm.service.adminService.adminMovieNotFoundException;
 import com.project.csm.service.adminService.adminMovieService;
