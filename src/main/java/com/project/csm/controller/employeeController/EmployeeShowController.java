@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project.csm.model.Show;
 import com.project.csm.service.employeeService.employeeShowMovie;
@@ -19,8 +20,29 @@ public class EmployeeShowController {
 	@Autowired
 	private employeeShowMovie employeeShowMovie;
 
-	@GetMapping("/employee/show")
-	public String showEmployeeService(Model model) {
+//	@GetMapping("/employee/show")
+//	public String showEmployeeService(Model model) {
+//		List<Show> shows = employeeShowMovie.getAllShows();
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//		List<String> formattedDayTimes = new ArrayList<>();
+//
+//		for (Show show : shows) {
+//			String formattedDayTime = sdf.format(show.getDayTime());
+//			formattedDayTimes.add(formattedDayTime);
+//		}
+//		model.addAttribute("formattedDayTimes", formattedDayTimes);
+//		model.addAttribute("shows", shows);
+//		System.out.println(shows);
+//		return "/employee/show/showDashboard";
+//	}
+	
+//	@GetMapping("/employee/show/detail")
+//	public String getUpdateEmployeeShow() {
+//		return "/employee/show/detailShow";
+//	}
+	
+	@GetMapping("/employee/show/detail")
+	public String showEmployeeShow(Model model) {
 		List<Show> shows = employeeShowMovie.getAllShows();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		List<String> formattedDayTimes = new ArrayList<>();
@@ -32,6 +54,11 @@ public class EmployeeShowController {
 		model.addAttribute("formattedDayTimes", formattedDayTimes);
 		model.addAttribute("shows", shows);
 		System.out.println(shows);
-		return "/employee/show/showDashboard";
+		return "/employee/show/detailShow";
 	}
+	
+//	@PostMapping("/employee/show/update")
+//	public String postUpdateEmployeeShow() {
+//			return "redirect:/employee/show";
+//	}
 }
