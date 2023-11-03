@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -295,62 +296,61 @@
 									</p>
 								</div>
 								<form class="forms-sample" method="post" action="">
-								 
-									<div class="form-group row">
-										<label for="exampleInputName1" class="col-sm-2 col-form-label">Day
-											Time</label>
-										<div class="col-sm-10">
-											<input type="date" class="form-control"
-												id="exampleInputName1" placeholder="Name" name=""
-												required="required">
+									<c:forEach var="show" items="${shows}">
+										<div class="form-group row">
+											<label for="exampleInputName1"
+												class="col-sm-2 col-form-label">Day Time</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputName1" name="dayTime" required="required"
+													value="${formattedDayTimes[0]}">
+											</div>
 										</div>
-									</div>
 
-									<div class="form-group row">
-										<label for="exampleInputEmail3"
-											class="col-sm-2 col-form-label">Start Time</label>
-										<div class="col-sm-10">
-											<input type="date" class="form-control"
-												id="exampleInputEmail3" placeholder="Price" name=""
-												required="required">
-										</div>
-									</div>
-									
-									<div class="form-group row">
-										<label for="exampleInputEmail3"
-											class="col-sm-2 col-form-label">End Time</label>
-										<div class="col-sm-10">
-											<input type="date" class="form-control"
-												id="exampleInputEmail3" placeholder="Price" name=""
-												required="required">
-										</div>
-									</div>
 
-									<div class="form-group row">
-										<label for="exampleSelectGender"
-											class="col-sm-2 col-form-label">Name Movie</label>
-										<div class="col-sm-10">
-											<select class="form-control" id="exampleSelectGender">
-												<option>Ác Quỷ Ma Sơ 2</option>
-												<option>Ác Quỷ Ma Sơ 2</option>
-												<option>Ác Quỷ Ma Sơ 2</option>
-												<option>Ác Quỷ Ma Sơ 2</option>
-											</select>
+										<div class="form-group row">
+											<label for="exampleInputEmail3"
+												class="col-sm-2 col-form-label">Start Time</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputEmail3" placeholder="Start Time" name=""
+													required="required" value="${show.startTime}">
+											</div>
 										</div>
-									</div>
 
-									<div class="form-group row">
-										<label for="exampleInputEmail3"
-											class="col-sm-2 col-form-label">Price</label>
-										<div class="col-sm-10">
-											<input type="email" class="form-control"
-												id="exampleInputEmail3" placeholder="Price" name=""
-												required="required">
+										<div class="form-group row">
+											<label for="exampleInputEmail3"
+												class="col-sm-2 col-form-label">End Time</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputEmail3" placeholder="Price" name=""
+													required="required" value="${show.endTime}">
+											</div>
 										</div>
-									</div>
 
-									<button type="submit" class="btn btn-primary mr-2">Cancle</button>
+										<div class="form-group row">
+											<label for="exampleSelectGender"
+												class="col-sm-2 col-form-label">Name Movie</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputEmail3" placeholder="Price" name=""
+													required="required" value="${show.movie.name}">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="exampleInputEmail3"
+												class="col-sm-2 col-form-label">Price</label>
+											<div class="col-sm-10">
+												<input type="email" class="form-control"
+													id="exampleInputEmail3" placeholder="Price" name=""
+													required="required" value="${show.price}">
+											</div>
+										</div>
+									</c:forEach>
+
 									<button type="submit" class="btn btn-primary mr-2">Save</button>
+									<button type="submit" class="btn btn-primary mr-2">Cancle</button>
 								</form>
 							</div>
 						</div>
