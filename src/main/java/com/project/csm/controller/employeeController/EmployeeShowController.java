@@ -20,21 +20,21 @@ public class EmployeeShowController {
 	@Autowired
 	private employeeShowMovie employeeShowMovie;
 
-//	@GetMapping("/employee/show")
-//	public String showEmployeeService(Model model) {
-//		List<Show> shows = employeeShowMovie.getAllShows();
-//		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-//		List<String> formattedDayTimes = new ArrayList<>();
-//
-//		for (Show show : shows) {
-//			String formattedDayTime = sdf.format(show.getDayTime());
-//			formattedDayTimes.add(formattedDayTime);
-//		}
-//		model.addAttribute("formattedDayTimes", formattedDayTimes);
-//		model.addAttribute("shows", shows);
-//		System.out.println(shows);
-//		return "/employee/show/showDashboard";
-//	}
+	@GetMapping("/employee/show")
+	public String showEmployeeService(Model model) {
+		List<Show> shows = employeeShowMovie.getAllShows();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		List<String> formattedDayTimes = new ArrayList<>();
+
+		for (Show show : shows) {
+			String formattedDayTime = sdf.format(show.getDayTime());
+			formattedDayTimes.add(formattedDayTime);
+		}
+		model.addAttribute("formattedDayTimes", formattedDayTimes);
+		model.addAttribute("shows", shows);
+		System.out.println(shows);
+		return "/employee/show/showDashboard";
+	}
 	
 //	@GetMapping("/employee/show/detail")
 //	public String getUpdateEmployeeShow() {
