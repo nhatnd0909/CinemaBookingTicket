@@ -160,26 +160,25 @@
 											<div class="col-md-4">
 												<div class="img-post">
 													<img class="d-block img-fluid"
-														src="assets/images/commando3.png" alt="First slide">
+														src="assets/images/${movie.image}" alt="First slide">
 												</div>
 											</div>
 											<div class="details col-md-8">
-												<h3>THANH GƯƠM TRỪ TÀ (T16)</h3>
+												<h3>${movie.name}</h3>
 												<p>
-													<span>Đạo diễn:</span> Kim Sung-Sik
+													<span>Đạo diễn:</span> ${movie.director}
 												</p>
 												<p>
-													<span>Diễn viên:</span> Gang Dong Won, Esom, Lee Dong Hwi,
-													Kim Jong Soo, Lee Jung Eun, Park Myoung Hyun, Park So Yi, …
+													<span>Diễn viên:</span> ${movie.actor}
 												</p>
 												<p>
 													<span>Khởi chiếu:</span> 06-10-2023
 												</p>
 												<p>
-													<span>Thời lượng:</span> 100 phút
+													<span>Thời lượng:</span> ${movie.duration} phút
 												</p>
 												<p>
-													<span>Ngôn ngữ:</span> Tiếng Hàn - Phụ đề tiếng Việt
+													<span>Ngôn ngữ:</span> ${movie.language}
 												</p>
 											</div>
 
@@ -195,12 +194,7 @@
 														data-bs-toggle="button" onclick="showRating()">Đánh
 														giá</button>
 												</div>
-												<div id="description" style="margin-top: 2%;">Chuyện
-													phim xoay quanh nhân vật thầy trừ tà Cheon (Gang Dong Won
-													thủ vai), cùng với chiến hữu của mình In Bae (Lee Dong Hwi
-													thủ vai), chuyên đi lừa đảo với những màn trừ tà “pha ke"
-													sử dụng công nghệ cao cùng khả năng hùng biện và tài “thao
-													túng tâm lý" đỉnh cao...</div>
+												<div id="description" style="margin-top: 2%;"> ${movie.description}</div>
 												<div id="trailer" style="display: none; margin-top: 2%;">
 													<div class="center-iframe">
 														<iframe width="560" height="315"

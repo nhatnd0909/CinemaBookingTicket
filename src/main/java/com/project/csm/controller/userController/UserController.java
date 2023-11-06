@@ -19,16 +19,7 @@ public class UserController {
 
 	@GetMapping("/home")
 	public String showUserIndex(HttpSession session, Model model) {
-		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
-		int loggedIn = 0;
-		if (loggedInAccount == null) {
-			loggedIn = 0;
-		} else {
-			loggedIn = 1;
-		}
-		model.addAttribute("loggedIn", loggedIn);
-		model.addAttribute("loggedInAccount", loggedInAccount);
-		return "/user/index";
+		return "redirect:/";
 	}
 
 	@GetMapping("/about")
@@ -57,20 +48,6 @@ public class UserController {
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		return "/user/contactUs";
-	}
-
-	@GetMapping("/details")
-	public String showDetails(HttpSession session, Model model) {
-		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
-		int loggedIn = 0;
-		if (loggedInAccount == null) {
-			loggedIn = 0;
-		} else {
-			loggedIn = 1;
-		}
-		model.addAttribute("loggedIn", loggedIn);
-		model.addAttribute("loggedInAccount", loggedInAccount);
-		return "/user/details";
 	}
 
 	@GetMapping("/e-ticket")

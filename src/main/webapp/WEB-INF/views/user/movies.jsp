@@ -215,37 +215,6 @@
 							</a>
 						</div>
 					</div>
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner1.jpg" alt="">
-
-								</figure>
-								<div class="box-content">
-									<h3 class="title">Rocketman</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<div class="box16 mt-4">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner2.jpg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">Frozen 2</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -269,7 +238,7 @@
 				<div class="w3l-populohny-grids">
 					<c:forEach items="${listLatest}" var="movie">
 						<div class="item vhny-grid">
-							<div class="box16 mb-0" onclick="location.href='details';">
+							<div class="box16 mb-0" onclick="location.href='details?name=${movie.name}';">
 								<figure>
 									<img class="img-fluid" src="assets/images/${movie.image}"
 										alt="">

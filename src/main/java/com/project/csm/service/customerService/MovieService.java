@@ -1,6 +1,8 @@
 package com.project.csm.service.customerService;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,21 @@ public class MovieService {
 			listReturn.add(listMovie.get(i));
 		}
 		return listReturn;
+	}
+
+	public Movie getMovieByID(String name) {
+		List<Movie> listMovie = getAllMovie();
+		for (Movie m : listMovie) {
+			if (m.getName().equals(name)) {
+				return m;
+			}
+		}
+		return null;
+	}
+
+	public String parseDateToString(Date date) {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		String formattedDate = sdf.format(date);
+		return formattedDate;
 	}
 }
