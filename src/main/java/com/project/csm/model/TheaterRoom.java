@@ -27,4 +27,56 @@ public class TheaterRoom {
 	@JoinColumn(name = "TheaterID")
 	private Theater theater;
 
+	public TheaterRoom() {
+		super();
+	}
+
+	public TheaterRoom(Long roomID, String name, int numOfSeat, Theater theater) {
+		super();
+		this.roomID = roomID;
+		this.name = name;
+		this.numOfSeat = numOfSeat;
+		this.theater = theater;
+	}
+
+	public Long getRoomID() {
+		return roomID;
+	}
+
+	public void setRoomID(Long roomID) {
+		this.roomID = roomID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getNumOfSeat() {
+		return numOfSeat;
+	}
+
+	public void setNumOfSeat(int numOfSeat) {
+		this.numOfSeat = numOfSeat;
+	}
+
+	public Theater getTheater() {
+		return theater;
+	}
+
+	public void setTheater(Theater theater) {
+		this.theater = theater;
+	}
+
+	@Override
+	public String toString() {
+		return "TheaterRoom [roomID=" + roomID + ", name=" + name + ", numOfSeat=" + numOfSeat + ", theater=" + theater
+				+ "]";
+	}
+	
+	
+	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +28,8 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="admin_assets/assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- End layout styles -->
 <link rel="shortcut icon" href="admin_assets/assets/images/favicon.png" />
 </head>
@@ -37,9 +40,9 @@
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-				<a class="sidebar-brand brand-logo" href="adminDashboard"><img
+				<a class="sidebar-brand brand-logo" href="adminDashboard.html"><img
 					src="admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
-					class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					class="sidebar-brand brand-logo-mini" href="adminDashboard.html"><img
 					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
@@ -52,7 +55,8 @@
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Admin</h5>
+								<h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+								<span>Gold Member</span>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -83,8 +87,6 @@
 										Password</p>
 								</div>
 							</a>
-							<div class="dropdown-divider"></div>
-						</div>
 					</div>
 				</li>
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
@@ -96,8 +98,8 @@
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="revenue"> <span class="menu-icon"> <i
-							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Revenue Management</span>
+							class="mdi mdi-cash-usd"></i>
+					</span> <span class="menu-title">Revenue Magagement</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="movieDashboard"> <span class="menu-icon"> <i
@@ -105,14 +107,14 @@
 					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="userDashboard"> <span class="menu-icon"> <i
-							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">User Management</span>
+					href="customerDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="employeeDashboard"> <span class="menu-icon"> <i
-							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Employee Management</span>
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/theaterDashboard"> <span class="menu-icon"> <i
@@ -137,7 +139,7 @@
 			<nav class="navbar p-0 fixed-top d-flex flex-row">
 				<div
 					class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-					<a class="navbar-brand brand-logo-mini" href="adminDashboard"><img
+					<a class="navbar-brand brand-logo-mini" href="adminDashboard.html"><img
 						src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 				</div>
 				<div
@@ -155,7 +157,10 @@
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
-						<li class="nav-item dropdown"><a
+						<li class="nav-item nav-settings d-none d-lg-block"><a
+							class="nav-link" href="#"> <i class="mdi mdi-view-grid"></i>
+						</a></li>
+						<li class="nav-item dropdown border-left"><a
 							class="nav-link count-indicator dropdown-toggle"
 							id="messageDropdown" href="#" data-toggle="dropdown"
 							aria-expanded="false"> <i class="mdi mdi-email"></i> <span
@@ -258,7 +263,8 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Henry
+										Klein</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
@@ -289,6 +295,7 @@
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
+								<p class="p-3 mb-0 text-center">Advanced settings</p>
 							</div></li>
 					</ul>
 					<button
@@ -301,283 +308,83 @@
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">
-					<div class="page-header">
-						<h3 class="page-title">Revenue Management</h3>
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Revenue</li>
-							</ol>
-						</nav>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 grid-margin">
+
+					<div class="row ">
+						<div class="col-12 grid-margin">
+							
 							<div class="card">
 								<div class="card-body">
-									<h5>Revenue</h5>
-									<div class="row">
-										<div class="col-8 col-sm-12 col-xl-8 my-auto">
-											<div class="d-flex d-sm-block d-md-flex align-items-center">
-												<h2 class="mb-0">$32123</h2>
-												<p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-											</div>
-											<h6 class="text-muted font-weight-normal">11.38% Since
-												last month</h6>
-										</div>
-										<div
-											class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-											<i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
-										</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<h4 class="card-title">Room Management</h4>
+										<div class="mb-0 icon icon-box-success">
+											<a href="/roomDashboard/create" style="text-decoration: none; color: inherit;" > 
+												<span class="mdi mdi-account-multiple-plus icon-item"></span>
+											</a>
+										</div>	
 									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4 grid-margin">
-							<div class="card">
-								<div class="card-body">
-									<h5>Sales</h5>
-									<div class="row">
-										<div class="col-8 col-sm-12 col-xl-8 my-auto">
-											<div class="d-flex d-sm-block d-md-flex align-items-center">
-												<h2 class="mb-0">$45850</h2>
-												<p class="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
-											</div>
-											<h6 class="text-muted font-weight-normal">9.61% Since
-												last month</h6>
-										</div>
-										<div
-											class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-											<i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4 grid-margin">
-							<div class="card">
-								<div class="card-body">
-									<h5>Purchase</h5>
-									<div class="row">
-										<div class="col-8 col-sm-12 col-xl-8 my-auto">
-											<div class="d-flex d-sm-block d-md-flex align-items-center">
-												<h2 class="mb-0">$2039</h2>
-												<p class="text-danger ml-2 mb-0 font-weight-medium">-2.1%
-												</p>
-											</div>
-											<h6 class="text-muted font-weight-normal">2.27% Since
-												last month</h6>
-										</div>
-										<div
-											class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
-											<i class="icon-lg mdi mdi-monitor text-success ml-auto"></i>
-										</div>
+									<div class="table-responsive">
+										<c:choose>
+											<c:when test="${empty rooms}">
+												<p>Không có dữ liệu nhân viên.</p>
+											</c:when>
+											<c:otherwise>
+												<table class="table">
+													<thead>
+														<tr>
+                                                            <th>ID</th>
+															<th>Name</th>
+															<th>Number of seat</th>
+															<th>Theater</th>
+														</tr>
+													</thead>
+													<tbody>
+														<c:forEach var="rooms" items="${rooms}">
+															<tr>
+																<td>${rooms.roomID}</td>
+																<td>${rooms.name}</td>
+																<td>${rooms.numOfSeat}</td>
+																<td>${rooms.theater.name}</td>
+																<td>
+																	<div class="badge badge-outline-success">
+																		<a href="<c:url value='/roomDashboard/update/${rooms.roomID}'/>" style="text-decoration: none; color: inherit;" >
+																			<i class="mdi mdi-eye"></i>
+																		</a>
+																	</div>
+																	<div class="badge badge-outline-success">
+																		<a  onclick="deleteTheater(${rooms.roomID});" type="submit"  style="text-decoration: none; color: inherit;" >
+																			<i class="mdi mdi-delete"></i>
+																		</a>
+																	</div>																		
+																</td>
+															</tr>
+														</c:forEach>
+													</tbody>
+												</table>
+												
+												
+											</c:otherwise>
+										</c:choose>
+										
+
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-9">
-											<div class="d-flex align-items-center align-self-start">
-												<h3 class="mb-0">$12.34</h3>
-												<p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="icon icon-box-success ">
-												<span class="mdi mdi-arrow-top-right icon-item"></span>
-											</div>
-										</div>
-									</div>
-									<h6 class="text-muted font-weight-normal">Potential growth</h6>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-9">
-											<div class="d-flex align-items-center align-self-start">
-												<h3 class="mb-0">$17.34</h3>
-												<p class="text-success ml-2 mb-0 font-weight-medium">+11%</p>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="icon icon-box-success">
-												<span class="mdi mdi-arrow-top-right icon-item"></span>
-											</div>
-										</div>
-									</div>
-									<h6 class="text-muted font-weight-normal">Revenue current</h6>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-9">
-											<div class="d-flex align-items-center align-self-start">
-												<h3 class="mb-0">$12.34</h3>
-												<p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="icon icon-box-danger">
-												<span class="mdi mdi-arrow-bottom-left icon-item"></span>
-											</div>
-										</div>
-									</div>
-									<h6 class="text-muted font-weight-normal">Daily Income</h6>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-							<div class="card">
-								<div class="card-body">
-									<div class="row">
-										<div class="col-9">
-											<div class="d-flex align-items-center align-self-start">
-												<h3 class="mb-0">$31.53</h3>
-												<p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="icon icon-box-success ">
-												<span class="mdi mdi-arrow-top-right icon-item"></span>
-											</div>
-										</div>
-									</div>
-									<h6 class="text-muted font-weight-normal">Expense current</h6>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 grid-margin stretch-card">
-						<div class="card">
-							<div class="card-body">
-								<div class="d-flex flex-row justify-content-between">
-									<h3 class="card-title mb-1">Theaters</h3>
-									<h4 class="card-title mb-1">Revenue</h4>
-								</div>
-								<div class="row">
-									<div class="col-12">
-										<div class="preview-list">
-											<div class="preview-item border-bottom">
-												<div class="preview-thumbnail">
-													<div class="preview-icon bg-primary">
-														<i class="mdi mdi-file-document"></i>
-													</div>
-												</div>
-												<div class="preview-item-content d-sm-flex flex-grow">
-													<div class="flex-grow">
-														<h6 class="preview-subject">Starlight Đà Nẵng</h6>
-														<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/ Đà
-															Nẵng</p>
-													</div>
-													<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-														<h3 class="preview-subject">123$</h3>
-														<p class="text-muted mb-0">Income September</p>
-													</div>
-												</div>
-											</div>
-											<div class="preview-item border-bottom">
-												<div class="preview-thumbnail">
-													<div class="preview-icon bg-success">
-														<i class="mdi mdi-cloud-download"></i>
-													</div>
-												</div>
-												<div class="preview-item-content d-sm-flex flex-grow">
-													<div class="flex-grow">
-														<h6 class="preview-subject">Starlight Đà Nẵng</h6>
-														<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/ Đà
-															Nẵng</p>
-													</div>
-													<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-														<h3 class="preview-subject">123$</h3>
-														<p class="text-muted mb-0">Income September</p>
-													</div>
-												</div>
-											</div>
-											<div class="preview-item border-bottom">
-												<div class="preview-thumbnail">
-													<div class="preview-icon bg-info">
-														<i class="mdi mdi-clock"></i>
-													</div>
-												</div>
-												<div class="preview-item-content d-sm-flex flex-grow">
-													<div class="flex-grow">
-														<h6 class="preview-subject">Starlight Đà Nẵng</h6>
-														<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/ Đà
-															Nẵng</p>
-													</div>
-													<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-														<h3 class="preview-subject">123$</h3>
-														<p class="text-muted mb-0">Income September</p>
-													</div>
-												</div>
-											</div>
-											<div class="preview-item border-bottom">
-												<div class="preview-thumbnail">
-													<div class="preview-icon bg-danger">
-														<i class="mdi mdi-email-open"></i>
-													</div>
-												</div>
-												<div class="preview-item-content d-sm-flex flex-grow">
-													<div class="flex-grow">
-														<h6 class="preview-subject">Starlight Đà Nẵng</h6>
-														<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/ Đà
-															Nẵng</p>
-													</div>
-													<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-														<h3 class="preview-subject">123$</h3>
-														<p class="text-muted mb-0">Income September</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-6 grid-margin stretch-card">
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Doughnut chart</h4>
-									<canvas id="lineChart" style="height: 250px"></canvas>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6 grid-margin stretch-card">
-							<div class="card">
-								<div class="card-body">
-									<h4 class="card-title">Bar chart</h4>
-									<canvas id="barChart" style="height: 230px"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
+				<!-- content-wrapper ends -->
+				<!-- partial -->
 			</div>
+			<!-- main-panel ends -->
 		</div>
-		<!-- main-panel ends -->
-	</div>
-	<!-- page-body-wrapper ends -->
+		<!-- page-body-wrapper ends -->
 	</div>
 	<!-- container-scroller -->
 	<!-- plugins:js -->
 	<script src="admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
 	<!-- endinject -->
 	<!-- Plugin js for this page -->
-	<script src="admin_assets/assets/vendors/chart.js/Chart.min.js"></script>
 	<!-- End plugin js for this page -->
 	<!-- inject:js -->
 	<script src="admin_assets/assets/js/off-canvas.js"></script>
@@ -587,8 +394,41 @@
 	<script src="admin_assets/assets/js/todolist.js"></script>
 	<!-- endinject -->
 	<!-- Custom js for this page -->
-	<script src="admin_assets/assets/js/chart.js"></script>
 	<!-- End custom js for this page -->
 </body>
-
+<script>
+    function deleteTheater(roomID) {
+        Swal.fire({
+            title:'<span style="color: black;">Xác nhận xóa?</span>',
+            html: 'Bạn có chắc chắn muốn xóa phòng này ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Xóa',
+            cancelButtonText: 'Hủy',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/deleteTheaterRoom',
+                    type: 'POST',
+                    data: {
+                        roomID: roomID 
+                    },
+                    success: function(response) {
+                        if (response === 'Xóa thành công') {
+							Swal.fire({ title:'<span style="color: black;">Xóa thành công</span>',text: 'Dữ liệu đã được xóa thành công!',icon: 'success'});
+                            setTimeout(function() {
+								window.location.href = '/roomDashboard';
+							}, 1000);
+                        } else {
+							Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy rạp',icon: 'error'});
+                        }
+                    },
+                    error: function() {
+						Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy rạp',icon: 'error'});
+                    }
+                });
+            }
+        });
+    }
+</script>
 </html>
