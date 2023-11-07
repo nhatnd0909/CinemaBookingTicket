@@ -60,11 +60,22 @@ public class Movie {
 	public Movie() {
 	}
 
-	public Movie(Long movieID, String name, String actor, String director, int duration, String language,
-			String description, String image, Date startDate, Date endDate, String urlTrailer, Genre genre,
-			Admin admin) {
-		super();
-		this.movieID = movieID;
+	public Movie(String name, String actor, String director, int duration, String language, String description,
+			String image, Date startDate, Date endDate, String urlTrailer) {
+		this.name = name;
+		this.actor = actor;
+		this.director = director;
+		this.duration = duration;
+		this.language = language;
+		this.description = description;
+		this.image = image;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.urlTrailer = urlTrailer;
+	}
+
+	public Movie(String name, String actor, String director, int duration, String language, String description,
+			String image, Date startDate, Date endDate, String urlTrailer, Genre genre, Admin admin) {
 		this.name = name;
 		this.actor = actor;
 		this.director = director;
@@ -190,5 +201,5 @@ public class Movie {
 				+ image + ", startDate=" + startDate + ", endDate=" + endDate + ", urlTrailer=" + urlTrailer
 				+ ", genre=" + genre + ", admin=" + admin + "]";
 	}
-	
+
 }

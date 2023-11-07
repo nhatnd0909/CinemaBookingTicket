@@ -16,3 +16,19 @@
   object-fit: cover; /* Đảm bảo hình ảnh vừa với khu vực hình tròn */
   border-radius: 50%;
 }
+
+   .password-container {
+    position: relative;
+}
+
+.password-container input {
+    padding-right: 30px; /* Khoảng cách bên phải để chứa biểu tượng mắt */
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px; /* Điều chỉnh khoảng cách bên phải của biểu tượng */
+    top: 50%;
+    transform: translateY(5%);
+    cursor: pointer;
+}
