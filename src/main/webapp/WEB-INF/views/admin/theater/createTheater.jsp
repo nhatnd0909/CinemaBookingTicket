@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html >
 <head>
@@ -9,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Update Employe</title>
+<title>New Rank</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -29,6 +28,7 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
@@ -114,6 +114,11 @@
 					href="/employeeDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employe Management</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/theaterDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Theater Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
@@ -306,54 +311,27 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Update Employee</h4>
-                                    <p class="mb-0"><a href="/employeeDashboard" style="text-decoration: none; color: inherit;"> Employee</a> / <span>Update</span></p>
+                                    <h4 class="card-title">Add New Theater</h4>
+                                    <p class="mb-0"><a href="/theaterDashboard" style="text-decoration: none; color: inherit;"> Theater</a> / <span>Add New</span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="/employeeDashboard/update/${employee.employeeID}">
+								<form class="forms-sample" method="post" action="/theaterDashboard/create">
 									<div class="form-group">
-										<label for="exampleInputName1">User Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName"  th:field="${employee.account.userName}" value="${employee.account.userName}">
-									</div>
-									<div class="form-group">
-										<label for="exampleInputEmail3">Email</label> 
-                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email"  value="${employee.account.email}">
-									</div>
-									<div class="form-group">
-										<label for="exampleInputPassword4">Password</label> 
-                                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password"  value="${employee.account.password}">
-									</div>
+										<label for="nameInput">Name</label> 
+                                        <input type="text" class="form-control" id="nameInput" placeholder="Theater Name" name="name" required="required">
+									</div>  
                                     <div class="form-group">
-										<label for="exampleInputName1">Role</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Role" name="role"  value="${employee.account.role}">
-									</div>
-                                    <div class="form-group">
-										<label for="exampleInputName1">Full Name</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="name"  value="${employee.name}">
-									</div>
-                                    <div class="form-group">
-										<label for="exampleInputName1">Addres</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Address" name="address"  value="${employee.address}">
+										<label for="addressInput">Address</label> 
+                                        <input type="text" class="form-control" id="addressInput" placeholder="Theater's Address" name="address" required="required">
 									</div>
 									<div class="form-group">
-										<label for="dateOfBirth">Date of Birth</label>
-										<c:if test="${not empty employee.dateOfBirth}">
-											<input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" value="<fmt:formatDate value="${employee.dateOfBirth}" pattern="yyyy-MM-dd" />">
-										</c:if>
-									</div>																  
-                                    <div class="form-group">
-										<label for="exampleInputName1">Phone Number</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber"  value="${employee.phoneNumber}">
+										<label for="numCinemaRoomInput">Number of room</label> 
+                                        <input type="text" class="form-control" id="numCinemaRoomInput" placeholder="Number of room" name="numCinemaRoom" required="required">
 									</div>
-									<div class="form-group">
-										<label for="allTheaters">Select a Different Theater</label>
-										<select class="form-control" id="allTheaters" name="theaterId">
-											<option value="">Select Theater</option>
-											<c:forEach items="${theaters}" var="theater">
-												<option value="${theater.theaterID}">${theater.name}</option>
-											</c:forEach>
-										</select>
-									</div>																	   
-									<button type="submit" class="btn btn-primary mr-2">Update</button>
+									<!-- <div class="form-group">
+										<label for="adminInput">Admin</label> 
+                                        <input type="text" class="form-control" id="adminInput" placeholder="admin" name="admin" required="required">
+									</div> -->
+									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>
 							</div>

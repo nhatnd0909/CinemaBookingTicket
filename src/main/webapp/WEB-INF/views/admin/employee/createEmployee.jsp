@@ -116,6 +116,11 @@
 					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
+					href="/theaterDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Theater Management</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
 					</span> <span class="menu-title">Rank</span>
@@ -322,7 +327,7 @@
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleInputPassword4">Password</label> 
+										<label for="exampleInputPassword4">Password</label> x
                                         <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password" required="required">
 									</div>
                                     <div class="form-group">

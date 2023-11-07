@@ -54,7 +54,7 @@ public class AdminEmployeeController {
 
 	@GetMapping("/employeeDashboard/create")
 	public String createEmployeeAdmin(Model model) {
-		List<Theater> theaters = theaterService.gettAllTheaters();
+		List<Theater> theaters = theaterService.getAllTheaters();
 		model.addAttribute("theaters", theaters);
 		model.addAttribute("Emailmess", "");
 		model.addAttribute("email", "");
@@ -78,7 +78,7 @@ public class AdminEmployeeController {
 			model.addAttribute("email", email);
 			model.addAttribute("userName", userName);
 			model.addAttribute("phoneNumber", phoneNumber);
-			List<Theater> theaters = theaterService.gettAllTheaters();
+			List<Theater> theaters = theaterService.getAllTheaters();
 			model.addAttribute("theaters", theaters);
 			return "admin/employee/createEmployee";
 		} else {
@@ -94,7 +94,7 @@ public class AdminEmployeeController {
 	@GetMapping("/employeeDashboard/update/{employeeId}")
 	public String updateAccountEmployeee(@PathVariable Long employeeId, Model model) {
 		Employee employee = employeeService.getEmployeeById(employeeId);
-		List<Theater> theaters = theaterService.gettAllTheaters();
+		List<Theater> theaters = theaterService.getAllTheaters();
 		model.addAttribute("theaters", theaters);
 		model.addAttribute("employee", employee);
 		System.out.println(employee);
