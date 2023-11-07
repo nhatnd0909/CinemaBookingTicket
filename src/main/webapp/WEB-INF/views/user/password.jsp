@@ -153,12 +153,10 @@
 									<div class="card-body">
 										<div class="d-flex flex-column align-items-center text-center">
 											<div class="avatar-upload">
-												<div class="avatar-edit">
-													<!-- <input type='file' id="imageUpload"
-														accept=".png, .jpg, .jpeg" /> <label for="imageUpload"></label> -->
-												</div>
 												<div class="avatar-preview">
-													<img id="imagePreview" src="assets/images/avatar.png" alt="Avatar Preview">
+													<img id="imagePreview"
+														src="assets/images/${customer.getUrlImage()}"
+														alt="Avatar Preview">
 												</div>
 											</div>
 											<div class="mt-3">
