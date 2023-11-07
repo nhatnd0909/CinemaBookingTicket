@@ -267,24 +267,70 @@
 														value="${customer.getPhoneNumber()}">
 												</div>
 											</div>
+
+
+
+
+
+
+
+
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Tỉnh thành</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<select id="city" class="form-control">
+														<option value="" selected>Chọn tỉnh thành</option>
+													</select>
+												</div>
+											</div>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Quận huyện</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<select id="district" class="form-control">
+														<option value="" selected>Chọn quận huyện</option>
+													</select>
+												</div>
+											</div>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Phường xã</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<select id="ward" class="form-control">
+														<option value="" selected>Chọn phường xã</option>
+													</select>
+												</div>
+											</div>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Địa chỉ</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="address" class="form-control" type="text">
+												</div>
+											</div>
+											<input name="address2" id="result2" type="text"
+												class="form-control" hidden="">
+												
 											<div class="row mb-4">
 												<div class="col-sm-3">
 													<h6 class="mb-0">Address</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input name="address" type="text" class="form-control"
-														value="${customer.getAddress()}">
-												</div>
-											</div>
-											<div class="row mb-4">
-												<div class="col-sm-3">
-													<h6 class="mb-0">Create Date</h6>
-												</div>
-												<div class="col-sm-9 text-secondary">
 													<input type="text" class="form-control"
-														value="${customer.getCreateDate()}" readonly="readonly">
+														value="${customer.getAddress()}" readonly="readonly">
 												</div>
 											</div>
+
+
+
+
+
+
 											<div class="row mb-4">
 												<div class="col-sm-3">
 													<h6 class="mb-0">Number of purchases</h6>
@@ -668,5 +714,11 @@
 		}
 	</script>
 
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		referrerpolicy="no-referrer"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script src="assets/js/province.js"></script>
 </body>
 </html>
