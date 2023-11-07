@@ -28,6 +28,7 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
+<link rel="stylesheet" href="/admin_assets/assets/css/employeeService.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
@@ -310,17 +311,20 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                                 <p class="mb-0"><a href="/adminDashboard" style="text-decoration: none; color: inherit;"> Dashboard</a> / <span>Change Password</span></p>
                             </div>
                             <form class="forms-sample" method="post" action="">
-                                <div class="form-group">
+                                <div class="form-group password-container">
                                     <label for="exampleInputName1">Password</label> 
                                     <input type="password" class="form-control" id="exampleInputName1" placeholder="Password" name="type" required="required" value="">
+                                    <i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
                                 </div>  
-                                <div class="form-group">
+                                <div class="form-group password-container">
                                     <label for="exampleInputName1">New Password</label> 
                                     <input type="password" class="form-control" id="exampleInputName1" placeholder="New Password" name="type" required="required" value="">
+                                    <i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
                                 </div>  
-                                <div class="form-group">
+                                <div class="form-group password-container">
                                     <label for="exampleInputName1">Confirm New Password</label> 
                                     <input type="password" class="form-control" id="exampleInputName1"  placeholder="Confirm New Password" name="type" required="required" value="">
+                                    <i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
                                 </div>                                                       
                                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                 <button class="btn btn-dark">Cancel</button>
@@ -350,6 +354,20 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
 <script src="/admin_assets/assets/js/misc.js"></script>
 <script src="/admin_assets/assets/js/settings.js"></script>
 <script src="/admin_assets/assets/js/todolist.js"></script>
+<script>
+    function togglePassword(icon) {
+        var passwordInput = icon.previousElementSibling;
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.remove("mdi-eye");
+            icon.classList.add("mdi-eye-off");
+        } else {
+            passwordInput.type = "password";
+            icon.classList.remove("mdi-eye-off");
+            icon.classList.add("mdi-eye");
+        }
+    }
+</script>
 <!-- endinject -->
 <!-- Custom js for this page -->
 <!-- End custom js for this page -->

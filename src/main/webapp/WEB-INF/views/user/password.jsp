@@ -223,20 +223,25 @@
 													<h6 class="mb-0">Old Password</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input name="oldPass" type="password" class="form-control"
-														value="" required="required">
-												</div>
+													<div class="password-container">
+														<input name="oldPass" type="password" class="form-control" value="" required="required">
+														<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+													</div>
+												</div>												
 											</div>
 											<div class="row mb-5">
 												<div class="col-sm-3">
 													<h6 class="mb-0">New Password</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input name="newPass" type="password" class="form-control"
+													<div class="password-container">
+														<input name="newPass" type="password" class="form-control"
 														value=""
 														pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
 														title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
 														required="required">
+													<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+													</div>
 												</div>
 											</div>
 											<div class="row mb-5">
@@ -244,11 +249,14 @@
 													<h6 class="mb-0">Confim New Password</h6>
 												</div>
 												<div class="col-sm-9 text-secondary">
-													<input name="confirmNewPass" type="password"
+													<div class="password-container">
+														<input name="confirmNewPass" type="password"
 														class="form-control" value=""
 														pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
 														title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
 														required="required">
+														<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+													</div>
 												</div>
 											</div>
 											<div class="row">
@@ -613,6 +621,21 @@
 		$("#imageUpload").change(function() {
 			readURL(this);
 		});
+	</script>
+	<script>
+		function togglePassword(icon) {
+			var passwordInput = icon.previousElementSibling;
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+				icon.classList.remove("fa-eye");
+				icon.classList.add("fa-eye-slash");
+			} else {
+				passwordInput.type = "password";
+				icon.classList.remove("fa-eye-slash");
+				icon.classList.add("fa-eye");
+			}
+		}
+
 	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>
