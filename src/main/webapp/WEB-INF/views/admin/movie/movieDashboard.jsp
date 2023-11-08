@@ -34,7 +34,16 @@
 <link rel="shortcut icon"
 	href="../admin_assets/assets/images/favicon.png" />
 </head>
-
+<style>
+.create-movie-button-position{
+	position:relative;
+}
+.create-movie-button {
+	position: absolute;
+	width: 40%;
+	right: 0px;
+}
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
@@ -110,18 +119,18 @@
 					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="<c:url value='/customerDashboard' />"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
+					href="<c:url value='/customerDashboard' />"> <span
+						class="menu-icon"> <i class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="<c:url value='/employeeDashboard' />"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
+					href="<c:url value='/employeeDashboard' />"> <span
+						class="menu-icon"> <i class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employee Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="<c:url value='/rankDashboard' />"> <span class="menu-icon"> <i
-							class="mdi mdi-seal"></i>
+					href="<c:url value='/rankDashboard' />"> <span
+						class="menu-icon"> <i class="mdi mdi-seal"></i>
 					</span> <span class="menu-title">Rank</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
@@ -315,9 +324,22 @@
 						<div class="col-12 grid-margin">
 							<div class="card">
 								<div class="card-body">
-									<a class="h3" href="<c:url value='/admin/movies/new' />">Add
-										New Movie</a>
-									<h4 class="card-title">Ongoing Movie</h4>
+									<div class="row">
+										<div class="col">
+											<h4 class="card-title">Movie Table</h4>
+										</div>
+										<div class="col">
+											<div class="create-movie-button-position">
+												<div class="create-movie-button">
+													<a
+														class="nav-link btn btn-success create-new-button mdi mdi-movie"
+														id="createbuttonDropdown" data-bs-toggle="dropdown"
+														aria-expanded="false"
+														href="<c:url value='/admin/movies/new' />">New Movie</a>
+												</div>
+											</div>
+										</div>
+									</div>
 									<div class="table-responsive">
 										<table class="table">
 											<thead>
@@ -358,9 +380,9 @@
 															</c:choose></td>
 														<!-- Repeat for other columns -->
 														<td><a class="h4 mr-3"
-															href="<c:url value='/admin/movies/edit/${movie.movieID}' />">Edit</a>
+															href="<c:url value='/admin/movies/edit/${movie.movieID}' />"><i class="mdi mdi-tooltip-edit" style="font-size:24px"></i></a>
 															<a class="h4"
-															href="<c:url value='/admin/movies/delete/${movie.movieID}' />">Delete</a>
+															href="<c:url value='/admin/movies/delete/${movie.movieID}' />"><i class="mdi mdi-delete" style="font-size:24px"></i></a>
 														</td>
 													</tr>
 												</c:forEach>
