@@ -92,17 +92,17 @@
 					required="required" />
 					<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
 				</div>
-				<button>Sign Up</button>
+				<button>Đăng Kí</button>
+
 			</form>
 		</div>
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-left">
-					<h1>Welcome Back!</h1>
-					<p>To keep connected with us please login with your login
-						details</p>
+					<h1>Chào Mừng Trở Lại!</h1>
+					<p>Để duy trì kết nối với chúng tôi, vui lòng đăng nhập với thông tin đăng nhập của bạn</p>
 					<button class="ghost" id="signIn">
-						<a href="/signin">Sign In</a>
+						<a href="/signin">Đăng Nhập</a>
 					</button>
 				</div>
 			</div>

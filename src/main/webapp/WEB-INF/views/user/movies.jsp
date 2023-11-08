@@ -42,19 +42,19 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a>
+						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
 						</li>
-						<li class="nav-item active"><a class="nav-link" href="movies">Movies</a></li>
-						<li class="nav-item"><a class="nav-link" href="about">About</a>
+						<li class="nav-item active"><a class="nav-link" href="movies">Phim</a></li>
+						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
 					<!--/search-right-->
 					<div class="search-right">
 						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Search <span class="fa fa-search ml-3"
+							title="search">Tìm <span class="fa fa-search ml-3"
 							aria-hidden="true"></span></a>
 						<!-- search popup -->
 						<div id="search" class="pop-overlay">
@@ -137,8 +137,8 @@
 	<div class="w3l-breadcrumbs">
 		<nav id="breadcrumbs" class="breadcrumbs">
 			<div class="container page-wrapper">
-				<a href="home">Home</a> » <span class="breadcrumb_last"
-					aria-current="page">movies</span>
+				<a href="home">Trang Chủ</a> » <span class="breadcrumb_last"
+					aria-current="page">Phim</span>
 			</div>
 		</nav>
 	</div>
@@ -148,7 +148,7 @@
 		<div class="grids-main py-4">
 			<div class="container py-lg-4">
 				<div class="headerhny-title">
-					<h3 class="hny-title">Popular Movies</h3>
+					<h3 class="hny-title">Phổ Biến</h3>
 				</div>
 				<div class="owl-four owl-carousel owl-theme">
 					<div class="item vhny-grid">
@@ -226,11 +226,11 @@
 				<div class="headerhny-title">
 					<div class="w3l-title-grids">
 						<div class="headerhny-left">
-							<h3 class="hny-title">Latest Movies</h3>
+							<h3 class="hny-title">Gần Đây</h3>
 						</div>
 						<div class="headerhny-right text-lg-right">
 							<h4>
-								<a class="show-title" href="movies">Show all</a>
+								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
 							</h4>
 						</div>
 					</div>
@@ -260,11 +260,11 @@
 				<!-- ***********************************Adults Section ************************************** -->
 				<div class="w3l-title-grids">
 					<div class="headerhny-left">
-						<h3 class="hny-title">Adults</h3>
+						<h3 class="hny-title">Người Lớn</h3>
 					</div>
 					<div class="headerhny-right text-lg-right">
 						<h4>
-							<a class="show-title" href="movies">Show all</a>
+							<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
 						</h4>
 					</div>
 				</div>
@@ -276,7 +276,7 @@
 							</figure>
 							<a href=".Rocketman" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Rocketman</h3>
+									<h3 class="title">Người Hỏa Tiễn</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 2 Hr 1min </span> <span class="post fa fa-heart text-right"></span>
@@ -293,7 +293,7 @@
 							</figure>
 							<a href=".Doctorsleep" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Doctor Sleep</h3>
+									<h3 class="title">Kí Ức Kinh Hoàng</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 2 Hr 32min </span> <span class="post fa fa-heart text-right"></span>
@@ -309,7 +309,7 @@
 							</figure>
 							<a href=".kabir" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Kabir Singh</h3>
+									<h3 class="title">Tình Yêu Của Đời Mình</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 2 Hr 52min </span> <span class="post fa fa-heart text-right"></span>
@@ -325,7 +325,7 @@
 							</figure>
 							<a href=".Joker" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Joker</h3>
+									<h3 class="title">Gã Hề</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 2 Hr 2min </span> <span class="post fa fa-heart text-right"></span>
@@ -338,11 +338,11 @@
 				<!-- ***********************************kids Section ************************************** -->
 				<div class="w3l-title-grids">
 					<div class="headerhny-left">
-						<h3 class="hny-title">Kids</h3>
+						<h3 class="hny-title">Trẻ Em</h3>
 					</div>
 					<div class="headerhny-right text-lg-right">
 						<h4>
-							<a class="show-title" href="movies">Show all</a>
+							<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
 						</h4>
 					</div>
 				</div>
@@ -354,7 +354,7 @@
 							</figure>
 							<a href=".tzp" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Taare Zameen Par</h3>
+									<h3 class="title">Cậu Bé Đặc Biệt</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 2 Hr 44min </span> <span class="post fa fa-heart text-right"></span>
@@ -370,7 +370,7 @@
 							</figure>
 							<a href=".Chillarparty" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Chillar Party</h3>
+									<h3 class="title">Bữa Tiệc Dành Cho Trẻ Em</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 1 Hr 59min </span> <span class="post fa fa-heart text-right"></span>
@@ -386,7 +386,7 @@
 							</figure>
 							<a href=".ganesha" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Ganesha</h3>
+									<h3 class="title">Truyền Thuyết Về Bal Ganesha</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 3 Hr 10min </span> <span class="post fa fa-heart text-right"></span>
@@ -402,7 +402,7 @@
 							</figure>
 							<a href=".Toystory" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Toy Story 4</h3>
+									<h3 class="title">Câu Chuyện Đồ Chơi 4</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 1 Hr 59min </span> <span class="post fa fa-heart text-right"></span>
@@ -416,11 +416,11 @@
 				<!-- ***********************************Gujarati Section ************************************** -->
 				<div class="w3l-title-grids">
 					<div class="headerhny-left">
-						<h3 class="hny-title">Gujarati</h3>
+						<h3 class="hny-title">Ấn Độ</h3>
 					</div>
 					<div class="headerhny-right text-lg-right">
 						<h4>
-							<a class="show-title" href="movies">Show all</a>
+							<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
 						</h4>
 					</div>
 				</div>
@@ -448,7 +448,7 @@
 							</figure>
 							<a href=".gujjubhai" data-toggle="modal">
 								<div class="box-content">
-									<h3 class="title">Gujjubhai : The Great</h3>
+									<h3 class="title">Gujjubhai : Sự Vĩ Đại</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
 										</span> 2 Hr 25min </span> <span class="post fa fa-heart text-right"></span>
@@ -494,7 +494,7 @@
 
 			</div>
 			<div class="button-center text-center mt-3">
-				<a href="#" class="btn view-button">View all <span
+				<a href="#" class="btn view-button">Xem Tất Cả<span
 					class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
 			</div>
 		</div>
@@ -507,9 +507,9 @@
 					<!--Horizontal Tab-->
 					<div id="parentHorizontalTab">
 						<ul class="resp-tabs-list hor_1">
-							<li>Recent Movies</li>
-							<li>Popular Movies</li>
-							<li>Trend Movies</li>
+							<li>Phim Gần Đây</li>
+							<li>Phim Nổi Tiếng</li>
+							<li>Phim Xu Hướng</li>
 							<div class="clear"></div>
 						</ul>
 						<div class="resp-tabs-container hor_1">
@@ -1005,40 +1005,34 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">Movies</a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">English Movies</a></li>
-										<li><a href="#">Tailor</a></li>
-										<li><a href="#">Upcoming Movies</a></li>
-										<li><a href="contact">Contact Us</a></li>
+										<li><a href="#">Phim Xu Hướng</a></li>
+										<li><a href="#">Phim Nổi Tiếng </a></li>
+										<li><a href="#">Phim Sắp Chiếu</a></li>
+										
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Thông Tin Chung</h6>
 									<ul>
-										<li><a href="home">Home</a></li>
-										<li><a href="about">About</a></li>
-										<li><a href="#">Tv Series</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="signin">Login</a></li>
-										<li><a href="contact">Contact</a></li>
+										<li><a href="home">Trang Chủ</a></li>
+										<li><a href="about">Thông Tin</a></li>
+										<li><a href="signin">Đăng Nhập</a></li>
+										<li><a href="contact">Liên Hệ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Asia</a></li>
-										<li><a href="movies">France</a></li>
-										<li><a href="movies">Taiwan</a></li>
-										<li><a href="movies">United States</a></li>
-										<li><a href="movies">Korea</a></li>
-										<li><a href="movies">United Kingdom</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">...</a></li>
+										<li><a href="movies">...</a></li>
+										<li><a href="movies">...</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Newsletter</h6>
+									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
 											placeholder="Your Email Address" required="">
@@ -1046,8 +1040,7 @@
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Enter your email and receive the latest news, updates
-										and special offers from us.</p>
+									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới nhất và ưu đãi đặc biệt từ chúng tôi.</p>
 								</div>
 							</div>
 						</div>
@@ -1059,7 +1052,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2021 MyShowz. All rights reserved</p>
+							<p>&copy; 2023 MyShowz. All rights reserved</p>
 						</div>
 
 						<ul class="social text-lg-right">

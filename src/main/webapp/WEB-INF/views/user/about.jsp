@@ -46,14 +46,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a>
+						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="movies">movies</a>
+						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
 
-						<li class="nav-item active"><a class="nav-link" href="about">About</a></li>
+						<li class="nav-item active"><a class="nav-link" href="about">Thông Tin</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -102,8 +102,8 @@
 	<div class="w3l-breadcrumbs">
 		<nav id="breadcrumbs" class="breadcrumbs">
 			<div class="container page-wrapper">
-				<a href="home">Home</a> » <span class="breadcrumb_last"
-					aria-current="page">About</span>
+				<a href="home">Trang Chủ</a> » <span class="breadcrumb_last"
+					aria-current="page">Thông Tin</span>
 			</div>
 		</nav>
 	</div>
@@ -113,18 +113,13 @@
 		<div class="container py-lg-4">
 			<div class="row ab-grids-sec align-items-center">
 				<div class="col-lg-6 ab-right">
-					<img class="img-fluid" src="assets/images/banner1.jpg">
+					<img class="img-fluid" src="assets/images/rap.jpg">
 				</div>
 				<div class="col-lg-6 ab-left pl-lg-4 mt-lg-0 mt-5">
 					<h3 class="hny-title">My Showz Entertainment</h3>
-					<p class="mt-3">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Quam id quisquam ipsam molestiae ad eius
-						accusantium? Nulla dolorem perferendis inventore! posuere cubilia
-						Curae; Nunc non risus in justo convallis feugiat.</p>
-					<div class="ready-more mt-4">
-						<a href="#" class="btn read-button">Read More <span
-							class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
-					</div>
+					<p class="mt-3">- Nơi Kết Nối Niềm Đam Mê và Sáng Tạo! Chúng tôi là một công ty giải trí phim với sứ mệnh mang đến cho khán giả những trải nghiệm giải trí không giới hạn. 
+					Với đội ngũ 7 thành viên tài năng và đam mê về phim ảnh, nghệ thuật và việc tạo ra những câu chuyện đáng nhớ luôn nằm trong trái tim mọi dự án.</p>
+					
 				</div>
 			</div>
 
@@ -133,7 +128,7 @@
 					<div class="counter_grid">
 						<div class="icon_info">
 							<p class="counter">65</p>
-							<h4>Movies</h4>
+							<h4>Phim</h4>
 
 						</div>
 					</div>
@@ -151,7 +146,7 @@
 					<div class="counter_grid">
 						<div class="icon_info">
 							<p class="counter">463</p>
-							<h4>Staff Members</h4>
+							<h4>Đội Ngũ Nhân Viên</h4>
 
 						</div>
 					</div>
@@ -178,35 +173,35 @@
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<div class="imgBx">
-					<img src="assets/images/kishan.PNG"
+					<img src="assets/images/check1.jpg"
 						style="width: 100%; height: 100%">
 				</div>
 				<div class="details">
 					<h3 id="details-h3-1">
-						Kishan Patel<br>
+						Nguyễn Duyên<br>
 					</h3>
 					<div class="p-sm">
-						<a href="https://www.linkedin.com/in/kishan-patel-a95827176/"><i
-							class="fa fa-linkedin"></i></a> <a
-							href="https://www.instagram.com/kishann_20/"><i
+						<a href=""><i
+							class="fa fa-facebook"></i></a> <a
+							href="https://www.instagram.com/ng.dye/"><i
 							class="fa fa-instagram"></i></a> <a
-							href="https://github.com/Kishan207p"><i class="fa fa-github"></i></a>
+							href="https://github.com/Dyn2012"><i class="fa fa-github"></i></a>
 					</div>
 				</div>
 			</div>
 			<div class="swiper-slide">
 				<div class="imgBx">
-					<img src="assets/images/sharvil.jpg"
+					<img src="assets/images/phuong.jpg"
 						style="width: 100%; height: 100%">
 				</div>
 				<div class="details">
 					<h3 id="details-h3-2">
-						Sharvil Patel<br>
+						Mai Phương<br>
 					</h3>
 					<div class="p-sm">
-						<a href="https://www.linkedin.com/in/sharvil-patel/"><i
-							class="fa fa-linkedin"></i></a> <a
-							href="https://www.instagram.com/sharvil551/"><i
+						<a href="https://www.facebook.com/maiphuong.le.3781995"><i
+							class="fa fa-facebook"></i></a> <a
+							href="https://www.instagram.com/lephuong_liuliu/"><i
 							class="fa fa-instagram"></i></a> <a
 							href="https://github.com/Sharvil24600"><i
 							class="fa fa-github"></i></a>
@@ -215,17 +210,17 @@
 			</div>
 			<div class="swiper-slide">
 				<div class="imgBx">
-					<img src="assets/images/Harsh (2).jpg"
+					<img src="assets/images/hieu.jpg"
 						style="width: 100%; height: 100%">
 				</div>
 				<div class="details">
 					<h3 id="details-h3-3">
-						Harsh Mange<br>
+						Nguyễn Hiếu<br>
 					</h3>
 					<div class="p-sm">
-						<a href="https://in.linkedin.com/in/harshmange"><i
-							class="fa fa-linkedin"></i></a> <a
-							href="https://www.instagram.com/im.h_r_s_h/"><i
+						<a href="https://www.facebook.com/NTH.1.07"><i
+							class="fa fa-facebook"></i></a> <a
+							href="..."><i
 							class="fa fa-instagram"></i></a> <a
 							href="https://github.com/harshmange44"><i
 							class="fa fa-github"></i></a>
@@ -234,158 +229,86 @@
 			</div>
 			<div class="swiper-slide">
 				<div class="imgBx">
-					<img src="assets/images/chavda.PNG"
+					<img src="assets/images/toan.jpg"
 						style="width: 100%; height: 100%">
 				</div>
 				<div class="details">
 					<h3 id="details-h3-4">
-						Yugam Chavda<br>
+						Đình Toàn<br>
 					</h3>
 					<div class="p-sm">
-						<a href="https://www.linkedin.com/in/yugamsinh-chavda-2b06ab18b/"><i
-							class="fa fa-linkedin"></i></a> <a
-							href="https://www.instagram.com/yugamsinh_chavda/"><i
+						<a href="https://www.facebook.com/toan30032003"><i
+							class="fa fa-facebook"></i></a> <a
+							href="..."><i
 							class="fa fa-instagram"></i></a> <a
 							href="https://github.com/YugamsinhChavda"><i
 							class="fa fa-github"></i></a>
 					</div>
 				</div>
 			</div>
-
+			<div class="swiper-slide">
+				<div class="imgBx">
+					<img src="assets/images/nhat.jpg"
+						style="width: 100%; height: 100%">
+				</div>
+				<div class="details">
+					<h3 id="details-h3-4">
+						Đình Nhật<br>
+					</h3>
+					<div class="p-sm">
+						<a href="https://www.facebook.com/nhatnd99"><i
+							class="fa fa-facebook"></i></a> <a
+							href="..."><i
+							class="fa fa-instagram"></i></a> <a
+							href="https://github.com/YugamsinhChavda"><i
+							class="fa fa-github"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="imgBx">
+					<img src="assets/images/thien.jpg"
+						style="width: 100%; height: 100%">
+				</div>
+				<div class="details">
+					<h3 id="details-h3-4">
+						Phạm Thiện<br>
+					</h3>
+					<div class="p-sm">
+						<a href="https://www.facebook.com/profile.php?id=100007678456458"><i
+							class="fa fa-facebook"></i></a> <a
+							href="..."><i
+							class="fa fa-instagram"></i></a> <a
+							href="https://github.com/YugamsinhChavda"><i
+							class="fa fa-github"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="imgBx">
+					<img src="assets/images/quang.png"
+						style="width: 100%; height: 100%">
+				</div>
+				<div class="details">
+					<h3 id="details-h3-4">
+						Xuân Quang<br>
+					</h3>
+					<div class="p-sm">
+						<a href="https://www.facebook.com/profile.php?id=100046837189100"><i
+							class="fa fa-facebook"></i></a> <a
+							href="https://www.instagram.com/yugamsinh_chavda/"><i
+							class="fa fa-instagram"></i></a> <a
+							href="https://github.com/YugamsinhChavda"><i
+							class="fa fa-github"></i></a>
+					</div>
+				</div>
+				
+			</div>
 		</div>
 		<!-- Add Pagination -->
 		<div class="swiper-pagination"></div>
 	</div>
-	<section class="w3l-clients" id="clients">
-		<!-- /grids -->
-		<!-- <div class="cusrtomer-layout py-5"> -->
-		<div class="container py-lg-4">
-			<!-- <div class="headerhny-title">
-				<h3 class="hny-title">Our Testimonials</h3>
-			</div> -->
-			<!-- /grids -->
-			<div class="testimonial-width">
-				<div class="owl-clients owl-carousel owl-theme mb-lg-5">
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-								<blockquote>
-									<q>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Velit beatae laudantium voluptate rem ullam dolore!.</q>
-								</blockquote>
-								<div class="testi-des">
-									<div class="test-img">
-										<img src="assets/images/team1.jpg" class="img-fluid" alt="/">
-									</div>
-									<div class="peopl align-self">
-										<h3>Johnson smith</h3>
-										<p class="indentity">Washington</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-								<blockquote>
-									<q>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Velit beatae laudantium voluptate rem ullam dolore!.</q>
-								</blockquote>
-								<div class="testi-des">
-									<div class="test-img">
-										<img src="assets/images/team2.jpg" class="img-fluid" alt="/">
-									</div>
-									<div class="peopl align-self">
-										<h3>Alexander leo</h3>
-										<p class="indentity">Washington</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-								<blockquote>
-									<q>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Velit beatae laudantium voluptate rem ullam dolore!.</q>
-								</blockquote>
-								<div class="testi-des">
-									<div class="test-img">
-										<img src="assets/images/team3.jpg" class="img-fluid" alt="/">
-									</div>
-									<div class="peopl align-self">
-										<h3>Roy Linderson</h3>
-										<p class="indentity">Washington</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-								<blockquote>
-									<q>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Velit beatae laudantium voluptate rem ullam dolore!.</q>
-								</blockquote>
-								<div class="testi-des">
-									<div class="test-img">
-										<img src="assets/images/team4.jpg" class="img-fluid" alt="/">
-									</div>
-									<div class="peopl align-self">
-										<h3>Mike Thyson</h3>
-										<p class="indentity">Washington</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-								<blockquote>
-									<q>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Velit beatae laudantium voluptate rem ullam dolore!.</q>
-								</blockquote>
-								<div class="testi-des">
-									<div class="test-img">
-										<img src="assets/images/team2.jpg" class="img-fluid" alt="/">
-									</div>
-									<div class="peopl align-self">
-										<h3>Laura gill</h3>
-										<p class="indentity">Washington</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-								<blockquote>
-									<q>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Velit beatae laudantium voluptate rem ullam dolore!.</q>
-								</blockquote>
-								<div class="testi-des">
-									<div class="test-img">
-										<img src="assets/images/team3.jpg" class="img-fluid" alt="/">
-									</div>
-									<div class="peopl align-self">
-										<h3>Smith Johnson</h3>
-										<p class="indentity">Washington</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /grids -->
-		</div>
-	</section>
-
+	
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">
 			<div class="footer-hny-grids py-5">
@@ -414,40 +337,33 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">Movies</a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">English Movies</a></li>
-										<li><a href="#">Tailor</a></li>
-										<li><a href="#">Upcoming Movies</a></li>
-										<li><a href="contact">Contact Us</a></li>
+										<li><a href="#">Phim Xu Hướng</a></li>
+										<li><a href="#">Phim Nổi Tiếng </a></li>
+										<li><a href="#">Phim Sắp Chiếu</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Thông Tin Chung</h6>
 									<ul>
-										<li><a href="home">Home</a></li>
-										<li><a href="about">About</a></li>
-										<li><a href="#">Tv Series</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="signin">Login</a></li>
-										<li><a href="contact">Contact</a></li>
+										<li><a href="home">Trang Chủ</a></li>
+										<li><a href="about">Thông Tin</a></li>
+										<li><a href="signin">Đăng Nhập</a></li>
+										<li><a href="contact">Liên Hệ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Asia</a></li>
-										<li><a href="movies">France</a></li>
-										<li><a href="movies">Taiwan</a></li>
-										<li><a href="movies">United States</a></li>
-										<li><a href="movies">Korea</a></li>
-										<li><a href="movies">United Kingdom</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">...</a></li>
+										<li><a href="movies">...</a></li>
+										<li><a href="movies">...</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Newsletter</h6>
+									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
 											placeholder="Your Email Address" required="">
@@ -455,8 +371,8 @@
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Enter your email and receive the latest news, updates
-										and special offers from us.</p>
+										<p>Nhập email của bạn và nhận những tin tức, cập nhật mới nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+
 								</div>
 							</div>
 						</div>
@@ -468,7 +384,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2021 MyShowz. All rights reserved</p>
+							<p>&copy; 2023 MyShowz. All rights reserved</p>
 						</div>
 
 						<ul class="social text-lg-right">
