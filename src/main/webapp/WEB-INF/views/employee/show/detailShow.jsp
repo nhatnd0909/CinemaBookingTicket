@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +8,12 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Corona Service</title>
+<title>Detail Show</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet" href="/admin_assets/assets/vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet"
+	href="/admin_assets/assets/vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- Plugin css for this page -->
 <link rel="stylesheet"
@@ -27,7 +29,6 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
-<link rel="stylesheet" href="/admin_assets/assets/css/employeeService.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
@@ -49,11 +50,11 @@
 						<div class="profile-pic">
 							<div class="count-indicator">
 								<img class="img-xs rounded-circle "
-									src="/admin_assets/assets/images/faces/face15.jpg" alt=""> <span
-									class="count bg-success"></span>
+									src="/admin_assets/assets/images/faces/face15.jpg" alt="">
+								<span class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Employe</h5>
+								<h5 class="mb-0 font-weight-normal">Detail Show</h5>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -73,7 +74,8 @@
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="/employee/changepassword" class="dropdown-item preview-item">
+							<a href="/employee/changepassword"
+								class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
@@ -107,8 +109,8 @@
 					</span> <span class="menu-title">Show</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employee/bookinghistory"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
+					href="/employee/bookinghistory"> <span class="menu-icon">
+							<i class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">User booking history</span>
 				</a></li>
 			</ul>
@@ -150,8 +152,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face4.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face4.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Mark send you a
@@ -162,8 +164,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face2.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face2.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Cregh send you a
@@ -174,8 +176,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face3.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face3.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Profile picture
@@ -281,44 +283,82 @@
 			</nav>
 			<!-- partial -->
 			<div class="main-panel">
-                <div class="content-wrapper">
-                    <div class="col-12 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Change Password</h4>
-                                    <p class="mb-0"><a href="/adminDashboard" style="text-decoration: none; color: inherit;"> Dashboard</a> / <span>Change Password</span></p>
-                                </div>
-                                <form class="forms-sample" method="post" action="">
-									<form class="forms-sample" method="post" action="">
-										<div class="form-group password-container">
-											<label for="exampleInputName1">Password</label> 
-											<input type="password" class="form-control" id="exampleInputName1" placeholder="Password" name="type" required="required" value="">
-											<i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
-										</div>  
-										<div class="form-group password-container">
-											<label for="exampleInputName1">New Password</label> 
-											<input type="password" class="form-control" id="exampleInputName1" placeholder="New Password" name="type" required="required" value="">
-											<i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
-										</div>  
-										<div class="form-group password-container">
-											<label for="exampleInputName1">Confirm New Password</label> 
-											<input type="password" class="form-control" id="exampleInputName1"  placeholder="Confirm New Password" name="type" required="required" value="">
-											<i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
-										</div>                                                       
-										<button type="submit" class="btn btn-primary mr-2">Submit</button>
-										<button class="btn btn-dark">Cancel</button>
-									</form>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-    
-    
-                </div>
-				<!-- content-wrapper ends -->
-				<!-- partial:partials/_footer.html -->
+				<div class="content-wrapper">
+					<div class="col-12 grid-margin stretch-card">
+						<div class="card">
+							<div class="card-body">
+								<div class="d-flex justify-content-between align-items-center">
+									<h4 class="card-title">Room 1</h4>
+									<p class="mb-0">
+										<a href="/employee/show"
+											style="text-decoration: none; color: inherit;"> Show</a> / <span>New
+											Show</span>
+									</p>
+								</div>
+								<form class="forms-sample" method="post" action="">
+									<c:forEach var="show" items="${shows}">
+										<div class="form-group row">
+											<label for="exampleInputName1"
+												class="col-sm-2 col-form-label">Day Time</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputName1" name="dayTime" required="required"
+													value="${formattedDayTimes[0]}">
+											</div>
+										</div>
 
+
+										<div class="form-group row">
+											<label for="exampleInputEmail3"
+												class="col-sm-2 col-form-label">Start Time</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputEmail3" placeholder="Start Time" name=""
+													required="required" value="${show.startTime}">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="exampleInputEmail3"
+												class="col-sm-2 col-form-label">End Time</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputEmail3" placeholder="Price" name=""
+													required="required" value="${show.endTime}">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="exampleSelectGender"
+												class="col-sm-2 col-form-label">Name Movie</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control"
+													id="exampleInputEmail3" placeholder="Price" name=""
+													required="required" value="${show.movie.name}">
+											</div>
+										</div>
+
+										<div class="form-group row">
+											<label for="exampleInputEmail3"
+												class="col-sm-2 col-form-label">Price</label>
+											<div class="col-sm-10">
+												<input type="email" class="form-control"
+													id="exampleInputEmail3" placeholder="Price" name=""
+													required="required" value="${show.price}">
+											</div>
+										</div>
+									</c:forEach>
+
+									<button type="submit" class="btn btn-primary mr-2">Save</button>
+									<button type="submit" class="btn btn-primary mr-2">Cancle</button>
+								</form>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<!-- content-wrapper ends -->
 				<!-- partial -->
 			</div>
 			<!-- main-panel ends -->
@@ -331,11 +371,14 @@
 	<!-- endinject -->
 	<!-- Plugin js for this page -->
 	<script src="/admin_assets/assets/vendors/chart.js/Chart.min.js"></script>
-	<script src="/admin_assets/assets/vendors/progressbar.js/progressbar.min.js"></script>
-	<script src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/progressbar.js/progressbar.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
 	<script
 		src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
 	<!-- End plugin js for this page -->
 	<!-- inject:js -->
 	<script src="/admin_assets/assets/js/off-canvas.js"></script>
@@ -346,20 +389,7 @@
 	<!-- endinject -->
 	<!-- Custom js for this page -->
 	<script src="/admin_assets/assets/js/dashboard.js"></script>
-	<script>
-		function togglePassword(icon) {
-			var passwordInput = icon.previousElementSibling;
-			if (passwordInput.type === "password") {
-				passwordInput.type = "text";
-				icon.classList.remove("mdi-eye");
-				icon.classList.add("mdi-eye-off");
-			} else {
-				passwordInput.type = "password";
-				icon.classList.remove("mdi-eye-off");
-				icon.classList.add("mdi-eye");
-			}
-		}
-	</script>
+
 	<!-- End custom js for this page -->
 </body>
 

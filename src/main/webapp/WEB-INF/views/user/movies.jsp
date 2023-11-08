@@ -158,10 +158,11 @@
 									<img class="img-fluid" src="assets/images/banner1.jpg" alt="">
 								</figure>
 								<div class="box-content">
-									<h3 class="title">Biệt Đội Siêu Anh Hùng</h3>
+									<h3 class="title">${listPopular.get(0).getName()}</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
+										</span> ${listPopular.get(0).getDuration()} min </span> <span
+											class="post fa fa-heart text-right"></span>
 									</h4>
 								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
 							</a>
@@ -172,10 +173,11 @@
 									<img class="img-fluid" src="assets/images/banner2.jpg" alt="">
 								</figure>
 								<div class="box-content">
-									<h3 class="title">Nữ Hoàng Băng Giá 2</h3>
+									<h3 class="title">${listPopular.get(1).getName()}</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
+										</span> ${listPopular.get(1).getDuration()} min </span> <span
+											class="post fa fa-heart text-right"></span>
 									</h4>
 								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
 							</a>
@@ -188,10 +190,11 @@
 									<img class="img-fluid" src="assets/images/banner3.jpg" alt="">
 								</figure>
 								<div class="box-content">
-									<h3 class="title">Gã Hề</h3>
+									<h3 class="title">${listPopular.get(2).getName()}</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
+										</span> ${listPopular.get(2).getDuration()} min </span> <span
+											class="post fa fa-heart text-right"></span>
 									</h4>
 								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
 							</a>
@@ -202,41 +205,11 @@
 									<img class="img-fluid" src="assets/images/banner4.jpg" alt="">
 								</figure>
 								<div class="box-content">
-									<h3 class="title">Toy story 4</h3>
+									<h3 class="title">${listPopular.get(3).getName()}</h3>
 									<h4>
 										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner1.jpg" alt="">
-
-								</figure>
-								<div class="box-content">
-									<h3 class="title">Biệt Đội Siêu Anh Hùng</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<div class="box16 mt-4">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner2.jpg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">Nữ Hoàng Băng Giá 2</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
+										</span> ${listPopular.get(3).getDuration()} min </span> <span
+											class="post fa fa-heart text-right"></span>
 									</h4>
 								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
 							</a>
@@ -263,70 +236,26 @@
 					</div>
 				</div>
 				<div class="w3l-populohny-grids">
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/commando3.png" alt="">
-							</figure>
-							<a href=".Commando3" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Đột kích 3</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 40min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
+					<c:forEach items="${listLatest}" var="movie">
+						<div class="item vhny-grid">
+							<div class="box16 mb-0" onclick="location.href='details?name=${movie.name}';">
+								<figure>
+									<img class="img-fluid" src="assets/images/${movie.image}"
+										alt="">
+								</figure>
+								<a href=".Commando3" data-toggle="modal">
+									<div class="box-content">
+										<h3 class="title">${movie.name}</h3>
+										<h4>
+											<span class="post"><span class="fa fa-clock-o">
+											</span> ${movie.duration} min</span> <span
+												class="post fa fa-heart text-right"></span>
+										</h4>
+									</div>
+								</a>
+							</div>
 						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/m3.jpg" alt="">
-							</figure>
-							<a href=".Knivesout" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Kẻ Đâm Lén</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 10min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/bharat1.png" alt="">
-							</figure>
-							<a href=".Bharat" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Bharat</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 35min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/m5.jpg" alt="">
-							</figure>
-							<a href=".Jumanji" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Trò Chơi Kì Ảo Thăng Cấp</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 3min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 				<!-- ***********************************Adults Section ************************************** -->
 				<div class="w3l-title-grids">

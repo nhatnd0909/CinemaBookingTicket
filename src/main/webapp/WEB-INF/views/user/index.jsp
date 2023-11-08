@@ -167,9 +167,9 @@
 				</div>
 				<div class="item">
 					<li>
-						<div class="slider-info  banner-view banner-top1 bg bg2">
+						<div class="slider-info banner-view banner-top1 bg bg2">
 							<div class="banner-info">
-								<h3>Latest Online moviess</h3>
+								<h3>Latest Online movies</h3>
 								<p>
 									Lorem ipsum dolor sit amet consectetur adipisicing elit.<span
 										class="over-para"> Consequuntur hic odio voluptatem
@@ -255,72 +255,26 @@
 					</div>
 				</div>
 				<div class="w3l-populohny-grids">
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/wednesday.jpeg"
-										alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">A Wednesday</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
+					<c:forEach items="${popularMovies}" var="movie">
+						<div class="item vhny-grid">
+							<div class="box16">
+								<a href="movies">
+									<figure>
+										<img class="img-fluid" src="assets/images/${movie.image}"
+											alt="">
+									</figure>
+									<div class="box-content">
+										<h3 class="title">${movie.name}</h3>
+										<h4>
+											<span class="post"><span class="fa fa-clock-o">
+											</span> ${movie.duration} Min</span> <span
+												class="post fa fa-heart text-right"></span>
+										</h4>
+									</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
+								</a>
+							</div>
 						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/commando2.jpeg"
-										alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">Commando-3</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/gujju2.jpeg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">Gujjubhai Most Wanted</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/avtar-2.jpeg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">Avatar</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -342,146 +296,35 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="owl-three owl-carousel owl-theme">
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/n1.jpg" alt="">
-								</figure>
-								<div class="box-content">
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<h3>
-							<a class="title-gd" href="movies">No Time to Die</a>
-						</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Xem bây giờ</a>
-						</div>
+					<c:forEach items="${allMovies}" var="allMovies">
+						<div class="item vhny-grid">
+							<div class="box16 mb-0">
+								<a href="movies">
+									<figure>
+										<img class="img-fluid" src="assets/images/${allMovies.image}"
+											alt="">
+									</figure>
+									<div class="box-content">
+										<h4>
+											<span class="post"><span class="fa fa-clock-o">
+											</span>${allMovies.duration} </span> <span
+												class="post fa fa-heart text-right"></span>
+										</h4>
+									</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
+								</a>
+							</div>
+							<h3>
+								<a class="title-gd" href="movies">${allMovies.name}</a>
+							</h3>
+							<p>${allMovies.getGenre().getGenreName()}</p>
+							<div class="button-center text-center mt-4">
+								<a href="movies" class="btn watch-button">Xem bây giờ</a>
+							</div>
 
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/n2.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
 						</div>
-						<h3>
-							<a class="title-gd" href="movies">Mulan</a>
-						</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Xem bây giờ</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/n3.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<h3>
-							<a class="title-gd" href="movies">Free Guy</a>
-						</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Xem bây giờ</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/n4.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<h3>
-							<a class="title-gd" href="movies">My Spy</a>
-						</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Xem bây giờ</a>
-						</div>
-
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/n5.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<h3>
-							<a class="title-gd" href="movies">Scoob</a>
-						</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Xem bây giờ</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0">
-							<a href="movies">
-								<figure>
-									<img class="img-fluid" src="assets/images/n6.jpg" alt="">
-								</figure>
-								<div class="box-content">
-
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<h3>
-							<a class="title-gd" href="movies">Downhill</a>
-						</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Xem bây giờ</a>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 

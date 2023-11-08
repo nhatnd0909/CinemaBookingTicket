@@ -81,12 +81,17 @@ form {
 	height: 100%;
 	text-align: center;
 }
-
+.form-group{
+	width: 300px;
+	margin-bottom: 0.4rem;
+}
+.form-control{
+	height: 45px;
+	border-radius: 20px;
+}
 input {
 	background-color: var(--theme-bg);
 	color: var(--theme-text);
-	/* #eee; */
-	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
@@ -269,3 +274,20 @@ footer a {
 /* .fa-user-circle-o:hover{
 	color: var(--theme-rose);
 } */
+
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    padding-right: 30px; /* Khoảng cách bên phải để chứa biểu tượng mắt */
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px; /* Điều chỉnh khoảng cách bên phải của biểu tượng */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
