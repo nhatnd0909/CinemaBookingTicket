@@ -80,17 +80,16 @@
 					pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
 					title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
 					required="required" />
-				<button>Sign Up</button>
+				<button>Đăng Kí</button>
 			</form>
 		</div>
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-left">
-					<h1>Welcome Back!</h1>
-					<p>To keep connected with us please login with your login
-						details</p>
+					<h1>Chào Mừng Trở Lại!</h1>
+					<p>Để duy trì kết nối với chúng tôi, vui lòng đăng nhập với thông tin đăng nhập của bạn</p>
 					<button class="ghost" id="signIn">
-						<a href="/signin">Sign In</a>
+						<a href="/signin">Đăng Nhập</a>
 					</button>
 				</div>
 			</div>

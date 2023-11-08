@@ -43,21 +43,21 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="movies">movies</a>
+						<li class="nav-item active"><a class="nav-link" href="#">Trang Chủ</a></li>
+						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">About</a>
+						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
 						</li>
 
 
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
 					<!--/search-right-->
 					<div class="search-right">
 						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Search <span class="fa fa-search ml-3"
+							title="search">Tìm <span class="fa fa-search ml-3"
 							aria-hidden="true"></span></a>
 						<!-- search popup -->
 						<div id="search" class="pop-overlay">
@@ -155,7 +155,7 @@
 								<a href="#small-dialog1" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon"> <span class="fa fa-play"></span>
 								</span>
-									<h6>Watch Trailer</h6>
+									<h6>Xem đoạn giới thiệu</h6>
 								</a>
 								<div id="small-dialog1" class="zoom-anim-dialog mfp-hide">
 									<iframe src="https://player.vimeo.com/video/358205676"
@@ -178,7 +178,7 @@
 								<a href="#small-dialog2" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon"> <span class="fa fa-play"></span>
 								</span>
-									<h6>Watch Trailer</h6>
+									<h6>Xem đoạn giới thiệu</h6>
 								</a>
 								<div id="small-dialog2" class="zoom-anim-dialog mfp-hide">
 									<iframe src="https://player.vimeo.com/video/395376850"
@@ -201,7 +201,7 @@
 								<a href="#small-dialog3" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon"> <span class="fa fa-play"></span>
 								</span>
-									<h6>Watch Trailer</h6>
+									<h6>Xem đoạn giới thiệu</h6>
 								</a>
 								<div id="small-dialog3" class="zoom-anim-dialog mfp-hide">
 									<iframe src="https://player.vimeo.com/video/389969665"
@@ -224,7 +224,7 @@
 								<a href="#small-dialog4" class="popup-with-zoom-anim play-view1">
 									<span class="video-play-icon"> <span class="fa fa-play"></span>
 								</span>
-									<h6>Watch Trailer</h6>
+									<h6>Xem đoạn giới thiệu</h6>
 								</a>
 								<div id="small-dialog4" class="zoom-anim-dialog mfp-hide">
 									<iframe src="https://player.vimeo.com/video/323491174"
@@ -245,11 +245,11 @@
 				<div class="headerhny-title">
 					<div class="w3l-title-grids">
 						<div class="headerhny-left">
-							<h3 class="hny-title">Popular moviess</h3>
+							<h3 class="hny-title">Phim Phổ Biến</h3>
 						</div>
 						<div class="headerhny-right text-lg-right">
 							<h4>
-								<a class="show-title" href="movies">Show all</a>
+								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
 							</h4>
 						</div>
 					</div>
@@ -333,11 +333,11 @@
 				<div class="headerhny-title">
 					<div class="w3l-title-grids">
 						<div class="headerhny-left">
-							<h3 class="hny-title">New Releases</h3>
+							<h3 class="hny-title">Mới Phát Hành </h3>
 						</div>
 						<div class="headerhny-right text-lg-right">
 							<h4>
-								<a class="show-title" href="movies">Show all</a>
+								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
 							</h4>
 						</div>
 					</div>
@@ -362,7 +362,7 @@
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Watch now</a>
+							<a href="movies" class="btn watch-button">Xem bây giờ</a>
 						</div>
 
 					</div>
@@ -386,7 +386,7 @@
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Watch now</a>
+							<a href="movies" class="btn watch-button">Xem bây giờ</a>
 						</div>
 					</div>
 					<div class="item vhny-grid">
@@ -409,7 +409,7 @@
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Watch now</a>
+							<a href="movies" class="btn watch-button">Xem bây giờ</a>
 						</div>
 					</div>
 					<div class="item vhny-grid">
@@ -432,7 +432,7 @@
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Watch now</a>
+							<a href="movies" class="btn watch-button">Xem bây giờ</a>
 						</div>
 
 					</div>
@@ -456,7 +456,7 @@
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Watch now</a>
+							<a href="movies" class="btn watch-button">Xem bây giờ</a>
 						</div>
 					</div>
 					<div class="item vhny-grid">
@@ -479,7 +479,7 @@
 						</h3>
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
 						<div class="button-center text-center mt-4">
-							<a href="movies" class="btn watch-button">Watch now</a>
+							<a href="movies" class="btn watch-button">Xem bây giờ</a>
 						</div>
 					</div>
 				</div>
@@ -501,7 +501,7 @@
 									<h3>Jumanji: The Next Level</h3>
 									<p>2019 ‧ Comedy/Action ‧ 2h 3m</p>
 									<a class="watch" href="movies"><span class="fa fa-play"
-										aria-hidden="true"></span> Watch Trailer</a>
+										aria-hidden="true"></span> Xem đoạn giới thiệu</a>
 								</div>
 							</div>
 						</div>
@@ -516,7 +516,7 @@
 									<h3>Dolittle</h3>
 									<p>2020 ‧ Family/Adventure ‧ 1h 41m</p>
 									<a class="watch" href="movies"><span class="fa fa-play"
-										aria-hidden="true"></span> Watch Trailer</a>
+										aria-hidden="true"></span> Xem đoạn giới thiệu</a>
 								</div>
 							</div>
 						</div>
@@ -531,7 +531,7 @@
 									<h3>Bad Boys for Life</h3>
 									<p>2020 ‧ Comedy/Action ‧ 2h 4m</p>
 									<a class="watch" href="movies"><span class="fa fa-play"
-										aria-hidden="true"></span> Watch Trailer</a>
+										aria-hidden="true"></span> Xem đoạn giới thiệu</a>
 								</div>
 							</div>
 						</div>
@@ -569,40 +569,34 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>moviess</h6>
+									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">moviess</a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">English moviess</a></li>
-										<li><a href="#">Tailor</a></li>
-										<li><a href="#">Upcoming moviess</a></li>
-										<li><a href="Contact_Us.html">Contact Us</a></li>
+										<li><a href="#">Phim Xu Hướng</a></li>
+										<li><a href="#">Phim Nổi Tiếng </a></li>
+										<li><a href="#">Phim Sắp Chiếu</a></li>
+										
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Thông Tin Chung</h6>
 									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="#">Tv Series</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="sign_in.html">Login</a></li>
-										<li><a href="Contact_Us.html">Contact</a></li>
+										<li><a href="index.html">Trang Chủ</a></li>
+										<li><a href="about.html">Thông Tin</a></li>
+										<li><a href="sign_in.html">Đăng Nhập</a></li>
+										<li><a href="Contact_Us.html">Liên Hệ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Asia</a></li>
-										<li><a href="movies">France</a></li>
-										<li><a href="movies">Taiwan</a></li>
-										<li><a href="movies">United States</a></li>
-										<li><a href="movies">Korea</a></li>
-										<li><a href="movies">United Kingdom</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">...</a></li>
+										<li><a href="movies">...</a></li>
+										<li><a href="movies">...</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Newsletter</h6>
+									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
 											placeholder="Your Email Address" required="">
@@ -610,8 +604,8 @@
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Enter your email and receive the latest news, updates
-										and special offers from us.</p>
+										<p>Nhập email của bạn và nhận những tin tức, cập nhật mới nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+
 								</div>
 							</div>
 						</div>
@@ -623,7 +617,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2021 MyShowz. All rights reserved</p>
+							<p>&copy; 2023 MyShowz. All rights reserved</p>
 						</div>
 
 						<ul class="social text-lg-right">

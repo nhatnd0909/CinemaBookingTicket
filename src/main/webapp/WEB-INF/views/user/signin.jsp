@@ -70,17 +70,16 @@
 				<span style="font-size: 17px" class="text-danger">${mess}</span> 
 				<input name="email" type="email" placeholder="Email" value="${email}" required="required"/> 
 				<input name="password" type="password" placeholder="Password" required="required" /> 
-				<a href="forgotpassword">Forgot your password?</a>
-				<button>Sign In</button>
+				<a href="forgotpassword">Quên mật khẩu?</a>
+				<button>Đăng Nhập</button>
 			</form>
 		</div>
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-right">
-					<h1>Hello, Friend!</h1>
-					<p>Register and book your tickets now!!!</p>
-					<a href="/signup"><button class="ghost" id="signUp">Sign
-							Up</button></a>
+					<h1>Xin Chào, Bạn!</h1>
+					<p>Đăng kí và đặt vé ngay!!!</p>
+					<a href="/signup"><button class="ghost" id="signUp">Đăng Kí</button></a>
 				</div>
 			</div>
 		</div>
