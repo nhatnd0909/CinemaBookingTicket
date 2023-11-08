@@ -38,15 +38,15 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a>
+						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
+						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">About</a>
+						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
 						</li>
 
 						<li class="nav-item active"><a class="nav-link"
-							href="contact">Contact</a></li>
+							href="contact">Liên Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -93,10 +93,9 @@
 	</header>
 	<!-- Contact Us Form -->
 	<div class="container">
-		<h4>Contact Us</h4>
-		<h3>Leave a Message</h3>
-		<p>If you have a question regarding our services, feel free to
-			contact us using the form below.</p>
+		<h4> Chúng Tôi</h4>
+		<h3>Để Lại Lời Nhắn</h3>
+		<p>Nếu bạn có câu hỏi liên quan đến dịch vụ của chúng tôi, vui lòng  với chúng tôi bằng cách sử dụng mẫu dưới đây.</p>
 
 		<form name="contact-us-form" action="#"
 			onsubmit="return validateForm()">
@@ -104,14 +103,14 @@
 				<div class="col">
 					<div class="inputBox" id="fname-inputBox">
 						<input type="text" name="fname" onclick="triggerAnim('fname')" />
-						<span class="text">First Name</span> <span class="line"
+						<span class="text">Họ</span> <span class="line"
 							id="fname-line"></span>
 					</div>
 				</div>
 				<div class="col">
 					<div class="inputBox" id="lname-inputBox">
 						<input type="text" name="lname" onclick="triggerAnim('lname')" />
-						<span class="text">Last Name</span> <span class="line"
+						<span class="text">Tên</span> <span class="line"
 							id="lname-line"></span>
 					</div>
 				</div>
@@ -121,13 +120,13 @@
 					<div class="inputBox" id="email-inputBox">
 						<input type="email" name="email" pattern="[^ @]*@[^ @]*"
 							onclick="triggerAnim('email')" /> <span class="text">Email
-							ID</span> <span class="line" id="email-line"></span>
+							</span> <span class="line" id="email-line"></span>
 					</div>
 				</div>
 				<div class="col">
 					<div class="inputBox" id="tel-inputBox">
 						<input type="tel" name="m-num" onclick="triggerAnim('tel')" /> <span
-							class="text">Mobile Number</span> <span class="line"
+							class="text">Số Điện Thoại</span> <span class="line"
 							id="tel-line"></span>
 					</div>
 				</div>
@@ -136,7 +135,7 @@
 				<div class="col">
 					<div class="inputBox textarea">
 						<textarea name="msg"></textarea>
-						<span class="text">Type your message Here...</span> <span
+						<span class="text">Viết lời nhắn tại đây...</span> <span
 							class="line"></span>
 					</div>
 				</div>
@@ -144,7 +143,7 @@
 			<div class="row100">
 				<div class="col">
 					<div class="submitbutton">
-						<button class="btn submitbtn" type="submit">Submit</button>
+						<button class="btn submitbtn" type="submit">Nộp</button>
 					</div>
 				</div>
 			</div>
