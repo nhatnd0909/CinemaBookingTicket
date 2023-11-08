@@ -129,64 +129,19 @@
 									</div>
 								</div>
 								<ul class="time-ul">
-									<li class="time-li">
-										<div class="screens">Screen 1</div>
-										<div class="time-btn">
-											<button class="screen-time" onclick="timeFunction()">
-												1:05 PM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												4:00 PM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												9:00 PM</button>
-										</div>
-									</li>
-									<li class="time-li">
-										<div class="screens">Screen 2</div>
-										<div class="time-btn">
-											<button class="screen-time" onclick="timeFunction()">
-												3:00 PM</button>
-										</div>
-									</li>
-									<li class="time-li">
-										<div class="screens">Screen 3</div>
-										<div class="time-btn">
-											<button class="screen-time" onclick="timeFunction()">
-												9:05 AM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												10:00 PM</button>
-										</div>
-									</li>
-									<li class="time-li">
-										<div class="screens">Screen 4</div>
-										<div class="time-btn">
-											<button class="screen-time" onclick="timeFunction()">
-												9:05 AM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												11:00 AM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												3:00 PM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												7:00 PM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												10:00 PM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												11:00 PM</button>
-										</div>
-									</li>
-									<li class="time-li">
-										<div class="screens">Screen 5</div>
-										<div class="time-btn">
-											<button class="screen-time" onclick="timeFunction()">
-												9:05 AM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												12:00 PM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												1:00 PM</button>
-											<button class="screen-time" onclick="timeFunction()">
-												3:00 PM</button>
-										</div>
-									</li>
-
+									<c:forEach items="${listTRoom}" var="tRoom">
+										<li class="time-li">
+											<div class="screens">${tRoom.name}</div>
+											<div class="time-btn">
+												<button class="screen-time" onclick="timeFunction()">
+													1:05 PM</button>
+												<button class="screen-time" onclick="timeFunction()">
+													4:00 PM</button>
+												<button class="screen-time" onclick="timeFunction()">
+													9:00 PM</button>
+											</div>
+										</li>
+									</c:forEach>
 								</ul>
 							</div>
 							<input id="screen-next-btn" type="button" name="next-step"
