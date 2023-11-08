@@ -1,6 +1,6 @@
 package com.project.csm.controller.userController;
 
-import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.model.Customer;
 import com.project.csm.model.Movie;
+import com.project.csm.model.Theater;
 import com.project.csm.service.customerService.MovieService;
+import com.project.csm.service.customerService.TheaterService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -19,6 +21,8 @@ public class DetailController {
 
 	@Autowired
 	private MovieService movieService;
+	@Autowired
+	private TheaterService tService;
 
 	@GetMapping("/details")
 	public String showDetails(HttpSession session, Model model, @RequestParam String name) {
@@ -37,6 +41,10 @@ public class DetailController {
 
 		String startDate = movieService.parseDateToString(movie.getStartDate());
 		model.addAttribute("startDate", startDate);
+
+		List<Theater> listTheater = tService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
+
 		return "/user/details";
 	}
 

@@ -15,7 +15,6 @@ import jakarta.servlet.http.HttpSession;
 public class UserController {
 	@Autowired
 	private CustomerService customerService;
-	
 
 	@GetMapping("/home")
 	public String showUserIndex(HttpSession session, Model model) {
@@ -77,7 +76,7 @@ public class UserController {
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
 		model.addAttribute("customer", customer);
-		
+
 		return "/user/history";
 	}
 
@@ -94,8 +93,6 @@ public class UserController {
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		return "/user/history1";
 	}
-
-	
 
 	@GetMapping("/password")
 	public String showPassword(HttpSession session, Model model) {
@@ -125,13 +122,31 @@ public class UserController {
 //		return "/user/profileUser";
 //	}
 
-	@GetMapping("/ticketBooking")
-	public String showTicketBooking() {
-		return "/user/ticketBooking";
-	}
+//	@GetMapping("/ticketBooking")
+//	public String showTicketBooking(HttpSession session, Model model) {
+//		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+//		int loggedIn = 0;
+//		if (loggedInAccount == null) {
+//			loggedIn = 0;
+//		} else {
+//			loggedIn = 1;
+//		}
+//		model.addAttribute("loggedIn", loggedIn);
+//		model.addAttribute("loggedInAccount", loggedInAccount);
+//		return "/user/ticketBooking";
+//	}
 
 	@GetMapping("/seat_sel")
-	public String showSeat_sel() {
+	public String showSeat_sel(HttpSession session, Model model) {
+		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		int loggedIn = 0;
+		if (loggedInAccount == null) {
+			loggedIn = 0;
+		} else {
+			loggedIn = 1;
+		}
+		model.addAttribute("loggedIn", loggedIn);
+		model.addAttribute("loggedInAccount", loggedInAccount);
 		return "/user/seat_sel";
 	}
 
@@ -141,7 +156,7 @@ public class UserController {
 		if (session != null) {
 			session.invalidate();
 		}
-		
+
 		return "redirect:/";
 	}
 
