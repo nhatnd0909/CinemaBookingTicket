@@ -65,6 +65,26 @@ public class Movie {
 	@JoinColumn(name = "AdminID")
 	private Admin admin;
 
+
+	public Movie() {
+	}
+
+	public Movie(String name, String actor, String director, int duration, String language, String description,
+			String image, Date startDate, Date endDate, String urlTrailer, Genre genre, Admin admin) {
+		this.name = name;
+		this.actor = actor;
+		this.director = director;
+		this.duration = duration;
+		this.language = language;
+		this.description = description;
+		this.image = image;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.urlTrailer = urlTrailer;
+		this.genre = genre;
+		this.admin = admin;
+	}
+
 	public Long getMovieID() {
 		return movieID;
 	}
@@ -152,7 +172,6 @@ public class Movie {
 	public void setUrlTrailer(String urlTrailer) {
 		this.urlTrailer = urlTrailer;
 	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -178,6 +197,7 @@ public class Movie {
 	}
 
 	@Override
+
 	public int hashCode() {
 		return Objects.hash(actor, admin, description, director, duration, endDate, genre, image, language, movieID,
 				name, startDate, status, urlTrailer);
@@ -206,8 +226,7 @@ public class Movie {
 		return "Movie [movieID=" + movieID + ", name=" + name + ", actor=" + actor + ", director=" + director
 				+ ", duration=" + duration + ", language=" + language + ", description=" + description + ", image="
 				+ image + ", startDate=" + startDate + ", endDate=" + endDate + ", urlTrailer=" + urlTrailer
-				+ ", status=" + status + ", genre=" + genre + ", admin=" + admin + "]";
+				+ ", genre=" + genre + ", admin=" + admin + "]";
 	}
-	
-	
+
 }

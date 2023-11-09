@@ -68,19 +68,23 @@
 						class="fab fa-linkedin-in"></i></a>
 				</div>
 				<span style="font-size: 17px" class="text-danger">${mess}</span> 
-				<input name="email" type="email" placeholder="Email" value="${email}" required="required"/> 
-				<input name="password" type="password" placeholder="Password" required="required" /> 
-				<a href="forgotpassword">Forgot your password?</a>
-				<button>Sign In</button>
+				<div class="form-group">
+					<input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" name="email" value="${email}" required="required">
+				</div>
+				<div class="form-group password-container">
+					<input type="password" class="form-control" placeholder="Password" name="password"  required="required">
+					<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+				</div>		
+				<a href="forgotpassword">Quên mật khẩu?</a>
+				<button>Đăng Nhập</button>
 			</form>
 		</div>
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-right">
-					<h1>Hello, Friend!</h1>
-					<p>Register and book your tickets now!!!</p>
-					<a href="/signup"><button class="ghost" id="signUp">Sign
-							Up</button></a>
+					<h1>Xin Chào, Bạn!</h1>
+					<p>Đăng kí và đặt vé ngay!!!</p>
+					<a href="/signup"><button class="ghost" id="signUp">Đăng Kí</button></a>
 				</div>
 			</div>
 		</div>
@@ -125,6 +129,22 @@
 				}
 			});
 		});
+	</script>
+
+	<script>
+		function togglePassword(icon) {
+			var passwordInput = icon.previousElementSibling;
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+				icon.classList.remove("fa-eye");
+				icon.classList.add("fa-eye-slash");
+			} else {
+				passwordInput.type = "password";
+				icon.classList.remove("fa-eye-slash");
+				icon.classList.add("fa-eye");
+			}
+		}
+
 	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 

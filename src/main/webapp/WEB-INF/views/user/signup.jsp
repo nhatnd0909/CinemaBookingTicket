@@ -68,29 +68,41 @@
 				</div>
 
 				<span style="font-size: 17px" class="text-danger">${mess}</span> 
-				<input name="name" type="text" placeholder="Name" value="${name}" required="required" /> 
-				<input name="email" type="email" placeholder="Email" value="${email}" required="required"/> 
-				<input name="password" type="password"
-					placeholder="Password"
-					pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-					title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
-					required="required" /> 
-				<input name="rePassword" type="password"
+				<div class="form-group">
+					<input name="name" class="form-control" type="text" placeholder="Name" value="${name}" required="required" /> 
+				</div>
+				<div class="form-group">
+					<input name="email" class="form-control" type="email" placeholder="Email" value="${email}" required="required"/> 
+				</div>
+				<div class="form-group password-container">
+					<input name="password" type="password"
+						class="form-control"
+						placeholder="Password"
+						pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+						title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+						required="required" /> 
+					<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+				</div>
+				<div class="form-group password-container">
+					<input name="rePassword" type="password"
+					class="form-control"
 					placeholder="Re-Password"
 					pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
 					title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
 					required="required" />
-				<button>Sign Up</button>
+					<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+				</div>
+				<button>Đăng Kí</button>
+
 			</form>
 		</div>
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-left">
-					<h1>Welcome Back!</h1>
-					<p>To keep connected with us please login with your login
-						details</p>
+					<h1>Chào Mừng Trở Lại!</h1>
+					<p>Để duy trì kết nối với chúng tôi, vui lòng đăng nhập với thông tin đăng nhập của bạn</p>
 					<button class="ghost" id="signIn">
-						<a href="/signin">Sign In</a>
+						<a href="/signin">Đăng Nhập</a>
 					</button>
 				</div>
 			</div>
@@ -135,6 +147,21 @@
 				}
 			});
 		});
+	</script>
+	<script>
+			function togglePassword(icon) {
+				var passwordInput = icon.previousElementSibling;
+				if (passwordInput.type === "password") {
+					passwordInput.type = "text";
+					icon.classList.remove("fa-eye");
+					icon.classList.add("fa-eye-slash");
+				} else {
+					passwordInput.type = "password";
+					icon.classList.remove("fa-eye-slash");
+					icon.classList.add("fa-eye");
+				}
+			}
+	
 	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 

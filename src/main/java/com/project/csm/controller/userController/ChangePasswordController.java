@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.model.Customer;
 import com.project.csm.service.customerService.AccountService;
+import com.project.csm.service.customerService.CustomerService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -16,9 +17,13 @@ import jakarta.servlet.http.HttpSession;
 public class ChangePasswordController {
 	@Autowired
 	private AccountService accountService;
+	@Autowired
+	private CustomerService customerService;
+
 	@GetMapping("/changepass")
 	public String getChangePass(HttpSession session, Model model) {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+
 		int loggedIn = 0;
 		if (loggedInAccount == null) {
 			loggedIn = 0;
@@ -28,6 +33,9 @@ public class ChangePasswordController {
 		model.addAttribute("mess", "");
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
+		
+		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
+		model.addAttribute("customer", customer);
 		return "/user/password";
 	}
 
@@ -41,14 +49,14 @@ public class ChangePasswordController {
 			model.addAttribute("mess", "Wrong old password");
 			return "/user/password";
 		}
-		if(!newPass.equals(confirmNewPass)) {
+		if (!newPass.equals(confirmNewPass)) {
 			model.addAttribute("loggedIn", 1);
 			model.addAttribute("loggedInAccount", loggedInAccount);
 			model.addAttribute("mess", "Confirm new password does not match");
 			return "/user/password";
 		}
 		accountService.changePasswordByEmail(loggedInAccount.getAccount().getEmail(), newPass);
-		
+
 		if (session != null) {
 			session.invalidate();
 		}
