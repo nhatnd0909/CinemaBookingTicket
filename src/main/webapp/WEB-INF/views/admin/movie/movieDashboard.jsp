@@ -36,7 +36,16 @@
 <link rel="shortcut icon"
 	href="../admin_assets/assets/images/favicon.png" />
 </head>
-
+<style>
+.create-movie-button-position{
+	position:relative;
+}
+.create-movie-button {
+	position: absolute;
+	width: 40%;
+	right: 0px;
+}
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->

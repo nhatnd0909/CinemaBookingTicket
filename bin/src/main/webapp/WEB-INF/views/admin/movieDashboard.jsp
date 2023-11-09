@@ -52,7 +52,7 @@
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Amin</h5>
+								<h5 class="mb-0 font-weight-normal">Admin</h5>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
