@@ -116,7 +116,7 @@
 					</span> <span class="menu-title">Revenue Magagement</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/admin/movies"> <span class="menu-icon"> <i
+					href="/movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
 					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
@@ -357,7 +357,6 @@
 																	<span class="badge badge-outline-danger">${movie.status}</span>
 																</c:when>
 															</c:choose></td>
-														<!-- Repeat for other columns -->
 														<td>
 														<div class="badge badge-outline-success">
 															<a href="<c:url value='/movieDashboard/update/${movie.movieID}'/>" style="text-decoration: none; color: inherit;" >

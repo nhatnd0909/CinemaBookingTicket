@@ -312,7 +312,7 @@
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h4 class="card-title">Add New Movie</h4>
-                                    <p class="mb-0"><a href="/MovieDashboard" style="text-decoration: none; color: inherit;"> Movie</a> / <span>Add New</span></p>
+                                    <p class="mb-0"><a href="/movieDashboard" style="text-decoration: none; color: inherit;"> Movie</a> / <span>Add New</span></p>
                                 </div>
 								<form class="forms-sample" method="post" action="/movieDashboard/create">
 									

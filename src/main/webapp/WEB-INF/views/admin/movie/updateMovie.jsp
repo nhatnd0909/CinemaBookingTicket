@@ -316,7 +316,7 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<h4 class="card-title">Update Movie</h4>
 									<p class="mb-0">
-										<a href="/employeeDashboard"
+										<a href="/movieDashboard"
 											style="text-decoration: none; color: inherit;"> Movie</a> / <span>Update</span>
 									</p>
 								</div>
