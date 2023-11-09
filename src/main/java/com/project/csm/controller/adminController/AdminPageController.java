@@ -25,11 +25,11 @@ public class AdminPageController {
 	}
 
 
-	@GetMapping("/movieDashboard")
-	public String showMovieAdmin() {
-
-		return "admin/movieDashboard";
-	}
+//	@GetMapping("/movieDashboard")
+//	public String showMovieAdmin() {
+//
+//		return "admin/movieDashboard";
+//	}
 
 	@GetMapping("/revenue")
 	public String showRevenue() {
