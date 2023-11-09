@@ -29,9 +29,13 @@ public class TheaterRoom {
 
 	public TheaterRoom() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		super();
 =======
 >>>>>>> 682d81b132483daf50189974cc683a3d2f6f3aa6
+=======
+		super();
+>>>>>>> c45e2a20f7667632857260ec7bf89b7e396f1576
 	}
 
 	public TheaterRoom(Long roomID, String name, int numOfSeat, Theater theater) {
@@ -80,10 +84,14 @@ public class TheaterRoom {
 				+ "]";
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
 =======
 
 >>>>>>> 682d81b132483daf50189974cc683a3d2f6f3aa6
+=======
+
+>>>>>>> c45e2a20f7667632857260ec7bf89b7e396f1576
 	
 }
