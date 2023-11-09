@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,16 +48,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link"
-							href="home">Home</a></li>
+						<li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="about">About</a>
 						</li>
 
 
-						<li class="nav-item"><a class="nav-link"
-							href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -103,13 +102,28 @@
 						<!--/search-right-->
 
 					</div>
-					<div class="Login_SignUp" id="login"
-						style="font-size: 2rem; display: inline-block; position: relative;">
-						<!-- <li class="nav-item"> -->
-						<a class="nav-link" href="signin"><i
-							class="fa fa-user-circle-o"></i></a>
-						<!-- </li> -->
-					</div>
+					<c:if test="${loggedIn eq 0}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="signin"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+					</c:if>
+					<c:if test="${loggedIn eq 1}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="history"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+						${loggedInAccount.getName()}
+						<div style="padding-left: 15px">
+							<a href="logout">Logout</a>
+						</div>
+					</c:if>
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
@@ -142,20 +156,17 @@
 										<div class="d-flex flex-column align-items-center text-center">
 											<div class="avatar-upload">
 												<div class="avatar-edit">
-													<input type='file' id="imageUpload"
-														accept=".png, .jpg, .jpeg" /> <label for="imageUpload"></label>
+													<!-- <input type='file' id="imageUpload"
+														accept=".png, .jpg, .jpeg" /> <label for="imageUpload"></label> -->
 												</div>
 												<div class="avatar-preview">
-													<div id="imagePreview"
-														style="background-image: url(http://i.pravatar.cc/500?img=7);">
-													</div>
+													<img id="imagePreview" src="assets/images/avatar.png" alt="Avatar Preview">
 												</div>
 											</div>
 											<div class="mt-3">
-												<h4>John Doe</h4>
+												<h4>${loggedInAccount.getName()}</h4>
 												<!-- <p class="text-secondary mb-1">Full Stack Developer</p> -->
-												<p class="text-muted font-size-sm">Bay Area, San
-													Francisco, CA</p>
+												<p class="text-muted font-size-sm">${loggedInAccount.getAddress()}</p>
 												<!-- <button class="btn btn-primary">Follow</button>
 												<button class="btn btn-outline-primary">Message</button> -->
 											</div>

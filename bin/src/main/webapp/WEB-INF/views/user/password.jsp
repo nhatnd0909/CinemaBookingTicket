@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,16 +46,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link"
-							href="home">Home</a></li>
+						<li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="about">About</a>
 						</li>
 
 
-						<li class="nav-item"><a class="nav-link"
-							href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -101,13 +100,28 @@
 						<!--/search-right-->
 
 					</div>
-					<div class="Login_SignUp" id="login"
-						style="font-size: 2rem; display: inline-block; position: relative;">
-						<!-- <li class="nav-item"> -->
-						<a class="nav-link" href="signin"><i
-							class="fa fa-user-circle-o"></i></a>
-						<!-- </li> -->
-					</div>
+					<c:if test="${loggedIn eq 0}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="signin"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+					</c:if>
+					<c:if test="${loggedIn eq 1}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="history"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+						${loggedInAccount.getName()}
+						<div style="padding-left: 15px">
+							<a href="logout">Logout</a>
+						</div>
+					</c:if>
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
@@ -140,20 +154,17 @@
 										<div class="d-flex flex-column align-items-center text-center">
 											<div class="avatar-upload">
 												<div class="avatar-edit">
-													<input type='file' id="imageUpload"
-														accept=".png, .jpg, .jpeg" /> <label for="imageUpload"></label>
+													<!-- <input type='file' id="imageUpload"
+														accept=".png, .jpg, .jpeg" /> <label for="imageUpload"></label> -->
 												</div>
 												<div class="avatar-preview">
-													<div id="imagePreview"
-														style="background-image: url(http://i.pravatar.cc/500?img=7);">
-													</div>
+													<img id="imagePreview" src="assets/images/avatar.png" alt="Avatar Preview">
 												</div>
 											</div>
 											<div class="mt-3">
-												<h4>John Doe</h4>
+												<h4>${loggedInAccount.getName()}</h4>
 												<!-- <p class="text-secondary mb-1">Full Stack Developer</p> -->
-												<p class="text-muted font-size-sm">Bay Area, San
-													Francisco, CA</p>
+												<p class="text-muted font-size-sm">${loggedInAccount.getAddress()}</p>
 												<!-- <button class="btn btn-primary">Follow</button>
 												<button class="btn btn-outline-primary">Message</button> -->
 											</div>
@@ -172,7 +183,7 @@
 														<g>
 														<path
 															d="M10 0.001C4.478 0.001 0 4.478 0 10s4.478 9.999 10 9.999c5.523 0 10 -4.477 10 -9.999S15.523 0.001 10 0.001zm0 2.99a3.308 3.308 0 1 1 0.001 6.615A3.308 3.308 0 0 1 10 2.991zm-0.003 14.395a7.339 7.339 0 0 1 -4.779 -1.763 1.409 1.409 0 0 1 -0.495 -1.072A3.336 3.336 0 0 1 8.075 11.217h3.848a3.331 3.331 0 0 1 3.347 3.335 1.406 1.406 0 0 1 -0.494 1.071 7.337 7.337 0 0 1 -4.779 1.763z" /></g></svg>
-													<a href="/profileuser.html" class="text-muted font-size-sm">
+													<a href="/profileUser" class="text-muted font-size-sm">
 														Profile</a>
 												</h6>
 											</li>
@@ -194,7 +205,7 @@
 															stroke-width="0.12" stroke-linecap="round"
 															stroke-linejoin="round" />
 												</svg>
-													<a href="/history.html" class="text-muted font-size-sm">
+													<a href="/history" class="text-muted font-size-sm">
 														History</a>
 												</h6>
 											</li>
@@ -204,31 +215,52 @@
 							</div>
 							<div class="col-lg-8">
 								<div class="card">
-									<div class="card-body">
-										<div class="row mb-5">
-											<div class="col-sm-3">
-												<h6 class="mb-0">New Password</h6>
+									<form action="changepass" method="post">
+										<div class="card-body">
+											<span style="font-size: 17px" class="text-danger">${mess}</span>
+											<div class="row mb-5">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Old Password</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="oldPass" type="password" class="form-control"
+														value="" required="required">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="password" class="form-control" value="123123">
+											<div class="row mb-5">
+												<div class="col-sm-3">
+													<h6 class="mb-0">New Password</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="newPass" type="password" class="form-control"
+														value=""
+														pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+														title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+														required="required">
+												</div>
+											</div>
+											<div class="row mb-5">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Confim New Password</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="confirmNewPass" type="password"
+														class="form-control" value=""
+														pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+														title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+														required="required">
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-3"></div>
+												<div class="col-sm-9 text-secondary">
+													<input type="submit" class="btn btn-primary px-4"
+														value="Save Changes">
+												</div>
 											</div>
 										</div>
-										<div class="row mb-5">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Confim New Password</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="password" class="form-control" value="123123">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-3"></div>
-											<div class="col-sm-9 text-secondary">
-												<input type="button" class="btn btn-primary px-4"
-													value="Save Changes">
-											</div>
-										</div>
-									</div>
+									</form>
+
 								</div>
 							</div>
 						</div>

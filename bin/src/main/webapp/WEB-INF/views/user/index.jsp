@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="zxx">
 
@@ -17,7 +18,6 @@
 </head>
 
 <body>
-
 	<!-- header -->
 	<header id="site-header" class="w3l-header fixed-top">
 		<!--/nav-->
@@ -43,16 +43,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link"
-							href="#">Home</a></li>
+						<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">movies</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="about">About</a>
 						</li>
 
 
-						<li class="nav-item"><a class="nav-link"
-							href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -99,13 +97,30 @@
 						<!--/search-right-->
 
 					</div>
-					<div class="Login_SignUp" id="login"
-						style="font-size: 2rem; display: inline-block; position: relative;">
-						<!-- <li class="nav-item"> -->
-						<a class="nav-link" href="signin"><i
-							class="fa fa-user-circle-o"></i></a>
-						<!-- </li> -->
-					</div>
+
+					<c:if test="${loggedIn eq 0}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="signin"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+
+					</c:if>
+					<c:if test="${loggedIn eq 1}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="history"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+						${loggedInAccount.getName()}
+						<div style="padding-left: 15px">
+							<a href="logout">Logout</a>
+						</div>
+					</c:if>
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
@@ -485,8 +500,8 @@
 									<span class="sub-text">Comedy</span>
 									<h3>Jumanji: The Next Level</h3>
 									<p>2019 ‧ Comedy/Action ‧ 2h 3m</p>
-									<a class="watch" href="movies"><span
-										class="fa fa-play" aria-hidden="true"></span> Watch Trailer</a>
+									<a class="watch" href="movies"><span class="fa fa-play"
+										aria-hidden="true"></span> Watch Trailer</a>
 								</div>
 							</div>
 						</div>
@@ -500,8 +515,8 @@
 									<span class="sub-text">Adventure</span>
 									<h3>Dolittle</h3>
 									<p>2020 ‧ Family/Adventure ‧ 1h 41m</p>
-									<a class="watch" href="movies"><span
-										class="fa fa-play" aria-hidden="true"></span> Watch Trailer</a>
+									<a class="watch" href="movies"><span class="fa fa-play"
+										aria-hidden="true"></span> Watch Trailer</a>
 								</div>
 							</div>
 						</div>
@@ -515,8 +530,8 @@
 									<span class="sub-text">Action</span>
 									<h3>Bad Boys for Life</h3>
 									<p>2020 ‧ Comedy/Action ‧ 2h 4m</p>
-									<a class="watch" href="movies"><span
-										class="fa fa-play" aria-hidden="true"></span> Watch Trailer</a>
+									<a class="watch" href="movies"><span class="fa fa-play"
+										aria-hidden="true"></span> Watch Trailer</a>
 								</div>
 							</div>
 						</div>
