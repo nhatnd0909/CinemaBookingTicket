@@ -354,7 +354,12 @@
 																		<a  onclick="deleteTheater(${theater.theaterID});" type="submit"  style="text-decoration: none; color: inherit;" >
 																			<i class="mdi mdi-delete"></i>
 																		</a>
-																	</div>																		
+																	</div>		
+																	<div class="badge badge-outline-success">
+																		<a href="<c:url value='/roomDashboard'/>" style="text-decoration: none; color: inherit;">
+																			<p style="font-size: 14px; margin: 0;">Show Room</p>
+																		</a>
+																	 </div>																
 																</td>
 																<td>
 

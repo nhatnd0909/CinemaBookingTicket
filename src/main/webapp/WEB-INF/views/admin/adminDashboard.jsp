@@ -167,12 +167,6 @@ pageEncoding="UTF-8"%>
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="/roomDashboard">
-              <span class="menu-icon"> <i class="mdi mdi-seal"></i> </span>
-              <span class="menu-title">Room</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
             <a class="nav-link" href="/rankDashboard">
               <span class="menu-icon"> <i class="mdi mdi-seal"></i> </span>
               <span class="menu-title">Rank</span>
