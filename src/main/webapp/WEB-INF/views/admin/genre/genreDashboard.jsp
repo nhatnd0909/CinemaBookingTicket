@@ -326,8 +326,8 @@
 											<thead>
 												<tr>
 													<th>ID</th>
-													<th>Name</th>
-													<th>Action</th>
+													<th>Tên</th>
+													<th>Hành Động</th>
 												</tr>
 											</thead>
 											<tbody>

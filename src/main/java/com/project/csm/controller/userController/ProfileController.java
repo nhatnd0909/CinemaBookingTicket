@@ -55,7 +55,8 @@ public class ProfileController {
 
 	@PostMapping("/profileUser")
 	public String editProfile(@RequestParam String name, @RequestParam String gender, @RequestParam String dob,
-			@RequestParam String phone, @RequestParam String address, @RequestParam String email, HttpSession session) {
+			@RequestParam String phone, @RequestParam String address, @RequestParam String address2,
+			@RequestParam String email, HttpSession session) {
 		Customer customer = customerService.findCustomerByEmail(email);
 		customer.setName(name);
 		customer.setGender(gender);
@@ -68,11 +69,26 @@ public class ProfileController {
 		}
 
 		customer.setPhoneNumber(phone);
-		customer.setAddress(address);
-		customerService.addNewCusstomer(customer);
 
+		String[] addressSplit = address2.split(" / ");
+		if (addressSplit.length >= 3) {
+			if (!address.isEmpty()) {
+				String addressResult = address + " / " + addressSplit[2] + " / " + addressSplit[1] + " / "
+						+ addressSplit[0];
+				customer.setAddress(addressResult);
+			}
+		}
+
+		customerService.updateCustomer(customer);
 		session.setAttribute("loggedInAccount", customer);
 		return "redirect:/profileUser";
 	}
-	
+
+	@PostMapping("/changeavatar")
+	public String changeAvatar(@RequestParam String urlimage, HttpSession session) {
+		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		String email = loggedInAccount.getAccount().getEmail();
+		customerService.changeImage(email, urlimage);
+		return "redirect:/profileUser";
+	}
 }

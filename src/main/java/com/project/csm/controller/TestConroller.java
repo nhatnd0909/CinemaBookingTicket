@@ -81,13 +81,13 @@ public class TestConroller {
 		Rank rank = rankService.getRankByID(1L);
 		Customer customer = new Customer("Nguyễn Đình Nhật", "male", new Date(), "0936152782", "Thừa Thiên Huế",
 				new Date(), 0, account, rank);
-
+		
 		return customerService.addNewCusstomer(customer);
 	}
 
 	@GetMapping("/getCusById")
 	public Customer getCusByID() {
 
-		return customerService.getCustomerByID(2L);
+		return customerService.getCustomerByID(1L);
 	}
 }

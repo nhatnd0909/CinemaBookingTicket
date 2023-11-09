@@ -51,14 +51,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
+						<li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">About</a>
+						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
 						</li>
 
 
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -160,26 +160,25 @@
 											<div class="col-md-4">
 												<div class="img-post">
 													<img class="d-block img-fluid"
-														src="assets/images/commando3.png" alt="First slide">
+														src="assets/images/${movie.image}" alt="First slide">
 												</div>
 											</div>
 											<div class="details col-md-8">
-												<h3>THANH GƯƠM TRỪ TÀ (T16)</h3>
+												<h3>${movie.name}</h3>
 												<p>
-													<span>Đạo diễn:</span> Kim Sung-Sik
+													<span>Đạo diễn:</span> ${movie.director}
 												</p>
 												<p>
-													<span>Diễn viên:</span> Gang Dong Won, Esom, Lee Dong Hwi,
-													Kim Jong Soo, Lee Jung Eun, Park Myoung Hyun, Park So Yi, …
+													<span>Diễn viên:</span> ${movie.actor}
 												</p>
 												<p>
 													<span>Khởi chiếu:</span> 06-10-2023
 												</p>
 												<p>
-													<span>Thời lượng:</span> 100 phút
+													<span>Thời lượng:</span> ${movie.duration} phút
 												</p>
 												<p>
-													<span>Ngôn ngữ:</span> Tiếng Hàn - Phụ đề tiếng Việt
+													<span>Ngôn ngữ:</span> ${movie.language}
 												</p>
 											</div>
 
@@ -195,16 +194,12 @@
 														data-bs-toggle="button" onclick="showRating()">Đánh
 														giá</button>
 												</div>
-												<div id="description" style="margin-top: 2%;">Chuyện
-													phim xoay quanh nhân vật thầy trừ tà Cheon (Gang Dong Won
-													thủ vai), cùng với chiến hữu của mình In Bae (Lee Dong Hwi
-													thủ vai), chuyên đi lừa đảo với những màn trừ tà “pha ke"
-													sử dụng công nghệ cao cùng khả năng hùng biện và tài “thao
-													túng tâm lý" đỉnh cao...</div>
+												<div id="description" style="margin-top: 2%;">
+													${movie.description}</div>
 												<div id="trailer" style="display: none; margin-top: 2%;">
 													<div class="center-iframe">
 														<iframe width="560" height="315"
-															src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+															src="${movie.urlTrailer}"
 															frameborder="0" allowfullscreen></iframe>
 													</div>
 												</div>
@@ -215,9 +210,28 @@
 												<div class="text-center">
 													<button type="button" class="btn btn-primary"
 														data-bs-toggle="button"
-														onclick="location.href='ticketBooking';">Đặt vé</button>
+														onclick="location.href='ticketBooking?movie=${movie.name}';">Đặt
+														vé</button>
 												</div>
 											</div>
+
+
+
+
+											<div class="col-md-12" style="margin-top: 2%;">
+												<div class="text-center">
+													<c:forEach items="${listTheater}" var="theater">
+														<button type="button" class="btn btn-primary"
+															data-bs-toggle="button"
+															onclick="location.href='ticketBooking?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
+													</c:forEach>
+												</div>
+											</div>
+
+
+
+
+
 										</div>
 									</div>
 								</div>

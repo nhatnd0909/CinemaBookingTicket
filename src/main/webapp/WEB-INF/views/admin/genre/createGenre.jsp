@@ -316,19 +316,19 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Add New Genre</h4>
-                                    <p class="mb-0"><a href="/GenreDashboard" style="text-decoration: none; color: inherit;"> Genre</a> / <span>Add New</span></p>
+                                    <h4 class="card-title">Thêm Thể Loại</h4>
+                                    <p class="mb-0"><a href="/GenreDashboard" style="text-decoration: none; color: inherit;"> Thể Loại</a> / <span>Thêm Mới</span></p>
                                 </div>
 								<form class="forms-sample" method="post" action="/genreDashboard/create">
 									
 									<div class="form-group">
-										<label for="exampleInputEmail3">Name Genre</label> 
+										<label for="exampleInputEmail3">Tên Thể Loại</label> 
                                         <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Genre" name="genreName"   required="required">
 									</div>
 									                                                                  
-									<button type="submit" class="btn btn-primary mr-2">Submit</button>
+									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
 									<!-- <button class="btn btn-primary mr-2" onclick="createEmployee()">Create</button> -->
-									<button class="btn btn-dark">Cancel</button>
+									<button class="btn btn-dark">Hủy</button>
 								</form>
 							</div>
 						</div>

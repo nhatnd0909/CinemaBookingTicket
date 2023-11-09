@@ -25,4 +25,49 @@ public class SeatOfCinema {
 	@JoinColumn(name = "SeatID")
 	private Seat seat;
 
+	public SeatOfCinema() {
+		super();
+	}
+
+	public SeatOfCinema(Long socID, TheaterRoom theaterRoom, Seat seat) {
+		this.socID = socID;
+		this.theaterRoom = theaterRoom;
+		this.seat = seat;
+	}
+
+	public SeatOfCinema(TheaterRoom theaterRoom, Seat seat) {
+		super();
+		this.theaterRoom = theaterRoom;
+		this.seat = seat;
+	}
+
+	public Long getSocID() {
+		return socID;
+	}
+
+	public void setSocID(Long socID) {
+		this.socID = socID;
+	}
+
+	public TheaterRoom getTheaterRoom() {
+		return theaterRoom;
+	}
+
+	public void setTheaterRoom(TheaterRoom theaterRoom) {
+		this.theaterRoom = theaterRoom;
+	}
+
+	public Seat getSeat() {
+		return seat;
+	}
+
+	public void setSeat(Seat seat) {
+		this.seat = seat;
+	}
+
+	@Override
+	public String toString() {
+		return "SeatOfCinema [socID=" + socID + ", theaterRoom=" + theaterRoom + ", seat=" + seat + "]";
+	}
+
 }

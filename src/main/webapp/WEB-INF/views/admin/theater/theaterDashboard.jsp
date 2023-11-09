@@ -356,6 +356,9 @@
 																		</a>
 																	</div>																		
 																</td>
+																<td>
+
+																</td>
 															</tr>
 														</c:forEach>
 													</tbody>
@@ -431,4 +434,5 @@
         });
     }
 </script>
+
 </html>

@@ -12,11 +12,6 @@ public class EmployeePageController {
 	}
 	
 	
-	@GetMapping("/employee/show")
-	public String showEmployeeShow() {
-		return "/employee/show/showDashboard"; 
-	}
-	
 	@GetMapping("/employee/bookinghistory")
 	public String bookingHistoryEmployee() {
 		return "/employee/bookinghistory/bookingHistoryDashboard"; 

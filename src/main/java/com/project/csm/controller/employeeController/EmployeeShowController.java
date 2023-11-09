@@ -1,24 +1,64 @@
 package com.project.csm.controller.employeeController;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.project.csm.model.Show;
+import com.project.csm.service.employeeService.employeeShowMovie;
+
 @Controller
 public class EmployeeShowController {
- 
-	@GetMapping("/employee/show/create")
-	public String getCreateEmployeeShow() {
-		return "/employee/show/createShow";
+
+	@Autowired
+	private employeeShowMovie employeeShowMovie;
+
+	@GetMapping("/employee/show")
+	public String showEmployeeService(Model model) {
+		List<Show> shows = employeeShowMovie.getAllShows();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		List<String> formattedDayTimes = new ArrayList<>();
+
+		for (Show show : shows) {
+			String formattedDayTime = sdf.format(show.getDayTime());
+			formattedDayTimes.add(formattedDayTime);
+		}
+		model.addAttribute("formattedDayTimes", formattedDayTimes);
+		model.addAttribute("shows", shows);
+		System.out.println(shows);
+		return "/employee/show/showDashboard";
 	}
 	
-	@PostMapping("/employee/show/create")
-	public String postCreateEmployeeShow() {
-		return "redirect:/employee/show";
+//	@GetMapping("/employee/show/detail")
+//	public String getUpdateEmployeeShow() {
+//		return "/employee/show/detailShow";
+//	}
+	
+	@GetMapping("/employee/show/detail")
+	public String showEmployeeShow(Model model) {
+		List<Show> shows = employeeShowMovie.getAllShows();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		List<String> formattedDayTimes = new ArrayList<>();
+
+		for (Show show : shows) {
+			String formattedDayTime = sdf.format(show.getDayTime());
+			formattedDayTimes.add(formattedDayTime);
+		}
+		model.addAttribute("formattedDayTimes", formattedDayTimes);
+		model.addAttribute("shows", shows);
+		System.out.println(shows);
+		return "/employee/show/detailShow";
 	}
 	
-	@GetMapping("/employee/show/update")
-	public String getUpdateEmployeeShow() {
-		return "/employee/show/updateShow";
-	}
+//	@PostMapping("/employee/show/update")
+//	public String postUpdateEmployeeShow() {
+//			return "redirect:/employee/show";
+//	}
 }

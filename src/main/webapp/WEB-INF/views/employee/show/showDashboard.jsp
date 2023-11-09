@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,8 @@
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet" href="/admin_assets/assets/vendors/css/vendor.bundle.base.css">
+<link rel="stylesheet"
+	href="/admin_assets/assets/vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- Plugin css for this page -->
 <link rel="stylesheet"
@@ -22,6 +24,9 @@
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
@@ -30,7 +35,83 @@
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
+<style>
+.card-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 
+.card-title .room-name {
+	margin: 0;
+}
+
+.card {
+	margin-bottom: 20px;
+}
+
+.card-title i {
+	font-size: 1.25em;
+	color: #000;
+}
+
+.card-title .arrow-icon i {
+	font-size: 1.25em;
+	color: #000;
+}
+
+.dropdown-content {
+	display: none;
+	text-align: center; /* Canh giữa nội dung */
+}
+
+.dropdown-content a {
+	display: inline-block; /* Hiển thị các mục trên cùng một dòng */
+	font-size: 1.5em; /* Điều chỉnh kích thước font */
+	padding: 10px 50px; /* Điều chỉnh padding */
+	text-decoration: none;
+	color: #fff;
+}
+
+
+
+.dropdown-content a.active {
+	color: #007bff; /* Màu xanh */
+}
+.time {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 270px;
+    background: 
+}
+
+.time-slot {
+    display: flex;
+    margin: 20px 0;
+}
+
+
+.time-slot a {
+    border : 1px solid #fff;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.day a{
+ border: 1px solid #fff;
+ margin-right: 30px;
+}
+
+#ngay-mai-time {
+            display: none;
+      }
+
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
@@ -48,8 +129,8 @@
 						<div class="profile-pic">
 							<div class="count-indicator">
 								<img class="img-xs rounded-circle "
-									src="/admin_assets/assets/images/faces/face15.jpg" alt=""> <span
-									class="count bg-success"></span>
+									src="/admin_assets/assets/images/faces/face15.jpg" alt="">
+								<span class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
 								<h5 class="mb-0 font-weight-normal">Employe</h5>
@@ -57,7 +138,7 @@
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
 							class="mdi mdi-dots-vertical"></i></a>
-							<div
+						<div
 							class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
 							aria-labelledby="profile-dropdown">
 							<a href="/employee/profile" class="dropdown-item preview-item">
@@ -72,7 +153,8 @@
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="/employee/changepassword" class="dropdown-item preview-item">
+							<a href="/employee/changepassword"
+								class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
@@ -106,8 +188,8 @@
 					</span> <span class="menu-title">Show</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employee/bookinghistory"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
+					href="/employee/bookinghistory"> <span class="menu-icon">
+							<i class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">User booking history</span>
 				</a></li>
 			</ul>
@@ -149,8 +231,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face4.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face4.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Mark send you a
@@ -161,8 +243,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face2.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face2.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Cregh send you a
@@ -173,8 +255,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="/admin_assets/assets/images/faces/face3.jpg" alt="image"
-											class="rounded-circle profile-pic">
+										<img src="/admin_assets/assets/images/faces/face3.jpg"
+											alt="image" class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Profile picture
@@ -281,117 +363,229 @@
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="card-title">Service</h4>
-                            <div class="mb-0 icon icon-box-success">
-                                <a href="/employee/show/create" style="text-decoration: none; color: inherit;"> 
-                                    <span class="mdi mdi-account-multiple-plus icon-item"></span>
-                                </a>
-                            </div>	
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Start Time</th>
-                                        <th>Price</th>
-                                        <th>Name Moive</th>
-                                        <th>Name Room</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>8:00 - 9:30</td>
-                                        <td>20$</td>
-                                        <td>Ác Quỷ Ma Sơ 2</td>
-                                        <td>Room 01 </td>
-                                        <td>
-                                            <div class="badge badge-outline-success">
-                                                <a href="/employee/show/update" style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8:00 - 9:30</td>
-                                        <td>20$</td>
-                                        <td>Ác Quỷ Ma Sơ 2</td>
-                                        <td>Room 01 </td>
-                                        <td>
-                                            <div class="badge badge-outline-success">
-                                                <a href="/employee/show/update" style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8:00 - 9:30</td>
-                                        <td>20$</td>
-                                        <td>Ác Quỷ Ma Sơ 2</td>
-                                        <td>Room 01 </td>
-                                        <td>
-                                            <div class="badge badge-outline-success">
-                                                <a href="/employee/show/update" style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="badge badge-outline-success">
-                                                <a style="text-decoration: none; color: inherit;">
-                                                    <i class="mdi mdi-delete"></i>
-                                                </a>
-                                            </div>																	
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-				</div>
-				<!-- content-wrapper ends -->
-				<!-- partial:partials/_footer.html -->
+					<div class="page-header">
+						<h3 class="page-title">Room</h3>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Dropdowns</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 grid-margin">
+							<div class="card">
+								<div class="card-body">
+									<div class="card-title">
+										<h2 class="room-name">
+											Room 1
+											</h4>
+											<i class="fas fa-chevron-down" id="dropdown-icon"
+												style="color: #fff"></i>
+									</div>
+									<div class="dropdown-content" id="dropdown-content">
+										<div class="day">
+										    <a href="#" class="active" id="hom-nay">Hôm nay</a>
+            								<a href="#" id="ngay-mai">Ngày mai</a>
+										    <a href="#" id="ngay-mot">Ngày mốt</a>
+										</div>
 
-				<!-- partial -->
+										 <div class="time" id="hom-nay-time">
+								            <div class="time-slot">
+								                <a href="/employee/show/detail" style="padding: 10px 31px">7:00 - 9:00</a>
+								                <a href="#" style="padding: 10px 26px">9:00 - 11:00</a>
+								                <a href="#" style="padding: 10px 21px">11:00 - 13:00</a>
+								            </div>
+								            <div class="time-slot">
+								                <a href="/employee/show/update">13:00 - 15:00</a>
+								                <a href="#">15:00 - 17:00</a>
+								                <a href="#">17:00 - 19:00</a>
+								            </div>
+								        </div>
+								        
+								        <div class="time" id="ngay-mai-time" style="display:none;">
+									        <div class="time-slot">
+									            <a href="#" style="padding: 10px 31px">7:30 - 9:30</a>
+									            <a href="#" style="padding: 10px 26px">9:30 - 11:30</a>
+									            <a href="#" style="padding: 10px 21px">11:30 - 13:30</a>
+									        </div>
+									        <div class="time-slot">
+									            <a href="#">13:30 - 15:30</a>
+									            <a href="#">15:30 - 17:30</a>
+									            <a href="#">17:30 - 19:30</a>
+									        </div>
+								    	</div>
+								    	
+								    	<div class="time" id="ngay-mot-time" style="display:none;">
+									        <div class="time-slot">
+									            <a href="#" style="padding: 10px 31px">7:35 - 9:35</a>
+									            <a href="#" style="padding: 10px 26px">9:35 - 11:35</a>
+									            <a href="#" style="padding: 10px 21px">11:35 - 13:35</a>
+									        </div>
+									        <div class="time-slot">
+									            <a href="#">13:35 - 15:35</a>
+									            <a href="#">15:35 - 17:35</a>
+									            <a href="#">17:35 - 19:35</a>
+									        </div>
+								    	</div>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="card">
+								<div class="card-body">
+									<div class="card-title">
+										<h4 class="room-name">Room 2</h4>
+										<i class="fas fa-chevron-down"></i>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- content-wrapper ends -->
+					<!-- partial:partials/_footer.html -->
+
+					<!-- partial -->
+				</div>
+				<!-- main-panel ends -->
 			</div>
-			<!-- main-panel ends -->
+			<!-- page-body-wrapper ends -->
 		</div>
-		<!-- page-body-wrapper ends -->
-	</div>
-	<!-- container-scroller -->
-	<!-- plugins:js -->
-	<script src="/admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
-	<!-- endinject -->
-	<!-- Plugin js for this page -->
-	<script src="/admin_assets/assets/vendors/chart.js/Chart.min.js"></script>
-	<script src="/admin_assets/assets/vendors/progressbar.js/progressbar.min.js"></script>
-	<script src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+
+		<!-- container-scroller -->
+		<!-- plugins:js -->
+		<script src="/admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
+		<!-- endinject -->
+		<!-- Plugin js for this page -->
+		<!-- <script src="/admin_assets/assets/vendors/chart.js/Chart.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/progressbar.js/progressbar.min.js"></script>
+	<script
+		src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
 	<script
 		src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-	<script src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-	<!-- End plugin js for this page -->
-	<!-- inject:js -->
-	<script src="/admin_assets/assets/js/off-canvas.js"></script>
-	<script src="/admin_assets/assets/js/hoverable-collapse.js"></script>
-	<script src="/admin_assets/assets/js/misc.js"></script>
-	<script src="/admin_assets/assets/js/settings.js"></script>
-	<script src="/admin_assets/assets/js/todolist.js"></script>
-	<!-- endinject -->
-	<!-- Custom js for this page -->
-	<script src="/admin_assets/assets/js/dashboard.js"></script>
-	<!-- End custom js for this page -->
+	<script
+		src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script> -->
+		<!-- End plugin js for this page -->
+		<!-- inject:js -->
+		<script src="/admin_assets/assets/js/off-canvas.js"></script>
+		<script src="/admin_assets/assets/js/hoverable-collapse.js"></script>
+		<script src="/admin_assets/assets/js/misc.js"></script>
+		<script src="/admin_assets/assets/js/settings.js"></script>
+		<script src="/admin_assets/assets/js/todolist.js"></script>
+		<!-- endinject -->
+		<!-- Custom js for this page -->
+		<script src="/admin_assets/assets/js/dashboard.js"></script>
+		<!-- End custom js for this page -->
 </body>
 
 </html>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var dropdownIcon = document.getElementById('dropdown-icon');
+		var dropdownContent = document.getElementById('dropdown-content');
+
+		dropdownIcon.addEventListener('click', function() {
+			if (dropdownContent.style.display === 'none'
+					|| dropdownContent.style.display === '') {
+				dropdownContent.style.display = 'block';
+			} else {
+				dropdownContent.style.display = 'none';
+			}
+		});
+	});
+	/* Xử lí màu */
+	document.addEventListener('DOMContentLoaded', function() {
+		  var links = document.querySelectorAll('.dropdown-content a');
+
+		  links.forEach(function(link) {
+		    link.addEventListener('click', function() {
+		      // Loại bỏ màu xanh từ tất cả các links
+		      links.forEach(function(link) {
+		        link.classList.remove('active');
+		      });
+
+		      // Thêm màu xanh cho link đã được click
+		      this.classList.add('active');
+		    });
+		  });
+		});
+/* 	Xử lí suất chiếu */
+	
+/* document.addEventListener('DOMContentLoaded', function() {
+    var links = document.querySelectorAll('.dropdown-content a');
+
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default behavior of the link
+
+            // Loại bỏ màu xanh từ tất cả các links
+            links.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Thêm màu xanh cho link đã được click
+            this.classList.add('active');
+
+            // Lấy ID của link đã click
+            var clickedId = this.getAttribute('id');
+
+            // Ẩn tất cả các khoảng thời gian
+            var allTimeSlots = document.querySelectorAll('.time');
+            allTimeSlots.forEach(function(timeSlot) {
+                timeSlot.style.display = 'none';
+            });
+
+            // Hiển thị khoảng thời gian tương ứng với ngày đã click
+            var correspondingTimeSlot = document.getElementById(clickedId + '-time');
+            correspondingTimeSlot.style.display = 'block';
+        });
+    });
+
+    // Ẩn tất cả các khoảng thời gian khi trang được tải lần đầu tiên
+    var allTimeSlots = document.querySelectorAll('.time');
+    allTimeSlots.forEach(function(timeSlot) {
+        timeSlot.style.display = 'none';
+    });
+}); */
+document.addEventListener("DOMContentLoaded", function() {
+	  // Lấy ra các phần tử cần điều khiển
+	  var homNayTime = document.getElementById("hom-nay-time");
+	  var ngayMaiTime = document.getElementById("ngay-mai-time");
+	  var ngayMotTime = document.getElementById("ngay-mot-time");
+	  var homNayLink = document.getElementById("hom-nay");
+	  var ngayMaiLink = document.getElementById("ngay-mai");
+	  var ngayMotLink = document.getElementById("ngay-mot");
+
+	  // Hàm ẩn tất cả các phần tử time
+	  function hideAllTimes() {
+	    homNayTime.style.display = "none";
+	    ngayMaiTime.style.display = "none";
+	    ngayMotTime.style.display = "none";
+	  }
+
+	  // Sự kiện click vào ngày hôm nay
+	  homNayLink.addEventListener("click", function(event) {
+	    event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+	    hideAllTimes();
+	    homNayTime.style.display = "block";
+	  });
+
+	  // Sự kiện click vào ngày mai
+	  ngayMaiLink.addEventListener("click", function(event) {
+	    event.preventDefault();
+	    hideAllTimes();
+	    ngayMaiTime.style.display = "block";
+	  });
+
+	  // Sự kiện click vào ngày mốt
+	  ngayMotLink.addEventListener("click", function(event) {
+	    event.preventDefault();
+	    hideAllTimes();
+	    ngayMotTime.style.display = "block";
+	  });
+	});
+
+</script>

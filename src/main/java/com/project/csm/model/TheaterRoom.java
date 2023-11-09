@@ -28,7 +28,10 @@ public class TheaterRoom {
 	private Theater theater;
 
 	public TheaterRoom() {
+<<<<<<< HEAD
 		super();
+=======
+>>>>>>> 682d81b132483daf50189974cc683a3d2f6f3aa6
 	}
 
 	public TheaterRoom(Long roomID, String name, int numOfSeat, Theater theater) {
@@ -76,7 +79,11 @@ public class TheaterRoom {
 		return "TheaterRoom [roomID=" + roomID + ", name=" + name + ", numOfSeat=" + numOfSeat + ", theater=" + theater
 				+ "]";
 	}
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> 682d81b132483daf50189974cc683a3d2f6f3aa6
 	
 }
