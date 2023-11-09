@@ -29,4 +29,15 @@ public class TheaterRoomService {
 		}
 		return listReturn;
 	}
+	
+	public List<TheaterRoom> getAllTheaterRoomByIdTheater(Long idTheater) {
+		List<TheaterRoom> list = getAllTheaterRoom();
+		List<TheaterRoom> listResult = new ArrayList<>();
+		for(TheaterRoom t : list) {
+			if(t.getTheater().getTheaterID()==idTheater) {
+				listResult.add(t);
+			}
+		}
+		return listResult;
+	}
 }

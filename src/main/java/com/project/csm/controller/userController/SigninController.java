@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.csm.model.Account;
 import com.project.csm.model.Customer;
 import com.project.csm.model.Movie;
 import com.project.csm.service.customerService.AccountService;
@@ -47,6 +48,8 @@ public class SigninController {
 		}
 		Customer customer = customerService.findCustomerByEmail(email);
 		session.setAttribute("loggedInAccount", customer);
+		Account accountLoggedIn = accountService.findAccountByEmail(email);
+		session.setAttribute("accountLoggedIn", accountLoggedIn);
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 		int loggedIn = 0;
@@ -55,6 +58,7 @@ public class SigninController {
 		} else {
 			loggedIn = 1; 
 		}
+		
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		

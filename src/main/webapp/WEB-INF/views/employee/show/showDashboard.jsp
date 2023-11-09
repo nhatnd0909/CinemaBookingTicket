@@ -61,7 +61,7 @@
 }
 
 .dropdown-content {
-	display: none;
+	
 	text-align: center; /* Canh giữa nội dung */
 }
 
@@ -73,44 +73,41 @@
 	color: #fff;
 }
 
-
-
 .dropdown-content a.active {
 	color: #007bff; /* Màu xanh */
 }
+
 .time {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 270px;
-    background: 
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 270px;
+	background:
 }
 
 .time-slot {
-    display: flex;
-    margin: 20px 0;
+	display: flex;
+	margin: 20px 0;
 }
-
 
 .time-slot a {
-    border : 1px solid #fff;
-    margin-right: 30px;
-    margin-bottom: 10px;
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #fff;
+	border: 1px solid #fff;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	display: inline-block;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #fff;
 }
 
-.day a{
- border: 1px solid #fff;
- margin-right: 30px;
+.day a {
+	border: 1px solid #fff;
+	margin-right: 30px;
 }
 
 #ngay-mai-time {
-            display: none;
-      }
-
+	display: none;
+}
 </style>
 <body>
 	<div class="container-scroller">
@@ -364,7 +361,7 @@
 			<div class="main-panel">
 				<div class="content-wrapper">
 					<div class="page-header">
-						<h3 class="page-title">Room</h3>
+						<h3 class="page-title">${nameTheater}</h3>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">UI Elements</a></li>
@@ -372,78 +369,71 @@
 							</ol>
 						</nav>
 					</div>
-					<div class="row">
-						<div class="col-lg-12 grid-margin">
-							<div class="card">
-								<div class="card-body">
-									<div class="card-title">
-										<h2 class="room-name">
-											Room 1
-											</h4>
-											<i class="fas fa-chevron-down" id="dropdown-icon"
-												style="color: #fff"></i>
-									</div>
-									<div class="dropdown-content" id="dropdown-content">
-										<div class="day">
-										    <a href="#" class="active" id="hom-nay">Hôm nay</a>
-            								<a href="#" id="ngay-mai">Ngày mai</a>
-										    <a href="#" id="ngay-mot">Ngày mốt</a>
+					<c:forEach items="${listTheaterRoom}" var="theaterRoom">
+						<div class="row">
+							<div class="col-lg-12 grid-margin">
+								<div class="card">
+									<div class="card-body">
+										<div class="card-title">
+											<h2 class="room-name">
+												${theaterRoom.name}
+												</h4>
+												<i class="fas fa-chevron-down" id="dropdown-icon"
+													style="color: #fff"></i>
 										</div>
 
-										 <div class="time" id="hom-nay-time">
-								            <div class="time-slot">
-								                <a href="/employee/show/detail" style="padding: 10px 31px">7:00 - 9:00</a>
-								                <a href="#" style="padding: 10px 26px">9:00 - 11:00</a>
-								                <a href="#" style="padding: 10px 21px">11:00 - 13:00</a>
-								            </div>
-								            <div class="time-slot">
-								                <a href="/employee/show/update">13:00 - 15:00</a>
-								                <a href="#">15:00 - 17:00</a>
-								                <a href="#">17:00 - 19:00</a>
-								            </div>
-								        </div>
-								        
-								        <div class="time" id="ngay-mai-time" style="display:none;">
-									        <div class="time-slot">
-									            <a href="#" style="padding: 10px 31px">7:30 - 9:30</a>
-									            <a href="#" style="padding: 10px 26px">9:30 - 11:30</a>
-									            <a href="#" style="padding: 10px 21px">11:30 - 13:30</a>
-									        </div>
-									        <div class="time-slot">
-									            <a href="#">13:30 - 15:30</a>
-									            <a href="#">15:30 - 17:30</a>
-									            <a href="#">17:30 - 19:30</a>
-									        </div>
-								    	</div>
-								    	
-								    	<div class="time" id="ngay-mot-time" style="display:none;">
-									        <div class="time-slot">
-									            <a href="#" style="padding: 10px 31px">7:35 - 9:35</a>
-									            <a href="#" style="padding: 10px 26px">9:35 - 11:35</a>
-									            <a href="#" style="padding: 10px 21px">11:35 - 13:35</a>
-									        </div>
-									        <div class="time-slot">
-									            <a href="#">13:35 - 15:35</a>
-									            <a href="#">15:35 - 17:35</a>
-									            <a href="#">17:35 - 19:35</a>
-									        </div>
-								    	</div>
+										<div class="dropdown-content">
+											<div class="day">
+												<a href="#" class="active" id="hom-nay">Hôm nay</a> 
+									<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
+												<a href="#" id="ngay-mot">Ngày mốt</a> -->
+											</div>
+
+											<div class="time" >
+												<div class="time-slot">
+													<a href="/employee/show/detail?start=07:00:00&end=10:00:00&date=0&roomID=${theaterRoom.roomID}" style="padding: 10px 31px">7:00 - 10:00</a> 
+													<a href="/employee/show/detail?start=10:00:00&end=13:00:00&date=0&roomID=${theaterRoom.roomID}" style="padding: 10px 26px">10:00 - 13:00</a> 
+													<a href="/employee/show/detail?start=13:00:00&end=16:00:00&date=0&roomID=${theaterRoom.roomID}" style="padding: 10px 21px">13:00 - 16:00</a>
+												</div>
+												
+												<div class="time-slot">
+													<a href="/employee/show/detail?start=16:00:00&end=18:00:00&date=0&roomID=${theaterRoom.roomID}">16:00 - 18:00</a> 
+													<a href="/employee/show/detail?start=18:00:00&end=20:00:00&date=0&roomID=${theaterRoom.roomID}">18:00 - 20:00</a> 
+													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=0&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
+												</div>
+											</div>
+
+											<div class="time">
+												<div class="time-slot">
+													<a href="/employee/show/detail?start=07:00:00&end=10:00:00&date=1&roomID=${theaterRoom.roomID}" style="padding: 10px 31px">7:00 - 10:00</a> 
+													<a href="/employee/show/detail?start=10:00:00&end=13:00:00&date=1&roomID=${theaterRoom.roomID}" style="padding: 10px 26px">10:00 - 13:00</a> 
+													<a href="/employee/show/detail?start=13:00:00&end=16:00:00&date=1&roomID=${theaterRoom.roomID}" style="padding: 10px 21px">13:00 - 16:00</a>
+												</div>
+												<div class="time-slot">
+													<a href="/employee/show/detail?start=16:00:00&end=18:00:00&date=1&roomID=${theaterRoom.roomID}">16:00 - 18:00</a> 
+													<a href="/employee/show/detail?start=18:00:00&end=20:00:00&date=1&roomID=${theaterRoom.roomID}">18:00 - 20:00</a>
+													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=1&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
+												</div>
+											</div>
+
+											<div class="time">
+												<div class="time-slot">
+													<a href="/employee/show/detail?start=07:00:00&end=10:00:00&date=2&roomID=${theaterRoom.roomID}" style="padding: 10px 31px">7:00 - 10:00</a> 
+													<a href="/employee/show/detail?start=10:00:00&end=13:00:00&date=2&roomID=${theaterRoom.roomID}" style="padding: 10px 26px">10:00 - 13:00</a> 
+													<a href="/employee/show/detail?start=13:00:00&end=16:00:00&date=2&roomID=${theaterRoom.roomID}" style="padding: 10px 21px">13:00 - 16:00</a>
+												</div>
+												<div class="time-slot">
+													<a href="/employee/show/detail?start=16:00:00&end=18:00:00&date=2&roomID=${theaterRoom.roomID}"">16:00 - 18:00</a> 
+													<a href="/employee/show/detail?start=18:00:00&end=20:00:00&date=2&roomID=${theaterRoom.roomID}"">18:00 - 20:00</a>
+													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=2&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
+												</div>
+											</div>
+										</div>
 									</div>
-
 								</div>
-
-							</div>
-							<div class="card">
-								<div class="card-body">
-									<div class="card-title">
-										<h4 class="room-name">Room 2</h4>
-										<i class="fas fa-chevron-down"></i>
-									</div>
-								</div>
-
 							</div>
 						</div>
-					</div>
+					</c:forEach>
 					<!-- content-wrapper ends -->
 					<!-- partial:partials/_footer.html -->
 
@@ -483,6 +473,7 @@
 
 </html>
 <script>
+	/* 
 	document.addEventListener('DOMContentLoaded', function() {
 		var dropdownIcon = document.getElementById('dropdown-icon');
 		var dropdownContent = document.getElementById('dropdown-content');
@@ -495,97 +486,97 @@
 				dropdownContent.style.display = 'none';
 			}
 		});
-	});
+	});	
+	 */
 	/* Xử lí màu */
 	document.addEventListener('DOMContentLoaded', function() {
-		  var links = document.querySelectorAll('.dropdown-content a');
+		var links = document.querySelectorAll('.dropdown-content a');
 
-		  links.forEach(function(link) {
-		    link.addEventListener('click', function() {
-		      // Loại bỏ màu xanh từ tất cả các links
-		      links.forEach(function(link) {
-		        link.classList.remove('active');
-		      });
+		links.forEach(function(link) {
+			link.addEventListener('click', function() {
+				// Loại bỏ màu xanh từ tất cả các links
+				links.forEach(function(link) {
+					link.classList.remove('active');
+				});
 
-		      // Thêm màu xanh cho link đã được click
-		      this.classList.add('active');
-		    });
-		  });
+				// Thêm màu xanh cho link đã được click
+				this.classList.add('active');
+			});
 		});
-/* 	Xử lí suất chiếu */
-	
-/* document.addEventListener('DOMContentLoaded', function() {
-    var links = document.querySelectorAll('.dropdown-content a');
-
-    links.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default behavior of the link
-
-            // Loại bỏ màu xanh từ tất cả các links
-            links.forEach(function(link) {
-                link.classList.remove('active');
-            });
-
-            // Thêm màu xanh cho link đã được click
-            this.classList.add('active');
-
-            // Lấy ID của link đã click
-            var clickedId = this.getAttribute('id');
-
-            // Ẩn tất cả các khoảng thời gian
-            var allTimeSlots = document.querySelectorAll('.time');
-            allTimeSlots.forEach(function(timeSlot) {
-                timeSlot.style.display = 'none';
-            });
-
-            // Hiển thị khoảng thời gian tương ứng với ngày đã click
-            var correspondingTimeSlot = document.getElementById(clickedId + '-time');
-            correspondingTimeSlot.style.display = 'block';
-        });
-    });
-
-    // Ẩn tất cả các khoảng thời gian khi trang được tải lần đầu tiên
-    var allTimeSlots = document.querySelectorAll('.time');
-    allTimeSlots.forEach(function(timeSlot) {
-        timeSlot.style.display = 'none';
-    });
-}); */
-document.addEventListener("DOMContentLoaded", function() {
-	  // Lấy ra các phần tử cần điều khiển
-	  var homNayTime = document.getElementById("hom-nay-time");
-	  var ngayMaiTime = document.getElementById("ngay-mai-time");
-	  var ngayMotTime = document.getElementById("ngay-mot-time");
-	  var homNayLink = document.getElementById("hom-nay");
-	  var ngayMaiLink = document.getElementById("ngay-mai");
-	  var ngayMotLink = document.getElementById("ngay-mot");
-
-	  // Hàm ẩn tất cả các phần tử time
-	  function hideAllTimes() {
-	    homNayTime.style.display = "none";
-	    ngayMaiTime.style.display = "none";
-	    ngayMotTime.style.display = "none";
-	  }
-
-	  // Sự kiện click vào ngày hôm nay
-	  homNayLink.addEventListener("click", function(event) {
-	    event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
-	    hideAllTimes();
-	    homNayTime.style.display = "block";
-	  });
-
-	  // Sự kiện click vào ngày mai
-	  ngayMaiLink.addEventListener("click", function(event) {
-	    event.preventDefault();
-	    hideAllTimes();
-	    ngayMaiTime.style.display = "block";
-	  });
-
-	  // Sự kiện click vào ngày mốt
-	  ngayMotLink.addEventListener("click", function(event) {
-	    event.preventDefault();
-	    hideAllTimes();
-	    ngayMotTime.style.display = "block";
-	  });
 	});
+	/* 	Xử lí suất chiếu */
 
+	/* document.addEventListener('DOMContentLoaded', function() {
+	 var links = document.querySelectorAll('.dropdown-content a');
+
+	 links.forEach(function(link) {
+	 link.addEventListener('click', function(event) {
+	 event.preventDefault(); // Prevent the default behavior of the link
+
+	 // Loại bỏ màu xanh từ tất cả các links
+	 links.forEach(function(link) {
+	 link.classList.remove('active');
+	 });
+
+	 // Thêm màu xanh cho link đã được click
+	 this.classList.add('active');
+
+	 // Lấy ID của link đã click
+	 var clickedId = this.getAttribute('id');
+
+	 // Ẩn tất cả các khoảng thời gian
+	 var allTimeSlots = document.querySelectorAll('.time');
+	 allTimeSlots.forEach(function(timeSlot) {
+	 timeSlot.style.display = 'none';
+	 });
+
+	 // Hiển thị khoảng thời gian tương ứng với ngày đã click
+	 var correspondingTimeSlot = document.getElementById(clickedId + '-time');
+	 correspondingTimeSlot.style.display = 'block';
+	 });
+	 });
+
+	 // Ẩn tất cả các khoảng thời gian khi trang được tải lần đầu tiên
+	 var allTimeSlots = document.querySelectorAll('.time');
+	 allTimeSlots.forEach(function(timeSlot) {
+	 timeSlot.style.display = 'none';
+	 });
+	 }); */
+	/* document.addEventListener("DOMContentLoaded", function() {
+		// Lấy ra các phần tử cần điều khiển
+		var homNayTime = document.getElementById("hom-nay-time");
+		var ngayMaiTime = document.getElementById("ngay-mai-time");
+		var ngayMotTime = document.getElementById("ngay-mot-time");
+		var homNayLink = document.getElementById("hom-nay");
+		var ngayMaiLink = document.getElementById("ngay-mai");
+		var ngayMotLink = document.getElementById("ngay-mot");
+
+		 Hàm ẩn tất cả các phần tử time
+		function hideAllTimes() {
+			homNayTime.style.display = "none";
+			ngayMaiTime.style.display = "none";
+			ngayMotTime.style.display = "none";
+		}
+
+		// Sự kiện click vào ngày hôm nay
+		homNayLink.addEventListener("click", function(event) {
+			event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
+			hideAllTimes();
+			homNayTime.style.display = "block";
+		});
+
+		// Sự kiện click vào ngày mai
+		ngayMaiLink.addEventListener("click", function(event) {
+			event.preventDefault();
+			hideAllTimes();
+			ngayMaiTime.style.display = "block";
+		});
+
+		// Sự kiện click vào ngày mốt
+		ngayMotLink.addEventListener("click", function(event) {
+			event.preventDefault();
+			hideAllTimes();
+			ngayMotTime.style.display = "block";
+		});
+	}); */
 </script>

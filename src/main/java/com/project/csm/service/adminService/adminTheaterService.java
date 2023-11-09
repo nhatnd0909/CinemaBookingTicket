@@ -18,4 +18,5 @@ public class adminTheaterService {
 	public Theater getTheaterById(Long theaterId) {
 		 return theaterRepositoy.findById(theaterId).orElse(null);
 	}
+	
 }

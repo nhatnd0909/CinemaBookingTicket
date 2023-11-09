@@ -169,96 +169,20 @@
 									<th>Quantity</th>
 									<th>Subtotal</th>
 								</tr>
-								<tr>
-									<td><img class="food-image" src="assets\images\food1.png"
-										alt="Traditional Popcorn size M"></td>
-									<td>Traditional Popcorn size M</td>
-									<td>$2.99</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
-								<tr>
-									<td><img class="food-image" src="assets\images\food2.png"
-										alt="Special Flavor Popcorn size M"></td>
-									<td>Special Flavor Popcorn size M</td>
-									<td>$3.99</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
-								<tr>
+								<c:forEach items="${listService}" var="service">
+									<tr>
 									<td><img class="food-image" src="assets\images\food3.jpg"
-										alt="Traditional Popcorn size L"></td>
-									<td>Special Flavor Popcorn size L</td>
-									<td>$3.99</td>
+										alt="${service.name}"></td>
+									<td>${service.name} size ${service.size}</td>
+									<td>$${service.price}</td>
 									<td class="quantity">
 										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
 										<button onclick="incrementQuantity(this)">+</button>
 									</td>
 									<td>$0.00</td>
 								</tr>
-								<tr>
-									<td><img class="food-image" src="assets\images\food3.jpg"
-										alt="Special Flavor Popcorn size L"></td>
-									<td>Special Flavor Popcorn size L</td>
-									<td>$4.99</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
-								<tr>
-									<td><img class="food-image" src="assets\images\food5.jpg"
-										alt="Soft Drink size M"></td>
-									<td>Soft Drink size M</td>
-									<td>$1.49</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
-								<tr>
-									<td><img class="food-image" src="assets\images\food5.jpg"
-										alt="Soft Drink size L"></td>
-									<td>Soft Drink size L</td>
-									<td>$2.49</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
-								<tr>
-									<td><img class="food-image" src="assets\images\food7.jpg"
-										alt="ComboA"></td>
-									<td>Combo A: 1 Special Flavor Popcorn size L + 2 Soft
-										Drink size M</td>
-									<td>$6.99</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
-								<tr>
-									<td><img class="food-image" src="assets\images\food7.jpg"
-										alt="ComboB"></td>
-									<td>Combo B: 2 Special Flavor Popcorn size M + 3 Soft
-										Drink size M</td>
-									<td>$6.99</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
+								</c:forEach>
+								
 
 								<!-- Thêm các hàng cho các món ăn và đồ uống khác -->
 							</table>
