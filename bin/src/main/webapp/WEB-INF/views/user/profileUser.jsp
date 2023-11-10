@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,16 +44,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link"
-							href="home">Home</a></li>
+						<li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="about">About</a>
 						</li>
 
 
-						<li class="nav-item"><a class="nav-link"
-							href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -99,13 +98,28 @@
 						<!--/search-right-->
 
 					</div>
-					<div class="Login_SignUp" id="login"
-						style="font-size: 2rem; display: inline-block; position: relative;">
-						<!-- <li class="nav-item"> -->
-						<a class="nav-link" href="signin"><i
-							class="fa fa-user-circle-o"></i></a>
-						<!-- </li> -->
-					</div>
+					<c:if test="${loggedIn eq 0}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="signin"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+					</c:if>
+					<c:if test="${loggedIn eq 1}">
+						<div class="Login_SignUp" id="login"
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="history"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+						${customer.getName()}
+						<div style="padding-left: 15px">
+							<a href="logout">Logout</a>
+						</div>
+					</c:if>
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
@@ -135,25 +149,26 @@
 								<div class="card">
 									<div class="card-body">
 										<div class="d-flex flex-column align-items-center text-center">
-											<div class="avatar-upload">
-												<div class="avatar-edit">
-													<input type='file' id="imageUpload"
-														accept=".png, .jpg, .jpeg" onchange="previewImage()" /> <label
-														for="imageUpload"></label>
-												</div>
-												<div class="avatar-preview">
-													<div id="imagePreview"
-														style="background-image: url(http://i.pravatar.cc/500?img=7);">
+											<form action="changeavatar" method="get">
+												<div class="avatar-upload">
+													<div class="avatar-edit">
+														<input name="urlimage" type='file' id="imageUpload"
+															accept=".png, .jpg, .jpeg" onchange="previewImage()" />
+														<label for="imageUpload"></label>
 													</div>
+													<div class="avatar-preview">	
+															<img id="imagePreview" src="assets/images/avatar.png" alt="Avatar Preview">
+													</div>
+													
 												</div>
-											</div>
-											<div class="mt-3">
-												<h4>John Doe</h4>
-												<p class="text-muted font-size-sm">Bay Area, San
-													Francisco, CA</p>
-												<button id="saveButton" class="btn btn-outline-primary"
-													style="display: none;">Save</button>
-											</div>
+												<div class="mt-3">
+													<h4>${customer.getName()}</h4>
+													<p class="text-muted font-size-sm">${customer.getAddress()}</p>
+													<button id="saveButton" class="btn btn-outline-primary"
+														style="display: none;">Save</button>
+												</div>
+											</form>
+
 										</div>
 										<hr class="my-4">
 										<ul class="list-group list-group-flush">
@@ -166,7 +181,7 @@
 															d="m 6 1 c -2.761719 0 -5 2.238281 -5 5 s 2.238281 5 5 5 c 0.832031 -0.003906 1.652344 -0.214844 2.382812 -0.617188 l 0.617188 0.617188 v 2 h 2 v 2 h 4 v -3 l -4.308594 -4.308594 c 0.199219 -0.542968 0.304688 -1.113281 0.308594 -1.691406 c 0 -2.761719 -2.238281 -5 -5 -5 z m -1 3 c 0.550781 0 1 0.449219 1 1 s -0.449219 1 -1 1 s -1 -0.449219 -1 -1 s 0.449219 -1 1 -1 z m 0 0"
 															fill="#2e3436" />
 												</svg>
-													<a href="/password.html" class="text-muted font-size-sm">Changes
+													<a href="changepass" class="text-muted font-size-sm">Changes
 														to password</a>
 												</h6>
 											</li>
@@ -188,7 +203,7 @@
 															stroke-width="0.12" stroke-linecap="round"
 															stroke-linejoin="round" />
 												</svg>
-													<a href="/history.html" class="text-muted font-size-sm">
+													<a href="/history" class="text-muted font-size-sm">
 														History</a>
 												</h6>
 											</li>
@@ -197,61 +212,97 @@
 								</div>
 							</div>
 							<div class="col-lg-8">
-								<div class="card">
-									<div class="card-body">
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Full Name</h6>
+								<form action="profileUser" method="post">
+									<div class="card">
+										<div class="card-body">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Full Name</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="name" type="text" class="form-control"
+														value="${customer.getName()}">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control" value="John Doe">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Email</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="email" type="text" class="form-control"
+														value="${customer.getAccount().getEmail()}"
+														readonly="readonly">
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Email</h6>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Gender</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<select id="gender" name="gender" class="form-control">
+														<option value="${customer.getGender()}">${customer.getGender()}</option>
+														<option value="Female">Female</option>
+														<option value="Male">Male</option>
+													</select>
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="john@example.com">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Date of Birth</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input class="form-control" name="dob" type="date"
+														id="start" value="${dob}" max="${maxDate}">
+												</div>
+
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Phone</h6>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Phone</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="phone" type="text" class="form-control"
+														value="${customer.getPhoneNumber()}">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="(239) 816-9029">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Address</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input name="address" type="text" class="form-control"
+														value="${customer.getAddress()}">
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Mobile</h6>
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Create Date</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" class="form-control"
+														value="${customer.getCreateDate()}" readonly="readonly">
+												</div>
 											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="(320) 380-4539">
+											<div class="row mb-4">
+												<div class="col-sm-3">
+													<h6 class="mb-0">Number of purchases</h6>
+												</div>
+												<div class="col-sm-9 text-secondary">
+													<input type="text" class="form-control"
+														value="${customer.getTimes()}" readonly="readonly">
+												</div>
 											</div>
-										</div>
-										<div class="row mb-4">
-											<div class="col-sm-3">
-												<h6 class="mb-0">Address</h6>
-											</div>
-											<div class="col-sm-9 text-secondary">
-												<input type="text" class="form-control"
-													value="Bay Area, San Francisco, CA">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-3"></div>
-											<div class="col-sm-9 text-secondary">
-												<input type="button" class="btn btn-primary px-4"
-													value="Save Changes">
+											<div class="row">
+												<div class="col-sm-3"></div>
+												<div class="col-sm-9 text-secondary">
+													<input type="submit" class="btn btn-primary px-4"
+														value="Save Changes">
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								</form>
+
 							</div>
 						</div>
 					</div>
@@ -369,23 +420,16 @@
 					scrollFunction()
 				};
 
-				function scrollFunction() {
-					if (document.body.scrollTop > 20
-							|| document.documentElement.scrollTop > 20) {
-						document.getElementById("movetop").style.display = "block";
-					} else {
-						document.getElementById("movetop").style.display = "none";
-					}
-				}
-
-				// When the user clicks on the button, scroll to the top of the document
-				function topFunction() {
-					document.body.scrollTop = 0;
-					document.documentElement.scrollTop = 0;
-				}
-			</script>
+													function scrollFunction() { if (document.body.scrollTop >
+													20 || document.documentElement.scrollTop > 20) {
+													document.getElementById("movetop").style.display = "block";
+													} else { document.getElementById("movetop").style.display =
+													"none"; } } // When the user clicks on the button, scroll
+													to the top of the document function topFunction() {
+													document.body.scrollTop = 0;
+													document.documentElement.scrollTop = 0; }
+													</script>
 			<!-- /move top -->
-
 		</section>
 	</footer>
 	<!-- responsive tabs -->
@@ -614,13 +658,13 @@
 				var reader = new FileReader();
 
 				reader.onload = function(e) {
-					imagePreview.style.backgroundImage = 'url('
-							+ e.target.result + ')';
+					imagePreview.src = e.target.result; // Sử dụng thuộc tính src cho thẻ img
 					saveButton.style.display = 'block';
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
 		}
 	</script>
+
 </body>
 </html>

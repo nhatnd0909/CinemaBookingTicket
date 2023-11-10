@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.csm.model.Account;
 import com.project.csm.model.Theater;
+import com.project.csm.model.TheaterRoom;
 import com.project.csm.service.adminService.adminAccountService;
 import com.project.csm.service.adminService.adminRankService;
 import com.project.csm.service.adminService.adminTheaterService;
@@ -78,4 +79,5 @@ public class AdminTheaterController {
 			return new ResponseEntity<>("Không tìm thấy rạp", HttpStatus.NOT_FOUND);
 		}
 	}
+	
 }

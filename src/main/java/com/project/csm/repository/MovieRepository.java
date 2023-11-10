@@ -7,5 +7,6 @@ import com.project.csm.model.Movie;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long>{
+
 	
 }

@@ -28,13 +28,14 @@ public class AdminTheaterRoomController {
 	@Autowired
 	private adminTheaterService theaterService;
 
-	@GetMapping("/roomDashboard")
-	public String dashboardTheaterRoom(Model model) {
-		List<TheaterRoom> rooms = theaterRoomService.getAllTheaterRooms();
-		model.addAttribute("rooms", rooms);
-		return "admin/room/roomDashboard";
-	}
-	
+	@GetMapping("/showRooms/{theaterID}")
+    public String showRooms(@PathVariable Long theaterID, Model model) {
+        List<TheaterRoom> rooms = theaterService.getRoomsForTheater(theaterID);
+        Theater theater = theaterService.getTheaterById(theaterID);
+        model.addAttribute("theater", theater);
+        model.addAttribute("rooms", rooms);
+        return "admin/room/roomDashboard";
+  }
 	@GetMapping("/roomDashboard/create")
 	public String getCreateTheaterRoom(Model model) {
 		List<Theater> theaters = theaterService.getAllTheaters();

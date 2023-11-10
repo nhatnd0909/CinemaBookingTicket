@@ -36,9 +36,7 @@ public class Admin {
 	@JoinColumn(name = "AccountID")
 	private Account account;
 
-
-	public Admin(Long adminID, String name, String address, String phoneNumber, Date dateOfBirth, Account account) {
-		super();
+	public Admin() {
 	}
 
 	public Admin(String name, String address, String phoneNumber, Date dateOfBirth, Account account) {
@@ -49,7 +47,14 @@ public class Admin {
 		this.account = account;
 	}
 
-
+	public Admin(Long adminID, String name, String address, String phoneNumber, Date dateOfBirth, Account account) {
+		this.adminID = adminID;
+		this.name = name;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.dateOfBirth = dateOfBirth;
+		this.account = account;
+	}
 
 	public Long getAdminID() {
 		return adminID;
