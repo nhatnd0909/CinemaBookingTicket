@@ -36,45 +36,49 @@ public class AdminTheaterRoomController {
         model.addAttribute("rooms", rooms);
         return "admin/room/roomDashboard";
   }
-	@GetMapping("/roomDashboard/create")
-	public String getCreateTheaterRoom(Model model) {
-		List<Theater> theaters = theaterService.getAllTheaters();
-		model.addAttribute("theaters", theaters);
-		return "admin/room/createTheaterRoom";
+	@GetMapping("/showRooms/{theaterID}/create")
+	public String getCreateTheaterRoom(@PathVariable Long theaterID, Model model) {
+	    Theater theater = theaterService.getTheaterById(theaterID);
+	    model.addAttribute("theater", theater);
+	    return "admin/room/createTheaterRoom";
 	}
 	
-	@PostMapping("/roomDashboard/create")
-	public String postCreateTheaterRoom(@ModelAttribute TheaterRoom room) {
-		theaterRoomService.createTheaterRoom(room);
-		return "redirect:/roomDashboard";
+	@PostMapping("/showRooms/{theaterID}/create")
+	public String postCreateTheaterRoom(@PathVariable Long theaterID, @ModelAttribute TheaterRoom room) {
+	    theaterRoomService.createTheaterRoom(room);
+	    return "redirect:/showRooms/{theaterID}";
 	}
 	
-	@GetMapping("/roomDashboard/update/{roomID}")
-	public String getUpdateTheaterRoom(@PathVariable Long roomID, Model model) {
+	@GetMapping("/showRooms/{theaterID}/update/{roomID}")
+	public String getUpdateTheaterRoom(@PathVariable Long theaterID,@PathVariable Long roomID, Model model) {
+		Theater theater = theaterService.getTheaterById(theaterID);
+	    model.addAttribute("theater", theater);
 		TheaterRoom room = theaterRoomService.getTheaterRoomById(roomID);
 		model.addAttribute("room", room);
 		return "admin/room/updateTheaterRoom";
 	}
 	
-	@PostMapping("/roomDashboard/update/{roomID}")
+	@PostMapping("/showRooms/{theaterID}/update/{roomID}")
 	public String postUpdateTheaterRoom( @PathVariable Long roomID,@ModelAttribute TheaterRoom theaterRoom ) {
 		TheaterRoom updateTheaterRoom = theaterRoomService.getTheaterRoomById(roomID);
 		updateTheaterRoom.setName(theaterRoom.getName());
 		updateTheaterRoom.setNumOfSeat(theaterRoom.getNumOfSeat());
 		theaterRoomService.updateTheaterRoom(updateTheaterRoom);
-		return "redirect:/roomDashboard";
+		return "redirect:/showRooms/{theaterID}";
 	}
 	
 	
 	@PostMapping("/deleteTheaterRoom")
 	@ResponseBody
-	public ResponseEntity<String> deleteRoom(@RequestParam("roomID") Long roomID) {
-		TheaterRoom room = theaterRoomService.getTheaterRoomById(roomID);
-		if (room != null) {
-			theaterRoomService.deleteTheaterRoomById(roomID);
-			return new ResponseEntity<>("Xóa thành công", HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>("Không tìm thấy rạp", HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<String> deleteRoom(@RequestParam("roomID") Long roomID, @RequestParam("theaterID") Long theaterID) {
+	    TheaterRoom room = theaterRoomService.getTheaterRoomById(roomID);
+	    if (room != null) {
+	        theaterRoomService.deleteTheaterRoomById(roomID);
+	        return new ResponseEntity<>("Xóa thành công", HttpStatus.OK);
+	    } else {
+	        return new ResponseEntity<>("Không tìm thấy phòng chiếu", HttpStatus.NOT_FOUND);
+	    }
 	}
+
+
 }

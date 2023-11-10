@@ -312,9 +312,9 @@
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h4 class="card-title">Update Room</h4>
-                                    <p class="mb-0"><a href="/roomDashboard" style="text-decoration: none; color: inherit;"> Room</a> / <span>Update </span></p>
+                                    <p class="mb-0"><a href="/showRooms/${theater.theaterID}" style="text-decoration: none; color: inherit;"> Room</a> / <span>Update </span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="/theaterDashboard/update/${room.roomID}">
+								<form class="forms-sample" method="post" action="/showRooms/${theater.theaterID}/update/${room.roomID}">
 									<div class="form-group">
 										<label for="nameInput">Name</label> 
                                         <input type="text" class="form-control" id="nameInput" placeholder="Room's Name" name="name" required="required" value="${room.name}">
@@ -323,6 +323,7 @@
 										<label for="seatInput">Number of Seat</label> 
                                         <input type="text" class="form-control" id="seatInput" placeholder="Number of Seat" name="numOfSeat" required="required" value="${room.numOfSeat}">
 									</div>
+
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>

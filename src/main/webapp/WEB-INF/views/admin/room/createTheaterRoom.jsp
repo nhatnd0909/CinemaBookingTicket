@@ -312,24 +312,27 @@
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h4 class="card-title">Add New Room</h4>
-                                    <p class="mb-0"><a href="/roomDashboard" style="text-decoration: none; color: inherit;"> Room</a> / <span>Add New</span></p>
+                                    <p class="mb-0"><a href="/showRooms/${theater.theaterID}" style="text-decoration: none; color: inherit;"> Room</a> / <span>Add New</span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="/roomDashboard/create">
+								<form class="forms-sample" method="post" action="/showRooms/${theater.theaterID}/create">
 									<div class="form-group">
 										<label for="nameInput">Name</label> 
-                                        <input type="text" class="form-control" id="nameInput" placeholder="Room Name" name="name" required="required">
+										<input type="text" class="form-control" id="nameInput" placeholder="Room Name" name="name" required="required">
 									</div>  
-                                    <div class="form-group">
+									<div class="form-group">
 										<label for="seatInput">Number of seat</label> 
-                                        <input type="text" class="form-control" id="seatInput" placeholder="Number of seat" name="numOfSeat" required="required">
+										<input type="text" class="form-control" id="seatInput" placeholder="Number of seat" name="numOfSeat" required="required">
 									</div>
-                                    <div class="form-group">
-										<label for="theaterInput">Theater</label> 
-                                        <input type="text" class="form-control" id="theaterInput" placeholder="Theater" name="theater" required="required">
-									</div>
+									<div class="form-group">
+                                        <label for="exampleSelectGender">Theater</label> 
+                                        <select class="form-control" id="exampleSelectGender" name="theater" required="required">                                         
+                                                <option value="${theater.theaterID}">${theater.name}</option>
+                                        </select>
+                                    </div> 
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>
+								
 							</div>
 						</div>
 					</div>

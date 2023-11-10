@@ -318,7 +318,7 @@
 										<h4 class="card-title">Theater Management</h4>
 										<div class="mb-0 icon icon-box-success">
 											<a href="/theaterDashboard/create" style="text-decoration: none; color: inherit;" > 
-												<span class="mdi mdi-account-multiple-plus icon-item"></span>
+												<span class="mdi mdi-library-plus"></span>
 											</a>
 										</div>	
 									</div>

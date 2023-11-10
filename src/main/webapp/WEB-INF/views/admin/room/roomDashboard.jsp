@@ -317,8 +317,8 @@
 									<div class="d-flex justify-content-between align-items-center">
 										<h4 class="card-title">Room Management</h4>
 										<div class="mb-0 icon icon-box-success">
-											<a href="/roomDashboard/create" style="text-decoration: none; color: inherit;" > 
-												<span class="mdi mdi-account-multiple-plus icon-item"></span>
+											<a href="/showRooms/${theater.theaterID}/create" style="text-decoration: none; color: inherit;" > 
+												<span class="mdi mdi-library-plus"></span>
 											</a>
 										</div>	
 									</div>
@@ -346,12 +346,12 @@
 																<td>${room.theater.name}</td>
 																<td>
 																	<div class="badge badge-outline-success">
-																		<a href="<c:url value='/roomDashboard/update/${room.roomID}'/>" style="text-decoration: none; color: inherit;" >
+																		<a href="<c:url value='/showRooms/${theater.theaterID}/update/${room.roomID}'/>" style="text-decoration: none; color: inherit;" >
 																			<i class="mdi mdi-eye"></i>
 																		</a>
 																	</div>
 																	<div class="badge badge-outline-success">
-																		<a  onclick="deleteTheater(${room.roomID});" type="submit"  style="text-decoration: none; color: inherit;" >
+																		<a onclick="deleteTheater(${room.roomID}, ${theater.theaterID});" type="submit" style="text-decoration: none; color: inherit;">
 																			<i class="mdi mdi-delete"></i>
 																		</a>
 																	</div>																		
@@ -397,7 +397,7 @@
 	<!-- End custom js for this page -->
 </body>
 <script>
-    function deleteTheater(roomID) {
+    function deleteTheater(roomID, theaterID) {
         Swal.fire({
             title:'<span style="color: black;">Xác nhận xóa?</span>',
             html: 'Bạn có chắc chắn muốn xóa phòng này ?',
@@ -411,13 +411,14 @@
                     url: '/deleteTheaterRoom',
                     type: 'POST',
                     data: {
-                        roomID: roomID 
+                        roomID: roomID ,
+						theaterID: theaterID	
                     },
                     success: function(response) {
                         if (response === 'Xóa thành công') {
 							Swal.fire({ title:'<span style="color: black;">Xóa thành công</span>',text: 'Dữ liệu đã được xóa thành công!',icon: 'success'});
                             setTimeout(function() {
-								window.location.href = '/roomDashboard';
+								window.location.href = '/showRooms/' + theaterID;
 							}, 1000);
                         } else {
 							Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy rạp',icon: 'error'});
