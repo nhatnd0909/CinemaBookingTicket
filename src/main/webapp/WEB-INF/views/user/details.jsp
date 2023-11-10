@@ -164,7 +164,7 @@
 												</div>
 											</div>
 											<div class="details col-md-8">
-												<h3>${movie.name}</h3>
+												<h2>${movie.name}</h2>
 												<p>
 													<span>Đạo diễn:</span> ${movie.director}
 												</p>
