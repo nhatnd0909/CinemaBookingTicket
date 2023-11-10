@@ -325,7 +325,7 @@
 									<div class="table-responsive">
 										<c:choose>
 											<c:when test="${empty rooms}">
-												<p>Không có dữ liệu nhân viên.</p>
+												<p>Không có dữ liệu phòng.</p>
 											</c:when>
 											<c:otherwise>
 												<table class="table">

@@ -356,7 +356,7 @@
 																		</a>
 																	</div>		
 																	<div class="badge badge-outline-success">
-																		<a href="<c:url value='/roomDashboard'/>" style="text-decoration: none; color: inherit;">
+																		<a href="<c:url value='/roomDashboard'/${theater.theaterID}>" style="text-decoration: none; color: inherit;">
 																			<p style="font-size: 14px; margin: 0;">Show Room</p>
 																		</a>
 																	 </div>																
