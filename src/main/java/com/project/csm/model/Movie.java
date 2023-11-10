@@ -46,6 +46,9 @@ public class Movie {
 	@Column(name = "EndDate")
 	private Date endDate;
 
+	@Column(name = "Status")
+	private int status;
+
 	@Column(name = "URLTrailer")
 	private String urlTrailer;
 
@@ -85,6 +88,34 @@ public class Movie {
 		this.image = image;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.urlTrailer = urlTrailer;
+		this.genre = genre;
+		this.admin = admin;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public Movie(Long movieID, String name, String actor, String director, int duration, String language,
+			String description, String image, Date startDate, Date endDate, int status, String urlTrailer, Genre genre,
+			Admin admin) {
+		super();
+		this.movieID = movieID;
+		this.name = name;
+		this.actor = actor;
+		this.director = director;
+		this.duration = duration;
+		this.language = language;
+		this.description = description;
+		this.image = image;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.status = status;
 		this.urlTrailer = urlTrailer;
 		this.genre = genre;
 		this.admin = admin;
@@ -198,8 +229,8 @@ public class Movie {
 	public String toString() {
 		return "Movie [movieID=" + movieID + ", name=" + name + ", actor=" + actor + ", director=" + director
 				+ ", duration=" + duration + ", language=" + language + ", description=" + description + ", image="
-				+ image + ", startDate=" + startDate + ", endDate=" + endDate + ", urlTrailer=" + urlTrailer
-				+ ", genre=" + genre + ", admin=" + admin + "]";
+				+ image + ", startDate=" + startDate + ", endDate=" + endDate + ", status=" + status + ", urlTrailer="
+				+ urlTrailer + ", genre=" + genre + ", admin=" + admin + "]";
 	}
 
 }

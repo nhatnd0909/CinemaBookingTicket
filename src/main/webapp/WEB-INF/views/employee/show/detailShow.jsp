@@ -288,69 +288,78 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="d-flex justify-content-between align-items-center">
-									<h4 class="card-title">Room 1</h4>
+									<h4 class="card-title">${room.name}</h4>
 									<p class="mb-0">
 										<a href="/employee/show"
 											style="text-decoration: none; color: inherit;"> Show</a> / <span>New
 											Show</span>
 									</p>
 								</div>
-								<form class="forms-sample" method="post" action="">
-									<c:forEach var="show" items="${shows}">
-										<div class="form-group row">
-											<label for="exampleInputName1"
-												class="col-sm-2 col-form-label">Day Time</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control"
-													id="exampleInputName1" name="dayTime" required="required"
-													value="${formattedDayTimes[0]}">
-											</div>
+								<form class="forms-sample" method="post" action="createShow">
+									<input type="text" name="roomID" value="${room.roomID}"
+										hidden="">
+									<div class="form-group row">
+										<label for="exampleInputName1" class="col-sm-2 col-form-label">Day
+											Time</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"
+												id="exampleInputName1" name="date" value="${dateReturn}">
 										</div>
+									</div>
 
 
-										<div class="form-group row">
-											<label for="exampleInputEmail3"
-												class="col-sm-2 col-form-label">Start Time</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control"
-													id="exampleInputEmail3" placeholder="Start Time" name=""
-													required="required" value="${show.startTime}">
-											</div>
+									<div class="form-group row">
+										<label for="exampleInputEmail3"
+											class="col-sm-2 col-form-label">Start Time</label>
+										<div class="col-sm-10">
+											<input name="start" type="text" class="form-control"
+												id="exampleInputEmail3" placeholder="Start Time"
+												required="required" value="${startTime}">
 										</div>
+									</div>
 
-										<div class="form-group row">
-											<label for="exampleInputEmail3"
-												class="col-sm-2 col-form-label">End Time</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control"
-													id="exampleInputEmail3" placeholder="Price" name=""
-													required="required" value="${show.endTime}">
-											</div>
+									<div class="form-group row">
+										<label for="exampleInputEmail3"
+											class="col-sm-2 col-form-label">End Time</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control"
+												id="exampleInputEmail3" placeholder="Price" name="end"
+												required="required" value="${endTime}">
 										</div>
+									</div>
+									<div class="form-group row">
+										<label for="exampleSelectGender"
+											class="col-sm-2 col-form-label">Name Movie</label>
+										<div class="col-sm-10">
+											<select class="form-control" name="movieID"
+												required="required">
+												<c:if test="${movieID == 0}">
+													<option>
+														<c:forEach items="${listMovie}" var="movie">
+															<option value="${movie.movieID}">${movie.name}
+														</c:forEach>
+												</c:if>
+												<c:if test="${movieID != 0}">
+													<option value="${movieID}">${movie.name}
+														<c:forEach items="${listMovie}" var="movie">
+															<option value="${movie.movieID}">${movie.name}
+														</c:forEach>
+												</c:if>
+											</select>
 
-										<div class="form-group row">
-											<label for="exampleSelectGender"
-												class="col-sm-2 col-form-label">Name Movie</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control"
-													id="exampleInputEmail3" placeholder="Price" name=""
-													required="required" value="${show.movie.name}">
-											</div>
 										</div>
-
-										<div class="form-group row">
-											<label for="exampleInputEmail3"
-												class="col-sm-2 col-form-label">Price</label>
-											<div class="col-sm-10">
-												<input type="email" class="form-control"
-													id="exampleInputEmail3" placeholder="Price" name=""
-													required="required" value="${show.price}">
-											</div>
+									</div>
+									<div class="form-group row">
+										<label for="exampleInputEmail3"
+											class="col-sm-2 col-form-label">Price</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" placeholder="Price"
+												name="price" required="required" value="${price}">
 										</div>
-									</c:forEach>
-
+									</div>
 									<button type="submit" class="btn btn-primary mr-2">Save</button>
-									<button type="submit" class="btn btn-primary mr-2">Cancle</button>
+									<button type="submit" class="btn btn-primary mr-2">Cancel</button>
+
 								</form>
 							</div>
 						</div>

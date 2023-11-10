@@ -402,6 +402,12 @@
 													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=0&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
 												</div>
 											</div>
+											
+											<div class="day">
+												<a href="#" class="active" id="hom-nay">Ngày mai</a> 
+									<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
+												<a href="#" id="ngay-mot">Ngày mốt</a> -->
+											</div>
 
 											<div class="time">
 												<div class="time-slot">
@@ -414,6 +420,12 @@
 													<a href="/employee/show/detail?start=18:00:00&end=20:00:00&date=1&roomID=${theaterRoom.roomID}">18:00 - 20:00</a>
 													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=1&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
 												</div>
+											</div>
+											
+											<div class="day">
+												<a href="#" class="active" id="hom-nay">Ngày mốt</a> 
+									<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
+												<a href="#" id="ngay-mot">Ngày mốt</a> -->
 											</div>
 
 											<div class="time">

@@ -38,14 +38,26 @@ public class Show {
 
 	@Column(name = "DayTime")
 	private Date dayTime;
-	
-	@Column(name = "StartTime")
-    private Time startTime;
 
-    @Column(name = "EndTime")  
-    private Time endTime;
+	@Column(name = "StartTime")
+	private Time startTime;
+
+	@Column(name = "EndTime")
+	private Time endTime;
 
 	public Show() {
+	}
+
+	public Show(Employee employee, Movie movie, TheaterRoom theaterRoom, BigDecimal price, Date dayTime, Time startTime,
+			Time endTime) {
+		super();
+		this.employee = employee;
+		this.movie = movie;
+		this.theaterRoom = theaterRoom;
+		this.price = price;
+		this.dayTime = dayTime;
+		this.startTime = startTime;
+		this.endTime = endTime;
 	}
 
 	public Show(Long showID, Employee employee, Movie movie, TheaterRoom theaterRoom, BigDecimal price, Date dayTime,
@@ -132,5 +144,4 @@ public class Show {
 				+ "]";
 	}
 
-    
 }

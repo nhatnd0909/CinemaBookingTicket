@@ -38,10 +38,20 @@ public class MovieService {
 		return listReturn;
 	}
 
-	public Movie getMovieByID(String name) {
+	public Movie getMovieByName(String name) {
 		List<Movie> listMovie = getAllMovie();
 		for (Movie m : listMovie) {
 			if (m.getName().equals(name)) {
+				return m;
+			}
+		}
+		return null;
+	}
+
+	public Movie getMovieByID(Long idMovie) {
+		List<Movie> listMovie = getAllMovie();
+		for (Movie m : listMovie) {
+			if (m.getMovieID() == (idMovie)) {
 				return m;
 			}
 		}
@@ -52,5 +62,17 @@ public class MovieService {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String formattedDate = sdf.format(date);
 		return formattedDate;
+	}
+
+	public List<Movie> getMoiveOnGoing() {
+		List<Movie> listReturn = new ArrayList<>();
+		List<Movie> list = getAllMovie();
+
+		for (Movie m : list) {
+			if (m.getStatus() == 1) {
+				listReturn.add(m);
+			}
+		}
+		return listReturn;
 	}
 }

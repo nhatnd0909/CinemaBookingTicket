@@ -36,7 +36,7 @@ public class DetailController {
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 
-		Movie movie = movieService.getMovieByID(name);
+		Movie movie = movieService.getMovieByName(name);
 		model.addAttribute("movie", movie);
 
 		String startDate = movieService.parseDateToString(movie.getStartDate());

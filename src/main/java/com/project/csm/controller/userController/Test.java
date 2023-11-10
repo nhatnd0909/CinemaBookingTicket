@@ -1,5 +1,8 @@
 package com.project.csm.controller.userController;
 
+import java.sql.Time;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.csm.model.Employee;
 import com.project.csm.model.Movie;
 import com.project.csm.model.Service;
+import com.project.csm.model.Show;
 import com.project.csm.model.Theater;
 import com.project.csm.model.TheaterRoom;
-import com.project.csm.service.adminService.adminTheaterService;
 import com.project.csm.service.customerService.MovieService;
 import com.project.csm.service.customerService.ServiceService;
 import com.project.csm.service.customerService.TheaterRoomService;
 import com.project.csm.service.customerService.TheaterService;
 import com.project.csm.service.employeeService.EmployeeService;
+import com.project.csm.service.employeeService.employeeShowMovie;
 
 @RestController
 public class Test {
@@ -32,10 +36,11 @@ public class Test {
 	private ServiceService sService;
 	@Autowired
 	private EmployeeService eService;
-	
+	@Autowired
+	private employeeShowMovie showMovie;
 	@Autowired
 	private TheaterRoomService theaterRoomService;
-	
+
 	@GetMapping("/get")
 	public List<Movie> getAllMovie() {
 		return movieService.getAllMovie();
@@ -75,23 +80,22 @@ public class Test {
 
 		return sService.getAllService();
 	}
-	
+
 	@GetMapping("/get7")
 	public Employee getAllServic(@RequestParam Long id) {
 
 		return eService.getEmployeeByIdAccount(id);
 	}
-	
+
 	@GetMapping("/get8")
-	public List<Employee> getAllSerice() {
+	public List<Show> getAllSerice() {
 
-		return eService.getAllEmployee();
+		return showMovie.getAllShows();
 	}
-	
+
 	@GetMapping("/get9")
-	public List<TheaterRoom> getAlServic(@RequestParam Long id) {
+	public Show getAllSeric() {
 
-		return theaterRoomService.getAllTheaterRoomByIdTheater(id);
+		return null;
 	}
-	
 }

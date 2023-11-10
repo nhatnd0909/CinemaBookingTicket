@@ -13,31 +13,41 @@ import com.project.csm.repository.TheaterRoomReposiory;
 public class TheaterRoomService {
 	@Autowired
 	private TheaterRoomReposiory tReposiory;
-	
-	public List<TheaterRoom> getAllTheaterRoom(){
-		
+
+	public List<TheaterRoom> getAllTheaterRoom() {
+
 		return tReposiory.findAll();
 	}
-	
-	public List<TheaterRoom> getRoomByTheaterName(String name){
+
+	public List<TheaterRoom> getRoomByTheaterName(String name) {
 		List<TheaterRoom> list = getAllTheaterRoom();
 		List<TheaterRoom> listReturn = new ArrayList<>();
-		for(TheaterRoom t:list) {
-			if(t.getTheater().getName().equals(name)) {
+		for (TheaterRoom t : list) {
+			if (t.getTheater().getName().equals(name)) {
 				listReturn.add(t);
 			}
 		}
 		return listReturn;
 	}
-	
+
 	public List<TheaterRoom> getAllTheaterRoomByIdTheater(Long idTheater) {
 		List<TheaterRoom> list = getAllTheaterRoom();
 		List<TheaterRoom> listResult = new ArrayList<>();
-		for(TheaterRoom t : list) {
-			if(t.getTheater().getTheaterID()==idTheater) {
+		for (TheaterRoom t : list) {
+			if (t.getTheater().getTheaterID() == idTheater) {
 				listResult.add(t);
 			}
 		}
 		return listResult;
+	}
+
+	public TheaterRoom getRoomByID(Long idRoom) {
+		List<TheaterRoom> list = getAllTheaterRoom();
+		for (TheaterRoom t : list) {
+			if (t.getRoomID() == idRoom) {
+				return t;
+			}
+		}
+		return null;
 	}
 }
