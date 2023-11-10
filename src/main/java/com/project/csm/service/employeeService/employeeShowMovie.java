@@ -62,13 +62,13 @@ public class employeeShowMovie {
             return null;
         }
     }
-	public Show getShowByDate(String dateInput,String timeStartInput) {
+	public Show getShowByDate(String dateInput,String timeStartInput,Long idRoom) {
 		List<Show> list = getAllShows();
 
 		for (Show s : list) {
 			String date = s.getDayTime().toString().split(" ")[0];
 			String timeStart = s.getStartTime().toString();
-			if (date.equals(dateInput)&&timeStart.equals(timeStartInput)) {
+			if (date.equals(dateInput)&&timeStart.equals(timeStartInput)&&s.getTheaterRoom().getRoomID()==idRoom) {
 				return s;
 			}
 

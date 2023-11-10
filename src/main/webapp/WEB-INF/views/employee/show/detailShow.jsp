@@ -353,8 +353,14 @@
 										<label for="exampleInputEmail3"
 											class="col-sm-2 col-form-label">Price</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" placeholder="Price"
-												name="price" required="required" value="${price}">
+											<c:if test="${comparePrice == 0}">
+												<input type="text" class="form-control" placeholder="Price"
+													name="price" required="required" value="">
+											</c:if>
+											<c:if test="${comparePrice != 0}">
+												<input type="text" class="form-control" placeholder="Price"
+													name="price" required="required" value="${price}">
+											</c:if>
 										</div>
 									</div>
 									<button type="submit" class="btn btn-primary mr-2">Save</button>

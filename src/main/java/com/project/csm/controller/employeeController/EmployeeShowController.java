@@ -60,11 +60,12 @@ public class EmployeeShowController {
 		List<Movie> listMovie = movieService.getMoiveOnGoing();
 
 		String dateReturn = employeeShowMovie.getDate(date);
-		Show show = employeeShowMovie.getShowByDate(dateReturn, start);
+		Show show = employeeShowMovie.getShowByDate(dateReturn, start, roomID);
 		String startTime = start;
 		String endTime = end;
 
-		BigDecimal price = new BigDecimal("0.0");
+		BigDecimal price = new BigDecimal("0.00");
+		int comparePrice = 0;
 		Movie movie = new Movie();
 		Long movieID = 0L;
 		TheaterRoom room = theaterRoomService.getRoomByID(roomID);
@@ -72,10 +73,14 @@ public class EmployeeShowController {
 			startTime = show.getStartTime().toString();
 			endTime = show.getEndTime().toString();
 			price = new BigDecimal(show.getPrice().toString());
+			BigDecimal priceTest = new BigDecimal("0.00");
+			comparePrice = price.compareTo(priceTest);
 			movie = show.getMovie();
 			movieID = movie.getMovieID();
-		}
 
+		}
+		
+		model.addAttribute("comparePrice", comparePrice);
 		model.addAttribute("room", room);
 		model.addAttribute("dateReturn", dateReturn);
 		model.addAttribute("startTime", startTime);
