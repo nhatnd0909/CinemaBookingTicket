@@ -321,7 +321,7 @@
 									</div>
 									<div class="form-group">
 										<label for="seatInput">Number of Seat</label> 
-                                        <input type="text" class="form-control" id="seatInput" placeholder="Number of Seat" name="numOfSeat" required="required" value="${room.numOfSeat}">
+                                        <input type="text" class="form-control" id="seatInput" placeholder="Number of Seat" name="numOfSeat" pattern="[0-9]+" required="required" title="Vui lòng chỉ nhập số. " value="${room.numOfSeat}">
 									</div>
 
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>

@@ -321,7 +321,7 @@
 									</div>  
 									<div class="form-group">
 										<label for="seatInput">Number of seat</label> 
-										<input type="text" class="form-control" id="seatInput" placeholder="Number of seat" name="numOfSeat" required="required">
+										<input type="text" class="form-control" id="seatInput" placeholder="Number of seat" name="numOfSeat" pattern="[0-9]+" required="required" title="Vui lòng chỉ nhập số.">
 									</div>
 									<div class="form-group">
                                         <label for="exampleSelectGender">Theater</label> 

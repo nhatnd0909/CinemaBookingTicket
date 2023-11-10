@@ -11,27 +11,27 @@
 <title>Corona Admin</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
-	href="admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
-<link rel="stylesheet" href="admin_assets/assets/vendors/css/vendor.bundle.base.css">
+	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="/admin_assets/assets/vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
 <!-- Plugin css for this page -->
 <link rel="stylesheet"
-	href="admin_assets/assets/vendors/jvectormap/jquery-jvectormap.css">
+	href="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap.css">
 <link rel="stylesheet"
-	href="admin_assets/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+	href="/admin_assets/assets/vendors/flag-icon-css/css/flag-icon.min.css">
 <link rel="stylesheet"
-	href="admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+	href="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+	href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
 <!-- Layout styles -->
-<link rel="stylesheet" href="admin_assets/assets/css/style.css">
+<link rel="stylesheet" href="/admin_assets/assets/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- End layout styles -->
-<link rel="shortcut icon" href="admin_assets/assets/images/favicon.png" />
+<link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
 
 <body>
@@ -41,9 +41,9 @@
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
 				<a class="sidebar-brand brand-logo" href="adminDashboard.html"><img
-					src="admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
+					src="/admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
 					class="sidebar-brand brand-logo-mini" href="adminDashboard.html"><img
-					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+					src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
 				<li class="nav-item profile">
@@ -51,7 +51,7 @@
 						<div class="profile-pic">
 							<div class="count-indicator">
 								<img class="img-xs rounded-circle "
-									src="admin_assets/assets/images/faces/face15.jpg" alt=""> <span
+									src="/admin_assets/assets/images/faces/face15.jpg" alt=""> <span
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
@@ -140,7 +140,7 @@
 				<div
 					class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
 					<a class="navbar-brand brand-logo-mini" href="adminDashboard.html"><img
-						src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+						src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 				</div>
 				<div
 					class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
@@ -173,7 +173,7 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="admin_assets/assets/images/faces/face4.jpg" alt="image"
+										<img src="/admin_assets/assets/images/faces/face4.jpg" alt="image"
 											class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
@@ -185,7 +185,7 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="admin_assets/assets/images/faces/face2.jpg" alt="image"
+										<img src="/admin_assets/assets/images/faces/face2.jpg" alt="image"
 											class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
@@ -197,7 +197,7 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
-										<img src="admin_assets/assets/images/faces/face3.jpg" alt="image"
+										<img src="/admin_assets/assets/images/faces/face3.jpg" alt="image"
 											class="rounded-circle profile-pic">
 									</div>
 									<div class="preview-item-content">
@@ -262,7 +262,7 @@
 							id="profileDropdown" href="#" data-toggle="dropdown">
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
-										src="admin_assets/assets/images/faces/face15.jpg" alt="">
+										src="/admin_assets/assets/images/faces/face15.jpg" alt="">
 									<p class="mb-0 d-none d-sm-block navbar-profile-name">Henry
 										Klein</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
@@ -389,16 +389,16 @@
 	</div>
 	<!-- container-scroller -->
 	<!-- plugins:js -->
-	<script src="admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
+	<script src="/admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
 	<!-- endinject -->
 	<!-- Plugin js for this page -->
 	<!-- End plugin js for this page -->
 	<!-- inject:js -->
-	<script src="admin_assets/assets/js/off-canvas.js"></script>
-	<script src="admin_assets/assets/js/hoverable-collapse.js"></script>
-	<script src="admin_assets/assets/js/misc.js"></script>
-	<script src="admin_assets/assets/js/settings.js"></script>
-	<script src="admin_assets/assets/js/todolist.js"></script>
+	<script src="/admin_assets/assets/js/off-canvas.js"></script>
+	<script src="/admin_assets/assets/js/hoverable-collapse.js"></script>
+	<script src="/admin_assets/assets/js/misc.js"></script>
+	<script src="/admin_assets/assets/js/settings.js"></script>
+	<script src="/admin_assets/assets/js/todolist.js"></script>
 	<!-- endinject -->
 	<!-- Custom js for this page -->
 	<!-- End custom js for this page -->
