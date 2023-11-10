@@ -92,27 +92,27 @@
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="adminDashboard"> <span class="menu-icon"> <i
+					href="/adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
 					</span> <span class="menu-title">Dashboard</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="revenue"> <span class="menu-icon"> <i
+					href="/revenue"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
 					</span> <span class="menu-title">Revenue Magagement</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="movieDashboard"> <span class="menu-icon"> <i
+					href="/movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
 					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="customerDashboard"> <span class="menu-icon"> <i
+					href="/customerDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="employeeDashboard"> <span class="menu-icon"> <i
+					href="/employeeDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
