@@ -28,6 +28,8 @@ public class TheaterRoom {
 	private Theater theater;
 
 	public TheaterRoom() {
+		super();
+
 	}
 
 	public TheaterRoom(Long roomID, String name, int numOfSeat, Theater theater) {
@@ -75,6 +77,4 @@ public class TheaterRoom {
 		return "TheaterRoom [roomID=" + roomID + ", name=" + name + ", numOfSeat=" + numOfSeat + ", theater=" + theater
 				+ "]";
 	}
-
-	
 }

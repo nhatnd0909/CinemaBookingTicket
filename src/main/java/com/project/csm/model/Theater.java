@@ -1,5 +1,8 @@
 package com.project.csm.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +33,17 @@ public class Theater {
 	@ManyToOne
 	@JoinColumn(name = "AdminID")
 	private Admin admin;
+	
+	@OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
+	    private List<TheaterRoom> rooms;
+	
+	public List<TheaterRoom> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<TheaterRoom> rooms) {
+        this.rooms = rooms;
+    }
 
 	public Theater() {
 		super();
@@ -88,5 +103,6 @@ public class Theater {
 		return "Theater [theaterID=" + theaterID + ", name=" + name + ", address=" + address + ", numCinemaRoom="
 				+ numCinemaRoom + ", admin=" + admin + "]";
 	}
+
 	
 }

@@ -1,6 +1,9 @@
 package com.project.csm.model;
 
 import java.util.Date;
+import java.util.Objects;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,15 +42,20 @@ public class Movie {
 
 	@Column(name = "Image")
 	private String image;
-
+	
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "StartDate")
 	private Date startDate;
-
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "EndDate")
 	private Date endDate;
 
 	@Column(name = "URLTrailer")
 	private String urlTrailer;
+	
+	@Column(name = "status")
+	private String status;
 
 	@ManyToOne
 	@JoinColumn(name = "GenreID")
@@ -57,21 +65,8 @@ public class Movie {
 	@JoinColumn(name = "AdminID")
 	private Admin admin;
 
-	public Movie() {
-	}
 
-	public Movie(String name, String actor, String director, int duration, String language, String description,
-			String image, Date startDate, Date endDate, String urlTrailer) {
-		this.name = name;
-		this.actor = actor;
-		this.director = director;
-		this.duration = duration;
-		this.language = language;
-		this.description = description;
-		this.image = image;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.urlTrailer = urlTrailer;
+	public Movie() {
 	}
 
 	public Movie(String name, String actor, String director, int duration, String language, String description,
@@ -177,6 +172,13 @@ public class Movie {
 	public void setUrlTrailer(String urlTrailer) {
 		this.urlTrailer = urlTrailer;
 	}
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public Genre getGenre() {
 		return genre;
@@ -192,6 +194,31 @@ public class Movie {
 
 	public void setAdmin(Admin admin) {
 		this.admin = admin;
+	}
+
+	@Override
+
+	public int hashCode() {
+		return Objects.hash(actor, admin, description, director, duration, endDate, genre, image, language, movieID,
+				name, startDate, status, urlTrailer);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Movie other = (Movie) obj;
+		return Objects.equals(actor, other.actor) && Objects.equals(admin, other.admin)
+				&& Objects.equals(description, other.description) && Objects.equals(director, other.director)
+				&& duration == other.duration && Objects.equals(endDate, other.endDate)
+				&& Objects.equals(genre, other.genre) && Objects.equals(image, other.image)
+				&& Objects.equals(language, other.language) && Objects.equals(movieID, other.movieID)
+				&& Objects.equals(name, other.name) && Objects.equals(startDate, other.startDate)
+				&& Objects.equals(status, other.status) && Objects.equals(urlTrailer, other.urlTrailer);
 	}
 
 	@Override
