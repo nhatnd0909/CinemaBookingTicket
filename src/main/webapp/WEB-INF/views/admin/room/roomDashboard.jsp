@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html >
+<html>
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Update Rank</title>
+<title>Corona Admin</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -29,6 +29,7 @@
 <!-- Layout styles -->
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
@@ -307,29 +308,69 @@
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">
-                    <div class="col-12 grid-margin stretch-card">
-						<div class="card">
-							<div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Update Rank</h4>
-                                    <p class="mb-0"><a href="/rankDashboard" style="text-decoration: none; color: inherit;"> Rank</a> / <span>Update </span></p>
-                                </div>
-								<form class="forms-sample" method="post" action="/rankDashboard/update/${rank.rankID}">
-									<div class="form-group">
-										<label for="exampleInputName1">Rank</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Rank" name="type" required="required" value="${rank.type}">
-									</div>  
-                                    <div class="form-group">
-										<label for="exampleInputName1">Giảm Giá</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Giảm Giá" name="discount" required="required" value="${rank.discount}">
-									</div>                                                        
-									<button type="submit" class="btn btn-primary mr-2">Submit</button>
-									<button class="btn btn-dark">Cancel</button>
-								</form>
+
+					<div class="row ">
+						<div class="col-12 grid-margin">
+							
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex justify-content-between align-items-center">
+										<h4 class="card-title">Room Management</h4>
+										<div class="mb-0 icon icon-box-success">
+											<a href="/showRooms/${theater.theaterID}/create" style="text-decoration: none; color: inherit;" > 
+												<span class="mdi mdi-library-plus"></span>
+											</a>
+										</div>	
+									</div>
+									<div class="table-responsive">
+										<c:choose>
+											<c:when test="${empty rooms}">
+												<p>Không có dữ liệu phòng.</p>
+											</c:when>
+											<c:otherwise>
+												<table class="table">
+													<thead>
+														<tr>
+                                                            <th>ID</th>
+															<th>Name</th>
+															<th>Number of seat</th>
+															<th>Theater</th>
+														</tr>
+													</thead>
+													<tbody>
+														<c:forEach var="room" items="${rooms}">
+															<tr>
+																<td>${room.roomID}</td>
+																<td>${room.name}</td>
+																<td>${room.numOfSeat}</td>
+																<td>${room.theater.name}</td>
+																<td>
+																	<div class="badge badge-outline-success">
+																		<a href="<c:url value='/showRooms/${theater.theaterID}/update/${room.roomID}'/>" style="text-decoration: none; color: inherit;" >
+																			<i class="mdi mdi-eye"></i>
+																		</a>
+																	</div>
+																	<div class="badge badge-outline-success">
+																		<a onclick="deleteTheater(${room.roomID}, ${theater.theaterID});" type="submit" style="text-decoration: none; color: inherit;">
+																			<i class="mdi mdi-delete"></i>
+																		</a>
+																	</div>																		
+																</td>
+															</tr>
+														</c:forEach>
+													</tbody>
+												</table>
+												
+												
+											</c:otherwise>
+										</c:choose>
+										
+
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-
 
 				</div>
 				<!-- content-wrapper ends -->
@@ -355,5 +396,40 @@
 	<!-- Custom js for this page -->
 	<!-- End custom js for this page -->
 </body>
+<script>
+    function deleteTheater(roomID, theaterID) {
+        Swal.fire({
+            title:'<span style="color: black;">Xác nhận xóa?</span>',
+            html: 'Bạn có chắc chắn muốn xóa phòng này ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Xóa',
+            cancelButtonText: 'Hủy',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/deleteTheaterRoom',
+                    type: 'POST',
+                    data: {
+                        roomID: roomID ,
+						theaterID: theaterID	
+                    },
+                    success: function(response) {
+                        if (response === 'Xóa thành công') {
+							Swal.fire({ title:'<span style="color: black;">Xóa thành công</span>',text: 'Dữ liệu đã được xóa thành công!',icon: 'success'});
+                            setTimeout(function() {
+								window.location.href = '/showRooms/' + theaterID;
+							}, 1000);
+                        } else {
+							Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy rạp',icon: 'error'});
+                        }
+                    },
+                    error: function() {
+						Swal.fire({ title:'<span style="color: black;">Lỗi khi xóa</span>',text: 'Không tìm thấy rạp',icon: 'error'});
+                    }
+                });
+            }
+        });
+    }
+</script>
 </html>
-

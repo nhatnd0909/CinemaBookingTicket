@@ -22,6 +22,10 @@ public class adminAccountService {
         return accountRepository.findByRole("customer");
     }
 	
+	public List<Account>getAdmins() {
+        return accountRepository.findByRole("admin");
+    }
+	
 	public void createAccount(Account account) {
 		accountRepository.save(account);
 	}

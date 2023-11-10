@@ -311,18 +311,24 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Update Rank</h4>
-                                    <p class="mb-0"><a href="/rankDashboard" style="text-decoration: none; color: inherit;"> Rank</a> / <span>Update </span></p>
+                                    <h4 class="card-title">Update Theater</h4>
+                                    <p class="mb-0"><a href="/theaterDashboard" style="text-decoration: none; color: inherit;"> Theater</a> / <span>Update </span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="/rankDashboard/update/${rank.rankID}">
+								<form class="forms-sample" method="post" action="/theaterDashboard/update/${theater.theaterID}">
 									<div class="form-group">
-										<label for="exampleInputName1">Rank</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Rank" name="type" required="required" value="${rank.type}">
-									</div>  
-                                    <div class="form-group">
-										<label for="exampleInputName1">Giảm Giá</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Giảm Giá" name="discount" required="required" value="${rank.discount}">
-									</div>                                                        
+										<label for="nameInput">Name</label> 
+                                        <input type="text" class="form-control" id="nameInput" placeholder="Theater Name" name="name" required="required" value="${theater.name}">
+									</div>
+									<div class="form-group">
+										<label for="addressInput">Address</label> 
+                                        <input type="text" class="form-control" id="addressInput" placeholder="Theater's Address" name="address" required="required" value="${theater.address}">
+									</div>
+									<div class="form-group">
+										<label for="numCinemaRoomInput">Number of room</label> 
+                                        <input type="text" class="form-control" id="namnumCinemaRoomInputeInput" placeholder="Number of room" name="numCinemaRoom" required="required" value="${theater.numCinemaRoom}">
+									</div>
+
+
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>

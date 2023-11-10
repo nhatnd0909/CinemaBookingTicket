@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Update Rank</title>
+<title>New Rank</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -311,18 +311,26 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Update Rank</h4>
-                                    <p class="mb-0"><a href="/rankDashboard" style="text-decoration: none; color: inherit;"> Rank</a> / <span>Update </span></p>
+                                    <h4 class="card-title">Add New Theater</h4>
+                                    <p class="mb-0"><a href="/theaterDashboard" style="text-decoration: none; color: inherit;"> Theater</a> / <span>Add New</span></p>
                                 </div>
-								<form class="forms-sample" method="post" action="/rankDashboard/update/${rank.rankID}">
+								<form class="forms-sample" method="post" action="/theaterDashboard/create">
 									<div class="form-group">
-										<label for="exampleInputName1">Rank</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Rank" name="type" required="required" value="${rank.type}">
+										<label for="nameInput">Name</label> 
+                                        <input type="text" class="form-control" id="nameInput" placeholder="Theater Name" name="name" required="required">
 									</div>  
                                     <div class="form-group">
-										<label for="exampleInputName1">Giảm Giá</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Giảm Giá" name="discount" required="required" value="${rank.discount}">
-									</div>                                                        
+										<label for="addressInput">Address</label> 
+                                        <input type="text" class="form-control" id="addressInput" placeholder="Theater's Address" name="address" required="required">
+									</div>
+									<div class="form-group">
+										<label for="numCinemaRoomInput">Number of room</label> 
+                                        <input type="text" class="form-control" id="numCinemaRoomInput" placeholder="Number of room" name="numCinemaRoom" required="required">
+									</div>
+									<!-- <div class="form-group">
+										<label for="adminInput">Admin</label> 
+                                        <input type="text" class="form-control" id="adminInput" placeholder="admin" name="admin" required="required">
+									</div> -->
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>
