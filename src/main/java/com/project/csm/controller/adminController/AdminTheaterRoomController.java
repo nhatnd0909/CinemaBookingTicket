@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.csm.model.Theater;
 import com.project.csm.model.TheaterRoom;
@@ -40,14 +41,24 @@ public class AdminTheaterRoomController {
 	public String getCreateTheaterRoom(@PathVariable Long theaterID, Model model) {
 	    Theater theater = theaterService.getTheaterById(theaterID);
 	    model.addAttribute("theater", theater);
+	    if (!model.containsAttribute("error")) {
+	        model.addAttribute("error", ""); 
+	    }
 	    return "admin/room/createTheaterRoom";
 	}
 	
 	@PostMapping("/showRooms/{theaterID}/create")
-	public String postCreateTheaterRoom(@PathVariable Long theaterID, @ModelAttribute TheaterRoom room) {
+	public String postCreateTheaterRoom(@PathVariable Long theaterID, @ModelAttribute TheaterRoom room, RedirectAttributes redirectAttributes) {
+	    Theater theater = theaterService.getTheaterById(theaterID);
+	    if (theater.getNumCinemaRoom() <= theaterRoomService.getNumRoomsByTheater(theater)) {
+	        redirectAttributes.addFlashAttribute("error", "Số lượng phòng đã đạt tới giới hạn.");
+	        return "redirect:/showRooms/{theaterID}/create";
+	    }
+
 	    theaterRoomService.createTheaterRoom(room);
 	    return "redirect:/showRooms/{theaterID}";
 	}
+
 	
 	@GetMapping("/showRooms/{theaterID}/update/{roomID}")
 	public String getUpdateTheaterRoom(@PathVariable Long theaterID,@PathVariable Long roomID, Model model) {

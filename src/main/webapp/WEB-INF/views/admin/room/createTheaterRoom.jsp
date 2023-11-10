@@ -329,6 +329,11 @@
                                                 <option value="${theater.theaterID}">${theater.name}</option>
                                         </select>
                                     </div> 
+									<!-- Trong trang hiển thị -->
+									<c:if test="${not empty error}">
+										<div class="alert alert-danger">${error}</div>
+									</c:if>
+
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
 								</form>

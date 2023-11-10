@@ -32,5 +32,10 @@ public class adminTheaterRoomService {
 	public void deleteTheaterRoomById(Long roomID) {
 		theaterRoomRepository.deleteById(roomID);
 	}
+	public int getNumRoomsByTheater(Theater theater) {
+	    List<TheaterRoom> rooms = theaterRoomRepository.findByTheater(theater);
+	    return rooms.size();
+	}
+
 	
 }
