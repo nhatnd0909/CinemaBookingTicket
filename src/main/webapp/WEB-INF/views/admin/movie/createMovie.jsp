@@ -31,6 +31,21 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
+<style>
+	#imagePreview {
+		margin: auto; 
+		padding: 10px 0; 
+		max-width: 512px; 
+		height: 256px; 
+		text-align: center;
+		display: none;
+	}
+
+	#imagePreview img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+</style>
 </head>
 
 <body>
@@ -366,7 +381,7 @@
 											Selected File: <span id="selectedFile">No file
 												selected</span>
 										</p>
-
+									<div id="imagePreview" class="image-preview"></div>
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail3">Start Date</label> <input
@@ -427,6 +442,28 @@
 	<!-- endinject -->
 	<!-- Custom js for this page -->
 	<!-- End custom js for this page -->
+	<script>
+		document.getElementById('fileInput').addEventListener('change', function () {
+			displayImagePreview(this);
+		});
+	
+		function displayImagePreview(input) {
+			var fileInput = input.files[0];
+			var imagePreview = document.getElementById('imagePreview');
+	
+			if (fileInput) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					imagePreview.innerHTML = '<img src="' + e.target.result + '" alt="Preview">';
+					imagePreview.style.display = 'block'; // Hiển thị khi có ảnh
+				};
+				reader.readAsDataURL(fileInput);
+			} else {
+				imagePreview.innerHTML = ''; // Xóa nội dung khi không có ảnh
+				imagePreview.style.display = 'none'; // Ẩn khi không có ảnh
+			}
+		}
+	</script>
 </body>
 </html>
 
