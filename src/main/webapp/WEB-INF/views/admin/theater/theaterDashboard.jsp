@@ -41,9 +41,9 @@
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
 				<a class="sidebar-brand brand-logo" href="adminDashboard.html"><img
-					src="admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
+					src="/admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
 					class="sidebar-brand brand-logo-mini" href="adminDashboard.html"><img
-					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+					src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
 				<li class="nav-item profile">
@@ -92,27 +92,27 @@
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="adminDashboard"> <span class="menu-icon"> <i
+					href="/adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
 					</span> <span class="menu-title">Dashboard</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="revenue"> <span class="menu-icon"> <i
+					href="/revenue"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
 					</span> <span class="menu-title">Revenue Magagement</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="movieDashboard"> <span class="menu-icon"> <i
+					href="/movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
 					</span> <span class="menu-title">Movie Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="customerDashboard"> <span class="menu-icon"> <i
+					href="/customerDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Customer Management</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="employeeDashboard"> <span class="menu-icon"> <i
+					href="/employeeDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Employe Management</span>
 				</a></li>
