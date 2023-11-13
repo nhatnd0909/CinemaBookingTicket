@@ -99,50 +99,73 @@
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
 									<div class="carousel-cell" id="1" onclick="myFunction(1)">
-										<div class="date-numeric">13</div>
-										<div class="date-day">Today</div>
+										<div class="date-numeric">${currentDate}</div>
+										<div class="date-day">Hôm Nay</div>
 									</div>
 
 									<div class="carousel-cell" id="2" onclick="myFunction(2)">
-										<div class="date-numeric">14</div>
-										<div class="date-day">Tomorrow</div>
+										<div class="date-numeric">${tomorow}</div>
+										<div class="date-day">Ngày Mai</div>
 									</div>
 									<div class="carousel-cell" id="3" onclick="myFunction(3)">
-										<div class="date-numeric">15</div>
-										<div class="date-day">Monday</div>
-									</div>
-									<div class="carousel-cell" id="4" onclick="myFunction(4)">
-										<div class="date-numeric">16</div>
-										<div class="date-day">Tuesday</div>
-									</div>
-									<div class="carousel-cell" id="5" onclick="myFunction(5)">
-										<div class="date-numeric">17</div>
-										<div class="date-day">Wednesday</div>
-									</div>
-									<div class="carousel-cell" id="6" onclick="myFunction(6)">
-										<div class="date-numeric">18</div>
-										<div class="date-day">Thursday</div>
-									</div>
-									<div class="carousel-cell" id="7" onclick="myFunction(7)">
-										<div class="date-numeric">19</div>
-										<div class="date-day">Friday</div>
+										<div class="date-numeric">${nextDate}</div>
+										<div class="date-day">Ngày Mốt</div>
 									</div>
 								</div>
-								<ul class="time-ul">
-									<c:forEach items="${listTRoom}" var="tRoom">
-										<li class="time-li">
-											<div class="screens">${tRoom.name}</div>
-											<div class="time-btn">
-												<button class="screen-time" onclick="timeFunction()">
-													1:05 PM</button>
-												<button class="screen-time" onclick="timeFunction()">
-													4:00 PM</button>
-												<button class="screen-time" onclick="timeFunction()">
-													9:00 PM</button>
-											</div>
-										</li>
-									</c:forEach>
-								</ul>
+								<div class="show-currentDate">
+									<ul class="time-ul">
+										<c:forEach items="${listTRoom}" var="tRoom">
+											<li class="time-li">
+												<div class="screens">${tRoom.name}</div>
+												<div class="time-btn">
+													<c:forEach var="show" items="${listShowCurentDate}">
+														<c:if
+															test="${show.getTheaterRoom().getName() eq tRoom.name}">
+															<button class="screen-time selected"
+																onclick="timeFunction()">${show.startTime}</button>
+														</c:if>
+													</c:forEach>
+												</div>
+											</li>
+										</c:forEach>
+									</ul>
+								</div>
+								<div class="" style="display:">
+									<ul class="time-ul">
+										<c:forEach items="${listTRoom}" var="tRoom">
+											<li class="time-li">
+												<div class="screens">${tRoom.name}</div>
+												<div class="time-btn">
+													<c:forEach var="show" items="${listShowTomorowDate}">
+														<c:if
+															test="${show.getTheaterRoom().getName() eq tRoom.name}">
+															<button class="screen-time selected"
+																onclick="timeFunction()">${show.startTime}</button>
+														</c:if>
+													</c:forEach>
+												</div>
+											</li>
+										</c:forEach>
+									</ul>
+								</div>
+								<div class="" style="display:">
+									<ul class="time-ul">
+										<c:forEach items="${listTRoom}" var="tRoom">
+											<li class="time-li">
+												<div class="screens">${tRoom.name}</div>
+												<div class="time-btn">
+													<c:forEach var="show" items="${listShowNextDate}">
+														<c:if
+															test="${show.getTheaterRoom().getName() eq tRoom.name}">
+															<button class="screen-time selected"
+																onclick="timeFunction()">${show.startTime}</button>
+														</c:if>
+													</c:forEach>
+												</div>
+											</li>
+										</c:forEach>
+									</ul>
+								</div>
 							</div>
 							<input id="screen-next-btn" type="button" name="next-step"
 								class="next-step" value="Continue Booking" disabled />
@@ -171,18 +194,18 @@
 								</tr>
 								<c:forEach items="${listService}" var="service">
 									<tr>
-									<td><img class="food-image" src="assets\images\food3.jpg"
-										alt="${service.name}"></td>
-									<td>${service.name} size ${service.size}</td>
-									<td>$${service.price}</td>
-									<td class="quantity">
-										<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-										<button onclick="incrementQuantity(this)">+</button>
-									</td>
-									<td>$0.00</td>
-								</tr>
+										<td><img class="food-image" src="assets\images\food3.jpg"
+											alt="${service.name}"></td>
+										<td>${service.name}size${service.size}</td>
+										<td>$${service.price}</td>
+										<td class="quantity">
+											<button onclick="decrementQuantity(this)">-</button> <span>0</span>
+											<button onclick="incrementQuantity(this)">+</button>
+										</td>
+										<td>$0.00</td>
+									</tr>
 								</c:forEach>
-								
+
 
 								<!-- Thêm các hàng cho các món ăn và đồ uống khác -->
 							</table>

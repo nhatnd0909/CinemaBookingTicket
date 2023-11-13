@@ -98,4 +98,21 @@ public class Test {
 
 		return null;
 	}
+
+//	@GetMapping("/get10")
+//	public List<Show> getAllSeri() throws ParseException {
+//
+//		return showMovie.getAllShowByTheaterAndDate("13-11-2023", "Theater Đà Nẵng");
+//	}
+	@GetMapping("/get10")
+	public List<Show> getAllSeri() throws ParseException {
+
+		return showMovie.getAllShowByTheaterDateMovie("13-11-2023", "Theater Huế", "Thor: Love and Thunder");
+	}
+
+	@GetMapping("/get11")
+	public int getAllSei() throws ParseException {
+
+		return showMovie.getAllShowByTheaterDateMovie("13-11-2023", "Theater Huế", "Thor: Love and Thunder").size();
+	}
 }
