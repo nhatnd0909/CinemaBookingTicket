@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.csm.model.Account;
 import com.project.csm.model.Theater;
@@ -54,12 +55,19 @@ public class AdminTheaterController {
 	public String getUpdateTheater(@PathVariable Long theaterID, Model model) {
 		Theater theater = theaterService.getTheaterById(theaterID);
 		model.addAttribute("theater", theater);
+		if (!model.containsAttribute("error")) {
+	        model.addAttribute("error", ""); 
+	    }
 		return "admin/theater/updateTheater";
 	}
 	
 	@PostMapping("/theaterDashboard/update/{theaterID}")
-	public String postUpdateTheater( @PathVariable Long theaterID,@ModelAttribute Theater theater ) {
+	public String postUpdateTheater( @PathVariable Long theaterID,@ModelAttribute Theater theater, RedirectAttributes redirectAttributes ) {
 		Theater updateTheater = theaterService.getTheaterById(theaterID);
+		if (theater.getNumCinemaRoom() < updateTheater.getNumCinemaRoom()) {
+	        redirectAttributes.addFlashAttribute("error", "Số lượng phòng mới phải lớn hơn hoặc bằng số lượng phòng hiện tại.");
+	        return "redirect:/theaterDashboard/update/{theaterID}";
+	    }
 		updateTheater.setName(theater.getName());
 		updateTheater.setAddress(theater.getAddress());
 		updateTheater.setNumCinemaRoom(theater.getNumCinemaRoom());

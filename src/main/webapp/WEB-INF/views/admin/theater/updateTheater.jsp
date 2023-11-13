@@ -327,7 +327,9 @@
 										<label for="numCinemaRoomInput">Number of room</label> 
                                         <input type="text" class="form-control" id="namnumCinemaRoomInputeInput" placeholder="Number of room" name="numCinemaRoom" required="required" value="${theater.numCinemaRoom}">
 									</div>
-
+									<c:if test="${not empty error}">
+										<div class="alert alert-danger">${error}</div>
+									</c:if>
 
 									<button type="submit" class="btn btn-primary mr-2">Submit</button>
 									<button class="btn btn-dark">Cancel</button>
