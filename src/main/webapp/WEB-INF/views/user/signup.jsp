@@ -101,9 +101,8 @@
 				<div class="overlay-panel overlay-left">
 					<h1>Chào Mừng Trở Lại!</h1>
 					<p>Để duy trì kết nối với chúng tôi, vui lòng đăng nhập với thông tin đăng nhập của bạn</p>
-					<button class="ghost" id="signIn">
-						<a href="/signin">Đăng Nhập</a>
-					</button>
+					<a href="/signin"><button class="ghost" id="signIn">Đăng nhập</button></a>
+					
 				</div>
 			</div>
 		</div>

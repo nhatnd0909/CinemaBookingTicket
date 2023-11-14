@@ -15,6 +15,7 @@
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
+
 </head>
 
 <body>
@@ -433,9 +434,9 @@
 									<h6>Địa Điểm</h6>
 									<ul>
 										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
-										<li><a href="movies">...</a></li>
-										<li><a href="movies">...</a></li>
-										<li><a href="movies">...</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián,Quận Thanh Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">

@@ -51,14 +51,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
+						<li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">About</a>
+						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
 						</li>
 
 
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -164,7 +164,7 @@
 												</div>
 											</div>
 											<div class="details col-md-8">
-												<h3>${movie.name}</h3>
+												<h2>${movie.name}</h2>
 												<p>
 													<span>Đạo diễn:</span> ${movie.director}
 												</p>
@@ -199,7 +199,7 @@
 												<div id="trailer" style="display: none; margin-top: 2%;">
 													<div class="center-iframe">
 														<iframe width="560" height="315"
-															src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+															src="${movie.urlTrailer}"
 															frameborder="0" allowfullscreen></iframe>
 													</div>
 												</div>
