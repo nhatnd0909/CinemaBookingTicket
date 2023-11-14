@@ -15,6 +15,7 @@
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
+
 </head>
 
 <body>
