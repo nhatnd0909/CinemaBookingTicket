@@ -130,7 +130,7 @@
 										</c:forEach>
 									</ul>
 								</div>
-								<div class="" style="display:">
+								<div class="show-tomorowDate" style="display: none">
 									<ul class="time-ul">
 										<c:forEach items="${listTRoom}" var="tRoom">
 											<li class="time-li">
@@ -148,7 +148,7 @@
 										</c:forEach>
 									</ul>
 								</div>
-								<div class="" style="display:">
+								<div class="show-nextDate" style="display: none">
 									<ul class="time-ul">
 										<c:forEach items="${listTRoom}" var="tRoom">
 											<li class="time-li">
@@ -194,9 +194,9 @@
 								</tr>
 								<c:forEach items="${listService}" var="service">
 									<tr>
-										<td><img class="food-image" src="assets\images\food3.jpg"
+										<td><img class="food-image" src="/assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
-										<td>${service.name}size${service.size}</td>
+										<td>${service.name} size ${service.size}</td>
 										<td>$${service.price}</td>
 										<td class="quantity">
 											<button onclick="decrementQuantity(this)">-</button> <span>0</span>
@@ -510,10 +510,31 @@
 			document.getElementById("screen-next-btn").disabled = false;
 		}
 
+
+		/* 		function myFunction(id) {
+		 document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
+		 document.getElementById(id).style.background = "#df0e62";
+		 prevId = id;
+		 } */
 		function myFunction(id) {
 			document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
 			document.getElementById(id).style.background = "#df0e62";
 			prevId = id;
+			// Hide all sections
+			document.querySelector('.show-currentDate').style.display = 'none';
+			document.querySelector('.show-tomorowDate').style.display = 'none';
+			document.querySelector('.show-nextDate').style.display = 'none';
+
+			// Show the selected section based on the clicked ID
+			if (id === 1) {
+				document.querySelector('.show-currentDate').style.display = 'block';
+			} else if (id === 2) {
+				document.querySelector('.show-tomorowDate').style.display = 'block';
+			} else if (id === 3) {
+				document.querySelector('.show-nextDate').style.display = 'block';
+			}
+
+			// Additional logic if needed
 		}
 	</script>
 
