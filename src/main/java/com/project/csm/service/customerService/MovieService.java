@@ -69,7 +69,7 @@ public class MovieService {
 		List<Movie> list = getAllMovie();
 
 		for (Movie m : list) {
-			if (m.getStatus() == 1) {
+			if (m.getStatus().equals("Đang chiếu")) {
 				listReturn.add(m);
 			}
 		}

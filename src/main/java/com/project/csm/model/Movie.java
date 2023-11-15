@@ -42,18 +42,18 @@ public class Movie {
 
 	@Column(name = "Image")
 	private String image;
-	
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "StartDate")
 	private Date startDate;
-    
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "EndDate")
 	private Date endDate;
 
 	@Column(name = "URLTrailer")
 	private String urlTrailer;
-	
+
 	@Column(name = "status")
 	private String status;
 
@@ -64,7 +64,6 @@ public class Movie {
 	@ManyToOne
 	@JoinColumn(name = "AdminID")
 	private Admin admin;
-
 
 	public Movie() {
 	}
@@ -86,6 +85,7 @@ public class Movie {
 	}
 
 
+
 	public Movie(Long movieID, String name, String actor, String director, int duration, String language,
 			String description, String image, Date startDate, Date endDate, String status, String urlTrailer, Genre genre,
 			Admin admin) {
@@ -100,8 +100,26 @@ public class Movie {
 		this.image = image;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.status = status;
 		this.urlTrailer = urlTrailer;
+		this.status = status;
+		this.genre = genre;
+		this.admin = admin;
+	}
+
+	public Movie(String name, String actor, String director, int duration, String language, String description,
+			String image, Date startDate, Date endDate, String urlTrailer, String status, Genre genre, Admin admin) {
+		super();
+		this.name = name;
+		this.actor = actor;
+		this.director = director;
+		this.duration = duration;
+		this.language = language;
+		this.description = description;
+		this.image = image;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.urlTrailer = urlTrailer;
+		this.status = status;
 		this.genre = genre;
 		this.admin = admin;
 	}
@@ -193,6 +211,7 @@ public class Movie {
 	public void setUrlTrailer(String urlTrailer) {
 		this.urlTrailer = urlTrailer;
 	}
+
 	public String getStatus() {
 		return status;
 	}
