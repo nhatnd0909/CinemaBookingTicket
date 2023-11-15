@@ -84,9 +84,11 @@ public class Movie {
 		this.admin = admin;
 	}
 
+
+
 	public Movie(Long movieID, String name, String actor, String director, int duration, String language,
-			String description, String image, Date startDate, Date endDate, String urlTrailer, String status,
-			Genre genre, Admin admin) {
+			String description, String image, Date startDate, Date endDate, String status, String urlTrailer, Genre genre,
+			Admin admin) {
 		super();
 		this.movieID = movieID;
 		this.name = name;

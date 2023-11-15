@@ -305,7 +305,7 @@
                                 <tbody>
 									<c:forEach var="service" items="${services}">
                                     <tr>
-                                        <td><img src="/admin_assets/assets/images/serivce/${service.urlImageService}" alt="image" style="width: 50px; height: 50px;"> <span class="pl-2">${service.name}</span></td>
+                                        <td><img src="/assets/images/${service.urlImageService}" alt="image" style="width: 50px; height: 50px;"> <span class="pl-2">${service.name}</span></td>
 										<td>${service.size}</td>
                                         <td>${service.price}</td>
                                         <td>
