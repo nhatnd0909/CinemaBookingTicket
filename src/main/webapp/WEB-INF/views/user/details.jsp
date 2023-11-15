@@ -204,21 +204,7 @@
 													</div>
 												</div>
 											</div>
-
-
-											<div class="col-md-12" style="margin-top: 1%;">
-												<div class="text-center">
-													<button type="button" class="btn btn-primary"
-														data-bs-toggle="button"
-														onclick="location.href='ticketBooking?movie=${movie.name}';">Đặt
-														vé</button>
-												</div>
-											</div>
-
-
-
-
-											<div class="col-md-12" style="margin-top: 2%;">
+											<div class="col-md-12" style="margin-top: 4%;">
 												<div class="text-center">
 													<c:forEach items="${listTheater}" var="theater">
 														<button type="button" class="btn btn-primary"

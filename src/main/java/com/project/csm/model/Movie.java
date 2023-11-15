@@ -51,9 +51,6 @@ public class Movie {
 	@Column(name = "EndDate")
 	private Date endDate;
 
-	@Column(name = "Status")
-	private int status;
-
 	@Column(name = "URLTrailer")
 	private String urlTrailer;
 	
@@ -88,16 +85,9 @@ public class Movie {
 		this.admin = admin;
 	}
 
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
 
 	public Movie(Long movieID, String name, String actor, String director, int duration, String language,
-			String description, String image, Date startDate, Date endDate, int status, String urlTrailer, Genre genre,
+			String description, String image, Date startDate, Date endDate, String status, String urlTrailer, Genre genre,
 			Admin admin) {
 		super();
 		this.movieID = movieID;

@@ -83,13 +83,12 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form id="form">
+					<form	 id="form">
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Show timing selection</li>
 							<li id="step2" class="not_active">Seat Selection</li>
 							<li id="step3" class="not_active">Concession Items</li>
 							<li id="step4" class="not_active">Payment</li>
-							<li id="step5" class="not_active">E-Ticket</li>
 
 						</ul>
 						<br>
@@ -130,47 +129,11 @@
 										</c:forEach>
 									</ul>
 								</div>
-								<div class="" style="display:">
-									<ul class="time-ul">
-										<c:forEach items="${listTRoom}" var="tRoom">
-											<li class="time-li">
-												<div class="screens">${tRoom.name}</div>
-												<div class="time-btn">
-													<c:forEach var="show" items="${listShowTomorowDate}">
-														<c:if
-															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
-														</c:if>
-													</c:forEach>
-												</div>
-											</li>
-										</c:forEach>
-									</ul>
-								</div>
-								<div class="" style="display:">
-									<ul class="time-ul">
-										<c:forEach items="${listTRoom}" var="tRoom">
-											<li class="time-li">
-												<div class="screens">${tRoom.name}</div>
-												<div class="time-btn">
-													<c:forEach var="show" items="${listShowNextDate}">
-														<c:if
-															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
-														</c:if>
-													</c:forEach>
-												</div>
-											</li>
-										</c:forEach>
-									</ul>
-								</div>
 							</div>
 							<input id="screen-next-btn" type="button" name="next-step"
 								class="next-step" value="Continue Booking" disabled />
 						</fieldset>
-						<fieldset>
+						<!-- <fieldset>
 
 							<div>
 								<iframe id="seat-sel-iframe"
@@ -181,9 +144,8 @@
 							<br> <input type="button" name="next-step" class="next-step"
 								value="Concession Items"> <input type="button"
 								name="previous-step" class="previous-step" value="Back" />
-						</fieldset>
+						</fieldset> -->
 						<fieldset>
-							<!-- Concession Items Page -->
 							<table>
 								<tr>
 									<th>Image</th>
@@ -192,22 +154,22 @@
 									<th>Quantity</th>
 									<th>Subtotal</th>
 								</tr>
-								<c:forEach items="${listService}" var="service">
-									<tr>
-										<td><img class="food-image" src="assets\images\food3.jpg"
-											alt="${service.name}"></td>
-										<td>${service.name}size${service.size}</td>
-										<td>$${service.price}</td>
-										<td class="quantity">
-											<button onclick="decrementQuantity(this)">-</button> <span>0</span>
-											<button onclick="incrementQuantity(this)">+</button>
+								<c:forEach items="${listService}" var="service" varStatus="loop">
+									<tr class="product-row">
+										<td><img class="food-image" src="assets/images/${service.urlImageService}" alt="${service.name}"></td>
+										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
+										<td id="selectedUnitPrice_${loop.index}">$ ${service.price}</td>
+										<!-- Trong file JSP: -->
+										<td class="quantity" id="selectedQuantity_${loop.index}">
+											<button onclick="decrementQuantity(this, ${loop.index})" class="decrement-button">-</button>
+											<span>0</span>
+											<button onclick="incrementQuantity(this, ${loop.index})" class="increment-button">+</button>
 										</td>
-										<td>$0.00</td>
+
+										<td class="subtotal" id="selectedSubtotal_${loop.index}" data-subtotal="${service.price}">$0.00</td>
+
 									</tr>
 								</c:forEach>
-
-
-								<!-- Thêm các hàng cho các món ăn và đồ uống khác -->
 							</table>
 							<div class="total-money">
 								Total money: <span id="total">0.00</span>
@@ -217,12 +179,37 @@
 								name="previous-step" class="previous-step" value="Back" />
 
 						</fieldset>
-
+						<fieldset>
+							<div id="payment_div">
+								<div class="payment-container">
+									<h3 id="payment-h3">Xác nhận thanh toán</h3>
+									<h4>Tên phim: ${movie}</h4>	
+									<h5>Rạp chiếu: ${theater}</h5>
+										<div style="padding-top: 2%;">
+											<table>
+												<tr>
+													<th>Image</th>
+													<th>Name</th>
+													<th>Unit Price</th>
+													<th>Quantity</th>
+													<th>Subtotal</th>
+												</tr>
+											</table>
+										</div>
+						
+										<div class="total-money">
+											Tổng Tiền: <span id="total-money"></span>
+										</div>
+									</div>
+								</div>
+								<input type="submit" name="submitPayment" class="next-step pay-btn" value="Confirm Payment"/>						
+								<input type="button" name="previous-step" class="cancel-pay-btn" value="Cancel Payment" onclick="location.href='home';"/>
+						</fieldset>
 
 
 						<fieldset>
 							<!-- Payment Page -->
-							<div id="payment_div">
+							<div id="payment_div13">
 								<div class="payment-row">
 									<div class="col-75">
 										<div class="payment-container">
@@ -300,200 +287,6 @@
 								name="previous-step" class="cancel-pay-btn"
 								value="Cancel Payment" onclick="location.href='home';" />
 						</fieldset>
-						<fieldset>
-							<h2>E-Ticket</h2>
-							<div class="ticket-body">
-								<div class="ticket">
-									<div class="holes-top"></div>
-									<div class="title">
-										<p class="cinema">MyShowz Entertainment</p>
-										<p class="movie-title">Movie Name</p>
-									</div>
-									<div class="poster">
-										<img
-											src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/25240/only-god-forgives.jpg"
-											alt="Movie: Only God Forgives" />
-									</div>
-									<div class="info">
-										<table class="info-table ticket-table">
-											<tr>
-												<th>SCREEN</th>
-												<th>ROW</th>
-												<th>SEAT</th>
-											</tr>
-											<tr>
-												<td class="bigger">18</td>
-												<td class="bigger">H</td>
-												<td class="bigger">24</td>
-											</tr>
-										</table>
-										<table class="info-table ticket-table">
-											<tr>
-												<th>PRICE</th>
-												<th>DATE</th>
-												<th>TIME</th>
-											</tr>
-											<tr>
-												<td>RS.12.00</td>
-												<td>4/13/21</td>
-												<td>19:30</td>
-											</tr>
-										</table>
-									</div>
-									<div class="holes-lower"></div>
-									<div class="serial">
-										<table class="barcode ticket-table">
-											<tr>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-												<td style="background-color: black;"></td>
-												<td style="background-color: white;"></td>
-											</tr>
-										</table>
-										<table class="numbers ticket-table">
-											<tr>
-												<td>9</td>
-												<td>1</td>
-												<td>7</td>
-												<td>3</td>
-												<td>7</td>
-												<td>5</td>
-												<td>4</td>
-												<td>4</td>
-												<td>4</td>
-												<td>5</td>
-												<td>4</td>
-												<td>1</td>
-												<td>4</td>
-												<td>7</td>
-												<td>8</td>
-												<td>7</td>
-												<td>3</td>
-												<td>4</td>
-												<td>1</td>
-												<td>4</td>
-												<td>5</td>
-												<td>2</td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-							<input type="button" name="previous-step" class="home-page-btn"
-								value="Browse to Home Page" onclick="location.href='home';" />
-						</fieldset>
 					</form>
 				</div>
 			</div>
@@ -528,5 +321,45 @@
 
 	<script type="text/javascript" src="assets/js/ticket-booking.js"></script>
 	<script type="text/javascript" src="assets/js/concession-items.js"></script>
+	<script>
+		function updateSecondTable() {
+			$("#payment_div table tr:gt(0)").remove(); // Xóa các hàng trừ hàng đầu tiên
+			var total = 0;
+	
+			$(".product-row").each(function(index) {
+				var quantity = parseInt($(this).find(".quantity span").text());
+	
+				if (quantity > 0) {
+					var clonedRow = $(this).clone();
+					clonedRow.appendTo("#payment_div table");
+	
+					clonedRow.find("[id^='selected']").each(function() {
+						var id = $(this).attr("id") + "_" + index;
+						$(this).attr("id", id);
+					});
+	
+					var subtotalId = "selectedSubtotal_" + index;
+					var unitPriceId = "selectedUnitPrice_" + index;
+	
+					var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
+					var unitPrice = parseFloat($("#" + unitPriceId).text().replace('$', '')) || 0;
+	
+					var totalForRow = subtotal * quantity;
+					total += totalForRow;
+					
+					$("#" + subtotalId).text('$' + totalForRow.toFixed(2));
+					clonedRow.find(".quantity button").hide();
+				}
+			});
+	
+			$("#total-money").text('$' + total.toFixed(2));
+		}
+	
+		$(".next-step").click(function() {
+			updateSecondTable();
+		});
+	</script>
+	
+
 </body>
 </html>
