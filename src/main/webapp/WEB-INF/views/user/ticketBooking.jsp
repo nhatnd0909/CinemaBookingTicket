@@ -19,6 +19,7 @@
 <!-- ..............For progress-bar............... -->
 <link rel="stylesheet" type="text/css" href="assets/css/e-ticket.css">
 
+<link rel="stylesheet" type="text/css" href="assets/css/seat-ticket.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/payment.css" />
 <link
 	href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700"
@@ -172,10 +173,212 @@
 						</fieldset>
 						<fieldset>
 
-							<div>
-								<iframe id="seat-sel-iframe"
-									style="box-shadow: 0 14px 12px 0 var(--theme-border), 0 10px 50px 0 var(--theme-border); width: 800px; height: 550px; display: block; margin-left: auto; margin-right: auto;"
-									src="/seat_sel"></iframe>
+							<div class="wrapper">
+								<h2>Seat Booking</h2>
+								<div class="theater">
+									<div class="wrapper-left-number">
+										<div class="row">
+											<div class="seat">1</div>
+											<div class="seat">2</div>
+											<div class="seat">3</div>
+											<div class="seat">4</div>
+											<div class="seat">5</div>
+											<div class="seat">6</div>
+											<div class="seat">7</div>
+											<div class="seat">8</div>
+											<div class="seat">9</div>
+											<div class="seat">10</div>
+										</div>
+									</div>
+									<div class="wrapper-left">
+										<div class="screen">SCREEN</div>
+
+										<div class="row content-row">
+											<div class="seat">A</div>
+											<div class="seat">B</div>
+											<div class="seat">C</div>
+											<div class="seat">D</div>
+											<div class="seat">E</div>
+											<div class="seat">F</div>
+											<div class="seat">G</div>
+											<div class="seat">H</div>
+											<div class="seat">I</div>
+											<div class="seat">J</div>
+										</div>
+
+										<div class="row">
+											<div class="seat">A1</div>
+											<div class="seat">B1</div>
+											<div class="seat">C1</div>
+											<div class="seat">D1</div>
+											<div class="seat">E1</div>
+											<div class="seat">F1</div>
+											<div class="seat">G1</div>
+											<div class="seat">H1</div>
+											<div class="seat">I1</div>
+											<div class="seat">J1</div>
+										</div>
+										<div class="row">
+											<div class="seat">A2</div>
+											<div class="seat">B2</div>
+											<div class="seat">C2</div>
+											<div class="seat">D2</div>
+											<div class="seat">E2</div>
+											<div class="seat">F2</div>
+											<div class="seat">G2</div>
+											<div class="seat">H2</div>
+											<div class="seat">I2</div>
+											<div class="seat">J2</div>
+										</div>
+										<div class="row">
+											<div class="seat">A3</div>
+											<div class="seat">B3</div>
+											<div class="seat">C3</div>
+											<div class="seat">D3</div>
+											<div class="seat">E3</div>
+											<div class="seat unavailable" id="F3">F3</div>
+											<div class="seat unavailable" id="G3">G3</div>
+											<div class="seat">H3</div>
+											<div class="seat">I3</div>
+											<div class="seat">J3</div>
+										</div>
+										<div class="row">
+											<div class="seat">A4</div>
+											<div class="seat">B4</div>
+											<div class="seat">C4</div>
+											<div class="seat">D4</div>
+											<div class="seat">E4</div>
+											<div class="seat">F4</div>
+											<div class="seat">G4</div>
+											<div class="seat">H4</div>
+											<div class="seat">I4</div>
+											<div class="seat">J4</div>
+										</div>
+										<div class="row">
+											<div class="seat">A5</div>
+											<div class="seat">B5</div>
+											<div class="seat">C5</div>
+											<div class="seat">D5</div>
+											<div class="seat">E5</div>
+											<div class="seat">F5</div>
+											<div class="seat">G5</div>
+											<div class="seat">H5</div>
+											<div class="seat">I5</div>
+											<div class="seat">J5</div>
+										</div>
+										<div class="row">
+											<div class="seat">A6</div>
+											<div class="seat">B6</div>
+											<div class="seat">C6</div>
+											<div class="seat">D6</div>
+											<div class="seat">E6</div>
+											<div class="seat">F6</div>
+											<div class="seat">G6</div>
+											<div class="seat">H6</div>
+											<div class="seat">I6</div>
+											<div class="seat">J6</div>
+										</div>
+										<div class="row">
+											<div class="seat">A7</div>
+											<div class="seat">B7</div>
+											<div class="seat">C7</div>
+											<div class="seat">D7</div>
+											<div class="seat">E7</div>
+											<div class="seat">F7</div>
+											<div class="seat">G7</div>
+											<div class="seat">H7</div>
+											<div class="seat">I7</div>
+											<div class="seat">J7</div>
+										</div>
+										<div class="row">
+											<div class="seat">A8</div>
+											<div class="seat">B8</div>
+											<div class="seat">C8</div>
+											<div class="seat">D8</div>
+											<div class="seat">E8</div>
+											<div class="seat">F8</div>
+											<div class="seat">G8</div>
+											<div class="seat">H8</div>
+											<div class="seat">I8</div>
+											<div class="seat">J8</div>
+										</div>
+										<div class="row">
+											<div class="seat">A9</div>
+											<div class="seat">B9</div>
+											<div class="seat">C9</div>
+											<div class="seat">D9</div>
+											<div class="seat">E9</div>
+											<div class="seat">F9</div>
+											<div class="seat">G9</div>
+											<div class="seat">H9</div>
+											<div class="seat">I9</div>
+											<div class="seat">J9</div>
+										</div>
+										<div class="row">
+											<div class="seat">A10</div>
+											<div class="seat">B10</div>
+											<div class="seat">C10</div>
+											<div class="seat">D10</div>
+											<div class="seat">E10</div>
+											<div class="seat">F10</div>
+											<div class="seat">G10</div>
+											<div class="seat">H10</div>
+											<div class="seat">I10</div>
+											<div class="seat">J10</div>
+										</div>
+									</div>
+									<div class="wrapper-right">
+										<div class="booking-details">
+											<table class="table">
+												<tbody class="custom-table">
+													<tr>
+														<th>Movie</th>
+														<td>: Kingdom of the Planet of the Apes</td>
+													</tr>
+													<tr>
+														<th>Time</th>
+														<td>: April</td>
+													</tr>
+													<tr>
+														<th>Tickets</th>
+														<td>: 0</td>
+													</tr>
+													<tr>
+														<th>Total</th>
+														<td>: A1</td>
+													</tr>
+													<tr>
+														<th>Selected Seats</th>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="seatCharts">
+											<input type="text" id="selectedSeats" class="value_seats"
+												readonly>
+										</div>
+										<div class="display_seat">
+											<div style="display: flex;">
+												<div class="square"></div>
+												<p>Còn trống</p>
+											</div>
+											<div style="display: flex;">
+												<div class="squareR"></div>
+												<p>Đã bán</p>
+											</div>
+											<div style="display: flex;">
+												<div class="squareG"></div>
+												<p>Đã chọn</p>
+											</div>
+											<div style="display: flex;">
+												<div class="squareY"></div>
+												<p>Ghế vip</p>
+											</div>
+										</div>
+									</div>
+
+								</div>
 							</div>
 
 							<br> <input type="button" name="next-step" class="next-step"
@@ -194,9 +397,10 @@
 								</tr>
 								<c:forEach items="${listService}" var="service">
 									<tr>
-										<td><img class="food-image" src="/assets/images/${service.urlImageService}"
+										<td><img class="food-image"
+											src="/assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
-										<td>${service.name} size ${service.size}</td>
+										<td>${service.name}size${service.size}</td>
 										<td>$${service.price}</td>
 										<td class="quantity">
 											<button onclick="decrementQuantity(this)">-</button> <span>0</span>
@@ -500,6 +704,54 @@
 		</div>
 	</div>
 	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all seat elements
+            var seatElements = document.querySelectorAll('.seat');
+            // Get the Tickets element
+            var ticketsElement = document.querySelector('.booking-details tbody tr:nth-child(3) td');
+            // Get the Total element
+            var totalElement = document.querySelector('.booking-details tbody tr:nth-child(4) td');
+
+            // Initialize the ticket count and total cost
+            var ticketCount = 0;
+            var totalCost = 0;
+
+            // Get the selected seats input field
+            var selectedSeatsInput = document.getElementById('selectedSeats');
+            
+            // Add click event listener to each seat
+            seatElements.forEach(function(seat) {
+                seat.addEventListener('click', function() {
+                    // Check if the seat is not unavailable
+                    if (!seat.classList.contains('unavailable')) {
+                        // Toggle selected class
+                        seat.classList.toggle('selected');
+
+                        // Update ticket count
+                        ticketCount = document.querySelectorAll('.selected').length;
+
+                        // Update total cost
+                        totalCost = ticketCount * 50000; // Assuming each seat costs 50,000
+
+                        // Update the Tickets and Total elements
+                        ticketsElement.textContent = ': ' + ticketCount;
+                        totalElement.textContent = ': ' + totalCost.toLocaleString('en-US'); // Display total cost with commas
+
+                        // Get the selected seats
+                        var selectedSeats = document.querySelectorAll('.selected');
+
+                        // Update the input field with the selected seats
+                        var selectedSeatsText = Array.from(selectedSeats).map(function(selectedSeat) {
+                            return selectedSeat.textContent;
+                        }).join(', ');
+
+                        selectedSeatsInput.value = selectedSeatsText;
+                    }
+                });
+            });
+        });
+    </script>
+	<script>
 		let prevId = "1";
 
 		window.onload = function() {
@@ -509,7 +761,6 @@
 		function timeFunction() {
 			document.getElementById("screen-next-btn").disabled = false;
 		}
-
 
 		/* 		function myFunction(id) {
 		 document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
