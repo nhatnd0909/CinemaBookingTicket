@@ -188,8 +188,8 @@
                                                     <div class="seat">C3</div>
                                                     <div class="seat">D3</div>
                                                     <div class="seat">E3</div>
-                                                    <div class="seat unavailable" id="F3">F3</div>
-                                                    <div class="seat unavailable" id="G3">G3</div>
+                                                    <div class="seat unavailable">F3</div>
+                                                    <div class="seat unavailable">G3</div>
                                                     <div class="seat">H3</div>
                                                     <div class="seat">I3</div>
                                                     <div class="seat">J3</div>
@@ -285,7 +285,7 @@
                                                         <tbody class="custom-table">
                                                             <tr>
                                                                 <th>Movie</th>
-                                                                <td>: Kingdom of the Planet of the Apes</td>
+                                                                <td>: ${movie}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th>Time</th>
@@ -296,12 +296,12 @@
                                                                 <td>: 0</td>
                                                             </tr>
                                                             <tr>
-                                                                <th>Total</th>
-                                                                <td>: A1</td>
+                                                                <th>Selected Seats</th>
+                                                                <td id="seats">: A1</td>
                                                             </tr>
                                                             <tr>
-                                                                <th>Selected Seats</th>
-                                                                <td></td>
+                                                                <th>Total</th>
+                                                                <td id="totalseat"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -322,17 +322,15 @@
                                                         <div class="squareG"></div>
                                                         <p>Đã chọn</p>
                                                     </div>
-                                                    <div style="display: flex;">
-                                                        <div class="squareY"></div>
-                                                        <p>Ghế vip</p>
-                                                    </div>
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
 
-                                    <br> <input type="button" name="next-step" class="next-step" value="Concession Items"> <input type="button" name="previous-step" class="previous-step" value="Back" />
+                                    <br> 
+                                    <input type="button" name="next-step" class="next-step" value="Concession Items"> 
+                                    <input type="button" name="previous-step" class="previous-step" value="Back" />
                                 </fieldset>
                                 <fieldset>
                                     <table>
@@ -373,6 +371,8 @@
                                             <h3 id="payment-h3">Xác nhận thanh toán</h3>
                                             <h4>Tên phim: ${movie}</h4>
                                             <h5>Rạp chiếu: ${theater}</h5>
+                                            <p></p>
+                                            <p id="total-movie"></p>
                                             <div style="padding-top: 2%;">
                                                 <table>
                                                     <tr>
@@ -387,6 +387,7 @@
 
                                             <div class="total-money">
                                                 Tổng Tiền: <span id="total-money"></span>
+                                                <input type="text" name="totalmoney" id="inputtotal"  value="">
                                             </div>
                                         </div>
                                     </div>
@@ -469,53 +470,48 @@
                 </div>
             </div>
             <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    // Get all seat elements
-                    var seatElements = document.querySelectorAll('.seat');
-                    // Get the Tickets element
-                    var ticketsElement = document.querySelector('.booking-details tbody tr:nth-child(3) td');
-                    // Get the Total element
-                    var totalElement = document.querySelector('.booking-details tbody tr:nth-child(4) td');
+               document.addEventListener('DOMContentLoaded', function () {
+                var selectedSeats = [];
+                var seatPrice = 50000; // Giá mỗi ghế
 
-                    // Initialize the ticket count and total cost
-                    var ticketCount = 0;
-                    var totalCost = 0;
-
-                    // Get the selected seats input field
-                    var selectedSeatsInput = document.getElementById('selectedSeats');
-
-                    // Add click event listener to each seat
-                    seatElements.forEach(function(seat) {
-                        seat.addEventListener('click', function() {
-                            // Check if the seat is not unavailable
-                            if (!seat.classList.contains('unavailable')) {
-                                // Toggle selected class
-                                seat.classList.toggle('selected');
-
-                                // Update ticket count
-                                ticketCount = document.querySelectorAll('.selected').length;
-
-                                // Update total cost
-                                totalCost = ticketCount * 50000; // Assuming each seat costs 50,000
-
-                                // Update the Tickets and Total elements
-                                ticketsElement.textContent = ': ' + ticketCount;
-                                totalElement.textContent = ': ' + totalCost.toLocaleString('en-US'); // Display total cost with commas
-
-                                // Get the selected seats
-                                var selectedSeats = document.querySelectorAll('.selected');
-
-                                // Update the input field with the selected seats
-                                var selectedSeatsText = Array.from(selectedSeats).map(function(selectedSeat) {
-                                    return selectedSeat.textContent;
-                                }).join(', ');
-
-                                selectedSeatsInput.value = selectedSeatsText;
+                // Lắng nghe sự kiện click trên tất cả các ghế
+                var seats = document.querySelectorAll('.seat');
+                seats.forEach(function (seat) {
+                    seat.addEventListener('click', function () {
+                        // Kiểm tra xem ghế có sẵn không
+                        if (!seat.classList.contains('unavailable')) {
+                            // Kiểm tra xem ghế đã chọn hay chưa
+                            if (!seat.classList.contains('selected')) {
+                                // Thêm ghế vào danh sách ghế đã chọn và đánh dấu ghế trên giao diện
+                                selectedSeats.push(seat.innerText);
+                                seat.classList.add('selected');
+                            } else {
+                                // Nếu ghế đã chọn, loại bỏ khỏi danh sách và bỏ chọn nó trên giao diện
+                                selectedSeats = selectedSeats.filter(function (s) {
+                                    return s !== seat.innerText;
+                                });
+                                seat.classList.remove('selected');
                             }
-                        });
+
+                            // Hiển thị danh sách ghế đã chọn vào ô input
+                            document.getElementById('selectedSeats').value = selectedSeats.join(',');
+                            
+                            // Cập nhật thông tin trên bảng thông tin đặt vé
+                            document.querySelector('.custom-table tr:nth-child(3) td').innerText = ': ' + selectedSeats.length;
+                            document.querySelector('.custom-table tr:nth-child(4) td').innerText = ': ' + selectedSeats.join(',');
+
+                            // Tính toán và hiển thị tổng giá vé
+                            var total = selectedSeats.length * seatPrice;
+                            document.querySelector('.custom-table tr:nth-child(5) td').innerText = ': ' + total;
+                        }
                     });
                 });
+            });
+
             </script>
+
+
+            
             <script>
                 let prevId = "1";
 
@@ -526,12 +522,6 @@
                 function timeFunction() {
                     document.getElementById("screen-next-btn").disabled = false;
                 }
-
-                /* 		function myFunction(id) {
-                 document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
-                 document.getElementById(id).style.background = "#df0e62";
-                 prevId = id;
-                 } */
                 function myFunction(id) {
                     document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
                     document.getElementById(id).style.background = "#df0e62";
@@ -562,29 +552,42 @@
 
             <script type="text/javascript" src="assets/js/ticket-booking.js"></script>
             <script type="text/javascript" src="assets/js/concession-items.js"></script>
+            
             <script>
+
+                $(".next-step").one("click", function () {
+                    var selectedSeatsText = $("#seats").text();
+                    var total_movie_str = $("#totalseat").text().trim().replace(/[$:]/g, '');
+                    var total_movie = parseFloat(total_movie_str) || 0;
+                    updateSecondTable();
+                    var total = parseFloat($("#total-money").text().replace('$', '')) || 0;
+                    total += total_movie;
+                    $("#total-money").text('$' + total.toFixed(2));
+                    $("#payment_div p:nth-child(4)").text('Ghế' + selectedSeatsText);
+                    $("#payment_div p:nth-child(5)").text('Tổng tiền ghế' + total_movie_str);
+
+                    copyValueToInput();
+                });
                 function updateSecondTable() {
                     $("#payment_div table tr:gt(0)").remove(); // Xóa các hàng trừ hàng đầu tiên
                     var total = 0;
+                    var total_movie = parseFloat($("#total-movie").text().replace('$', '')) || 0; // Lấy giá trị total_movie
 
-                    $(".product-row").each(function(index) {
+                    $(".product-row").each(function (index) {
                         var quantity = parseInt($(this).find(".quantity span").text());
 
                         if (quantity > 0) {
                             var clonedRow = $(this).clone();
                             clonedRow.appendTo("#payment_div table");
 
-                            clonedRow.find("[id^='selected']").each(function() {
+                            clonedRow.find("[id^='selected']").each(function () {
                                 var id = $(this).attr("id") + "_" + index;
                                 $(this).attr("id", id);
                             });
-
                             var subtotalId = "selectedSubtotal_" + index;
                             var unitPriceId = "selectedUnitPrice_" + index;
-
                             var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
                             var unitPrice = parseFloat($("#" + unitPriceId).text().replace('$', '')) || 0;
-
                             var totalForRow = subtotal * quantity;
                             total += totalForRow;
 
@@ -595,10 +598,16 @@
 
                     $("#total-money").text('$' + total.toFixed(2));
                 }
+                function copyValueToInput() {
+                    // Lấy giá trị từ span và loại bỏ ký tự $
+                    var totalMoneySpan = document.getElementById('total-money');
+                    var totalMoneyValue = totalMoneySpan.innerText.replace('$', '').trim();
+                    
+                    // Gán giá trị từ span vào input
+                    var inputTotal = document.getElementById('inputtotal');
+                    inputTotal.value = totalMoneyValue;
+                }
 
-                $(".next-step").click(function() {
-                    updateSecondTable();
-                });
             </script>
 
 
