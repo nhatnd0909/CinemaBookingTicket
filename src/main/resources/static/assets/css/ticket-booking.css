@@ -224,7 +224,7 @@ th, td {
 	justify-content: center;
 }
 
-.quantity button {
+.quantity input {
 	width: 35px;
 	height: 35px;
 	background-color: #ed4c7f;
@@ -237,7 +237,7 @@ th, td {
 	border-radius: 50%;
 	margin: 0 10px;
 	display: inline-flex;
-    align-items: center;
+    text-align: center;
     justify-content: center;
 }
 

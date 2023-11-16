@@ -45,8 +45,8 @@ public class employeeServiceService {
 	
 	public void processImage(com.project.csm.model.Service service, MultipartFile imageFile) throws IOException {
 	    if (imageFile != null && !imageFile.isEmpty()) {
-	        String fileName = generateRandomFileName(imageFile);
-	        String uploadDir = "src/main/resources/static/admin_assets/assets/images/serivce/";
+	    	String fileName = imageFile.getOriginalFilename();
+	        String uploadDir = "src/main/resources/static/assets/images/";
 	        Path filePath = Paths.get(uploadDir, fileName);
 	        
 	        if (service.getUrlImageService() != null) {
@@ -62,14 +62,6 @@ public class employeeServiceService {
 	    }
 	}
 
-	
-	private String generateRandomFileName(MultipartFile file) {
-	    String originalFileName = file.getOriginalFilename();
-	    String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
-	    String randomSuffix = String.format("%04d", (int) (Math.random() * 10000));
-	    String newFileName = "Service" + randomSuffix + extension;
-	    return newFileName;
-	}
 	
 
 }
