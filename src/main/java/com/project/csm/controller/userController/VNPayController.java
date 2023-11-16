@@ -1,5 +1,7 @@
 package com.project.csm.controller.userController;
 
+import java.util.Iterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +22,19 @@ public class VNPayController {
 		return "vnpay/vnpayHome";
 	}
 
+//	@PostMapping("/submitOrder")
+//	public String submidOrder(@RequestParam("amount") int orderTotal, HttpServletRequest request) {
+//		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+//		String vnpayUrl = vnPayService.createOrder(orderTotal, "Thanh toan dat ve xem phim", baseUrl);
+//		return "redirect:" + vnpayUrl;
+//	}
 	@PostMapping("/submitOrder")
-	public String submidOrder(@RequestParam("amount") int orderTotal, HttpServletRequest request) {
+	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request) {
+		
+		double orderTotalDouble = Double.parseDouble(orderTotal);
+		int orderTotalInt = (int) Math.round(orderTotalDouble);
 		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
-		String vnpayUrl = vnPayService.createOrder(orderTotal, "Thanh toan dat ve xem phim", baseUrl);
+		String vnpayUrl = vnPayService.createOrder(orderTotalInt, "Thanh toan dat ve xem phim", baseUrl);
 		return "redirect:" + vnpayUrl;
 	}
 
