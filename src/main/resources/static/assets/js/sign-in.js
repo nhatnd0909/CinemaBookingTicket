@@ -84,3 +84,39 @@ function signInValidateForm() {
 	}
 }
 
+		function checkInput(input) {
+			if(input.value === "") {
+				input.classList.add('is-invalid');
+				var errorMessage = input.name === 'email' ? "Email không được để trống" : "Password không được để trống";
+				input.nextElementSibling.innerText = errorMessage;
+			} else {
+				input.classList.remove('is-invalid');
+				input.nextElementSibling.innerText = '';
+			}
+		}
+	
+		document.addEventListener('DOMContentLoaded', (event) => {
+		document.querySelector('input[name="email"]').addEventListener('blur', function() {
+			checkInput(this);
+		});
+		document.querySelector('input[name="password"]').addEventListener('blur', function() {
+			checkInput(this);
+		});
+		});
+	
+		function togglePassword(element) {
+	
+			var container = element.parentNode;
+			var input = container.querySelector('input[type="password"], input[type="text"]');
+			
+			if (input.type === "password") {
+				input.type = "text";
+				element.classList.add('fa-eye-slash');
+				element.classList.remove('fa-eye');
+			} else {
+				input.type = "password";
+				element.classList.remove('fa-eye-slash');
+				element.classList.add('fa-eye');
+		}
+	}
+
