@@ -61,6 +61,7 @@ public class TicketBookingController {
 		List<Show> listShowTomorowDate = eShowMovie.getAllShowByTheaterDateMovie(tomorow, theater, movie);
 		List<Show> listShowNextDate = eShowMovie.getAllShowByTheaterDateMovie(nextDate, theater, movie);
 		model.addAttribute("listShowCurentDate", listShowCurentDate);
+		System.out.println(listShowCurentDate);
 		model.addAttribute("movie", movie);
 		model.addAttribute("listShowTomorowDate", listShowTomorowDate);
 		model.addAttribute("listShowNextDate", listShowNextDate);

@@ -77,7 +77,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="px-0 pt-4 pb-0 mt-3 mb-3">
-                            <form id="form">
+                            <form id="form" method="get" action=".">
                                 <ul id="progressbar" class="progressbar-class">
                                     <li class="active" id="step1">Show timing selection</li>
                                     <li id="step2" class="not_active">Seat Selection</li>
@@ -112,7 +112,7 @@
                                                         <div class="time-btn">
                                                             <c:forEach var="show" items="${listShowCurentDate}">
                                                                 <c:if test="${show.getTheaterRoom().getName() eq tRoom.name}">
-                                                                    <button class="screen-time selected" onclick="timeFunction()">${show.startTime}</button>
+                                                                    <input type="button" class="screen-time selected" onclick="timeFunction()" value="${show.startTime}">
                                                                 </c:if>
                                                             </c:forEach>
                                                         </div>
@@ -349,9 +349,9 @@
                                                 <td id="selectedUnitPrice_${loop.index}">$ ${service.price}</td>
                                                 <!-- Trong file JSP: -->
                                                 <td class="quantity" id="selectedQuantity_${loop.index}">
-                                                    <button onclick="decrementQuantity(this, ${loop.index})" class="decrement-button">-</button>
+                                                    <input onclick="decrementQuantity(this, ${loop.index})" class="decrement-button" value="-">
                                                     <span>0</span>
-                                                    <button onclick="incrementQuantity(this, ${loop.index})" class="increment-button">+</button>
+                                                    <input onclick="incrementQuantity(this, ${loop.index})" class="increment-button" value="+">
                                                 </td>
 
                                                 <td class="subtotal" id="selectedSubtotal_${loop.index}" data-subtotal="${service.price}">$0.00</td>
@@ -362,7 +362,7 @@
                                     <div class="total-money">
                                         Total money: <span id="total">0.00</span>
                                     </div>
-                                    <br> <input type="button" name="next-step" class="next-step" value="Proceed to Payment" /> <input type="button" name="previous-step" class="previous-step" value="Back" />
+                                    <br> <input type="" name="next-step" class="next-step" value="Proceed to Payment" /> <input type="button" name="previous-step" class="previous-step" value="Back" />
 
                                 </fieldset>
                                 <fieldset>
@@ -393,76 +393,6 @@
                                     </div>
                                     <input type="submit" name="submitPayment" class="next-step pay-btn" value="Confirm Payment" />
                                     <input type="button" name="previous-step" class="cancel-pay-btn" value="Cancel Payment" onclick="location.href='home';" />
-                                </fieldset>
-
-
-                                <fieldset>
-                                    <!-- Payment Page -->
-                                    <div id="payment_div13">
-                                        <div class="payment-row">
-                                            <div class="col-75">
-                                                <div class="payment-container">
-                                                    <div class="payment-row">
-                                                        <div class="col-50">
-                                                            <h3 id="payment-h3">Payment</h3>
-                                                            <div class="payment-row payment">
-                                                                <div class="col-50 payment">
-                                                                    <label for="card" class="method card">
-																<div class="icon-container">
-																	<i class="fa fa-cc-visa" style="color: navy"></i> <i
-																		class="fa fa-cc-amex" style="color: blue"></i> <i
-																		class="fa fa-cc-mastercard" style="color: red"></i> <i
-																		class="fa fa-cc-discover" style="color: orange"></i>
-																</div>
-																<div class="radio-input">
-																	<input type="radio" id="card" /> Pay RS.200.00 with
-																	credit card
-																</div>
-															</label>
-                                                                </div>
-                                                                <div class="col-50 payment">
-                                                                    <label for="paypal" class="method paypal">
-																<div class="icon-container">
-																	<i class="fa fa-paypal" style="color: navy"></i>
-																</div>
-																<div class="radio-input">
-																	<input id="paypal" type="radio" checked> Pay
-																	$30.00 with PayPal
-																</div>
-															</label>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="payment-row">
-                                                                <div class="col-50">
-                                                                    <label for="cname">Cardholder's Name</label> <input type="text" id="cname" name="cardname" placeholder="Firstname Lastname" required />
-                                                                </div>
-                                                                <div class="col-50">
-                                                                    <label for="ccnum">Credit card number</label> <input type="text" id="ccnum" name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx" required />
-                                                                </div>
-                                                            </div>
-                                                            <div class="payment-row">
-                                                                <div class="col-50">
-                                                                    <label for="expmonth">Exp Month</label> <input type="text" id="expmonth" name="expmonth" placeholder="September" required />
-                                                                </div>
-                                                                <div class="col-50">
-                                                                    <div class="payment-row">
-                                                                        <div class="col-50">
-                                                                            <label for="expyear">Exp Year</label> <input type="text" id="expyear" name="expyear" placeholder="yyyy" required />
-                                                                        </div>
-                                                                        <div class="col-50">
-                                                                            <label for="cvv">CVV</label> <input type="text" id="cvv" name="cvv" placeholder="xxx" required />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <input type="button" name="next-step" class="next-step pay-btn" value="Confirm Payment" /> <input type="button" name="previous-step" class="cancel-pay-btn" value="Cancel Payment" onclick="location.href='home';" />
                                 </fieldset>
                             </form>
                         </div>
@@ -584,6 +514,10 @@
                                 var id = $(this).attr("id") + "_" + index;
                                 $(this).attr("id", id);
                             });
+
+                            // Xóa giá trị input và chỉ hiển thị giá trị span
+                            clonedRow.find(".quantity input").val(""); // Xóa giá trị của input
+
                             var subtotalId = "selectedSubtotal_" + index;
                             var unitPriceId = "selectedUnitPrice_" + index;
                             var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
@@ -592,7 +526,8 @@
                             total += totalForRow;
 
                             $("#" + subtotalId).text('$' + totalForRow.toFixed(2));
-                            clonedRow.find(".quantity button").hide();
+                            clonedRow.find(".quantity input").hide(); // Ẩn input
+                            clonedRow.find(".quantity span").show(); // Hiển thị span
                         }
                     });
 
