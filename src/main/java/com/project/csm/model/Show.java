@@ -106,7 +106,7 @@ public class Show {
 	}
 
 	public BigDecimal getPrice() {
-		return price;
+		return price.stripTrailingZeros();
 	}
 
 	public void setPrice(BigDecimal price) {
