@@ -1,6 +1,6 @@
-// Set giá trị mặc định cho các ô subtotal khi trang web được tải lần đầu
+	// Set giá trị mặc định cho các ô subtotal khi trang web được tải lần đầu
 document.querySelectorAll("td:nth-child(5)").forEach(function (subtotalCell) {
-    subtotalCell.innerText = "$0.00";
+    subtotalCell.innerText = "0";
 });
 
 // Hàm giảm số lượng
@@ -22,36 +22,42 @@ function incrementQuantity(button) {
     quantityElement.innerText = quantity;
     updateSubtotal(button.parentNode.parentNode);
 }
-
-// Hàm cập nhật thành tiền cho hàng
 function updateSubtotal(row) {
     const priceCell = row.querySelector("td:nth-child(3)");
     const quantityCell = row.querySelector("td:nth-child(4) span");
     const subtotalCell = row.querySelector("td:nth-child(5)");
 
-    const price = parseFloat(priceCell.innerText.replace("$", "")); // Loại bỏ ký tự "$" và chuyển đổi thành số
+    const price = parseFloat(priceCell.innerText.replace(/\D/g, '')); // Loại bỏ ký tự không phải số
     const quantity = parseInt(quantityCell.innerText);
     const subtotal = price * quantity;
 
-    subtotalCell.innerText = "$" + subtotal.toFixed(2);
-
-    // Cập nhật tổng tiền
+    subtotalCell.innerText = subtotal.toLocaleString('vi-VN', { });
     updateTotal();
 }
 
-// Hàm cập nhật tổng tiền
 function updateTotal() {
     const subtotalCells = document.querySelectorAll("td:nth-child(5)");
     let total = 0;
 
     subtotalCells.forEach(function (cell) {
-        const subtotalValue = parseFloat(cell.innerText.replace("$", ""));
+        const subtotalValue = parseFloat(cell.innerText.replace(/\D/g, ''));
         if (!isNaN(subtotalValue)) {
             total += subtotalValue;
         }
     });
 
-    // Cập nhật tổng tiền
     const totalElement = document.getElementById("total");
-    totalElement.innerText = "$" + total.toFixed(2);
+    totalElement.innerText = total.toLocaleString('vi-VN', {} );
 }
+
+ document.addEventListener("DOMContentLoaded", function() {
+        var formattedPrices = document.querySelectorAll(".formatted-price");
+
+        formattedPrices.forEach(function(element) {
+            var price = parseFloat(element.innerText.replace(/\D/g, '')); // Loại bỏ ký tự không phải số
+            if (!isNaN(price)) {
+                var formattedPrice = new Intl.NumberFormat('vi-VN', { minimumFractionDigits: 0 }).format(price);
+                element.innerText = formattedPrice;
+            }
+        });
+    });
