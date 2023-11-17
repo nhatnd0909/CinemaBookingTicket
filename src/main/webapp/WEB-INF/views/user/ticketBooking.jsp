@@ -172,7 +172,6 @@
 								class="next-step" value="Continue Booking" disabled />
 						</fieldset>
 						<fieldset>
-
 							<div class="wrapper">
 								<h2>Seat Booking</h2>
 								<div class="theater">
@@ -207,6 +206,90 @@
 										</div>
 
 										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 1}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 2}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 3}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 4}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 5}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+
+												<c:if test="${seatOfCinema.seat.row eq 6}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+
+												<c:if test="${seatOfCinema.seat.row eq 7}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 8}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 9}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 10}">
+													<div class="seat">${seatOfCinema.seat.name}</div>
+												</c:if>
+											</c:forEach>
+										</div>
+
+
+
+										<!-- <div class="row">
 											<div class="seat">A1</div>
 											<div class="seat">B1</div>
 											<div class="seat">C1</div>
@@ -325,7 +408,7 @@
 											<div class="seat">H10</div>
 											<div class="seat">I10</div>
 											<div class="seat">J10</div>
-										</div>
+										</div> -->
 									</div>
 									<div class="wrapper-right">
 										<div class="booking-details">
