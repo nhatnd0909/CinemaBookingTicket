@@ -1,7 +1,5 @@
 package com.project.csm.controller.userController;
 
-import java.util.Iterator;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.config.VNPayService;
+import com.project.csm.model.Customer;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @org.springframework.stereotype.Controller
 public class VNPayController {
@@ -23,13 +23,22 @@ public class VNPayController {
 	}
 
 //	@PostMapping("/submitOrder")
-//	public String submidOrder(@RequestParam("amount") int orderTotal, HttpServletRequest request) {
+//	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request) {
+//		
+//		double orderTotalDouble = Double.parseDouble(orderTotal);
+//		int orderTotalInt = (int) Math.round(orderTotalDouble);
 //		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
-//		String vnpayUrl = vnPayService.createOrder(orderTotal, "Thanh toan dat ve xem phim", baseUrl);
+//		String vnpayUrl = vnPayService.createOrder(orderTotalInt, "Thanh toan dat ve xem phim", baseUrl);
 //		return "redirect:" + vnpayUrl;
 //	}
 	@PostMapping("/submitOrder")
-	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request) {
+	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request,
+			HttpSession session) {
+		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		if (loggedInAccount == null) {
+			
+			return "redirect:/signin";
+		}
 		
 		double orderTotalDouble = Double.parseDouble(orderTotal);
 		int orderTotalInt = (int) Math.round(orderTotalDouble);
