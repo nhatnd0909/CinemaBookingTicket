@@ -209,6 +209,7 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 1}">
 													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="price-seat" id="seatPrice" style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</div>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -286,129 +287,6 @@
 												</c:if>
 											</c:forEach>
 										</div>
-
-
-
-										<!-- <div class="row">
-											<div class="seat">A1</div>
-											<div class="seat">B1</div>
-											<div class="seat">C1</div>
-											<div class="seat">D1</div>
-											<div class="seat">E1</div>
-											<div class="seat">F1</div>
-											<div class="seat">G1</div>
-											<div class="seat">H1</div>
-											<div class="seat">I1</div>
-											<div class="seat">J1</div>
-										</div>
-										<div class="row">
-											<div class="seat">A2</div>
-											<div class="seat">B2</div>
-											<div class="seat">C2</div>
-											<div class="seat">D2</div>
-											<div class="seat">E2</div>
-											<div class="seat">F2</div>
-											<div class="seat">G2</div>
-											<div class="seat">H2</div>
-											<div class="seat">I2</div>
-											<div class="seat">J2</div>
-										</div>
-										<div class="row">
-											<div class="seat">A3</div>
-											<div class="seat">B3</div>
-											<div class="seat">C3</div>
-											<div class="seat">D3</div>
-											<div class="seat">E3</div>
-											<div class="seat unavailable">F3</div>
-											<div class="seat unavailable">G3</div>
-											<div class="seat">H3</div>
-											<div class="seat">I3</div>
-											<div class="seat">J3</div>
-										</div>
-										<div class="row">
-											<div class="seat">A4</div>
-											<div class="seat">B4</div>
-											<div class="seat">C4</div>
-											<div class="seat">D4</div>
-											<div class="seat">E4</div>
-											<div class="seat">F4</div>
-											<div class="seat">G4</div>
-											<div class="seat">H4</div>
-											<div class="seat">I4</div>
-											<div class="seat">J4</div>
-										</div>
-										<div class="row">
-											<div class="seat">A5</div>
-											<div class="seat">B5</div>
-											<div class="seat">C5</div>
-											<div class="seat">D5</div>
-											<div class="seat">E5</div>
-											<div class="seat">F5</div>
-											<div class="seat">G5</div>
-											<div class="seat">H5</div>
-											<div class="seat">I5</div>
-											<div class="seat">J5</div>
-										</div>
-										<div class="row">
-											<div class="seat">A6</div>
-											<div class="seat">B6</div>
-											<div class="seat">C6</div>
-											<div class="seat">D6</div>
-											<div class="seat">E6</div>
-											<div class="seat">F6</div>
-											<div class="seat">G6</div>
-											<div class="seat">H6</div>
-											<div class="seat">I6</div>
-											<div class="seat">J6</div>
-										</div>
-										<div class="row">
-											<div class="seat">A7</div>
-											<div class="seat">B7</div>
-											<div class="seat">C7</div>
-											<div class="seat">D7</div>
-											<div class="seat">E7</div>
-											<div class="seat">F7</div>
-											<div class="seat">G7</div>
-											<div class="seat">H7</div>
-											<div class="seat">I7</div>
-											<div class="seat">J7</div>
-										</div>
-										<div class="row">
-											<div class="seat">A8</div>
-											<div class="seat">B8</div>
-											<div class="seat">C8</div>
-											<div class="seat">D8</div>
-											<div class="seat">E8</div>
-											<div class="seat">F8</div>
-											<div class="seat">G8</div>
-											<div class="seat">H8</div>
-											<div class="seat">I8</div>
-											<div class="seat">J8</div>
-										</div>
-										<div class="row">
-											<div class="seat">A9</div>
-											<div class="seat">B9</div>
-											<div class="seat">C9</div>
-											<div class="seat">D9</div>
-											<div class="seat">E9</div>
-											<div class="seat">F9</div>
-											<div class="seat">G9</div>
-											<div class="seat">H9</div>
-											<div class="seat">I9</div>
-											<div class="seat">J9</div>
-										</div>
-										<div class="row">
-											<div class="seat">A10</div>
-											<div class="seat">B10</div>
-											<div class="seat">C10</div>
-											<div class="seat">D10</div>
-											<div class="seat">E10</div>
-											<div class="seat">F10</div>
-											<div class="seat">G10</div>
-											<div class="seat">H10</div>
-											<div class="seat">I10</div>
-											<div class="seat">J10</div>
-										</div> -->
 									</div>
 									<div class="wrapper-right">
 										<div class="booking-details">
@@ -544,9 +422,9 @@
 	<script>
                document.addEventListener('DOMContentLoaded', function () {
                 var selectedSeats = [];
-                var seatPrice = 50000; // Giá mỗi ghế
-
-                // Lắng nghe sự kiện click trên tất cả các ghế
+				var seatPriceElement = document.getElementById('seatPrice');
+  				var seatPriceText = seatPriceElement.textContent || seatPriceElement.innerText;
+				var seatPrice = parseFloat(seatPriceText.replace(/[^0-9]/g, ''));
                 var seats = document.querySelectorAll('.seat');
                 seats.forEach(function (seat) {
                     seat.addEventListener('click', function () {
