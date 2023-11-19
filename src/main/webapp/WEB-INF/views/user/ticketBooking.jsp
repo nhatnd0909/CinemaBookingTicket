@@ -86,6 +86,8 @@
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
 					<form id="form" method="post" action="submitOrder">
+						<input name="showID" value="" hidden="">
+						
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Show timing selection</li>
 							<li id="step2" class="not_active">Seat Selection</li>
@@ -93,7 +95,6 @@
 							<li id="step4" class="not_active">Payment</li>
 
 						</ul>
-						<br>
 						<fieldset>
 							<div id="screen-select-div">
 								<h2>Show time Selection</h2>
@@ -124,6 +125,7 @@
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
 															<input type="button" class="screen-time selected"
 																onclick="timeFunction()" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -140,8 +142,9 @@
 													<c:forEach var="show" items="${listShowTomorowDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
+															<input type="button" class="screen-time selected"
+																onclick="timeFunction()" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -158,8 +161,9 @@
 													<c:forEach var="show" items="${listShowNextDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
+															<input type="button" class="screen-time selected"
+																onclick="timeFunction()" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -689,6 +693,26 @@
             </script>
 
 
+	<script type="text/javascript">
+	 document.addEventListener('DOMContentLoaded', function() {
+	        // Lấy tất cả các phần tử có class "screen-time selected"
+	        var buttons = document.querySelectorAll('.screen-time.selected');
+
+	        // Duyệt qua từng nút và thêm sự kiện click
+	        buttons.forEach(function(button) {
+	            button.addEventListener('click', function() {
+	                // Lấy giá trị của thẻ h5 có id="showID"
+	                var showID = this.nextElementSibling.textContent;
+
+	                // Cập nhật giá trị của trường input có name="showID"
+	                document.querySelector('input[name="showID"]').value = showID;
+
+	                // Gọi hàm timeFunction() nếu bạn muốn thực hiện thêm các thao tác khác
+	                timeFunction();
+	            });
+	        });
+	    });
+	</script>
 </body>
 
 </html>

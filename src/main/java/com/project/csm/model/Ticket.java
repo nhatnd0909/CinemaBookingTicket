@@ -25,10 +25,6 @@ public class Ticket {
 	private SeatOfCinema seatOfCinema;
 
 	@ManyToOne
-	@JoinColumn(name = "OrderID")
-	private Order order;
-
-	@ManyToOne
 	@JoinColumn(name = "CustomerID")
 	private Customer customer;
 
@@ -42,24 +38,21 @@ public class Ticket {
 		super();
 	}
 
-	public Ticket(Show show, SeatOfCinema seatOfCinema, Order order, Customer customer, BigDecimal discount,
-			BigDecimal totalPrice) {
+	public Ticket(Show show, SeatOfCinema seatOfCinema, Customer customer, BigDecimal discount, BigDecimal totalPrice) {
 		super();
 		this.show = show;
 		this.seatOfCinema = seatOfCinema;
-		this.order = order;
 		this.customer = customer;
 		this.discount = discount;
 		this.totalPrice = totalPrice;
 	}
 
-	public Ticket(String ticketID, Show show, SeatOfCinema seatOfCinema, Order order, Customer customer,
-			BigDecimal discount, BigDecimal totalPrice) {
+	public Ticket(String ticketID, Show show, SeatOfCinema seatOfCinema, Customer customer, BigDecimal discount,
+			BigDecimal totalPrice) {
 		super();
 		this.ticketID = ticketID;
 		this.show = show;
 		this.seatOfCinema = seatOfCinema;
-		this.order = order;
 		this.customer = customer;
 		this.discount = discount;
 		this.totalPrice = totalPrice;
@@ -89,14 +82,6 @@ public class Ticket {
 		this.seatOfCinema = seatOfCinema;
 	}
 
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
-
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -123,8 +108,8 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [ticketID=" + ticketID + ", show=" + show + ", seatOfCinema=" + seatOfCinema + ", order=" + order
-				+ ", customer=" + customer + ", discount=" + discount + ", totalPrice=" + totalPrice + "]";
+		return "Ticket [ticketID=" + ticketID + ", show=" + show + ", seatOfCinema=" + seatOfCinema + ", customer="
+				+ customer + ", discount=" + discount + ", totalPrice=" + totalPrice + "]";
 	}
 
 }

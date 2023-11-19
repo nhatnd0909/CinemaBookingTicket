@@ -1,5 +1,7 @@
 package com.project.csm.controller.userController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.config.VNPayService;
 import com.project.csm.model.Customer;
+import com.project.csm.model.Show;
+import com.project.csm.service.customerService.TicketService;
+import com.project.csm.service.employeeService.employeeShowMovie;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -16,6 +21,10 @@ import jakarta.servlet.http.HttpSession;
 public class VNPayController {
 	@Autowired
 	private VNPayService vnPayService;
+	@Autowired
+	private TicketService tService;
+	@Autowired
+	private employeeShowMovie esmovie;
 
 	@GetMapping("/submitOrder")
 	public String vnpayHome() {
@@ -33,13 +42,30 @@ public class VNPayController {
 //	}
 	@PostMapping("/submitOrder")
 	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request,
-			HttpSession session) {
+			HttpSession session, @RequestParam("showID") Long showID) {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 		if (loggedInAccount == null) {
-			
+
 			return "redirect:/signin";
 		}
+
+		// Discount
+		Double discount = loggedInAccount.getRank().getDiscount();
+		// Customer ID
+		Long customerID = loggedInAccount.getCustomerID();
+		// TicketID
+		String ticketID = tService.createIDTicket();
+		// Show
+		Show show = esmovie.getShowById(showID);
+		// Total price
 		
+		// SOCID
+
+		// Order
+		// Amount
+		// TotalPrice
+		// ServiceID
+		// TicketID
 		double orderTotalDouble = Double.parseDouble(orderTotal);
 		int orderTotalInt = (int) Math.round(orderTotalDouble);
 		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
