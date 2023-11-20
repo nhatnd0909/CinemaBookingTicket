@@ -62,9 +62,14 @@ public class TicketBookingController {
 		String currentDate = sService.getCurrentDate();
 		String tomorow = sService.getTomorrowDate();
 		String nextDate = sService.getNextDayDate();
+		String futureDate3Days = sService.getFutureDate(3);
+		String futureDate4Days = sService.getFutureDate(4);
+
 		model.addAttribute("currentDate", currentDate);
 		model.addAttribute("tomorow", tomorow);
 		model.addAttribute("nextDate", nextDate);
+		model.addAttribute("futureDate3Days", futureDate3Days);
+		model.addAttribute("futureDate4Days", futureDate4Days);
 
 		List<Show> listShowCurentDate = eShowMovie.getAllShowByTheaterDateMovie(currentDate, theater, movie);
 		List<Show> listShowTomorowDate = eShowMovie.getAllShowByTheaterDateMovie(tomorow, theater, movie);
