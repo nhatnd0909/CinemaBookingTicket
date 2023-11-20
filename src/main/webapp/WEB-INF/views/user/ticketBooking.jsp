@@ -226,7 +226,8 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 1}">
 													<div class="seat"
-														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>						
+													<h6 class="price-seat" id="seatPrice" style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}
 													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
