@@ -54,8 +54,8 @@
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-								<span>Gold Member</span>
+								<h5 class="mb-0 font-weight-normal">Quản Trị Viên</h5>
+								
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -70,8 +70,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Account
-										settings</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -82,8 +81,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Change
-										Password</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
 								</div>
 							</a>
 					</div>
@@ -91,44 +89,44 @@
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/adminDashboard"> <span class="menu-icon"> <i
+					href="adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dashboard</span>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/revenue"> <span class="menu-icon"> <i
+					href="revenue"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
-					</span> <span class="menu-title">Revenue Magagement</span>
+					</span> <span class="menu-title">Quản Lý Doanh Thu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/movieDashboard"> <span class="menu-icon"> <i
+					href="movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Movie Management</span>
+					</span> <span class="menu-title">Quản Lý Phim</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/customerDashboard"> <span class="menu-icon"> <i
+					href="customerDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Customer Management</span>
+					</span> <span class="menu-title">Quản Lý Khách Hàng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employeeDashboard"> <span class="menu-icon"> <i
+					href="employeeDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Employe Management</span>
+					</span> <span class="menu-title">Quản Lý Nhân Viên</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/theaterDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Theater Management</span>
+					</span> <span class="menu-title">Quản Lý Rạp</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Rank</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Genre</span>
+					</span> <span class="menu-title">Quản Lý Thể Loại</span>
 				</a></li>
 			</ul>
 		</nav>
@@ -262,15 +260,14 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="/admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Henry
-										Klein</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Quản Trị Viên</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 								aria-labelledby="profileDropdown">
-								<h6 class="p-3 mb-0">Profile</h6>
+								<h6 class="p-3 mb-0">Hồ Sơ</h6>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
@@ -279,7 +276,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Settings</p>
+										<p class="preview-subject mb-1">Cài Đặt</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -290,11 +287,11 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Log out</p>
+										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
-								<p class="p-3 mb-0 text-center">Advanced settings</p>
+								<p class="p-3 mb-0 text-center">Cài Đặt Nâng Cao</p>
 							</div></li>
 					</ul>
 					<button
@@ -311,12 +308,12 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Update Customer</h4>
-                                    <p class="mb-0"><a href="/customerDashboard" style="text-decoration: none; color: inherit;"> Customer</a> / <span>Update</span></p>
+                                    <h4 class="card-title">Cập Nhật Khách Hàng</h4>
+                                    <p class="mb-0"><a href="/customerDashboard" style="text-decoration: none; color: inherit;"> Khách Hàng</a> / <span>Cập Nhật</span></p>
                                 </div>
 								<form class="forms-sample" method="post" action="/customerDashboard/update/${customer.customerID}">
 									<div class="form-group">
-										<label for="exampleInputName1">User Name</label> 
+										<label for="exampleInputName1">Tên Khách Hàng</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="userName"  th:field="${customer.account.userName}" value="${customer.account.userName}">
 										
 									</div>
@@ -325,42 +322,42 @@
                                         <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email"  value="${customer.account.email}">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputPassword4">Password</label> 
+										<label for="exampleInputPassword4">Mật Khẩu</label> 
                                         <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password"  value="${customer.account.password}">
 									</div>
                                     <div class="form-group">
-										<label for="exampleInputName1">Role</label> 
+										<label for="exampleInputName1">Vai Trò</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" value="customer" name="role"  value="${customer.account.role}">
 									</div>
                                     <div class="form-group">
-										<label for="exampleInputName1">Full Name</label> 
+										<label for="exampleInputName1">Họ và Tên</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="name"  value="${customer.name}">
 									</div>
                                     <div class="form-group">
-										<label for="exampleInputName1">Addres</label> 
+										<label for="exampleInputName1">Địa Điểm</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="address"  value="${customer.address}">
 									</div>
 									<div class="form-group">
-										<label for="dateOfBirth">Date of Birth</label>
+										<label for="dateOfBirth">Ngày Sinh</label>
 										<c:if test="${not empty customer.dateOfBirth}">
 											<input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" value="<fmt:formatDate value="${customer.dateOfBirth}" pattern="yyyy-MM-dd" />">
 										</c:if>
 									</div>																  
                                     <div class="form-group">
-										<label for="exampleInputName1">Phone Number</label> 
+										<label for="exampleInputName1">Số Điện Thoại</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber"  value="${customer.phoneNumber}">
 									</div>
 									<div class="form-group">
-										<label for="allRanks">Select a Different Rank</label>
+										<label for="allRanks">Chọn Một Thứ Hạn Khác</label>
 										<select class="form-control" id="allRanks" name="rankId">
-											<option value="">Select Rank</option>
+											<option value="">Chọn Thứ Hạn</option>
 											<c:forEach items="${ranks}" var="rank">
 												<option value="${rank.rankID}">${rank.type}</option>
 											</c:forEach>
 										</select>
 									</div>																	   
-									<button type="submit" class="btn btn-primary mr-2">Update</button>
-									<button class="btn btn-dark">Cancel</button>
+									<button type="submit" class="btn btn-primary mr-2">Cập Nhật</button>
+									<button class="btn btn-dark">Hủy</button>
 								</form>
 							</div>
 						</div>

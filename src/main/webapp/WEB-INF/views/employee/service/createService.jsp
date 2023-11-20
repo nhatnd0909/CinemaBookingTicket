@@ -53,12 +53,12 @@
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Employe</h5>
+								<h5 class="mb-0 font-weight-normal">Nhân Viên</h5>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
 							class="mdi mdi-dots-vertical"></i></a>
-							<div
+                            <div
 							class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
 							aria-labelledby="profile-dropdown">
 							<a href="/employee/profile" class="dropdown-item preview-item">
@@ -68,8 +68,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Account
-										settings</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -80,8 +79,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Change
-										Password</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -94,22 +92,22 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dashboard</span>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/service"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
-					</span> <span class="menu-title">Service</span>
+					</span> <span class="menu-title">Dịch Vụ</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href=""> <span class="menu-icon"> <i
+					href="/employee/show"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Show</span>
+					</span> <span class="menu-title">Chương Trình</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/bookinghistory"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">User booking history</span>
+					</span> <span class="menu-title">Lịch Sử Đặt </span>
 				</a></li>
 			</ul>
 		</nav>
@@ -240,14 +238,14 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="/admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Nhân Viên</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 								aria-labelledby="profileDropdown">
-								<h6 class="p-3 mb-0">Profile</h6>
+								<h6 class="p-3 mb-0">Hồ Sơ</h6>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
@@ -256,7 +254,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Settings</p>
+										<p class="preview-subject mb-1">Cài Đặt</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -267,7 +265,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Log out</p>
+										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
 							</div></li>
@@ -286,32 +284,32 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Add New Service</h4>
-                                    <p class="mb-0"><a href="/employee/service" style="text-decoration: none; color: inherit;"> Service</a> / <span>New Service</span></p>
+                                    <h4 class="card-title">Thêm Dịch Vụ </h4>
+                                    <p class="mb-0"><a href="/employee/service" style="text-decoration: none; color: inherit;"> Dịch Vụ</a> / <span>Dịch Vụ Mới</span></p>
                                 </div>
 								<form class="forms-sample" method="post" action="/employee/service/create" enctype="multipart/form-data">
 									<div class="form-group">
-										<label for="exampleInputName1">Name</label> 
+										<label for="exampleInputName1">Tên</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name"  required="required">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">Size</label> 
+										<label for="exampleInputEmail3">Kích Cỡ</label> 
                                         <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Size" name="size"  required="required">
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleInputEmail3">Price</label> 
+										<label for="exampleInputEmail3">Giá</label> 
                                         <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Price" name="price"  required="required">
 									</div>
 									
 									<div class="form-group">
-										<label for="exampleInputPassword4">Imgage</label> 
+										<label for="exampleInputPassword4">Hình Ảnh</label> 
                                         <input type="file" class="form-control" id="exampleInputPassword4" placeholder="Password" name="imageFile" required="required" onchange="previewImage()">
 									</div> 
                                     <div id="imagePreview" class="image-preview">
                                         
                                     </div>                                                                 
-									<button type="submit" class="btn btn-primary mr-2">Submit</button>
+									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
 								</form>
 							</div>
 						</div>
