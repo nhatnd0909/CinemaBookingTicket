@@ -2,6 +2,7 @@ package com.project.csm.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class Order {
 	@Column(name = "OrderID")
 	private Long orderID;
 
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.ALL, CascadeType.MERGE })
 	@JoinColumn(name = "ServiceID")
 	private Service service;
 
@@ -29,9 +30,12 @@ public class Order {
 	@Column(name = "TotalPrice")
 	private BigDecimal totalPrice;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "TicketID")
 	private Ticket ticket;
+
+	@Column(name = "IDTicket")
+	private String ticketID;
 
 	public Order() {
 		super();
@@ -52,6 +56,14 @@ public class Order {
 		this.amount = amount;
 		this.totalPrice = totalPrice;
 		this.ticket = ticket;
+	}
+
+	public Order(Service service, int amount, BigDecimal totalPrice, String ticketID) {
+		super();
+		this.service = service;
+		this.amount = amount;
+		this.totalPrice = totalPrice;
+		this.ticketID = ticketID;
 	}
 
 	public Long getOrderID() {

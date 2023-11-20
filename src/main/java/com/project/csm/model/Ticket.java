@@ -28,7 +28,7 @@ public class Ticket {
 	@Column(name = "ListSeat")
 	private String listSeat;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "CustomerID")
 	private Customer customer;
 

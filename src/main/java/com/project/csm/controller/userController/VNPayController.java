@@ -84,8 +84,8 @@ public class VNPayController {
 
 		Ticket ticket = new Ticket(ticketID, show, seat, loggedInAccount, discount, total);
 		/// ticket
-		session.setAttribute("ticket", ticket);
 //		tService.createNewTicket(ticket);
+		session.setAttribute("ticket", ticket);
 		// Order
 		if (order != null) {
 			String[] listOrder = orderService.processString(order);
@@ -100,14 +100,13 @@ public class VNPayController {
 					BigDecimal priceService = service.getPrice();
 					// total price service
 					BigDecimal totalpPriceService = serviceService.multiplyIntByBigDecimal(amount, priceService);
-					Order newOrder = new Order(service, amount, totalpPriceService, ticket);
+
+					Order newOrder = new Order(service, amount, totalpPriceService, ticket.getTicketID());
 					listOderServie.add(newOrder);
-//					orderService.createNewOrder(newOrder);
+					orderService.createNewOrder(newOrder);
 				}
 			}
-			session.setAttribute("listOderServie", listOderServie);
 		}
-
 		double orderTotalDouble = Double.parseDouble(orderTotal);
 		int orderTotalInt = (int) Math.round(orderTotalDouble);
 		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
@@ -130,15 +129,10 @@ public class VNPayController {
 		model.addAttribute("transactionId", transactionId);
 
 		if (paymentStatus == 1) {
-			List<Order> listOrder = (List<Order>) session.getAttribute("listOderServie");
 			Ticket ticket = (Ticket) session.getAttribute("ticket");
-			for (Order o : listOrder) {
-//				orderService.createNewOrder(o);
-				System.out.println(o);
-			}
-//			tService.createNewTicket(ticket);
-			System.out.println(ticket);
+			tService.createNewTicket(ticket);
 		}
+		
 		return paymentStatus == 1 ? "vnpay/ordersuccess" : "vnpay/orderfail";
 	}
 }
