@@ -58,7 +58,7 @@
 					  <span class="count bg-success"></span>
 					</div>
 					<div class="profile-name">
-					  <h5 class="mb-0 font-weight-normal">Admin</h5>
+					  <h5 class="mb-0 font-weight-normal">Quản Trị Viên</h5>
 					</div>
 				  </div>
 				  <a href="#" id="profile-dropdown" data-toggle="dropdown"
@@ -107,62 +107,46 @@
 				<span class="nav-link">Navigation</span>
 			  </li>
 	
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="adminDashboard">
-				  <span class="menu-icon">
-					<i class="mdi mdi-speedometer"></i>
-				  </span>
-				  <span class="menu-title">Dashboard</span>
-				</a>
-			  </li>
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="revenue">
-				  <span class="menu-icon"> <i class="mdi mdi-cash-usd"></i> </span>
-				  <span class="menu-title">Revenue Magagement</span>
-				</a>
-			  </li>
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="movieDashboard">
-				  <span class="menu-icon">
-					<i class="mdi mdi-playlist-play"></i>
-				  </span>
-				  <span class="menu-title">Movie Management</span>
-				</a>
-			  </li>
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="customerDashboard">
-				  <span class="menu-icon">
-					<i class="mdi mdi-account-circle"></i>
-				  </span>
-				  <span class="menu-title">Customer Management</span>
-				</a>
-			  </li>
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="employeeDashboard">
-				  <span class="menu-icon">
-					<i class="mdi mdi-account-circle"></i>
-				  </span>
-				  <span class="menu-title">Employe Management</span>
-				</a>
-			  </li>
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="/theaterDashboard">
-				  <span class="menu-icon"> <i class="mdi mdi-seal"></i> </span>
-				  <span class="menu-title">Theater Management</span>
-				</a>
-			  </li>
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="/rankDashboard">
-				  <span class="menu-icon"> <i class="mdi mdi-seal"></i> </span>
-				  <span class="menu-title">Rank</span>
-				</a>
-			  </li>
-			  <li class="nav-item menu-items">
-				<a class="nav-link" href="/genreDashboard">
-				  <span class="menu-icon"> <i class="mdi mdi-seal"></i> </span>
-				  <span class="menu-title">Genre</span>
-				</a>
-			  </li>
+			  <li class="nav-item menu-items"><a class="nav-link"
+					href="adminDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-speedometer"></i>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="revenue"> <span class="menu-icon"> <i
+							class="mdi mdi-cash-usd"></i>
+					</span> <span class="menu-title">Quản Lý Doanh Thu</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="movieDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-playlist-play"></i>
+					</span> <span class="menu-title">Quản Lý Phim</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="customerDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Quản Lý Khách Hàng</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="employeeDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Quản Lý Nhân Viên</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/theaterDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Quản Lý Rạp</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/rankDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/genreDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Quản Lý Thể Loại</span>
+				</a></li>
 			</ul>
 		  </nav>
 		<!-- partial -->
@@ -292,14 +276,14 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Quản Trị Viên</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 								aria-labelledby="profileDropdown">
-								<h6 class="p-3 mb-0">Profile</h6>
+								<h6 class="p-3 mb-0">Hồ Sơ</h6>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
@@ -308,7 +292,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Settings</p>
+										<p class="preview-subject mb-1">Cài Đặt</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -319,7 +303,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Log out</p>
+										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -336,11 +320,11 @@
 			<div class="main-panel">
 				<div class="content-wrapper">
 					<div class="page-header">
-						<h3 class="page-title">Revenue Management</h3>
+						<h3 class="page-title">Quản Lý Doanh Thu</h3>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">DashBoard</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Revenue</li>
+								<li class="breadcrumb-item"><a href="/adminDashboard">Bảng Điều Khiển</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Doanh Thu</li>
 							</ol>
 						</nav>
 					</div>
