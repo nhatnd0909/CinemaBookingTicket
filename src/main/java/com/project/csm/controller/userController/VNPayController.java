@@ -52,16 +52,19 @@ public class VNPayController {
 		// SOCID
 		String[] listSeat = socid.replace(" ", "").split(",");
 		List<SeatOfCinema> listSeatOfCinema = new ArrayList<>();
+
 		for (int i = 0; i < listSeat.length; i++) {
 			Long id = Long.parseLong(listSeat[i]);
 			SeatOfCinema soc = sOfCinemaService.getAllSeatByID(id);
 			listSeatOfCinema.add(soc);
 		}
-
+		String seat = "";
 		for (SeatOfCinema s : listSeatOfCinema) {
 			BigDecimal seatPrice = s.getSeat().getPrice();
 			total = total.add(seatPrice);
+			seat = seat + (s.getSeat().getName() + ",");
 		}
+		seat = seat.substring(0, seat.length() - 1);
 		// Discount
 		Double discount = loggedInAccount.getRank().getDiscount();
 		// Customer
@@ -69,10 +72,11 @@ public class VNPayController {
 		String ticketID = tService.createIDTicket();
 		// Show
 		Show show = esmovie.getShowById(showID);
-		Ticket ticket = new Ticket(ticketID, show, socid.replace(" ", ""), loggedInAccount, discount, total);
+
+		Ticket ticket = new Ticket(ticketID, show, seat, loggedInAccount, discount, total);
 		/// ticket
 		session.setAttribute("ticket", ticket);
-		System.out.println(ticket);
+		tService.createNewTicket(ticket);
 		// Order
 
 		// Amount

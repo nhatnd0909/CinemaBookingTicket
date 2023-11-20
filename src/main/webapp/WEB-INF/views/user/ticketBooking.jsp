@@ -344,7 +344,7 @@
 													</tr>
 													<tr>
 														<th>Selected Seats</th>
-														<td id="seats">: A1</td>
+														<td id="seats"></td>
 													</tr>
 													<tr>
 														<th>Total</th>
@@ -395,25 +395,25 @@
 										<td><img class="food-image"
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
-
-										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
+										<td id="selectedProductName_${loop.index}">${service.name}
+											size ${service.size}</td>
 										<td id="selectedUnitPrice_${loop.index}"
 											class="formatted-price">${service.price.setScale(0, 3)}
 										</td>
 										<!-- Trong file JSP: -->
 										<td class="quantity" id="selectedQuantity_${loop.index}">
 											<input onclick="decrementQuantity(this, ${loop.index})"
-											class="decrement-button" value="-"> <span>0</span> <input
+											class="decrement-button" value="-"> <span>0</span> 
+											<input
 											onclick="incrementQuantity(this, ${loop.index})"
 											class="increment-button" value="+">
 										</td>
-
 										<td class="subtotal" id="selectedSubtotal_${loop.index}"
 											data-subtotal="${service.price.setScale(0, 3)}"></td>
-
 									</tr>
 								</c:forEach>
 							</table>
+
 							<div class="total-money">
 								Total money: <span id="total">0.00</span>
 							</div>
@@ -651,6 +651,10 @@
         // Gán giá trị mới cho input
         inputElement.value = updatedValue;
     }
+	</script>
+	
+	<script type="text/javascript">
+		
 	</script>
 </body>
 
