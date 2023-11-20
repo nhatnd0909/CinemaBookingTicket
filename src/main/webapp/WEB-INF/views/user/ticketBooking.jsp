@@ -101,16 +101,27 @@
 									data-flickity='{"contain": true, "pageDots": false }'>
 									<div class="carousel-cell" id="1" onclick="myFunction(1)">
 										<div class="date-numeric">${currentDate}</div>
-										<div class="date-day">Hôm Nay</div>
+										<div class="date-day" id="dayOfWeek1"></div>
 									</div>
-
+									
 									<div class="carousel-cell" id="2" onclick="myFunction(2)">
 										<div class="date-numeric">${tomorow}</div>
-										<div class="date-day">Ngày Mai</div>
+										<div class="date-day" id="dayOfWeek2"></div>
 									</div>
+									
 									<div class="carousel-cell" id="3" onclick="myFunction(3)">
 										<div class="date-numeric">${nextDate}</div>
-										<div class="date-day">Ngày Mốt</div>
+										<div class="date-day" id="dayOfWeek3"></div>
+									</div>
+									
+									<div class="carousel-cell" id="4" onclick="myFunction(4)">
+										<div class="date-numeric">${futureDate3Days}</div>
+										<div class="date-day" id="dayOfWeek4"></div>
+									</div>
+									
+									<div class="carousel-cell" id="5" onclick="myFunction(5)">
+										<div class="date-numeric">${futureDate4Days}</div>
+										<div class="date-day" id="dayOfWeek5"></div>
 									</div>
 								</div>
 								<div class="show-currentDate">
