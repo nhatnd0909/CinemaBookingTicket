@@ -88,11 +88,12 @@
 					<form id="form" method="POST" action="submitOrder">
 						<input name="showID" value="" hidden=""> <input
 							name="socid" type="text" value="" hidden="">
+
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Show timing selection</li>
 							<li id="step2" class="not_active">Seat Selection</li>
 							<li id="step3" class="not_active">Concession Items</li>
-							<li id="step4" class="not_active">Payment</li>
+							<li id="step4" class="not_active">Confirm</li>
 
 						</ul>
 						<fieldset>
@@ -225,9 +226,10 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 1}">
 													<div class="seat"
-														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>						
-													<h6 class="price-seat" id="seatPrice" style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}
-													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h6 class="price-seat" id="seatPrice"
+														style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}
+														<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -393,10 +395,6 @@
 										<td><img class="food-image"
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
-										<td id="selectedProductName_${loop.index}">${service.name}
-											size ${service.size}</td>
-										<td id="selectedUnitPrice_${loop.index}">$
-											${service.price}</td>
 
 										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
 										<td id="selectedUnitPrice_${loop.index}"
@@ -411,7 +409,7 @@
 										</td>
 
 										<td class="subtotal" id="selectedSubtotal_${loop.index}"
-											data-subtotal="${service.price}">$0.00</td>
+											data-subtotal="${service.price.setScale(0, 3)}"></td>
 
 									</tr>
 								</c:forEach>
@@ -450,8 +448,7 @@
 											<br>
 										</c:if>
 										Tổng Tiền: <span id="total-money"></span> <input type="text"
-											name="totalmoney" id="inputtotal" value="" hidden="">
-										name="totalmoney" id="inputtotal" value="" hidden >
+											name="totalmoney" id="inputtotal" value="" hidden>
 									</div>
 								</div>
 							</div>
@@ -498,7 +495,8 @@
 
                             // Tính toán và hiển thị tổng giá vé
                             var total = selectedSeats.length * seatPrice;
-                            document.querySelector('.custom-table tr:nth-child(5) td').innerText = ': ' + total;
+                            var formattedTotal = new Intl.NumberFormat('vi-VN').format(total);
+                            document.querySelector('.custom-table tr:nth-child(5) td').innerText = ': ' + formattedTotal;
                         }
                     });
                 });
@@ -556,11 +554,12 @@
                 $(".next-step").one("click", function () {
                     var selectedSeatsText = $("#seats").text();
                     var total_movie_str = $("#totalseat").text().trim().replace(/[$:]/g, '');
-                    var total_movie = parseFloat(total_movie_str) || 0;
+                    var stringWithoutCommas = total_movie_str.replace(/\./g, '');
+                    var total_movie = parseFloat(stringWithoutCommas) || 0;
                     updateSecondTable();
-                    var total = parseFloat($("#total-money").text().replace('$', '')) || 0;
+                    var total = parseFloat($("#total-money").text().replace(/\D/g, '')) || 0;
                     total += total_movie;
-                    $("#total-money").text('$' + total.toFixed(2));
+                    $("#total-money").text(total.toLocaleString('vi-VN'));
                     $("#payment_div p:nth-child(4)").text('Ghế' + selectedSeatsText);
                     $("#payment_div p:nth-child(5)").text('Tổng tiền ghế' + total_movie_str);
 
@@ -569,7 +568,7 @@
                 function updateSecondTable() {
                     $("#payment_div table tr:gt(0)").remove(); // Xóa các hàng trừ hàng đầu tiên
                     var total = 0;
-                    var total_movie = parseFloat($("#total-movie").text().replace('$', '')) || 0; // Lấy giá trị total_movie
+                    var total_movie = parseFloat($("#total-movie").text().replace()) || 0; // Lấy giá trị total_movie
 
                     $(".product-row").each(function (index) {
                         var quantity = parseInt($(this).find(".quantity span").text());
@@ -583,30 +582,27 @@
                                 $(this).attr("id", id);
                             });
 
-                            // Xóa giá trị input và chỉ hiển thị giá trị span
-                            clonedRow.find(".quantity input").val(""); // Xóa giá trị của input
+                            clonedRow.find(".quantity input").val("");
 
                             var subtotalId = "selectedSubtotal_" + index;
                             var unitPriceId = "selectedUnitPrice_" + index;
                             var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
-                            var unitPrice = parseFloat($("#" + unitPriceId).text().replace('$', '')) || 0;
+                            var unitPrice = parseFloat($("#" + unitPriceId).text().replace()) || 0;
                             var totalForRow = subtotal * quantity;
                             total += totalForRow;
 
-                            $("#" + subtotalId).text('$' + totalForRow.toFixed(2));
+                            $("#" + subtotalId).text(+ totalForRow.toFixed(2));
                             clonedRow.find(".quantity input").hide(); // Ẩn input
                             clonedRow.find(".quantity span").show(); // Hiển thị span
                         }
                     });
 
-                    $("#total-money").text('$' + total.toFixed(2));
+                    $("#total-money").text(+ total.toFixed(2));
                 }
                 function copyValueToInput() {
-                    // Lấy giá trị từ span và loại bỏ ký tự $
                     var totalMoneySpan = document.getElementById('total-money');
-                    var totalMoneyValue = totalMoneySpan.innerText.replace('$', '').trim();
+					var totalMoneyValue = totalMoneySpan.innerText.replace(/\D/g, ''); 
                     
-                    // Gán giá trị từ span vào input
                     var inputTotal = document.getElementById('inputtotal');
                     inputTotal.value = totalMoneyValue;
                 }
