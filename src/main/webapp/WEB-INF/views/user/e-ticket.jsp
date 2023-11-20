@@ -8,11 +8,7 @@ prefix="c"%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Ticket</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="assets/css/e-ticket-Toan.css"
-    />
+    <link rel="stylesheet" type="text/css" href="assets/css/e-ticketV2.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700"
       rel="stylesheet"
@@ -21,7 +17,7 @@ prefix="c"%>
   <body>
     <div class="cardWrap">
       <div class="card cardLeft">
-        <h1>Startup <span>Cinema</span></h1>
+        <h1>Startup Cinema</h1>
         <div class="title">
           <h2>How I met your Mother</h2>
           <span>movie</span>
