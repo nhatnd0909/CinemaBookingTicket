@@ -55,8 +55,8 @@
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-								<span>Gold Member</span>
+								<h5 class="mb-0 font-weight-normal">Quản Trị Viên</h5>
+								
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -71,8 +71,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Account
-										settings</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -83,8 +82,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Change
-										Password</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
 								</div>
 							</a>
 					</div>
@@ -94,42 +92,42 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dashboard</span>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="revenue"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
-					</span> <span class="menu-title">Revenue Magagement</span>
+					</span> <span class="menu-title">Quản Lý Doanh Thu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Movie Management</span>
+					</span> <span class="menu-title">Quản Lý Phim</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="customerDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Customer Management</span>
+					</span> <span class="menu-title">Quản Lý Khách Hàng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="employeeDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Employe Management</span>
+					</span> <span class="menu-title">Quản Lý Nhân Viên</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/theaterDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Theater Management</span>
+					</span> <span class="menu-title">Quản Lý Rạp</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Rank</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Genre</span>
+					</span> <span class="menu-title">Quản Lý Thể Loại</span>
 				</a></li>
 			</ul>
 		</nav>
@@ -263,15 +261,14 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Henry
-										Klein</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Quản Trị Viên</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 								aria-labelledby="profileDropdown">
-								<h6 class="p-3 mb-0">Profile</h6>
+								<h6 class="p-3 mb-0">Hồ Sơ</h6>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
@@ -280,7 +277,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Settings</p>
+										<p class="preview-subject mb-1">Cài Đặt</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -291,11 +288,11 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Log out</p>
+										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
-								<p class="p-3 mb-0 text-center">Advanced settings</p>
+								<p class="p-3 mb-0 text-center">cài Đặt Nâng Cao</p>
 							</div></li>
 					</ul>
 					<button
@@ -314,7 +311,7 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
-										<h4 class="card-title">Employee Management</h4>
+										<h4 class="card-title">Quản Lý Nhân Viên</h4>
 										<div class="mb-0 icon icon-box-success">
 											<a href="/employeeDashboard/create" style="text-decoration: none; color: inherit;" > 
 												<span class="mdi mdi-account-multiple-plus icon-item"></span>
@@ -330,12 +327,12 @@
 												<table class="table">
 													<thead>
 														<tr>
-															<th>User Name</th>
+															<th>Tên Nhân Viên</th>
 															<th>Email</th>
-															<th>Full Name</th>
-															<th>Phone Number</th>
-															<th>Theater</th>
-															<th>Action</th>
+															<th>Họ và Tên</th>
+															<th>Số Điện Thoại</th>
+															<th>Rạp</th>
+															<th>Hành Động</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -368,10 +365,10 @@
 														<li class="page-item ${currentPage == 0 ? 'disabled' : ''}">
 															<c:choose>
 																<c:when test="${currentPage == 0}">
-																	<a class="page-link" href="#" tabindex="-1">Previous</a>
+																	<a class="page-link" href="#" tabindex="-1">Trước</a>
 																</c:when>
 																<c:otherwise>
-																	<a class="page-link" href="${pageContext.request.contextPath}/employeeDashboard?page=0">Previous</a>
+																	<a class="page-link" href="${pageContext.request.contextPath}/employeeDashboard?page=0">Trước</a>
 																</c:otherwise>
 															</c:choose>
 														</li>
@@ -392,10 +389,10 @@
 														<li class="page-item ${currentPage == totalPages - 1 ? 'disabled' : ''}">
 															<c:choose>
 																<c:when test="${currentPage == totalPages - 1}">
-																	<a class="page-link" href="#" tabindex="-1">Next</a>
+																	<a class="page-link" href="#" tabindex="-1">Tiếp</a>
 																</c:when>
 																<c:otherwise>
-																	<a class="page-link" href="${pageContext.request.contextPath}/employeeDashboard?page=${currentPage+1}">Next</a>
+																	<a class="page-link" href="${pageContext.request.contextPath}/employeeDashboard?page=${currentPage+1}">Tiếp</a>
 																</c:otherwise>
 															</c:choose>
 														</li>

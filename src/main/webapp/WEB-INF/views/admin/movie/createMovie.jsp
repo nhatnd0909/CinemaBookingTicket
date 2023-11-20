@@ -65,12 +65,12 @@
 						<div class="profile-pic">
 							<div class="count-indicator">
 								<img class="img-xs rounded-circle "
-									src="/admin_assets/assets/images/faces/face15.jpg" alt=""> <span
-									class="count bg-success"></span>
+									src="admin_assets/assets/images/faces/face15.jpg" alt="">
+								<span class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-								<span>Gold Member</span>
+								<h5 class="mb-0 font-weight-normal">Quản Trị Viên</h5>
+								
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -85,8 +85,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Account
-										settings</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -97,8 +96,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Change
-										Password</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
 								</div>
 							</a>
 					</div>
@@ -106,44 +104,44 @@
 				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/adminDashboard"> <span class="menu-icon"> <i
+					href="adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dashboard</span>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/revenue"> <span class="menu-icon"> <i
+					href="revenue"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
-					</span> <span class="menu-title">Revenue Magagement</span>
+					</span> <span class="menu-title">Quản Lý Doanh Thu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/movieDashboard"> <span class="menu-icon"> <i
+					href="movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Movie Management</span>
+					</span> <span class="menu-title">Quản Lý Phim</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/customerDashboard"> <span class="menu-icon"> <i
+					href="customerDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Customer Management</span>
+					</span> <span class="menu-title">Quản Lý Khách Hàng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employeeDashboard"> <span class="menu-icon"> <i
+					href="employeeDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Employe Management</span>
+					</span> <span class="menu-title">Quản Lý Nhân Viên</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/genreDashboard"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Genre Management</span>
+					href="/theaterDashboard"> <span class="menu-icon"> <i
+							class="mdi mdi-seal"></i>
+					</span> <span class="menu-title">Quản Lý Rạp</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Rank</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Genre</span>
+					</span> <span class="menu-title">Quản Lý Thể Loại</span>
 				</a></li>
 			</ul>
 		</nav>
@@ -276,16 +274,15 @@
 							id="profileDropdown" href="#" data-toggle="dropdown">
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
-										src="/admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Henry
-										Klein</p>
+										src="admin_assets/assets/images/faces/face15.jpg" alt="">
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Quản Trị Viên</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 								aria-labelledby="profileDropdown">
-								<h6 class="p-3 mb-0">Profile</h6>
+								<h6 class="p-3 mb-0">Hồ Sơ</h6>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
@@ -294,7 +291,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Settings</p>
+										<p class="preview-subject mb-1">Cài Đặt</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -305,11 +302,11 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Log out</p>
+										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
-								<p class="p-3 mb-0 text-center">Advanced settings</p>
+								<p class="p-3 mb-0 text-center">Cài Đặt Nâng Cao</p>
 							</div></li>
 					</ul>
 					<button
@@ -326,93 +323,92 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Add New Movie</h4>
-                                    <p class="mb-0"><a href="/movieDashboard" style="text-decoration: none; color: inherit;"> Movie</a> / <span>Add New</span></p>
+                                    <h4 class="card-title">Thêm Phim</h4>
+                                    <p class="mb-0"><a href="/movieDashboard" style="text-decoration: none; color: inherit;"> Phim</a> / <span>Thêm Mới</span></p>
                                 </div>
 								<form class="forms-sample" method="post" action="/movieDashboard/create">
 									
 									<div class="form-group">
-										<label for="exampleInputName1">Name Movie</label> <input
+										<label for="exampleInputName1">Tên Phim</label> <input
 											type="text" class="form-control" id="exampleInputName1"
 											placeholder="Name" name="name" required
 											minlength="1" maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Actor</label> <input
+										<label for="exampleInputName1">Diễn Viên</label> <input
 											type="text" class="form-control" id="exampleInputName1"
 											placeholder="Actor" name="actor" 
 											minlength="1" maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Director</label> <input
+										<label for="exampleInputName1">Giám Đốc</label> <input
 											type="text" class="form-control" id="exampleInputName1"
 											placeholder="Director" name="director"
 											 required minlength="1"
 											maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Duration</label> <input
+										<label for="exampleInputName1">Giám Đốc</label> <input
 											type="number" class="form-control" id="exampleInputName1"
 											placeholder="Duration" name="duration"
 											 />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Language</label> <input
+										<label for="exampleInputName1">Ngôn Ngữ</label> <input
 											type="text" class="form-control" id="exampleInputName1"
 											placeholder="Language" name="language"
 										 required minlength="1"
 											maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleTextarea1">Description</label>
+										<label for="exampleTextarea1">Mô Tả</label>
 										<textarea class="form-control" id="exampleTextarea1" rows="4"
 											name="description" required
 											minlength="1" maxlength="4000">
 											</textarea>
 									</div>
 									<div class="form-group">
-										<label>Upload Image</label>
+										<label>Tải Ảnh Lên</label>
 										<div class=" input-group col-xs-12">
 											<input type="file" class="form-control file-upload-info"
 												id="fileInput" placeholder="Upload Image" name="image"
 												>
 										</div>
 										<p>
-											Selected File: <span id="selectedFile">No file
-												selected</span>
+											Chọn File: <span id="selectedFile">Không có file nào được chọn</span>
 										</p>
 									<div id="imagePreview" class="image-preview"></div>
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">Start Date</label> <input
+										<label for="exampleInputEmail3">Ngày Bắt Đầu</label> <input
 											type="date" class="form-control" id="exampleInputEmail3"
 											name="startDate" >
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">End Date</label> <input
+										<label for="exampleInputEmail3">Ngày Kết Thúc</label> <input
 											type="date" class="form-control" id="exampleInputEmail3"
 											name="endDate" >
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">Trailer URL</label> <input
+										<label for="exampleInputEmail3">Đoạn Giới Thiệu URL</label> <input
 											type="text" class="form-control" id="exampleInputEmail3"
 											placeholder="Trailer URL" name="urlTrailer"
 											required minlength="1"
 											maxlength="255">
 									</div>
 									<div class="form-group">
-										<label for="exampleSelectGender">status</label> <select
+										<label for="exampleSelectGender">Trạng Thái</label> <select
 											class="form-control" id="exampleSelectGender" name="status"
 											>
-											<option value="On going">On going</option>
-											<option value="Coming soon">Coming soon</option>
-											<option value="Over">Over</option>
+											<option value="On going">Hoạt Động</option>
+											<option value="Coming soon">Sắp Ra Mắt</option>
+											<option value="Over">Không</option>
 										</select>
 									</div>
 									                                                                  
-									<button type="submit" class="btn btn-primary mr-2">Submit</button>
+									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
 									<!-- <button class="btn btn-primary mr-2" onclick="createEmployee()">Create</button> -->
-									<button class="btn btn-dark">Cancel</button>
+									<button class="btn btn-dark">Hủy</button>
 								</form>
 							</div>
 						</div>
