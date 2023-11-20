@@ -1,5 +1,8 @@
 package com.project.csm.controller.userController;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.config.VNPayService;
 import com.project.csm.model.Customer;
+import com.project.csm.model.SeatOfCinema;
 import com.project.csm.model.Show;
+import com.project.csm.model.Ticket;
+import com.project.csm.service.customerService.SeatOfCinemaService;
 import com.project.csm.service.customerService.TicketService;
 import com.project.csm.service.employeeService.employeeShowMovie;
 
@@ -25,47 +31,60 @@ public class VNPayController {
 	private TicketService tService;
 	@Autowired
 	private employeeShowMovie esmovie;
+	@Autowired
+	private SeatOfCinemaService sOfCinemaService;
 
 	@GetMapping("/submitOrder")
 	public String vnpayHome() {
 		return "vnpay/vnpayHome";
 	}
 
-//	@PostMapping("/submitOrder")
-//	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request) {
-//		
-//		double orderTotalDouble = Double.parseDouble(orderTotal);
-//		int orderTotalInt = (int) Math.round(orderTotalDouble);
-//		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
-//		String vnpayUrl = vnPayService.createOrder(orderTotalInt, "Thanh toan dat ve xem phim", baseUrl);
-//		return "redirect:" + vnpayUrl;
-//	}
 	@PostMapping("/submitOrder")
 	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request,
-			HttpSession session, @RequestParam("showID") Long showID) {
+			HttpSession session, @RequestParam("showID") Long showID, @RequestParam("socid") String socid) {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 		if (loggedInAccount == null) {
 
 			return "redirect:/signin";
 		}
+		// Total price
+		BigDecimal total = new BigDecimal(0);
+		// SOCID
+		System.out.println(socid);
+		String[] listSeat = socid.replace(" ", "").split(",");
+		List<SeatOfCinema> listSeatOfCinema = new ArrayList<>();
+		for (int i = 0; i < listSeat.length; i++) {
+			Long id = Long.parseLong(listSeat[i]);
+			SeatOfCinema soc = sOfCinemaService.getAllSeatByID(id);
+			listSeatOfCinema.add(soc);
+		}
 
+		for (SeatOfCinema s : listSeatOfCinema) {
+			BigDecimal seatPrice = s.getSeat().getPrice();
+			total = total.add(seatPrice);
+		}
 		// Discount
 		Double discount = loggedInAccount.getRank().getDiscount();
-		// Customer ID
-		Long customerID = loggedInAccount.getCustomerID();
+		// Customer
 		// TicketID
 		String ticketID = tService.createIDTicket();
 		// Show
 		Show show = esmovie.getShowById(showID);
-		// Total price
+		Ticket ticket = new Ticket(ticketID, show, socid.replace(" ", ""), loggedInAccount, discount, total);
+		/// ticket
+		session.setAttribute("ticket", ticket);
 		
-		// SOCID
-
 		// Order
+		
 		// Amount
+		
 		// TotalPrice
+		
 		// ServiceID
+		
 		// TicketID
+		
+		
 		double orderTotalDouble = Double.parseDouble(orderTotal);
 		int orderTotalInt = (int) Math.round(orderTotalDouble);
 		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();

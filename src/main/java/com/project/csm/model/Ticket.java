@@ -24,12 +24,15 @@ public class Ticket {
 	@JoinColumn(name = "SOCID")
 	private SeatOfCinema seatOfCinema;
 
+	@Column(name = "ListSeat")
+	private String listSeat;
+
 	@ManyToOne
 	@JoinColumn(name = "CustomerID")
 	private Customer customer;
 
 	@Column(name = "Discount")
-	private BigDecimal discount;
+	private Double discount;
 
 	@Column(name = "TotalPrice")
 	private BigDecimal totalPrice;
@@ -38,21 +41,24 @@ public class Ticket {
 		super();
 	}
 
-	public Ticket(Show show, SeatOfCinema seatOfCinema, Customer customer, BigDecimal discount, BigDecimal totalPrice) {
+	public Ticket(String ticketID, Show show, String listSeat, Customer customer, Double discount,
+			BigDecimal totalPrice) {
 		super();
+		this.ticketID = ticketID;
 		this.show = show;
-		this.seatOfCinema = seatOfCinema;
+		this.listSeat = listSeat;
 		this.customer = customer;
 		this.discount = discount;
 		this.totalPrice = totalPrice;
 	}
 
-	public Ticket(String ticketID, Show show, SeatOfCinema seatOfCinema, Customer customer, BigDecimal discount,
-			BigDecimal totalPrice) {
+	public Ticket(String ticketID, Show show, SeatOfCinema seatOfCinema, String listSeat, Customer customer,
+			Double discount, BigDecimal totalPrice) {
 		super();
 		this.ticketID = ticketID;
 		this.show = show;
 		this.seatOfCinema = seatOfCinema;
+		this.listSeat = listSeat;
 		this.customer = customer;
 		this.discount = discount;
 		this.totalPrice = totalPrice;
@@ -90,11 +96,11 @@ public class Ticket {
 		this.customer = customer;
 	}
 
-	public BigDecimal getDiscount() {
+	public Double getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(BigDecimal discount) {
+	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
 
@@ -106,10 +112,18 @@ public class Ticket {
 		this.totalPrice = totalPrice;
 	}
 
+	public String getListSeat() {
+		return listSeat;
+	}
+
+	public void setListSeat(String listSeat) {
+		this.listSeat = listSeat;
+	}
+
 	@Override
 	public String toString() {
-		return "Ticket [ticketID=" + ticketID + ", show=" + show + ", seatOfCinema=" + seatOfCinema + ", customer="
-				+ customer + ", discount=" + discount + ", totalPrice=" + totalPrice + "]";
+		return "Ticket [ticketID=" + ticketID + ", show=" + show + ", seatOfCinema=" + seatOfCinema + ", listSeat="
+				+ listSeat + ", customer=" + customer + ", discount=" + discount + ", totalPrice=" + totalPrice + "]";
 	}
 
 }

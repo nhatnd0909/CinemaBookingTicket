@@ -85,9 +85,9 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form id="form" method="post" action="submitOrder">
-						<input name="showID" value="" hidden="">
-						
+					<form id="form" method="POST" action="submitOrder">
+						<input name="showID" value="" hidden=""> <input
+							name="socid" type="text" value="" hidden="">
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Show timing selection</li>
 							<li id="step2" class="not_active">Seat Selection</li>
@@ -209,10 +209,13 @@
 											<div class="seat">J</div>
 										</div>
 
+
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 1}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -220,7 +223,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 2}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -228,7 +233,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 3}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -236,7 +243,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 4}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -244,7 +253,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 5}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -253,7 +264,9 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 
 												<c:if test="${seatOfCinema.seat.row eq 6}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -262,7 +275,9 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 
 												<c:if test="${seatOfCinema.seat.row eq 7}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -270,7 +285,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 8}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -278,7 +295,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 9}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -286,133 +305,12 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 10}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
-
-
-
-										<!-- <div class="row">
-											<div class="seat">A1</div>
-											<div class="seat">B1</div>
-											<div class="seat">C1</div>
-											<div class="seat">D1</div>
-											<div class="seat">E1</div>
-											<div class="seat">F1</div>
-											<div class="seat">G1</div>
-											<div class="seat">H1</div>
-											<div class="seat">I1</div>
-											<div class="seat">J1</div>
-										</div>
-										<div class="row">
-											<div class="seat">A2</div>
-											<div class="seat">B2</div>
-											<div class="seat">C2</div>
-											<div class="seat">D2</div>
-											<div class="seat">E2</div>
-											<div class="seat">F2</div>
-											<div class="seat">G2</div>
-											<div class="seat">H2</div>
-											<div class="seat">I2</div>
-											<div class="seat">J2</div>
-										</div>
-										<div class="row">
-											<div class="seat">A3</div>
-											<div class="seat">B3</div>
-											<div class="seat">C3</div>
-											<div class="seat">D3</div>
-											<div class="seat">E3</div>
-											<div class="seat unavailable">F3</div>
-											<div class="seat unavailable">G3</div>
-											<div class="seat">H3</div>
-											<div class="seat">I3</div>
-											<div class="seat">J3</div>
-										</div>
-										<div class="row">
-											<div class="seat">A4</div>
-											<div class="seat">B4</div>
-											<div class="seat">C4</div>
-											<div class="seat">D4</div>
-											<div class="seat">E4</div>
-											<div class="seat">F4</div>
-											<div class="seat">G4</div>
-											<div class="seat">H4</div>
-											<div class="seat">I4</div>
-											<div class="seat">J4</div>
-										</div>
-										<div class="row">
-											<div class="seat">A5</div>
-											<div class="seat">B5</div>
-											<div class="seat">C5</div>
-											<div class="seat">D5</div>
-											<div class="seat">E5</div>
-											<div class="seat">F5</div>
-											<div class="seat">G5</div>
-											<div class="seat">H5</div>
-											<div class="seat">I5</div>
-											<div class="seat">J5</div>
-										</div>
-										<div class="row">
-											<div class="seat">A6</div>
-											<div class="seat">B6</div>
-											<div class="seat">C6</div>
-											<div class="seat">D6</div>
-											<div class="seat">E6</div>
-											<div class="seat">F6</div>
-											<div class="seat">G6</div>
-											<div class="seat">H6</div>
-											<div class="seat">I6</div>
-											<div class="seat">J6</div>
-										</div>
-										<div class="row">
-											<div class="seat">A7</div>
-											<div class="seat">B7</div>
-											<div class="seat">C7</div>
-											<div class="seat">D7</div>
-											<div class="seat">E7</div>
-											<div class="seat">F7</div>
-											<div class="seat">G7</div>
-											<div class="seat">H7</div>
-											<div class="seat">I7</div>
-											<div class="seat">J7</div>
-										</div>
-										<div class="row">
-											<div class="seat">A8</div>
-											<div class="seat">B8</div>
-											<div class="seat">C8</div>
-											<div class="seat">D8</div>
-											<div class="seat">E8</div>
-											<div class="seat">F8</div>
-											<div class="seat">G8</div>
-											<div class="seat">H8</div>
-											<div class="seat">I8</div>
-											<div class="seat">J8</div>
-										</div>
-										<div class="row">
-											<div class="seat">A9</div>
-											<div class="seat">B9</div>
-											<div class="seat">C9</div>
-											<div class="seat">D9</div>
-											<div class="seat">E9</div>
-											<div class="seat">F9</div>
-											<div class="seat">G9</div>
-											<div class="seat">H9</div>
-											<div class="seat">I9</div>
-											<div class="seat">J9</div>
-										</div>
-										<div class="row">
-											<div class="seat">A10</div>
-											<div class="seat">B10</div>
-											<div class="seat">C10</div>
-											<div class="seat">D10</div>
-											<div class="seat">E10</div>
-											<div class="seat">F10</div>
-											<div class="seat">G10</div>
-											<div class="seat">H10</div>
-											<div class="seat">I10</div>
-											<div class="seat">J10</div>
-										</div> -->
 									</div>
 									<div class="wrapper-right">
 										<div class="booking-details">
@@ -442,8 +340,8 @@
 											</table>
 										</div>
 										<div class="seatCharts">
-											<input type="text" id="selectedSeats" class="value_seats"
-												readonly>
+											<input name="seat" type="text" id="selectedSeats"
+												class="value_seats" readonly>
 										</div>
 										<div class="display_seat">
 											<div style="display: flex;">
@@ -483,7 +381,8 @@
 										<td><img class="food-image"
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
-										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
+										<td id="selectedProductName_${loop.index}">${service.name}
+											size ${service.size}</td>
 										<td id="selectedUnitPrice_${loop.index}">$
 											${service.price}</td>
 										<!-- Trong file JSP: -->
@@ -529,8 +428,11 @@
 									</div>
 
 									<div class="total-money">
+										<c:if test="${loggedIn == 1}">
+										Giảm giá: <span id="discount">${discount}%</span> <br>
+										</c:if>
 										Tổng Tiền: <span id="total-money"></span> <input type="text"
-											name="totalmoney" id="inputtotal" value="">
+											name="totalmoney" id="inputtotal" value="" hidden="">
 									</div>
 								</div>
 							</div>
@@ -712,6 +614,28 @@
 	            });
 	        });
 	    });
+	</script>
+
+	<script type="text/javascript">
+	function updateSocId(socId) {
+        // Lấy đối tượng input
+        var inputElement = document.querySelector('input[name="socid"]');
+
+        // Lấy giá trị hiện tại của input
+        var currentValue = inputElement.value;
+
+        // Kiểm tra xem giá trị đã tồn tại trong input chưa
+        if (currentValue.includes(socId)) {
+            // Nếu đã tồn tại, loại bỏ giá trị đó
+            var updatedValue = currentValue.replace(socId + ', ', '').replace(', ' + socId, '').replace(socId, '');
+        } else {
+            // Nếu chưa tồn tại, thêm giá trị vào
+            var updatedValue = currentValue === '' ? socId : currentValue + ', ' + socId;
+        }
+
+        // Gán giá trị mới cho input
+        inputElement.value = updatedValue;
+    }
 	</script>
 </body>
 
