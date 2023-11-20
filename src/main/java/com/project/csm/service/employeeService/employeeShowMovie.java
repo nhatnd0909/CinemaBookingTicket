@@ -101,4 +101,14 @@ public class employeeShowMovie {
 		}
 		return listReturn;
 	}
+
+	public Show getShowById(Long showID) {
+		List<Show> list = getAllShows();
+		for (Show s : list) {
+			if (s.getShowID().compareTo(showID) == 0) {
+				return s;
+			}
+		}
+		return null;
+	}
 }

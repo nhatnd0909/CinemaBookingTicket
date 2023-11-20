@@ -28,4 +28,15 @@ public class SeatOfCinemaService {
 		}
 		return listReturn;
 	}
+
+	public SeatOfCinema getAllSeatByID(Long id) {
+		List<SeatOfCinema> list = getAllSeat();
+		for (SeatOfCinema s : list) {
+			if (s.getSocID().compareTo(id) == 0) {
+				return s;
+			}
+		}
+		return null;
+	}
+	
 }

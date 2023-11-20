@@ -29,23 +29,29 @@ public class Order {
 	@Column(name = "TotalPrice")
 	private BigDecimal totalPrice;
 
+	@ManyToOne
+	@JoinColumn(name = "TicketID")
+	private Ticket ticket;
+
 	public Order() {
 		super();
 	}
 
-	public Order(Service service, int amount, BigDecimal totalPrice) {
+	public Order(Service service, int amount, BigDecimal totalPrice, Ticket ticket) {
 		super();
 		this.service = service;
 		this.amount = amount;
 		this.totalPrice = totalPrice;
+		this.ticket = ticket;
 	}
 
-	public Order(Long orderID, Service service, int amount, BigDecimal totalPrice) {
+	public Order(Long orderID, Service service, int amount, BigDecimal totalPrice, Ticket ticket) {
 		super();
 		this.orderID = orderID;
 		this.service = service;
 		this.amount = amount;
 		this.totalPrice = totalPrice;
+		this.ticket = ticket;
 	}
 
 	public Long getOrderID() {
@@ -80,10 +86,18 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [orderID=" + orderID + ", service=" + service + ", amount=" + amount + ", totalPrice="
-				+ totalPrice + "]";
+				+ totalPrice + ", ticket=" + ticket + "]";
 	}
 
 }

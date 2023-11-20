@@ -85,7 +85,10 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form id="form" method="post" action="submitOrder" >
+					<form id="form" method="POST" action="submitOrder">
+						<input name="showID" value="" hidden=""> <input
+							name="socid" type="text" value="" hidden="">
+
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Show timing selection</li>
 							<li id="step2" class="not_active">Seat Selection</li>
@@ -93,7 +96,6 @@
 							<li id="step4" class="not_active">Confirm</li>
 
 						</ul>
-						<br>
 						<fieldset>
 							<div id="screen-select-div">
 								<h2>Show time Selection</h2>
@@ -135,6 +137,7 @@
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
 															<input type="button" class="screen-time selected"
 																onclick="timeFunction()" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -151,8 +154,9 @@
 													<c:forEach var="show" items="${listShowTomorowDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
+															<input type="button" class="screen-time selected"
+																onclick="timeFunction()" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -169,8 +173,9 @@
 													<c:forEach var="show" items="${listShowNextDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
+															<input type="button" class="screen-time selected"
+																onclick="timeFunction()" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -216,11 +221,13 @@
 											<div class="seat">J</div>
 										</div>
 
+
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 1}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
-													<div class="price-seat" id="seatPrice" style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -228,7 +235,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 2}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -236,7 +245,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 3}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -244,7 +255,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 4}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -252,7 +265,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 5}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -261,7 +276,9 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 
 												<c:if test="${seatOfCinema.seat.row eq 6}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -270,7 +287,9 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 
 												<c:if test="${seatOfCinema.seat.row eq 7}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -278,7 +297,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 8}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -286,7 +307,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 9}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -294,7 +317,9 @@
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 10}">
-													<div class="seat">${seatOfCinema.seat.name}</div>
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -327,8 +352,8 @@
 											</table>
 										</div>
 										<div class="seatCharts">
-											<input type="text" id="selectedSeats" class="value_seats"
-												readonly>
+											<input name="seat" type="text" id="selectedSeats"
+												class="value_seats" readonly>
 										</div>
 										<div class="display_seat">
 											<div style="display: flex;">
@@ -368,6 +393,7 @@
 										<td><img class="food-image"
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
+
 										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
 										<td id="selectedUnitPrice_${loop.index}" class="formatted-price">
 											${service.price.setScale(0, 3)}
@@ -415,6 +441,9 @@
 									</div>
 
 									<div class="total-money">
+										<c:if test="${loggedIn == 1}">
+										Giảm giá: <span id="discount">${discount}%</span> <br>
+										</c:if>
 										Tổng Tiền: <span id="total-money"></span> <input type="text"
 											name="totalmoney" id="inputtotal" value="" hidden >
 									</div>
@@ -578,6 +607,48 @@
             </script>
 
 
+	<script type="text/javascript">
+	 document.addEventListener('DOMContentLoaded', function() {
+	        // Lấy tất cả các phần tử có class "screen-time selected"
+	        var buttons = document.querySelectorAll('.screen-time.selected');
+
+	        // Duyệt qua từng nút và thêm sự kiện click
+	        buttons.forEach(function(button) {
+	            button.addEventListener('click', function() {
+	                // Lấy giá trị của thẻ h5 có id="showID"
+	                var showID = this.nextElementSibling.textContent;
+
+	                // Cập nhật giá trị của trường input có name="showID"
+	                document.querySelector('input[name="showID"]').value = showID;
+
+	                // Gọi hàm timeFunction() nếu bạn muốn thực hiện thêm các thao tác khác
+	                timeFunction();
+	            });
+	        });
+	    });
+	</script>
+
+	<script type="text/javascript">
+	function updateSocId(socId) {
+        // Lấy đối tượng input
+        var inputElement = document.querySelector('input[name="socid"]');
+
+        // Lấy giá trị hiện tại của input
+        var currentValue = inputElement.value;
+
+        // Kiểm tra xem giá trị đã tồn tại trong input chưa
+        if (currentValue.includes(socId)) {
+            // Nếu đã tồn tại, loại bỏ giá trị đó
+            var updatedValue = currentValue.replace(socId + ', ', '').replace(', ' + socId, '').replace(socId, '');
+        } else {
+            // Nếu chưa tồn tại, thêm giá trị vào
+            var updatedValue = currentValue === '' ? socId : currentValue + ', ' + socId;
+        }
+
+        // Gán giá trị mới cho input
+        inputElement.value = updatedValue;
+    }
+	</script>
 </body>
 
 </html>

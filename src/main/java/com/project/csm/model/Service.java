@@ -14,26 +14,26 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Service")
 public class Service {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ServiceID")
-    private Long serviceID;
-    
-    @Column(name = "Name")
-    private String name;
-    
-    @Column(name = "Price")
-    private BigDecimal price;
-    
-    @Column(name = "UrlImageService")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ServiceID")
+	private Long serviceID;
+
+	@Column(name = "Name")
+	private String name;
+
+	@Column(name = "Price")
+	private BigDecimal price;
+
+	@Column(name = "UrlImageService")
 	private String urlImageService;
-    
-    @Column(name = "Size")
+
+	@Column(name = "Size")
 	private String size;
-    
-    @ManyToOne
-    @JoinColumn(name = "EmployeeID")
-    private Employee employee;
+
+	@ManyToOne
+	@JoinColumn(name = "EmployeeID")
+	private Employee employee;
 
 	public Service() {
 		super();
@@ -104,7 +104,4 @@ public class Service {
 				+ urlImageService + ", size=" + size + ", employee=" + employee + "]";
 	}
 
-
-    
-    
 }

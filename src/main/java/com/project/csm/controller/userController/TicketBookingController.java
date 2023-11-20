@@ -39,12 +39,16 @@ public class TicketBookingController {
 	public String showTicketBooking(HttpSession session, Model model, @RequestParam String movie,
 			@RequestParam String theater) throws ParseException {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		Double discount = 0.0D;
 		int loggedIn = 0;
 		if (loggedInAccount == null) {
 			loggedIn = 0;
 		} else {
 			loggedIn = 1;
+			discount = loggedInAccount.getRank().getDiscount();
 		}
+		model.addAttribute("discount", discount);
+		
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		////////////////////////////////////////////////////////////////////////////////////////
