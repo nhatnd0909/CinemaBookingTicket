@@ -85,7 +85,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form id="form" method="POST" action="submitOrder">
+					<form id="form" method="get" action=".">
 						<input name="showID" value="" hidden=""> <input
 							name="socid" type="text" value="" hidden="">
 
@@ -395,7 +395,7 @@
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
 
-										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
+										<td class="serviceName" id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
 										<td id="selectedUnitPrice_${loop.index}" class="formatted-price">
 											${service.price.setScale(0, 3)}
 										</td>
@@ -443,8 +443,10 @@
 
 									<div class="total-money">
 										<c:if test="${loggedIn == 1}">
-										Giảm giá: <span id="discount">${discount}%</span> <br>
-										</c:if>
+											<c:if test="${discount > 0.0}">
+												Giảm giá: <span id="discount">${discount}%</span> <br>
+											</c:if>
+										</c:if>										
 										Tổng Tiền: <span id="total-money"></span> <input type="text"
 											name="totalmoney" id="inputtotal" value="" hidden >
 									</div>
@@ -548,27 +550,31 @@
 	<script type="text/javascript" src="assets/js/concession-items.js"></script>
 
 	<script>
-
-                $(".next-step").one("click", function () {
-                    var selectedSeatsText = $("#seats").text();
-                    var total_movie_str = $("#totalseat").text().trim().replace(/[$:]/g, '');
-                    var stringWithoutCommas = total_movie_str.replace(/\./g, '');
-                    var total_movie = parseFloat(stringWithoutCommas) || 0;
-                    updateSecondTable();
-                    var total = parseFloat($("#total-money").text().replace(/\D/g, '')) || 0;
-                    total += total_movie;
-                    $("#total-money").text(total.toLocaleString('vi-VN'));
-                    $("#payment_div p:nth-child(4)").text('Ghế' + selectedSeatsText);
-                    $("#payment_div p:nth-child(5)").text('Tổng tiền ghế' + total_movie_str);
-
-                    copyValueToInput();
-                });
-                function updateSecondTable() {
-                    $("#payment_div table tr:gt(0)").remove(); // Xóa các hàng trừ hàng đầu tiên
-                    var total = 0;
-                    var total_movie = parseFloat($("#total-movie").text().replace()) || 0; // Lấy giá trị total_movie
-
-                    $(".product-row").each(function (index) {
+		$(".next-step").one("click", function () {
+			var selectedSeatsText = $("#seats").text();
+			var total_movie_str = $("#totalseat").text().trim().replace(/[$:]/g, '');
+			var stringWithoutCommas = total_movie_str.replace(/\./g, '');
+			var total_movie = parseFloat(stringWithoutCommas) || 0;
+			var discountPercentage = parseFloat($("#discount").text()) || 0;
+			
+			updateSecondTable();
+			var total = parseFloat($("#total-money").text().replace(/\D/g, '')) || 0;
+			var discountedTotal = total_movie - (total_movie * discountPercentage );
+			console.log(discountedTotal);
+			total += discountedTotal;
+			$("#total-money").text(total.toLocaleString('vi-VN'));
+			$("#payment_div p:nth-child(4)").text('Ghế' + selectedSeatsText);
+			$("#payment_div p:nth-child(5)").text('Tổng tiền ghế' + total_movie_str);
+	
+			copyValueToInput();
+		});
+	
+		function updateSecondTable() {
+			$("#payment_div table tr:gt(0)").remove();
+			var total = 0;
+			var total_movie = parseFloat($("#total-movie").text().replace()) || 0;
+			
+			$(".product-row").each(function (index) {
                         var quantity = parseInt($(this).find(".quantity span").text());
 
                         if (quantity > 0) {
@@ -579,9 +585,20 @@
                                 var id = $(this).attr("id") + "_" + index;
                                 $(this).attr("id", id);
                             });
+							var clonedInputquantity = $("<input>").attr({
+								type: "text",
+								name: "quantity_" + index,
+								class: "cloned-quantity copied-quantity",
+								value: quantity
+							}).hide();
 
+							var clonedInputName = $("<input>").attr({
+								type: "text",
+								name: "service_" + index,
+								class: "cloned-quantity copied-quantity",
+								value: $(this).find(".serviceName").text()
+							}).hide();	
                             clonedRow.find(".quantity input").val("");
-
                             var subtotalId = "selectedSubtotal_" + index;
                             var unitPriceId = "selectedUnitPrice_" + index;
                             var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
@@ -590,22 +607,27 @@
                             total += totalForRow;
 
                             $("#" + subtotalId).text(+ totalForRow.toFixed(2));
-                            clonedRow.find(".quantity input").hide(); // Ẩn input
-                            clonedRow.find(".quantity span").show(); // Hiển thị span
+                            clonedRow.find(".quantity input").hide();
+                            clonedRow.find(".quantity span").show();
+							clonedRow.find(".quantity").append(clonedInputquantity);
+							clonedRow.find(".serviceName").append(clonedInputName);
+							clonedRow.find(".quantity").val(quantity);
                         }
                     });
-
-                    $("#total-money").text(+ total.toFixed(2));
-                }
-                function copyValueToInput() {
-                    var totalMoneySpan = document.getElementById('total-money');
-					var totalMoneyValue = totalMoneySpan.innerText.replace(/\D/g, ''); 
-                    
-                    var inputTotal = document.getElementById('inputtotal');
-                    inputTotal.value = totalMoneyValue;
-                }
-
-            </script>
+			var discountPercentage = parseFloat($("#discount").text()) || 0;
+			var discountedTotal = total - (total * discountPercentage);
+			$("#total-money").text(+ discountedTotal.toFixed(2));
+			// $("#total-money").text(+ total.toFixed(2));
+		}
+	
+		function copyValueToInput() {
+			var totalMoneySpan = document.getElementById('total-money');
+			var totalMoneyValue = totalMoneySpan.innerText.replace(/\D/g, '');
+	
+			var inputTotal = document.getElementById('inputtotal');
+			inputTotal.value = totalMoneyValue;
+		}
+	</script>
 
 
 	<script type="text/javascript">
@@ -631,22 +653,16 @@
 
 	<script type="text/javascript">
 	function updateSocId(socId) {
-        // Lấy đối tượng input
         var inputElement = document.querySelector('input[name="socid"]');
 
-        // Lấy giá trị hiện tại của input
         var currentValue = inputElement.value;
 
-        // Kiểm tra xem giá trị đã tồn tại trong input chưa
         if (currentValue.includes(socId)) {
-            // Nếu đã tồn tại, loại bỏ giá trị đó
             var updatedValue = currentValue.replace(socId + ', ', '').replace(', ' + socId, '').replace(socId, '');
         } else {
-            // Nếu chưa tồn tại, thêm giá trị vào
             var updatedValue = currentValue === '' ? socId : currentValue + ', ' + socId;
         }
 
-        // Gán giá trị mới cho input
         inputElement.value = updatedValue;
     }
 	</script>
