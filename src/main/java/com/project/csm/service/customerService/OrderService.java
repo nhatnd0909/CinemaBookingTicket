@@ -50,4 +50,13 @@ public class OrderService {
 		String[] resultArray = input.split("\\+");
 		return resultArray;
 	}
+
+	public void deleteOrder(String idTicket) {
+		List<Order> list = getAllOrder();
+		for (Order o : list) {
+			if (o.getTicketID().endsWith(idTicket)) {
+				oRepository.delete(o);
+			}
+		}
+	}
 }

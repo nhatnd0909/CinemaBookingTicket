@@ -107,6 +107,7 @@ public class VNPayController {
 				}
 			}
 		}
+
 		double orderTotalDouble = Double.parseDouble(orderTotal);
 		int orderTotalInt = (int) Math.round(orderTotalDouble);
 		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
@@ -131,8 +132,12 @@ public class VNPayController {
 		if (paymentStatus == 1) {
 			Ticket ticket = (Ticket) session.getAttribute("ticket");
 			tService.createNewTicket(ticket);
+		} else {
+			Ticket ticket = (Ticket) session.getAttribute("ticket");
+			String idTicket = ticket.getTicketID();
+			orderService.deleteOrder(idTicket);
 		}
-		
+
 		return paymentStatus == 1 ? "vnpay/ordersuccess" : "vnpay/orderfail";
 	}
 }
