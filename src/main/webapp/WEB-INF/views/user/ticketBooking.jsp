@@ -85,7 +85,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form id="form" method="get" action=".">
+					<form id="form" method="post" action="submitOrder">
 						<input name="showID" value="" hidden=""> <input
 							name="socid" type="text" value="" hidden="">
 
@@ -439,8 +439,10 @@
 												<th>Subtotal</th>
 											</tr>
 										</table>
-									</div>
+									</div>		
+									<div class="combined">
 
+									</div>
 									<div class="total-money">
 										<c:if test="${loggedIn == 1}">
 											<c:if test="${discount > 0.0}">
@@ -574,46 +576,58 @@
 			var total = 0;
 			var total_movie = parseFloat($("#total-movie").text().replace()) || 0;
 			
+			var combinedValues = "";
+			var selectedProducts = {};
+
+			$(".product-row").each(function () {
+				var selectedQuantity = parseInt($(this).find(".quantity span").text());
+				var serviceName = $(this).find(".serviceName").text();
+
+				if (selectedQuantity > 0 && !selectedProducts[serviceName]) {
+					combinedValues += serviceName + "+" + selectedQuantity + ",";
+					selectedProducts[serviceName] = true;
+				}
+			});
+
+			combinedValues = combinedValues.replace(/,$/, "");
+			var clonedInputCombined = $("<input>").attr({
+				type: "text",
+				name: "order",  
+				class: "cloned-quantity copied-quantity",
+				value: combinedValues
+			});
+			$(".combined").empty();
+
+			clonedInputCombined.appendTo(".combined");
+
+
 			$(".product-row").each(function (index) {
-                        var quantity = parseInt($(this).find(".quantity span").text());
+				var quantity = parseInt($(this).find(".quantity span").text());
 
-                        if (quantity > 0) {
-                            var clonedRow = $(this).clone();
-                            clonedRow.appendTo("#payment_div table");
+				if (quantity > 0) {
+					var clonedRow = $(this).clone();
+					clonedRow.appendTo("#payment_div table");
 
-                            clonedRow.find("[id^='selected']").each(function () {
-                                var id = $(this).attr("id") + "_" + index;
-                                $(this).attr("id", id);
-                            });
-							var clonedInputquantity = $("<input>").attr({
-								type: "text",
-								name: "quantity_" + index,
-								class: "cloned-quantity copied-quantity",
-								value: quantity
-							}).hide();
+					clonedRow.find("[id^='selected']").each(function () {
+						var id = $(this).attr("id") + "_" + index;
+						$(this).attr("id", id);
+					});
 
-							var clonedInputName = $("<input>").attr({
-								type: "text",
-								name: "service_" + index,
-								class: "cloned-quantity copied-quantity",
-								value: $(this).find(".serviceName").text()
-							}).hide();	
-                            clonedRow.find(".quantity input").val("");
-                            var subtotalId = "selectedSubtotal_" + index;
-                            var unitPriceId = "selectedUnitPrice_" + index;
-                            var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
-                            var unitPrice = parseFloat($("#" + unitPriceId).text().replace()) || 0;
-                            var totalForRow = subtotal * quantity;
-                            total += totalForRow;
+					var subtotalId = "selectedSubtotal_" + index;
+					var unitPriceId = "selectedUnitPrice_" + index;
+					var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
+					var unitPrice = parseFloat($("#" + unitPriceId).text().replace()) || 0;
+					var totalForRow = subtotal * quantity;
+					total += totalForRow;
 
-                            $("#" + subtotalId).text(+ totalForRow.toFixed(2));
-                            clonedRow.find(".quantity input").hide();
-                            clonedRow.find(".quantity span").show();
-							clonedRow.find(".quantity").append(clonedInputquantity);
-							clonedRow.find(".serviceName").append(clonedInputName);
-							clonedRow.find(".quantity").val(quantity);
-                        }
-                    });
+					$("#" + subtotalId).text(+ totalForRow.toFixed(2));
+					clonedRow.find(".quantity input").hide();
+					clonedRow.find(".quantity span").show();
+					clonedRow.find(".quantity input").val("");
+					clonedRow.find(".quantity").val(quantity);
+				}
+			});
+
 			var discountPercentage = parseFloat($("#discount").text()) || 0;
 			var discountedTotal = total - (total * discountPercentage);
 			$("#total-money").text(+ discountedTotal.toFixed(2));
