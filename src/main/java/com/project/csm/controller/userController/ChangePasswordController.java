@@ -46,13 +46,13 @@ public class ChangePasswordController {
 		if (!loggedInAccount.getAccount().getPassword().equals(oldPass)) {
 			model.addAttribute("loggedIn", 1);
 			model.addAttribute("loggedInAccount", loggedInAccount);
-			model.addAttribute("mess", "Wrong old password");
+			model.addAttribute("mess", "Sai mật khẩu cũ");
 			return "/user/password";
 		}
 		if (!newPass.equals(confirmNewPass)) {
 			model.addAttribute("loggedIn", 1);
 			model.addAttribute("loggedInAccount", loggedInAccount);
-			model.addAttribute("mess", "Confirm new password does not match");
+			model.addAttribute("mess", "Xác nhận mật khẩu mới không khớp");
 			return "/user/password";
 		}
 		accountService.changePasswordByEmail(loggedInAccount.getAccount().getEmail(), newPass);
