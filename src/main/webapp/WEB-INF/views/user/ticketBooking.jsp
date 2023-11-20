@@ -85,13 +85,10 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-<<<<<<< HEAD
 					<form id="form" method="POST" action="submitOrder">
 						<input name="showID" value="" hidden=""> <input
 							name="socid" type="text" value="" hidden="">
-=======
-					<form id="form" method="post" action="submitOrder" >
->>>>>>> branch 'dinhnhat' of https://github.com/nhatnd0909/CinemaBookingTicket.git
+
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Show timing selection</li>
 							<li id="step2" class="not_active">Seat Selection</li>
@@ -385,17 +382,11 @@
 										<td><img class="food-image"
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
-<<<<<<< HEAD
-										<td id="selectedProductName_${loop.index}">${service.name}
-											size ${service.size}</td>
-										<td id="selectedUnitPrice_${loop.index}">$
-											${service.price}</td>
-=======
+
 										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
 										<td id="selectedUnitPrice_${loop.index}" class="formatted-price">
 											${service.price.setScale(0, 3)}
 										</td>
->>>>>>> branch 'dinhnhat' of https://github.com/nhatnd0909/CinemaBookingTicket.git
 										<!-- Trong file JSP: -->
 										<td class="quantity" id="selectedQuantity_${loop.index}">
 											<input onclick="decrementQuantity(this, ${loop.index})"
@@ -443,11 +434,7 @@
 										Giảm giá: <span id="discount">${discount}%</span> <br>
 										</c:if>
 										Tổng Tiền: <span id="total-money"></span> <input type="text"
-<<<<<<< HEAD
-											name="totalmoney" id="inputtotal" value="" hidden="">
-=======
 											name="totalmoney" id="inputtotal" value="" hidden >
->>>>>>> branch 'dinhnhat' of https://github.com/nhatnd0909/CinemaBookingTicket.git
 									</div>
 								</div>
 							</div>
@@ -464,9 +451,9 @@
 	<script>
                document.addEventListener('DOMContentLoaded', function () {
                 var selectedSeats = [];
-                var seatPrice = 50000; // Giá mỗi ghế
-
-                // Lắng nghe sự kiện click trên tất cả các ghế
+				var seatPriceElement = document.getElementById('seatPrice');
+  				var seatPriceText = seatPriceElement.textContent || seatPriceElement.innerText;
+				var seatPrice = parseFloat(seatPriceText.replace(/[^0-9]/g, ''));
                 var seats = document.querySelectorAll('.seat');
                 seats.forEach(function (seat) {
                     seat.addEventListener('click', function () {
