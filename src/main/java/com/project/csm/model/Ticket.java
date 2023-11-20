@@ -2,6 +2,7 @@ package com.project.csm.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,11 +17,11 @@ public class Ticket {
 	@Column(name = "TicketID")
 	private String ticketID;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ShowID")
 	private Show show;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "SOCID")
 	private SeatOfCinema seatOfCinema;
 
