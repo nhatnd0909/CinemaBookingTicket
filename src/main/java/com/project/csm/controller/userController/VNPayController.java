@@ -50,7 +50,6 @@ public class VNPayController {
 		// Total price
 		BigDecimal total = new BigDecimal(0);
 		// SOCID
-		System.out.println(socid);
 		String[] listSeat = socid.replace(" ", "").split(",");
 		List<SeatOfCinema> listSeatOfCinema = new ArrayList<>();
 		for (int i = 0; i < listSeat.length; i++) {
@@ -73,18 +72,17 @@ public class VNPayController {
 		Ticket ticket = new Ticket(ticketID, show, socid.replace(" ", ""), loggedInAccount, discount, total);
 		/// ticket
 		session.setAttribute("ticket", ticket);
-		
+		System.out.println(ticket);
 		// Order
-		
+
 		// Amount
-		
+
 		// TotalPrice
-		
+
 		// ServiceID
-		
+
 		// TicketID
-		
-		
+
 		double orderTotalDouble = Double.parseDouble(orderTotal);
 		int orderTotalInt = (int) Math.round(orderTotalDouble);
 		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
