@@ -33,7 +33,7 @@ public class ChangePasswordController {
 		model.addAttribute("mess", "");
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
-		
+
 		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
 		model.addAttribute("customer", customer);
 		return "/user/password";
@@ -52,7 +52,6 @@ public class ChangePasswordController {
 		model.addAttribute("mess", "");
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
-		
 		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
 		model.addAttribute("customer", customer);	
 		
@@ -60,6 +59,7 @@ public class ChangePasswordController {
 			model.addAttribute("loggedIn", 1);
 			model.addAttribute("loggedInAccount", loggedInAccount);
 			model.addAttribute("mess", "Sai mật khẩu cũ");
+
 			return "/user/password";
 		}
 		if (!newPass.equals(confirmNewPass)) {
