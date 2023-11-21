@@ -85,7 +85,7 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form id="form" method="get" action="submitOrder">
+					<form id="form" method="post" action="submitOrder">
 						<input name="showID" value="" hidden=""> <input
 							name="socid" type="text" value="" hidden="">
 
