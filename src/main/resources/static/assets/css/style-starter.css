@@ -19686,3 +19686,7 @@ button.closebtn {
   }
 }
 /* Loading ends */
+/* Update */
+.col-md-3.col-sm-6.sub-two-right.mt-5 a{
+	text-decoration: none;
+}

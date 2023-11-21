@@ -8,36 +8,34 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Home</title>
-
+<title>Rạp Phim</title>
 <link rel="stylesheet" href="assets/css/style-starter.css">
-<link rel="stylesheet" href="assets/css/profileuser.css">
-<link rel="stylesheet" href="assets/css/details.css">
+<link rel="stylesheet" href="assets/css/view-schedule-movie.css">
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet" />
-
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-
-	<!-- header -->
 	<header id="site-header" class="w3l-header fixed-top">
 		<!--/nav-->
 		<nav
 			class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
 			<div class="container">
 				<h1>
-					<a class="navbar-brand" href="home"><span
+					<a class="navbar-brand" href="#"><span
 						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a>
 				</h1>
 				<!-- if logo is image enable this   
-						<a class="navbar-brand" href="#home">
+						<a class="navbar-brand" href="#">
 							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
 						</a> -->
 				<button class="navbar-toggler collapsed" type="button"
@@ -51,61 +49,35 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+						<li class="nav-item active"><a class="nav-link" href="#">Trang
+								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="about">Thông
+								Tin</a></li>
 
 
-						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên
+								Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
 					<!--/search-right-->
-					<div class="search-right">
-						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Tìm <span class="fa fa-search ml-3"
-							aria-hidden="true"></span></a>
-						<!-- search popup -->
-						<div id="search" class="pop-overlay">
-							<div class="popup">
-								<form action="#" method="post" class="search-box">
-									<input type="search" placeholder="Search your Keyword"
-										name="search" required="required" autofocus="">
-									<button type="submit" class="btn">
-										<span class="fa fa-search" aria-hidden="true"></span>
-									</button>
-								</form>
-								<div class="browse-items">
-									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
-									<ul class="search-items">
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-									</ul>
-								</div>
-							</div>
-							<a class="close" href="#close">×</a>
+					<!-- Example single danger button -->
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" href="#" role="button"
+							data-toggle="dropdown" aria-expanded="false"
+							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
+							Rạp</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="view-schedule-movie">Action</a> <a
+								class="dropdown-item" href="#">Another action</a> <a
+								class="dropdown-item" href="#">Something else here</a>
 						</div>
-						<!-- /search popup -->
-						<!--/search-right-->
-
 					</div>
-					<c:if test="${loggedIn eq 0}">
+
+
+					<%-- <c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
 							<!-- <li class="nav-item"> -->
@@ -113,6 +85,7 @@
 								class="fa fa-user-circle-o"></i></a>
 							<!-- </li> -->
 						</div>
+
 					</c:if>
 					<c:if test="${loggedIn eq 1}">
 						<div class="Login_SignUp" id="login"
@@ -126,7 +99,7 @@
 						<div style="padding-left: 15px">
 							<a href="logout">Logout</a>
 						</div>
-					</c:if>
+					</c:if> --%>
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
@@ -144,81 +117,157 @@
 			</div>
 		</nav>
 	</header>
+	<div class="container mt-3">
+		<div class="col-md-12">
+			<div class="showtimes">
+				<!-- start schedule -->
+				<div class="btn-group btn-block showtime-dates mb-3" id="dates">
+					<a class="btn btn-light text-muted date active"
+						data-date="2023-11-20"> 20/11 <br> <span
+						class="small text-nowrap">Th 2</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-21">
+						21/11 <br> <span class="small text-nowrap">Th 3</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-22">
+						22/11 <br> <span class="small text-nowrap">Th 4</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-23">
+						23/11 <br> <span class="small text-nowrap">Th 5</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-24">
+						24/11 <br> <span class="small text-nowrap">Th 6</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-25">
+						25/11 <br> <span class="small text-nowrap">Th 7</span>
+					</a>
+				</div>
+				<!-- end schedule -->
+				<!--  -->
+				<div class="alert alert-warning mb-3">
+					<i class="fa-solid fa-circle-info"></i> Nhấn vào suất chiếu để tiến
+					hành mua vé
+				</div>
+				<!--  -->
+				<div class="card card-sm mb-3">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-3 col-sm-2">
+								<a href="/phim/yeu-lai-vo-ngau/"> <img
+									src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg"
+									alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
+								</a>
+							</div>
+							<div class="col ml-n2">
+								<h4 class="card-title mb-1 name">
+									<a href="/phim/yeu-lai-vo-ngau/"> Yêu Lại Vợ Ngầu </a>
+								</h4>
 
-	<!--grids-sec1-->
-	<section class="w3l-grids">
-		<div class="grids-main py-5">
-			<div class="container py-lg-3">
-				<div class="headerhny-title"></div>
-				<div id="main-content" class="blog-page">
-					<div class="container">
-						<div class="row clearfix">
-							<div class="col-lg-12">
-								<div class="card single_post">
-									<div class="body">
-										<div class="row">
-											<div class="col-md-4">
-												<div class="img-post">
-													<img class="d-block img-fluid"
-														src="assets/images/${movie.image}" alt="First slide">
-												</div>
-											</div>
-											<div class="details col-md-8">
-												<h2>${movie.name}</h2>
-												<p>
-													<span>Đạo diễn:</span> ${movie.director}
-												</p>
-												<p>
-													<span>Diễn viên:</span> ${movie.actor}
-												</p>
-												<p>
-													<span>Khởi chiếu:</span> 06-10-2023
-												</p>
-												<p>
-													<span>Thời lượng:</span> ${movie.duration} phút
-												</p>
-												<p>
-													<span>Ngôn ngữ:</span> ${movie.language}
-												</p>
-											</div>
+								<p class="card-text small text-muted mb-0">
+									Love Reset · T16 · 120m · <a href="/video/18158/"
+										data-toggle="modal" data-target="#videoModal"
+										data-video-id="18158" data-video-url="MPSIeZaf6eo"
+										data-remote="false">Trailer</a>
+								</p>
 
+								<div class="mt-2">
+									<div class="mb-1">
+										<label class="small mb-2 font-weight-bold d-block text-dark">
+											2D Phụ Đề Việt </label> <a href=""
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
+											<span class="time">09:50</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
+											<span class="time">11:25</span> <span class="amenity price"></span>
+										</a> <a href="" data-id="307949839"
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price"
+											data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
+											<span class="time">12:15</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
+											<span class="time">13:40</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">14:40</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">16:00</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">17:05</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">19:00</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">19:30</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">20:20</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">22:20</span> <span class="amenity price"></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card card-sm mb-3">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-3 col-sm-2">
+								<a href="/phim/yeu-lai-vo-ngau/"> <img
+									src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg"
+									alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
+								</a>
+							</div>
+							<div class="col ml-n2">
+								<h4 class="card-title mb-1 name">
+									<a href="/phim/yeu-lai-vo-ngau/"> Yêu Lại Vợ Ngầu </a>
+								</h4>
 
-											<div class="col-md-12" style="margin-top: 2%;">
-												<div class="text-center">
-													<button type="button" class="btn btn-primary"
-														data-bs-toggle="button" onclick="showDescription()">Chi
-														Tiết</button>
-													<button type="button" class="btn btn-primary"
-														data-bs-toggle="button" onclick="showTrailer()">Trailer</button>
-													<button type="button" class="btn btn-primary"
-														data-bs-toggle="button" onclick="showRating()">Đánh
-														giá</button>
-												</div>
-												<div id="description" style="margin-top: 2%;">
-													${movie.description}</div>
-												<div id="trailer" style="display: none; margin-top: 2%;">
-													<div class="center-iframe">
-														<iframe width="560" height="315"
-															src="${movie.urlTrailer}"
-															frameborder="0" allowfullscreen></iframe>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-12" style="margin-top: 4%;">
-												<div class="text-center">
-													<c:forEach items="${listTheater}" var="theater">
-														<button type="button" class="btn btn-primary"
-															data-bs-toggle="button"
-															onclick="location.href='ticketBooking?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
-													</c:forEach>
-												</div>
-											</div>
+								<p class="card-text small text-muted mb-0">
+									Love Reset · T16 · 120m · <a href="/video/18158/"
+										data-toggle="modal" data-target="#videoModal"
+										data-video-id="18158" data-video-url="MPSIeZaf6eo"
+										data-remote="false">Trailer</a>
+								</p>
 
-
-
-
-
-										</div>
+								<div class="mt-2">
+									<div class="mb-1">
+										<label class="small mb-2 font-weight-bold d-block text-dark">
+											2D Phụ Đề Việt </label> <a href=""
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
+											<span class="time">09:50</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
+											<span class="time">11:25</span> <span class="amenity price"></span>
+										</a> <a href="" data-id="307949839"
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price"
+											data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
+											<span class="time">12:15</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
+											<span class="time">13:40</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">14:40</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">16:00</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">17:05</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">19:00</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">19:30</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">20:20</span> <span class="amenity price"></span>
+										</a> <a href=""
+											class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+											<span class="time">22:20</span> <span class="amenity price"></span>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -226,11 +275,9 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
-		</div>
-	</section>
-
+	</div>
+	<!-- footer -->
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">
 			<div class="footer-hny-grids py-5">
@@ -259,40 +306,38 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">Movies</a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">English Movies</a></li>
-										<li><a href="#">Tailor</a></li>
-										<li><a href="#">Upcoming Movies</a></li>
-										<li><a href="contact">Contact Us</a></li>
+										<li><a href="#">Phim Xu Hướng</a></li>
+										<li><a href="#">Phim Nổi Tiếng </a></li>
+										<li><a href="#">Phim Sắp Chiếu</a></li>
+
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Thông Tin Chung</h6>
 									<ul>
-										<li><a href="home">Home</a></li>
-										<li><a href="about">About</a></li>
-										<li><a href="#">Tv Series</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="signin">Login</a></li>
-										<li><a href="contact">Contact</a></li>
+										<li><a href="index.html">Trang Chủ</a></li>
+										<li><a href="about.html">Thông Tin</a></li>
+										<li><a href="sign_in.html">Đăng Nhập</a></li>
+										<li><a href="Contact_Us.html">Liên Hệ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Asia</a></li>
-										<li><a href="movies">France</a></li>
-										<li><a href="movies">Taiwan</a></li>
-										<li><a href="movies">United States</a></li>
-										<li><a href="movies">Korea</a></li>
-										<li><a href="movies">United Kingdom</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành
+												Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián,Quận Thanh
+												Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Newsletter</h6>
+									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
 											placeholder="Your Email Address" required="">
@@ -300,8 +345,9 @@
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Enter your email and receive the latest news, updates
-										and special offers from us.</p>
+									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới
+										nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+
 								</div>
 							</div>
 						</div>
@@ -313,7 +359,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2021 MyShowz. All rights reserved</p>
+							<p>&copy; 2023 MyShowz. All rights reserved</p>
 						</div>
 
 						<ul class="social text-lg-right">
@@ -359,7 +405,6 @@
 
 		</section>
 	</footer>
-	<!-- responsive tabs -->
 	<script src="assets/js/jquery-1.9.1.min.js"></script>
 	<script src="assets/js/easyResponsiveTabs.js"></script>
 	<script type="text/javascript">
@@ -560,20 +605,7 @@
 	</script>
 
 	<script src="assets/js/bootstrap.min.js"></script>
-	<script>
-		function showDescription() {
-			document.getElementById("description").style.display = "block";
-			document.getElementById("trailer").style.display = "none";
-		}
 
-		function showTrailer() {
-			document.getElementById("description").style.display = "none";
-			document.getElementById("trailer").style.display = "block";
-		}
-
-		function showRating() {
-			// Xử lý hiển thị phần đánh giá ở đây nếu cần
-		}
-	</script>
 </body>
+
 </html>
