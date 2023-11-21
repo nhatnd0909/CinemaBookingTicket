@@ -101,27 +101,26 @@
 								<h2>Show time Selection</h2>
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
-									<div class="carousel-cell" id="1" onclick="myFunction(1)">
+									<div class="carousel-cell" id="1"data-date="${currentDate}" onclick="myFunction(1)">
 										<div class="date-numeric">${currentDate}</div>
 										<div class="date-day" id="dayOfWeek1"></div>
 									</div>
-
-									<div class="carousel-cell" id="2" onclick="myFunction(2)">
+									<div class="carousel-cell" id="2" data-date="${tomorow}" onclick="myFunction(2)">
 										<div class="date-numeric">${tomorow}</div>
 										<div class="date-day" id="dayOfWeek2"></div>
 									</div>
-
-									<div class="carousel-cell" id="3" onclick="myFunction(3)">
+									
+									<div class="carousel-cell" id="3"  data-date="${nextDate}" onclick="myFunction(3)">
 										<div class="date-numeric">${nextDate}</div>
 										<div class="date-day" id="dayOfWeek3"></div>
 									</div>
-
-									<div class="carousel-cell" id="4" onclick="myFunction(4)">
+									
+									<div class="carousel-cell" id="4" data-date="${futureDate3Days}" onclick="myFunction(4)">
 										<div class="date-numeric">${futureDate3Days}</div>
 										<div class="date-day" id="dayOfWeek4"></div>
 									</div>
-
-									<div class="carousel-cell" id="5" onclick="myFunction(5)">
+									
+									<div class="carousel-cell" id="5" data-date="${futureDate4Days}" onclick="myFunction(5)">
 										<div class="date-numeric">${futureDate4Days}</div>
 										<div class="date-day" id="dayOfWeek5"></div>
 									</div>
@@ -135,8 +134,7 @@
 													<c:forEach var="show" items="${listShowCurentDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<input type="button" class="screen-time selected"
-																onclick="timeFunction()" value="${show.startTime}">
+															<input type="button" class="screen-time selected" onclick="timeFunction(event)" value="${show.startTime}">
 															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
@@ -154,8 +152,7 @@
 													<c:forEach var="show" items="${listShowTomorowDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<input type="button" class="screen-time selected"
-																onclick="timeFunction()" value="${show.startTime}">
+															<input type="button" class="screen-time selected" onclick="timeFunction(event)" value="${show.startTime}">
 															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
@@ -174,7 +171,7 @@
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
 															<input type="button" class="screen-time selected"
-																onclick="timeFunction()" value="${show.startTime}">
+																onclick="timeFunction(event)" value="${show.startTime}">
 															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
@@ -183,6 +180,11 @@
 										</c:forEach>
 									</ul>
 								</div>
+							</div>
+							<div class="show-tomorowDate-futureDateDays" style="display: none">
+								<ul class="time-ul"style="">
+									<h7 ><b>Chưa có lịch chiếu cho ngày này. Hãy quay lại sau. Xin cám ơn!</b></h7>
+								</ul>
 							</div>
 							<input id="screen-next-btn" type="button" name="next-step"
 								class="next-step" value="Continue Booking" disabled />
@@ -331,23 +333,27 @@
 											<table class="table">
 												<tbody class="custom-table">
 													<tr>
-														<th>Movie</th>
+														<th>Phim</th>
 														<td>: ${movie}</td>
 													</tr>
 													<tr>
-														<th>Time</th>
-														<td>: April</td>
+														<th>Ngày:</th>
+														<td id="selectedDate">:</td>	
 													</tr>
 													<tr>
-														<th>Tickets</th>
+														<th>Thời Gian</th>
+														<td id="selectedTime">:</td>
+													</tr>
+													<tr>
+														<th>Vé</th>
 														<td>: 0</td>
 													</tr>
 													<tr>
-														<th>Selected Seats</th>
-														<td id="seats">: A1</td>
+														<th>Chỗ Ngồi Đã Chọn</th>
+														<td id="seats">:</td>
 													</tr>
 													<tr>
-														<th>Total</th>
+														<th>Tổng</th>
 														<td id="totalseat"></td>
 													</tr>
 												</tbody>
@@ -417,7 +423,7 @@
 							<div class="total-money">
 								Total money: <span id="total">0.00</span>
 							</div>
-							<br> <input type="" name="next-step" class="next-step"
+							<br> <input type="button" name="next-step" class="next-step"
 								value="Proceed to Payment" /> <input type="button"
 								name="previous-step" class="previous-step" value="Back" />
 
@@ -428,8 +434,10 @@
 									<h3 id="payment-h3">Xác nhận thanh toán</h3>
 									<h4>Tên phim: ${movie}</h4>
 									<h5>Rạp chiếu: ${theater}</h5>
-									<p></p>
-									<p id="total-movie"></p>
+									<p id="displayDate"></p>
+									<p id="displayTime"></p>
+									<p style="font-size: 20px;"></p>
+									<p id="total-movie" style="font-size: 20px;"></p>
 									<div style="padding-top: 2%;">
 										<table>
 											<tr>
@@ -465,6 +473,23 @@
 		</div>
 	</div>
 	<script>
+		var currentDate = new Date();
+		var tomorrow = new Date();
+		tomorrow.setDate(currentDate.getDate() + 1);
+		var nextDate = new Date();
+		nextDate.setDate(currentDate.getDate() + 2);
+		var futureDate3Days = new Date();
+		futureDate3Days.setDate(currentDate.getDate() + 3);
+		var futureDate4Days = new Date();
+		futureDate4Days.setDate(currentDate.getDate() + 4);
+		var daysOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+		document.getElementById("dayOfWeek1").innerHTML = daysOfWeek[currentDate.getDay()];
+		document.getElementById("dayOfWeek2").innerHTML = daysOfWeek[tomorrow.getDay()];
+		document.getElementById("dayOfWeek3").innerHTML = daysOfWeek[nextDate.getDay()];
+		document.getElementById("dayOfWeek4").innerHTML = daysOfWeek[futureDate3Days.getDay()];
+		document.getElementById("dayOfWeek5").innerHTML = daysOfWeek[futureDate4Days.getDay()];
+	</script>
+	<script>
                document.addEventListener('DOMContentLoaded', function () {
                 var selectedSeats = [];
 				var seatPriceElement = document.getElementById('seatPrice');
@@ -492,53 +517,65 @@
                             document.getElementById('selectedSeats').value = selectedSeats.join(',');
                             
                             // Cập nhật thông tin trên bảng thông tin đặt vé
-                            document.querySelector('.custom-table tr:nth-child(3) td').innerText = ': ' + selectedSeats.length;
-                            document.querySelector('.custom-table tr:nth-child(4) td').innerText = ': ' + selectedSeats.join(',');
+                            document.querySelector('.custom-table tr:nth-child(4) td').innerText = ': ' + selectedSeats.length;
+                            document.querySelector('.custom-table tr:nth-child(5) td').innerText = ': ' + selectedSeats.join(',');
 
                             // Tính toán và hiển thị tổng giá vé
                             var total = selectedSeats.length * seatPrice;
                             var formattedTotal = new Intl.NumberFormat('vi-VN').format(total);
-                            document.querySelector('.custom-table tr:nth-child(5) td').innerText = ': ' + formattedTotal;
+                            document.querySelector('.custom-table tr:nth-child(6) td').innerText = ': ' + formattedTotal;
                         }
                     });
                 });
             });
 
-            </script>
-
-
+     </script>
 
 	<script>
-                let prevId = "1";
+        let prevId = "1";
 
-                window.onload = function() {
-                    document.getElementById("screen-next-btn").disabled = true;
-                }
+        window.onload = function() {
+            document.getElementById("screen-next-btn").disabled = true;
+			myFunction(1);
+        }
 
-                function timeFunction() {
-                    document.getElementById("screen-next-btn").disabled = false;
-                }
-                function myFunction(id) {
-                    document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
-                    document.getElementById(id).style.background = "#df0e62";
-                    prevId = id;
+        function timeFunction(event) {
+			var selectedTime = event.target.value;
+			console.log(selectedTime);
+			document.getElementById("selectedTime").innerHTML = ": " + selectedTime;
+			document.getElementById("screen-next-btn").disabled = false;
+		}
+
+         function myFunction(id) {
+            document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
+            document.getElementById(id).style.background = "#df0e62";
+            prevId = id;
                     // Hide all sections
-                    document.querySelector('.show-currentDate').style.display = 'none';
-                    document.querySelector('.show-tomorowDate').style.display = 'none';
-                    document.querySelector('.show-nextDate').style.display = 'none';
+			var selectedDate = document.getElementById(id).dataset.date;
+			document.getElementById("selectedDate").innerHTML = ": " + selectedDate;
+            document.querySelector('.show-currentDate').style.display = 'none';
+            document.querySelector('.show-tomorowDate').style.display = 'none';
+            document.querySelector('.show-nextDate').style.display = 'none';
+			document.querySelector('.show-tomorowDate-futureDateDays').style.display = 'none';
+			document.querySelector('.next-step').style.display = 'block';
 
-                    // Show the selected section based on the clicked ID
-                    if (id === 1) {
-                        document.querySelector('.show-currentDate').style.display = 'block';
-                    } else if (id === 2) {
-                        document.querySelector('.show-tomorowDate').style.display = 'block';
-                    } else if (id === 3) {
-                        document.querySelector('.show-nextDate').style.display = 'block';
-                    }
-
-                    // Additional logic if needed
-                }
-            </script>
+            if (id === 1) {
+                document.querySelector('.show-currentDate').style.display = 'block';
+            } else if (id === 2) {
+                document.querySelector('.show-tomorowDate').style.display = 'block';
+            } else if (id === 3) {
+                 document.querySelector('.show-nextDate').style.display = 'block';
+            }
+			else if (id === 4) {
+                 document.querySelector('.show-tomorowDate-futureDateDays').style.display = 'block';
+				 document.querySelector('.next-step').style.display = 'none';
+            }
+			else if (id === 5) {
+                 document.querySelector('.show-tomorowDate-futureDateDays').style.display = 'block';
+				 document.querySelector('.next-step').style.display = 'none';
+            }
+         }
+    </script>
 
 	<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
 	<script type="text/javascript"
@@ -565,8 +602,8 @@
 			console.log(discountedTotal);
 			total += discountedTotal;
 			$("#total-money").text(total.toLocaleString('vi-VN'));
-			$("#payment_div p:nth-child(4)").text('Ghế' + selectedSeatsText);
-			$("#payment_div p:nth-child(5)").text('Tổng tiền ghế' + total_movie_str);
+			$("#payment_div p:nth-child(6)").text('Ghế' + selectedSeatsText);
+			$("#payment_div p:nth-child(7)").text('Tổng tiền ghế' + total_movie_str);
 	
 			copyValueToInput();
 		});
@@ -640,6 +677,11 @@
 	
 			var inputTotal = document.getElementById('inputtotal');
 			inputTotal.value = totalMoneyValue;
+
+			var selectedDate = document.getElementById("selectedDate").textContent;
+			var selectedTime = document.getElementById("selectedTime").textContent;
+			document.getElementById("displayDate").innerHTML = "Ngày " +selectedDate;
+			document.getElementById("displayTime").innerHTML = "Thời gian " + selectedTime;
 		}
 	</script>
 

@@ -15868,13 +15868,16 @@ button.owl-next {
 }
 
 .w3l-grids a.title-gd {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 27px;
   font-weight: 700;
   text-transform: capitalize;
   margin: 20px 0 7px 0;
   color: var(--theme-title);
   display: inline-block;
+}
+.button-center.text-center.mt-4 {
+	margin: 50px 0 0 0;
 }
 
 .w3l-grids .vhny-grid {
@@ -19684,5 +19687,8 @@ button.closebtn {
   75% {
     content: "Loading...";
   }
+ 
+  
+  
 }
 /* Loading ends */
