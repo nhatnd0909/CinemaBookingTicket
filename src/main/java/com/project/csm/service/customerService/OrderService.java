@@ -20,4 +20,43 @@ public class OrderService {
 	public List<Order> getAllOrder() {
 		return oRepository.findAll();
 	}
+
+	public String[] processString(String input) {
+		String modifiedString = input.replaceAll("size.?", "");
+		String[] resultArray = modifiedString.split(",");
+		return resultArray;
+	}
+
+	public String[] processString2(String input) {
+		int lastPlusIndex = input.lastIndexOf("+");
+		String substringBeforeLastPlus = input.substring(0, lastPlusIndex);
+		String substringAfterLastPlus = input.substring(lastPlusIndex + 1);
+		String[] resultArray = { substringBeforeLastPlus, substringAfterLastPlus };
+
+		return resultArray;
+	}
+
+	public Order getOrderByName(String name) {
+		List<Order> list = getAllOrder();
+		for (Order o : list) {
+			if (o.getService().getName().equals(name)) {
+				return o;
+			}
+		}
+		return null;
+	}
+
+	public String[] getOrder(String input) {
+		String[] resultArray = input.split("\\+");
+		return resultArray;
+	}
+
+	public void deleteOrder(String idTicket) {
+		List<Order> list = getAllOrder();
+		for (Order o : list) {
+			if (o.getTicketID().endsWith(idTicket)) {
+				oRepository.delete(o);
+			}
+		}
+	}
 }

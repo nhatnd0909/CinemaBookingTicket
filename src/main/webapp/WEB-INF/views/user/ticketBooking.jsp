@@ -105,7 +105,6 @@
 										<div class="date-numeric">${currentDate}</div>
 										<div class="date-day" id="dayOfWeek1"></div>
 									</div>
-									
 									<div class="carousel-cell" id="2" data-date="${tomorow}" onclick="myFunction(2)">
 										<div class="date-numeric">${tomorow}</div>
 										<div class="date-day" id="dayOfWeek2"></div>
@@ -229,9 +228,10 @@
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if test="${seatOfCinema.seat.row eq 1}">
 													<div class="seat"
-														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>						
-													<h6 class="price-seat" id="seatPrice" style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}
-													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h6 class="price-seat" id="seatPrice"
+														style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}
+														<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -403,8 +403,8 @@
 											alt="${service.name}"></td>
 
 										<td class="serviceName" id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
-										<td id="selectedUnitPrice_${loop.index}" class="formatted-price">
-											${service.price.setScale(0, 3)}
+										<td id="selectedUnitPrice_${loop.index}"
+											class="formatted-price">${service.price.setScale(0, 3)}
 										</td>
 										<!-- Trong file JSP: -->
 										<td class="quantity" id="selectedQuantity_${loop.index}">
@@ -448,18 +448,17 @@
 												<th>Subtotal</th>
 											</tr>
 										</table>
-									</div>		
-									<div class="combined">
-
 									</div>
+									<div class="combined"></div>
 									<div class="total-money">
 										<c:if test="${loggedIn == 1}">
 											<c:if test="${discount > 0.0}">
-												Giảm giá: <span id="discount">${discount}%</span> <br>
+												Giảm giá: <span id="discount">${discount}%</span>
+												<br>
 											</c:if>
-										</c:if>										
+										</c:if>
 										Tổng Tiền: <span id="total-money"></span> <input type="text"
-											name="totalmoney" id="inputtotal" value="" hidden >
+											name="totalmoney" id="inputtotal" value="" hidden>
 									</div>
 								</div>
 							</div>
