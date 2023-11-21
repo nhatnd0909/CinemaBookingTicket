@@ -131,6 +131,7 @@
 										<c:forEach items="${listTRoom}" var="tRoom">
 											<li class="time-li">
 												<div class="screens">${tRoom.name}</div>
+												<h3 style="display: none;">${tRoom.roomID}</h3>
 												<div class="time-btn">
 													<c:forEach var="show" items="${listShowCurentDate}">
 														<c:if
@@ -149,6 +150,7 @@
 										<c:forEach items="${listTRoom}" var="tRoom">
 											<li class="time-li">
 												<div class="screens">${tRoom.name}</div>
+												<h3 style="display: none;">${tRoom.roomID}</h3>
 												<div class="time-btn">
 													<c:forEach var="show" items="${listShowTomorowDate}">
 														<c:if
@@ -167,6 +169,7 @@
 										<c:forEach items="${listTRoom}" var="tRoom">
 											<li class="time-li">
 												<div class="screens">${tRoom.name}</div>
+												<h3 style="display: none;">${tRoom.roomID}</h3>
 												<div class="time-btn">
 													<c:forEach var="show" items="${listShowNextDate}">
 														<c:if
@@ -187,6 +190,7 @@
 									<h7 ><b>Chưa có lịch chiếu cho ngày này. Hãy quay lại sau. Xin cám ơn!</b></h7>
 								</ul>
 							</div>
+							<input name="roomID" type="text">
 							<input id="screen-next-btn" type="button" name="next-step"
 								class="next-step" value="Continue Booking" disabled />
 						</fieldset>
@@ -544,6 +548,10 @@
 			var selectedTime = event.target.value;
 			console.log(selectedTime);
 			document.getElementById("selectedTime").innerHTML = ": " + selectedTime;
+			var roomID = event.target.closest('.time-li').querySelector('h3').textContent;
+			console.log(roomID);
+			document.querySelector('input[name="roomID"]').value = roomID;
+
 			document.getElementById("screen-next-btn").disabled = false;
 		}
 
