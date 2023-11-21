@@ -60,4 +60,14 @@ public class TicketService {
 		return listReturn;
 	}
 
+	public List<Ticket> getAllTicketByIdCustomer(Long idCus) {
+		List<Ticket> list = getAllTicket();
+		List<Ticket> returnList = new ArrayList<>();
+		for (Ticket t : list) {
+			if (t.getCustomer().getCustomerID().compareTo(idCus) == 0) {
+				returnList.add(t);
+			}
+		}
+		return returnList;
+	}
 }

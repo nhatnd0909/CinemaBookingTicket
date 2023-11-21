@@ -63,22 +63,7 @@ public class UserController {
 		return "/user/e-ticket";
 	}
 
-	@GetMapping("/history")
-	public String showHistory(HttpSession session, Model model) {
-		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
-		int loggedIn = 0;
-		if (loggedInAccount == null) {
-			loggedIn = 0;
-		} else {
-			loggedIn = 1;
-		}
-		model.addAttribute("loggedIn", loggedIn);
-		model.addAttribute("loggedInAccount", loggedInAccount);
-		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
-		model.addAttribute("customer", customer);
-
-		return "/user/history";
-	}
+	
 
 	@GetMapping("/history1")
 	public String showHistory1(HttpSession session, Model model) {
