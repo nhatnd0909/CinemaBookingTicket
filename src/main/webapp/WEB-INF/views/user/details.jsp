@@ -190,9 +190,6 @@
 														Tiết</button>
 													<button type="button" class="btn btn-primary"
 														data-bs-toggle="button" onclick="showTrailer()">Trailer</button>
-													<button type="button" class="btn btn-primary"
-														data-bs-toggle="button" onclick="showRating()">Đánh
-														giá</button>
 												</div>
 												<div id="description" style="margin-top: 2%;">
 													${movie.description}</div>
