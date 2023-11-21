@@ -1,9 +1,6 @@
-package com.project.csm.controller.userController;
+package com.project.csm.bookingController;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +22,7 @@ import com.project.csm.service.employeeService.employeeShowMovie;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class TicketBookingController {
+public class ChooseSeatController {
 	@Autowired
 	private TheaterRoomService tRoomService;
 	@Autowired
@@ -35,9 +32,9 @@ public class TicketBookingController {
 	@Autowired
 	private SeatOfCinemaService sOfCinemaService;
 
-	@GetMapping("/ticketBooking")
+	@GetMapping("/chooseseat")
 	public String showTicketBooking(HttpSession session, Model model, @RequestParam String movie,
-			@RequestParam String theater,@RequestParam String roomID) throws ParseException {
+			@RequestParam String theater) throws ParseException {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 		Double discount = 0.0D;
 		int loggedIn = 0;
@@ -48,7 +45,7 @@ public class TicketBookingController {
 			discount = loggedInAccount.getRank().getDiscount();
 		}
 		model.addAttribute("discount", discount);
-		
+
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		////////////////////////////////////////////////////////////////////////////////////////
@@ -82,7 +79,9 @@ public class TicketBookingController {
 		//////////////////////////////////////////////////////////////////
 		List<SeatOfCinema> listSOC = sOfCinemaService.getAllSeat();
 		model.addAttribute("listSOC", listSOC);
-		model.addAttribute("roomID", roomID);
-		return "/user/ticketBooking";
+		
+		session.setAttribute("movie", movie);
+		session.setAttribute("theater", theater);
+		return "user/booking/chooseSeat"; 
 	}
 }
