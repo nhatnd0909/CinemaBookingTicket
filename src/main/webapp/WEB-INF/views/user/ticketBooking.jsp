@@ -392,7 +392,8 @@
 								</tr>
 
 								<c:forEach items="${listService}" var="service" varStatus="loop">
-									<tr class="product-row">
+									<tr class="prod
+									uct-row">
 										<td><img class="food-image"
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>

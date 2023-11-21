@@ -241,7 +241,7 @@
 							<div class="box16 mb-0" onclick="location.href='details?name=${movie.name}';">
 								<figure>
 									<img class="img-fluid" src="assets/images/${movie.image}"
-										alt="">
+										alt="" style="height: 350px">
 								</figure>
 								<a href=".Commando3" data-toggle="modal">
 									<div class="box-content">
