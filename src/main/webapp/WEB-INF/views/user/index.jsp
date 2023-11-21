@@ -262,10 +262,10 @@
 								<a href="movies">
 									<figure>
 										<img class="img-fluid" src="assets/images/${movie.image}"
-											alt="">
+											alt="" style="height: 350px">
 									</figure>
 									<div class="box-content">
-										<h3 class="title">${movie.name}</h3>
+										<h3 class="title">${movie.name} </h3>
 										<h4>
 											<span class="post"><span class="fa fa-clock-o">
 											</span> ${movie.duration} Min</span> <span
@@ -300,12 +300,12 @@
 
 				<div class="owl-three owl-carousel owl-theme">
 					<c:forEach items="${allMovies}" var="allMovies">
-						<div class="item vhny-grid">
+						<div class="item vhny-grid" >
 							<div class="box16 mb-0">
 								<a href="movies">
 									<figure>
 										<img class="img-fluid" src="assets/images/${allMovies.image}"
-											alt="">
+											alt="" style="height: 300px">
 									</figure>
 									<div class="box-content">
 										<h4>
@@ -317,9 +317,9 @@
 								</a>
 							</div>
 							<h3>
-								<a class="title-gd" href="movies">${allMovies.name}</a>
+								<a class="title-gd" href="movies" >${allMovies.name}</a>
 							</h3>
-							<p>${allMovies.getGenre().getGenreName()}</p>
+							<p>Thể loại: ${allMovies.getGenre().getGenreName()}</p>
 							<div class="button-center text-center mt-4">
 								<a href="movies" class="btn watch-button">Xem bây giờ</a>
 							</div>
@@ -327,6 +327,7 @@
 						</div>
 					</c:forEach>
 				</div>
+				
 			</div>
 
 		</div>
@@ -706,7 +707,22 @@
 			});
 		});
 	</script>
-
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Lặp qua tất cả các phần tử có class 'title-gd'
+			var movieTitles = document.querySelectorAll('.title-gd');
+			
+			movieTitles.forEach(function(titleElement) {
+				var titleText = titleElement.innerText;
+	
+				var wordCount = titleText.split(' ').length;
+				if (wordCount < 8) {
+					titleElement.innerHTML = '<span class="line1">' + titleText + '</span><br><span class="line2">&nbsp;</span>';
+				}
+				
+			});
+		});
+	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 
