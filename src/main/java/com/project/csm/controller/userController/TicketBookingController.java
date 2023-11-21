@@ -1,9 +1,6 @@
 package com.project.csm.controller.userController;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +17,7 @@ import com.project.csm.model.TheaterRoom;
 import com.project.csm.service.customerService.SeatOfCinemaService;
 import com.project.csm.service.customerService.ServiceService;
 import com.project.csm.service.customerService.TheaterRoomService;
+import com.project.csm.service.customerService.TicketService;
 import com.project.csm.service.employeeService.employeeShowMovie;
 
 import jakarta.servlet.http.HttpSession;
@@ -34,10 +32,13 @@ public class TicketBookingController {
 	private employeeShowMovie eShowMovie;
 	@Autowired
 	private SeatOfCinemaService sOfCinemaService;
+	@Autowired
+	private TicketService ticketService;
 
 	@GetMapping("/ticketBooking")
 	public String showTicketBooking(HttpSession session, Model model, @RequestParam String movie,
-			@RequestParam String theater,@RequestParam String roomID) throws ParseException {
+			@RequestParam String theater, @RequestParam String roomID, @RequestParam String showID)
+			throws ParseException {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 		Double discount = 0.0D;
 		int loggedIn = 0;
@@ -48,7 +49,7 @@ public class TicketBookingController {
 			discount = loggedInAccount.getRank().getDiscount();
 		}
 		model.addAttribute("discount", discount);
-		
+
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		////////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +84,10 @@ public class TicketBookingController {
 		List<SeatOfCinema> listSOC = sOfCinemaService.getAllSeat();
 		model.addAttribute("listSOC", listSOC);
 		model.addAttribute("roomID", roomID);
+
+		List<String> listSeatOrder = ticketService.getTicketByRoomID(Long.parseLong(roomID), Long.parseLong(showID));
+		model.addAttribute("listSeatOrder", listSeatOrder);
+
 		return "/user/ticketBooking";
 	}
 }
