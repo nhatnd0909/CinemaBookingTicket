@@ -82,9 +82,9 @@ a.btn.dropdown-toggle:hover {
 							role="button" data-toggle="dropdown" aria-expanded="false" style="font-size: 16px;font-weight: 600;line-height: 28px;text-transform: capitalize;padding: 0 15px;">
 							Rạp</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="view-schedule-movie">Action</a> <a
-								class="dropdown-item" href="#">Another action</a> <a
-								class="dropdown-item" href="#">Something else here</a>
+							<a class="dropdown-item" href="view-schedule-movie">Rạp Đà Nẵng</a> <a
+								class="dropdown-item" href="#">Rạp Huế</a> <a
+								class="dropdown-item" href="#">Rạp Quảng Nam</a>
 						</div>
 					</div>
 					<!-- <div class="search-right">
