@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.project.csm.model.Customer;
 import com.project.csm.service.customerService.CustomerService;
+import com.project.csm.service.customerService.RankService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -62,10 +63,6 @@ public class UserController {
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		return "/user/e-ticket";
 	}
-
-	
-
-
 
 	@GetMapping("/password")
 	public String showPassword(HttpSession session, Model model) {

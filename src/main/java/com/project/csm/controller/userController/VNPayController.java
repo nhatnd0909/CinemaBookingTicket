@@ -17,6 +17,7 @@ import com.project.csm.model.SeatOfCinema;
 import com.project.csm.model.Service;
 import com.project.csm.model.Show;
 import com.project.csm.model.Ticket;
+import com.project.csm.service.customerService.CustomerService;
 import com.project.csm.service.customerService.OrderService;
 import com.project.csm.service.customerService.SeatOfCinemaService;
 import com.project.csm.service.customerService.ServiceService;
@@ -40,6 +41,8 @@ public class VNPayController {
 	private OrderService orderService;
 	@Autowired
 	private ServiceService serviceService;
+	@Autowired
+	private CustomerService customerService;
 
 	@GetMapping("/submitOrder")
 	public String vnpayHome() {
@@ -132,6 +135,11 @@ public class VNPayController {
 		if (paymentStatus == 1) {
 			Ticket ticket = (Ticket) session.getAttribute("ticket");
 			tService.createNewTicket(ticket);
+			Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+			customerService.updateTimes(loggedInAccount, ticket.getListSeat());
+
+			int times = loggedInAccount.getTimes();
+			customerService.updateRank(loggedInAccount, times);
 		} else {
 			Ticket ticket = (Ticket) session.getAttribute("ticket");
 			String idTicket = ticket.getTicketID();

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.csm.model.Customer;
 import com.project.csm.model.Rank;
 import com.project.csm.repository.RankRepository;
 
@@ -37,7 +38,38 @@ public class RankService {
 			throw new RuntimeException("Rank not found with ID: " + rankID);
 		}
 	}
-	public List<Rank> getAll(){
+
+	public List<Rank> getAll() {
 		return rankRepository.findAll();
+	}
+
+	public Rank getRankByTime(int newTimes) {
+		Rank rank = getRankByID(1L);
+		if (newTimes > 70) {
+			rank = getRankByID(6L);
+		} else if (newTimes > 50) {
+			rank = getRankByID(4L);
+		} else if (newTimes > 30) {
+			rank = getRankByID(3L);
+		} else if (newTimes > 10) {
+			rank = getRankByID(2L);
+		} else {
+		}
+		return rank;
+	}
+
+	public void updateRank(Customer customer, int newTimes) {
+		Rank rank = getRankByID(1L);
+		if (newTimes > 70) {
+			rank = getRankByID(6L);
+		} else if (newTimes > 50) {
+			rank = getRankByID(4L);
+		} else if (newTimes > 30) {
+			rank = getRankByID(3L);
+		} else if (newTimes > 10) {
+			rank = getRankByID(2L);
+		} else {
+		}
+		customer.setRank(rank);
 	}
 }
