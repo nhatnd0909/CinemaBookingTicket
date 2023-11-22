@@ -46,14 +46,16 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="home">Trang
+								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
 
-						<li class="nav-item active"><a class="nav-link" href="about">Thông Tin</a></li>
+						<li class="nav-item active"><a class="nav-link" href="about">Thông
+								Tin</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên
+								Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -117,9 +119,12 @@
 				</div>
 				<div class="col-lg-6 ab-left pl-lg-4 mt-lg-0 mt-5">
 					<h3 class="hny-title">My Showz Entertainment</h3>
-					<p class="mt-3">- Nơi Kết Nối Niềm Đam Mê và Sáng Tạo! Chúng tôi là một công ty giải trí phim với sứ mệnh mang đến cho khán giả những trải nghiệm giải trí không giới hạn. 
-					Với đội ngũ 7 thành viên tài năng và đam mê về phim ảnh, nghệ thuật và việc tạo ra những câu chuyện đáng nhớ luôn nằm trong trái tim mọi dự án.</p>
-					
+					<p class="mt-3">- Nơi Kết Nối Niềm Đam Mê và Sáng Tạo! Chúng
+						tôi là một công ty giải trí phim với sứ mệnh mang đến cho khán giả
+						những trải nghiệm giải trí không giới hạn. Với đội ngũ 7 thành
+						viên tài năng và đam mê về phim ảnh, nghệ thuật và việc tạo ra
+						những câu chuyện đáng nhớ luôn nằm trong trái tim mọi dự án.</p>
+
 				</div>
 			</div>
 
@@ -127,7 +132,7 @@
 				<div class="stats_left">
 					<div class="counter_grid">
 						<div class="icon_info">
-							<p class="counter">65</p>
+							<p class="counter">${totalMovie}</p>
 							<h4>Phim</h4>
 
 						</div>
@@ -136,8 +141,8 @@
 				<div class="stats_left">
 					<div class="counter_grid">
 						<div class="icon_info">
-							<p class="counter">165</p>
-							<h4>Shows</h4>
+							<p class="counter">${totalTheater}</p>
+							<h4>Rạp Chiếu</h4>
 
 						</div>
 					</div>
@@ -145,7 +150,7 @@
 				<div class="stats_left">
 					<div class="counter_grid">
 						<div class="icon_info">
-							<p class="counter">463</p>
+							<p class="counter">${totalEmployee}</p>
 							<h4>Đội Ngũ Nhân Viên</h4>
 
 						</div>
@@ -154,7 +159,7 @@
 				<div class="stats_left">
 					<div class="counter_grid">
 						<div class="icon_info">
-							<p class="counter">5063</p>
+							<p class="counter">${totalUser}</p>
 							<h4>No. of Users</h4>
 
 						</div>
@@ -181,11 +186,10 @@
 						Nguyễn Duyên<br>
 					</h3>
 					<div class="p-sm">
-						<a href=""><i
-							class="fa fa-facebook"></i></a> <a
+						<a href=""><i class="fa fa-facebook"></i></a> <a
 							href="https://www.instagram.com/ng.dye/"><i
-							class="fa fa-instagram"></i></a> <a
-							href="https://github.com/Dyn2012"><i class="fa fa-github"></i></a>
+							class="fa fa-instagram"></i></a> <a href="https://github.com/Dyn2012"><i
+							class="fa fa-github"></i></a>
 					</div>
 				</div>
 			</div>
@@ -210,8 +214,7 @@
 			</div>
 			<div class="swiper-slide">
 				<div class="imgBx">
-					<img src="assets/images/hieu.jpg"
-						style="width: 100%; height: 100%">
+					<img src="assets/images/hieu.jpg" style="width: 100%; height: 100%">
 				</div>
 				<div class="details">
 					<h3 id="details-h3-3">
@@ -219,8 +222,7 @@
 					</h3>
 					<div class="p-sm">
 						<a href="https://www.facebook.com/NTH.1.07"><i
-							class="fa fa-facebook"></i></a> <a
-							href="..."><i
+							class="fa fa-facebook"></i></a> <a href="..."><i
 							class="fa fa-instagram"></i></a> <a
 							href="https://github.com/harshmange44"><i
 							class="fa fa-github"></i></a>
@@ -229,8 +231,7 @@
 			</div>
 			<div class="swiper-slide">
 				<div class="imgBx">
-					<img src="assets/images/toan.jpg"
-						style="width: 100%; height: 100%">
+					<img src="assets/images/toan.jpg" style="width: 100%; height: 100%">
 				</div>
 				<div class="details">
 					<h3 id="details-h3-4">
@@ -238,8 +239,7 @@
 					</h3>
 					<div class="p-sm">
 						<a href="https://www.facebook.com/toan30032003"><i
-							class="fa fa-facebook"></i></a> <a
-							href="..."><i
+							class="fa fa-facebook"></i></a> <a href="..."><i
 							class="fa fa-instagram"></i></a> <a
 							href="https://github.com/YugamsinhChavda"><i
 							class="fa fa-github"></i></a>
@@ -248,8 +248,7 @@
 			</div>
 			<div class="swiper-slide">
 				<div class="imgBx">
-					<img src="assets/images/nhat.jpg"
-						style="width: 100%; height: 100%">
+					<img src="assets/images/nhat.jpg" style="width: 100%; height: 100%">
 				</div>
 				<div class="details">
 					<h3 id="details-h3-4">
@@ -257,8 +256,7 @@
 					</h3>
 					<div class="p-sm">
 						<a href="https://www.facebook.com/nhatnd99"><i
-							class="fa fa-facebook"></i></a> <a
-							href="..."><i
+							class="fa fa-facebook"></i></a> <a href="..."><i
 							class="fa fa-instagram"></i></a> <a
 							href="https://github.com/YugamsinhChavda"><i
 							class="fa fa-github"></i></a>
@@ -276,8 +274,7 @@
 					</h3>
 					<div class="p-sm">
 						<a href="https://www.facebook.com/profile.php?id=100007678456458"><i
-							class="fa fa-facebook"></i></a> <a
-							href="..."><i
+							class="fa fa-facebook"></i></a> <a href="..."><i
 							class="fa fa-instagram"></i></a> <a
 							href="https://github.com/YugamsinhChavda"><i
 							class="fa fa-github"></i></a>
@@ -302,13 +299,13 @@
 							class="fa fa-github"></i></a>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 		<!-- Add Pagination -->
 		<div class="swiper-pagination"></div>
 	</div>
-	
+
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">
 			<div class="footer-hny-grids py-5">
@@ -356,10 +353,14 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián,Quận Thanh Khuê,TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành
+												Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián,Quận Thanh
+												Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -371,7 +372,8 @@
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-										<p>Nhập email của bạn và nhận những tin tức, cập nhật mới nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới
+										nhất và ưu đãi đặc biệt từ chúng tôi.</p>
 
 								</div>
 							</div>
