@@ -75,4 +75,15 @@ public class MovieService {
 		}
 		return listReturn;
 	}
+	public List<Movie> getMoiveUpComing() {
+		List<Movie> listReturn = new ArrayList<>();
+		List<Movie> list = getAllMovie();
+
+		for (Movie m : list) {
+			if (m.getStatus().equals("Sắp Chiếu")) {
+				listReturn.add(m);
+			}
+		}
+		return listReturn;
+	}
 }
