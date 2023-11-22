@@ -107,7 +107,7 @@ h2 {
 #progressbar li {
 	list-style-type: none;
 	font-size: 15px;
-	width: 20%;
+	width: 25%;
 	float: left;
 	position: relative;
 	font-weight: 400;
@@ -129,9 +129,7 @@ h2 {
 	content: "4"
 }
 
-#progressbar #step5:before {
-	content: "5"
-}
+
 
 #progressbar li:before {
 	width: 50px;

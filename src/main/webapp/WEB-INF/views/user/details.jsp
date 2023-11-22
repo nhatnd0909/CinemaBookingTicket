@@ -190,9 +190,6 @@
 														Tiết</button>
 													<button type="button" class="btn btn-primary"
 														data-bs-toggle="button" onclick="showTrailer()">Trailer</button>
-													<button type="button" class="btn btn-primary"
-														data-bs-toggle="button" onclick="showRating()">Đánh
-														giá</button>
 												</div>
 												<div id="description" style="margin-top: 2%;">
 													${movie.description}</div>
@@ -209,7 +206,7 @@
 													<c:forEach items="${listTheater}" var="theater">
 														<button type="button" class="btn btn-primary"
 															data-bs-toggle="button"
-															onclick="location.href='ticketBooking?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
+															onclick="location.href='chooseseat?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
 													</c:forEach>
 												</div>
 											</div>

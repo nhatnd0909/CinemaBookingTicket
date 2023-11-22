@@ -2,6 +2,7 @@ package com.project.csm.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,23 +30,49 @@ public class Order {
 	@Column(name = "TotalPrice")
 	private BigDecimal totalPrice;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "TicketID")
+	private Ticket ticket;
+
+	@Column(name = "IDTicket")
+	private String ticketID;
+
 	public Order() {
 		super();
 	}
 
-	public Order(Service service, int amount, BigDecimal totalPrice) {
+	public Order(Service service, int amount, BigDecimal totalPrice, Ticket ticket) {
 		super();
 		this.service = service;
 		this.amount = amount;
 		this.totalPrice = totalPrice;
+		this.ticket = ticket;
 	}
 
-	public Order(Long orderID, Service service, int amount, BigDecimal totalPrice) {
+	public Order(Long orderID, Service service, int amount, BigDecimal totalPrice, String ticketID) {
 		super();
 		this.orderID = orderID;
 		this.service = service;
 		this.amount = amount;
 		this.totalPrice = totalPrice;
+		this.ticketID = ticketID;
+	}
+
+	public Order(Long orderID, Service service, int amount, BigDecimal totalPrice, Ticket ticket) {
+		super();
+		this.orderID = orderID;
+		this.service = service;
+		this.amount = amount;
+		this.totalPrice = totalPrice;
+		this.ticket = ticket;
+	}
+
+	public Order(Service service, int amount, BigDecimal totalPrice, String ticketID) {
+		super();
+		this.service = service;
+		this.amount = amount;
+		this.totalPrice = totalPrice;
+		this.ticketID = ticketID;
 	}
 
 	public Long getOrderID() {
@@ -80,10 +107,26 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
+	public String getTicketID() {
+		return ticketID;
+	}
+
+	public void setTicketID(String ticketID) {
+		this.ticketID = ticketID;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [orderID=" + orderID + ", service=" + service + ", amount=" + amount + ", totalPrice="
-				+ totalPrice + "]";
+				+ totalPrice + ", ticket=" + ticket + ", ticketID=" + ticketID + "]";
 	}
 
 }

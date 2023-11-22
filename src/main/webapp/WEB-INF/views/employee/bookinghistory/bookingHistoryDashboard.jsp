@@ -52,7 +52,7 @@
 									class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Employe</h5>
+								<h5 class="mb-0 font-weight-normal">Nhân Viên</h5>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -67,8 +67,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Account
-										settings</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -79,8 +78,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Change
-										Password</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -93,22 +91,22 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dashboard</span>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/service"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
-					</span> <span class="menu-title">Service</span>
+					</span> <span class="menu-title">Dịch Vụ</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/show"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Show</span>
+					</span> <span class="menu-title">Chương Trình</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/bookinghistory"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">User booking history</span>
+					</span> <span class="menu-title">Lịch Sử Đặt </span>
 				</a></li>
 			</ul>
 		</nav>
@@ -239,14 +237,14 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="/admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Nhân Viên</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 								aria-labelledby="profileDropdown">
-								<h6 class="p-3 mb-0">Profile</h6>
+								<h6 class="p-3 mb-0">Hồ Sơ</h6>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
@@ -255,7 +253,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Settings</p>
+										<p class="preview-subject mb-1">Cài Đặt</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -266,7 +264,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Log out</p>
+										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
 							</div></li>

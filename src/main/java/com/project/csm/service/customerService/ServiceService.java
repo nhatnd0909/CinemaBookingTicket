@@ -1,5 +1,6 @@
 package com.project.csm.service.customerService;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,5 +44,28 @@ public class ServiceService {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		String formattedNextDayDate = dateFormat.format(nextDay);
 		return formattedNextDayDate;
+	}
+
+	public String getFutureDate(int numberOfDays) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
+		Date futureDate = calendar.getTime();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		String formattedFutureDate = dateFormat.format(futureDate);
+		return formattedFutureDate;
+	}
+
+	public com.project.csm.model.Service getServiceByName(String name) {
+		List<com.project.csm.model.Service> list = getAllService();
+		for (com.project.csm.model.Service s : list) {
+			if (s.getName().equals(name)) {
+				return s;
+			}
+		}
+		return null;
+	}
+
+	public BigDecimal multiplyIntByBigDecimal(int intValue, BigDecimal bigDecimalValue) {
+		return new BigDecimal(intValue).multiply(bigDecimalValue);
 	}
 }

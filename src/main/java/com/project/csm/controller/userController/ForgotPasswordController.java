@@ -46,7 +46,7 @@ public class ForgotPasswordController {
 	@PostMapping("/forgotpassword")
 	public String sendCodeToEmailResetPass(Model model, @RequestParam String email) {
 		if (customerService.findCustomerByEmail(email) == null) {
-			model.addAttribute("mess", "Does not have any account with this email");
+			model.addAttribute("mess", "Không có tài khoản nào với email này");
 			return "/user/forgotPasword";
 		}
 		mailService.sendMail(email, CODE);
@@ -62,7 +62,7 @@ public class ForgotPasswordController {
 		int codeInput = Integer.parseInt(code);
 		if (codeInput != CODE) {
 			model.addAttribute("email", email);
-			model.addAttribute("mess", "Invalid verify code");
+			model.addAttribute("mess", "Mã xác minh không hợp lệ");
 			return "/user/fpVerify";
 		}
 
@@ -77,7 +77,7 @@ public class ForgotPasswordController {
 			@RequestParam String rePass) {
 		if (!pass.equals(rePass)) {
 			model.addAttribute("email", email);
-			model.addAttribute("mess", "Re password dose not match");
+			model.addAttribute("mess", "Mật khẩu lại không khớp");
 			return "/user/fpResetPass";
 		}
 		accountService.changePasswordByEmail(email, pass);

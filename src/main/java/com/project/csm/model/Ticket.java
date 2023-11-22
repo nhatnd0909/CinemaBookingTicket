@@ -2,6 +2,7 @@ package com.project.csm.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,24 +17,23 @@ public class Ticket {
 	@Column(name = "TicketID")
 	private String ticketID;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ShowID")
 	private Show show;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "SOCID")
 	private SeatOfCinema seatOfCinema;
 
-	@ManyToOne
-	@JoinColumn(name = "OrderID")
-	private Order order;
+	@Column(name = "ListSeat")
+	private String listSeat;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "CustomerID")
 	private Customer customer;
 
 	@Column(name = "Discount")
-	private BigDecimal discount;
+	private Double discount;
 
 	@Column(name = "TotalPrice")
 	private BigDecimal totalPrice;
@@ -42,24 +42,24 @@ public class Ticket {
 		super();
 	}
 
-	public Ticket(Show show, SeatOfCinema seatOfCinema, Order order, Customer customer, BigDecimal discount,
+	public Ticket(String ticketID, Show show, String listSeat, Customer customer, Double discount,
 			BigDecimal totalPrice) {
 		super();
+		this.ticketID = ticketID;
 		this.show = show;
-		this.seatOfCinema = seatOfCinema;
-		this.order = order;
+		this.listSeat = listSeat;
 		this.customer = customer;
 		this.discount = discount;
 		this.totalPrice = totalPrice;
 	}
 
-	public Ticket(String ticketID, Show show, SeatOfCinema seatOfCinema, Order order, Customer customer,
-			BigDecimal discount, BigDecimal totalPrice) {
+	public Ticket(String ticketID, Show show, SeatOfCinema seatOfCinema, String listSeat, Customer customer,
+			Double discount, BigDecimal totalPrice) {
 		super();
 		this.ticketID = ticketID;
 		this.show = show;
 		this.seatOfCinema = seatOfCinema;
-		this.order = order;
+		this.listSeat = listSeat;
 		this.customer = customer;
 		this.discount = discount;
 		this.totalPrice = totalPrice;
@@ -89,14 +89,6 @@ public class Ticket {
 		this.seatOfCinema = seatOfCinema;
 	}
 
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
-
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -105,11 +97,11 @@ public class Ticket {
 		this.customer = customer;
 	}
 
-	public BigDecimal getDiscount() {
+	public Double getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(BigDecimal discount) {
+	public void setDiscount(Double discount) {
 		this.discount = discount;
 	}
 
@@ -121,10 +113,18 @@ public class Ticket {
 		this.totalPrice = totalPrice;
 	}
 
+	public String getListSeat() {
+		return listSeat;
+	}
+
+	public void setListSeat(String listSeat) {
+		this.listSeat = listSeat;
+	}
+
 	@Override
 	public String toString() {
-		return "Ticket [ticketID=" + ticketID + ", show=" + show + ", seatOfCinema=" + seatOfCinema + ", order=" + order
-				+ ", customer=" + customer + ", discount=" + discount + ", totalPrice=" + totalPrice + "]";
+		return "Ticket [ticketID=" + ticketID + ", show=" + show + ", seatOfCinema=" + seatOfCinema + ", listSeat="
+				+ listSeat + ", customer=" + customer + ", discount=" + discount + ", totalPrice=" + totalPrice + "]";
 	}
 
 }

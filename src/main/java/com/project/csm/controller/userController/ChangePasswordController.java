@@ -33,7 +33,7 @@ public class ChangePasswordController {
 		model.addAttribute("mess", "");
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
-		
+
 		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
 		model.addAttribute("customer", customer);
 		return "/user/password";
@@ -43,16 +43,29 @@ public class ChangePasswordController {
 	public String changePassword(@RequestParam String oldPass, @RequestParam String newPass,
 			@RequestParam String confirmNewPass, HttpSession session, Model model) {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		int loggedIn = 0;
+		if (loggedInAccount == null) {
+			loggedIn = 0;
+		} else {
+			loggedIn = 1;
+		}
+		model.addAttribute("mess", "");
+		model.addAttribute("loggedIn", loggedIn);
+		model.addAttribute("loggedInAccount", loggedInAccount);
+		Customer customer = customerService.getCustomerByID(loggedInAccount.getCustomerID());
+		model.addAttribute("customer", customer);	
+		
 		if (!loggedInAccount.getAccount().getPassword().equals(oldPass)) {
 			model.addAttribute("loggedIn", 1);
 			model.addAttribute("loggedInAccount", loggedInAccount);
-			model.addAttribute("mess", "Wrong old password");
+			model.addAttribute("mess", "Sai mật khẩu cũ");
+
 			return "/user/password";
 		}
 		if (!newPass.equals(confirmNewPass)) {
 			model.addAttribute("loggedIn", 1);
 			model.addAttribute("loggedInAccount", loggedInAccount);
-			model.addAttribute("mess", "Confirm new password does not match");
+			model.addAttribute("mess", "Xác nhận mật khẩu mới không khớp");
 			return "/user/password";
 		}
 		accountService.changePasswordByEmail(loggedInAccount.getAccount().getEmail(), newPass);

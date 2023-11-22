@@ -46,13 +46,13 @@ public class SignupController {
 		if (accountService.isEmailExists(email)) {
 			model.addAttribute("name", name);
 			model.addAttribute("email", email);
-			model.addAttribute("mess", "Email aready exist");
+			model.addAttribute("mess", "Email đã tồn tai");
 			return "/user/signup";
 		}
 		if (password.compareTo(rePassword) != 0) {
 			model.addAttribute("name", name);
 			model.addAttribute("email", email);
-			model.addAttribute("mess", "Re Password dose not match");
+			model.addAttribute("mess", "Mật khẩu lại không khớp");
 			return "/user/signup";
 		}
 		mailService.sendMail(email, CODE);
@@ -61,7 +61,7 @@ public class SignupController {
 		Rank rank = rankService.getRankByID(1L);
 		Customer customer = new Customer(name, null, null, null, null, new Date(), 0, account, rank);
 		session.setAttribute("customer", customer);
-		model.addAttribute("mess", "Check your email to get Verify Code");
+		model.addAttribute("mess", "Kiểm tra email của bạn để nhận Mã xác minh");
 		model.addAttribute("name", name);
 		model.addAttribute("email", email);
 		return "/user/verifyEmail";
