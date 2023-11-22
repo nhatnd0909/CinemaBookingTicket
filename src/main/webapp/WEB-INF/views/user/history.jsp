@@ -222,7 +222,7 @@
 													<th scope="col">#</th>
 													<th scope="col">Tên Phim</th>
 													<th scope="col">Giờ Chiếu</th>
-													<th scope="col">Giờ Chiếu</th>
+													<th scope="col">Ngày Chiếu</th>
 													<th scope="col">Action</th>
 												</tr>
 											</thead>
@@ -249,8 +249,9 @@
 															formatDate(ticketDate);
 														</script></td>
 														<td style="text-align: center;"><a
-															href="history1?idTicket=${ticket.ticketID}"
-															target="_blank"> <i class="fa fa-eye"></i></a></td>
+															href="history1?idTicket=${ticket.ticketID}">
+																<i class="fa fa-eye"></i>
+														</a></td>
 													</tr>
 												</c:forEach>
 

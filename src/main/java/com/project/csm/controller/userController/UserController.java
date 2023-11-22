@@ -65,19 +65,7 @@ public class UserController {
 
 	
 
-	@GetMapping("/history1")
-	public String showHistory1(HttpSession session, Model model) {
-		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
-		int loggedIn = 0;
-		if (loggedInAccount == null) {
-			loggedIn = 0;
-		} else {
-			loggedIn = 1;
-		}
-		model.addAttribute("loggedIn", loggedIn);
-		model.addAttribute("loggedInAccount", loggedInAccount);
-		return "/user/history1";
-	}
+
 
 	@GetMapping("/password")
 	public String showPassword(HttpSession session, Model model) {

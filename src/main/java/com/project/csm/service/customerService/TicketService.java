@@ -70,4 +70,14 @@ public class TicketService {
 		}
 		return returnList;
 	}
+
+	public Ticket getTicketByID(String idTicket) {
+		List<Ticket> list = getAllTicket();
+		for (Ticket t : list) {
+			if (t.getTicketID().equals(idTicket)) {
+				return t;
+			}
+		}
+		return null;
+	}
 }
