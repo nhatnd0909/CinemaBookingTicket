@@ -222,133 +222,40 @@
 													<th scope="col">#</th>
 													<th scope="col">Tên Phim</th>
 													<th scope="col">Giờ Chiếu</th>
-													<th scope="col">Ngày đặt</th>
+													<th scope="col">Ngày Chiếu</th>
 													<th scope="col">Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">2</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">3</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">4</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">5</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">6</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
+												<c:forEach items="${listTicket}" var="ticket">
+													<tr>
+														<th scope="row">${ticket.ticketID}</th>
+														<td>${ticket.getShow().getMovie().getName()}</td>
+														<td>${ticket.getShow().getStartTime()}</td>
+														<td><script>
+															// Hàm để định dạng lại ngày
+															function formatDate(
+																	inputDate) {
+																var date = new Date(
+																		inputDate);
+																var formattedDate = date
+																		.toLocaleDateString('en-GB'); // Đặt ngôn ngữ theo yêu cầu của bạn
+																document
+																		.write(formattedDate);
+															}
 
-												<!--- table 2 -->
-												<tr>
-													<th scope="row">7</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">8</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">9</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">10</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">11</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">12</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
+															// Sử dụng hàm formatDate với giá trị từ JSP
+															var ticketDate = "${ticket.getShow().getDayTime()}";
+															formatDate(ticketDate);
+														</script></td>
+														<td style="text-align: center;"><a
+															href="history1?idTicket=${ticket.ticketID}">
+																<i class="fa fa-eye"></i>
+														</a></td>
+													</tr>
+												</c:forEach>
+
+
 											</tbody>
 										</table>
 										<nav aria-label="Page navigation example">
