@@ -107,7 +107,7 @@ input {
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 550px;
 	margin-top: 45px;
 }
 
@@ -275,19 +275,32 @@ footer a {
 	color: var(--theme-rose);
 } */
 
+.password-container .invalid-feedback {
+  display: none; /* Hide initially */
+  color: red;
+  font-size:80%;
+  margin-top: 0.5rem; 
+}
+
 .password-container {
-    position: relative;
+  position: relative;
+  margin-bottom: 1rem; 
 }
 
 .password-container input {
-    padding-right: 30px; /* Khoảng cách bên phải để chứa biểu tượng mắt */
+  padding-right: 30px; 
 }
 
 .password-container .toggle-password {
-    position: absolute;
-    right: 10px; /* Điều chỉnh khoảng cách bên phải của biểu tượng */
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+  position: absolute;
+  right: 30px; 
+  top: 30px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10; 
 }
 
+.is-invalid + .invalid-feedback {
+  display: block; 
+  position: static; 
+}

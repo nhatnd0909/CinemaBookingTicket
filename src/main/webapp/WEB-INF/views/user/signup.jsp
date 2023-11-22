@@ -69,29 +69,34 @@
 
 				<span style="font-size: 17px" class="text-danger">${mess}</span> 
 				<div class="form-group">
-					<input name="name" class="form-control" type="text" placeholder="Name" value="${name}" required="required" /> 
-				</div>
-				<div class="form-group">
-					<input name="email" class="form-control" type="email" placeholder="Email" value="${email}" required="required"/> 
-				</div>
-				<div class="form-group password-container">
+					<input name="name" class="form-control" type="text" placeholder="Name" value="${name}" required="required" />
+					<div class="invalid-feedback">Tên không được để trống</div>
+				  </div>
+				  <div class="form-group">
+					<input name="email" class="form-control" type="email" placeholder="Email" value="${email}" required="required"/>
+					<div class="invalid-feedback">Email không được để trống</div>
+				  </div>
+				  <div class="form-group password-container" >
 					<input name="password" type="password"
-						class="form-control"
-						placeholder="Password"
-						pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-						title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
-						required="required" /> 
-					<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
-				</div>
-				<div class="form-group password-container">
+					  class="form-control"
+					  placeholder="Password"
+					  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+					  title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
+					  required="required" />
+					<div class="invalid-feedback">Password không được để trống</div>
+					<i class="toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+				  </div>
+				  <div class="form-group password-container">
 					<input name="rePassword" type="password"
-					class="form-control"
-					placeholder="Re-Password"
-					pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-					title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
-					required="required" />
-					<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
-				</div>
+					  class="form-control"
+					  placeholder="Re-Password"
+					  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+					  title="Mật khẩu nhập lại phải khớp"
+					  required="required" />
+					<div class="invalid-feedback">Re-Password không được để trống</div>
+					<i class="toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+				  </div>
+				  
 				<button>Đăng Kí</button>
 
 			</form>
@@ -147,24 +152,9 @@
 			});
 		});
 	</script>
-	<script>
-			function togglePassword(icon) {
-				var passwordInput = icon.previousElementSibling;
-				if (passwordInput.type === "password") {
-					passwordInput.type = "text";
-					icon.classList.remove("fa-eye");
-					icon.classList.add("fa-eye-slash");
-				} else {
-					passwordInput.type = "password";
-					icon.classList.remove("fa-eye-slash");
-					icon.classList.add("fa-eye");
-				}
-			}
-	
-	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 
-	<script type="text/javascript" src="assets/js/sign-in.js"></script>
+	<script type="text/javascript" src="assets/js/sign-up.js"></script>
 
 </body>
 

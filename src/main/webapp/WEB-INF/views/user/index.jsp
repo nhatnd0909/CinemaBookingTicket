@@ -15,10 +15,10 @@
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-	crossorigin="anonymous" referrerpolicy="no-referrer" />
+	crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 </head>
 <style>
 a.btn.dropdown-toggle {
@@ -293,10 +293,10 @@ a.btn.dropdown-toggle:hover {
 								<a href="movies">
 									<figure>
 										<img class="img-fluid" src="assets/images/${movie.image}"
-											alt="">
+											alt="" style="height: 350px">
 									</figure>
 									<div class="box-content">
-										<h3 class="title">${movie.name}</h3>
+										<h3 class="title">${movie.name} </h3>
 										<h4>
 											<span class="post"><span class="fa fa-clock-o">
 											</span> ${movie.duration} Min</span> <span
@@ -331,12 +331,12 @@ a.btn.dropdown-toggle:hover {
 
 				<div class="owl-three owl-carousel owl-theme">
 					<c:forEach items="${allMovies}" var="allMovies">
-						<div class="item vhny-grid">
+						<div class="item vhny-grid" >
 							<div class="box16 mb-0">
 								<a href="movies">
 									<figure>
 										<img class="img-fluid" src="assets/images/${allMovies.image}"
-											alt="">
+											alt="" style="height: 300px">
 									</figure>
 									<div class="box-content">
 										<h4>
@@ -348,9 +348,9 @@ a.btn.dropdown-toggle:hover {
 								</a>
 							</div>
 							<h3>
-								<a class="title-gd" href="movies">${allMovies.name}</a>
+								<a class="title-gd" href="movies" >${allMovies.name}</a>
 							</h3>
-							<p>${allMovies.getGenre().getGenreName()}</p>
+							<p>Thể loại: ${allMovies.getGenre().getGenreName()}</p>
 							<div class="button-center text-center mt-4">
 								<a href="movies" class="btn watch-button">Xem bây giờ</a>
 							</div>
@@ -358,6 +358,7 @@ a.btn.dropdown-toggle:hover {
 						</div>
 					</c:forEach>
 				</div>
+				
 			</div>
 
 		</div>
@@ -742,7 +743,22 @@ a.btn.dropdown-toggle:hover {
 			});
 		});
 	</script>
-
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Lặp qua tất cả các phần tử có class 'title-gd'
+			var movieTitles = document.querySelectorAll('.title-gd');
+			
+			movieTitles.forEach(function(titleElement) {
+				var titleText = titleElement.innerText;
+	
+				var wordCount = titleText.split(' ').length;
+				if (wordCount < 8) {
+					titleElement.innerHTML = '<span class="line1">' + titleText + '</span><br><span class="line2">&nbsp;</span>';
+				}
+				
+			});
+		});
+	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 

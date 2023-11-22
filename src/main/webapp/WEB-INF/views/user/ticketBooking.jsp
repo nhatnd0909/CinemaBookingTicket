@@ -86,31 +86,44 @@
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
 					<form id="form" method="post" action="submitOrder">
+						<input name="showID" value="" hidden=""> <input
+							name="socid" type="text" value="" hidden="">
+
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Show timing selection</li>
 							<li id="step2" class="not_active">Seat Selection</li>
 							<li id="step3" class="not_active">Concession Items</li>
-							<li id="step4" class="not_active">Payment</li>
+							<li id="step4" class="not_active">Confirm</li>
 
 						</ul>
-						<br>
 						<fieldset>
 							<div id="screen-select-div">
 								<h2>Show time Selection</h2>
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
-									<div class="carousel-cell" id="1" onclick="myFunction(1)">
+									<div class="carousel-cell" id="1"data-date="${currentDate}" onclick="myFunction(1)">
 										<div class="date-numeric">${currentDate}</div>
-										<div class="date-day">Hôm Nay</div>
+										<div class="date-day" id="dayOfWeek1"></div>
 									</div>
-
-									<div class="carousel-cell" id="2" onclick="myFunction(2)">
+									
+									<div class="carousel-cell" id="2" data-date="${tomorow}" onclick="myFunction(2)">
 										<div class="date-numeric">${tomorow}</div>
-										<div class="date-day">Ngày Mai</div>
+										<div class="date-day" id="dayOfWeek2"></div>
 									</div>
-									<div class="carousel-cell" id="3" onclick="myFunction(3)">
+									
+									<div class="carousel-cell" id="3"  data-date="${nextDate}" onclick="myFunction(3)">
 										<div class="date-numeric">${nextDate}</div>
-										<div class="date-day">Ngày Mốt</div>
+										<div class="date-day" id="dayOfWeek3"></div>
+									</div>
+									
+									<div class="carousel-cell" id="4" data-date="${futureDate3Days}" onclick="myFunction(4)">
+										<div class="date-numeric">${futureDate3Days}</div>
+										<div class="date-day" id="dayOfWeek4"></div>
+									</div>
+									
+									<div class="carousel-cell" id="5" data-date="${futureDate4Days}" onclick="myFunction(5)">
+										<div class="date-numeric">${futureDate4Days}</div>
+										<div class="date-day" id="dayOfWeek5"></div>
 									</div>
 								</div>
 								<div class="show-currentDate">
@@ -122,8 +135,8 @@
 													<c:forEach var="show" items="${listShowCurentDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<input type="button" class="screen-time selected"
-																onclick="timeFunction()" value="${show.startTime}">
+															<input type="button" class="screen-time selected" onclick="timeFunction(event)" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -140,8 +153,8 @@
 													<c:forEach var="show" items="${listShowTomorowDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
+															<input type="button" class="screen-time selected" onclick="timeFunction(event)" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -158,8 +171,9 @@
 													<c:forEach var="show" items="${listShowNextDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<button class="screen-time selected"
-																onclick="timeFunction()">${show.startTime}</button>
+															<input type="button" class="screen-time selected"
+																onclick="timeFunction(event)" value="${show.startTime}">
+															<h5 style="display: none" id="showID">${show.showID}</h5>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -168,11 +182,15 @@
 									</ul>
 								</div>
 							</div>
+							<div class="show-tomorowDate-futureDateDays" style="display: none">
+								<ul class="time-ul"style="">
+									<h7 ><b>Chưa có lịch chiếu cho ngày này. Hãy quay lại sau. Xin cám ơn!</b></h7>
+								</ul>
+							</div>
 							<input id="screen-next-btn" type="button" name="next-step"
 								class="next-step" value="Continue Booking" disabled />
 						</fieldset>
 						<fieldset>
-
 							<div class="wrapper">
 								<h2>Seat Booking</h2>
 								<div class="theater">
@@ -206,125 +224,108 @@
 											<div class="seat">J</div>
 										</div>
 
+
 										<div class="row">
-											<div class="seat">A1</div>
-											<div class="seat">B1</div>
-											<div class="seat">C1</div>
-											<div class="seat">D1</div>
-											<div class="seat">E1</div>
-											<div class="seat">F1</div>
-											<div class="seat">G1</div>
-											<div class="seat">H1</div>
-											<div class="seat">I1</div>
-											<div class="seat">J1</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 1}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>						
+													<h6 class="price-seat" id="seatPrice" style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A2</div>
-											<div class="seat">B2</div>
-											<div class="seat">C2</div>
-											<div class="seat">D2</div>
-											<div class="seat">E2</div>
-											<div class="seat">F2</div>
-											<div class="seat">G2</div>
-											<div class="seat">H2</div>
-											<div class="seat">I2</div>
-											<div class="seat">J2</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 2}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A3</div>
-											<div class="seat">B3</div>
-											<div class="seat">C3</div>
-											<div class="seat">D3</div>
-											<div class="seat">E3</div>
-											<div class="seat unavailable">F3</div>
-											<div class="seat unavailable">G3</div>
-											<div class="seat">H3</div>
-											<div class="seat">I3</div>
-											<div class="seat">J3</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 3}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A4</div>
-											<div class="seat">B4</div>
-											<div class="seat">C4</div>
-											<div class="seat">D4</div>
-											<div class="seat">E4</div>
-											<div class="seat">F4</div>
-											<div class="seat">G4</div>
-											<div class="seat">H4</div>
-											<div class="seat">I4</div>
-											<div class="seat">J4</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 4}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A5</div>
-											<div class="seat">B5</div>
-											<div class="seat">C5</div>
-											<div class="seat">D5</div>
-											<div class="seat">E5</div>
-											<div class="seat">F5</div>
-											<div class="seat">G5</div>
-											<div class="seat">H5</div>
-											<div class="seat">I5</div>
-											<div class="seat">J5</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 5}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A6</div>
-											<div class="seat">B6</div>
-											<div class="seat">C6</div>
-											<div class="seat">D6</div>
-											<div class="seat">E6</div>
-											<div class="seat">F6</div>
-											<div class="seat">G6</div>
-											<div class="seat">H6</div>
-											<div class="seat">I6</div>
-											<div class="seat">J6</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+
+												<c:if test="${seatOfCinema.seat.row eq 6}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A7</div>
-											<div class="seat">B7</div>
-											<div class="seat">C7</div>
-											<div class="seat">D7</div>
-											<div class="seat">E7</div>
-											<div class="seat">F7</div>
-											<div class="seat">G7</div>
-											<div class="seat">H7</div>
-											<div class="seat">I7</div>
-											<div class="seat">J7</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+
+												<c:if test="${seatOfCinema.seat.row eq 7}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A8</div>
-											<div class="seat">B8</div>
-											<div class="seat">C8</div>
-											<div class="seat">D8</div>
-											<div class="seat">E8</div>
-											<div class="seat">F8</div>
-											<div class="seat">G8</div>
-											<div class="seat">H8</div>
-											<div class="seat">I8</div>
-											<div class="seat">J8</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 8}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A9</div>
-											<div class="seat">B9</div>
-											<div class="seat">C9</div>
-											<div class="seat">D9</div>
-											<div class="seat">E9</div>
-											<div class="seat">F9</div>
-											<div class="seat">G9</div>
-											<div class="seat">H9</div>
-											<div class="seat">I9</div>
-											<div class="seat">J9</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 9}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
+
 										<div class="row">
-											<div class="seat">A10</div>
-											<div class="seat">B10</div>
-											<div class="seat">C10</div>
-											<div class="seat">D10</div>
-											<div class="seat">E10</div>
-											<div class="seat">F10</div>
-											<div class="seat">G10</div>
-											<div class="seat">H10</div>
-											<div class="seat">I10</div>
-											<div class="seat">J10</div>
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 10}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
 										</div>
 									</div>
 									<div class="wrapper-right">
@@ -332,31 +333,35 @@
 											<table class="table">
 												<tbody class="custom-table">
 													<tr>
-														<th>Movie</th>
+														<th>Phim</th>
 														<td>: ${movie}</td>
 													</tr>
 													<tr>
-														<th>Time</th>
-														<td>: April</td>
+														<th>Ngày:</th>
+														<td id="selectedDate">:</td>	
 													</tr>
 													<tr>
-														<th>Tickets</th>
+														<th>Thời Gian</th>
+														<td id="selectedTime">:</td>
+													</tr>
+													<tr>
+														<th>Vé</th>
 														<td>: 0</td>
 													</tr>
 													<tr>
-														<th>Selected Seats</th>
-														<td id="seats">: A1</td>
+														<th>Chỗ Ngồi Đã Chọn</th>
+														<td id="seats">:</td>
 													</tr>
 													<tr>
-														<th>Total</th>
+														<th>Tổng</th>
 														<td id="totalseat"></td>
 													</tr>
 												</tbody>
 											</table>
 										</div>
 										<div class="seatCharts">
-											<input type="text" id="selectedSeats" class="value_seats"
-												readonly>
+											<input name="seat" type="text" id="selectedSeats"
+												class="value_seats" readonly>
 										</div>
 										<div class="display_seat">
 											<div style="display: flex;">
@@ -396,9 +401,11 @@
 										<td><img class="food-image"
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
-										<td id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
-										<td id="selectedUnitPrice_${loop.index}">$
-											${service.price}</td>
+
+										<td class="serviceName" id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
+										<td id="selectedUnitPrice_${loop.index}" class="formatted-price">
+											${service.price.setScale(0, 3)}
+										</td>
 										<!-- Trong file JSP: -->
 										<td class="quantity" id="selectedQuantity_${loop.index}">
 											<input onclick="decrementQuantity(this, ${loop.index})"
@@ -408,7 +415,7 @@
 										</td>
 
 										<td class="subtotal" id="selectedSubtotal_${loop.index}"
-											data-subtotal="${service.price}">$0.00</td>
+											data-subtotal="${service.price.setScale(0, 3)}"></td>
 
 									</tr>
 								</c:forEach>
@@ -416,7 +423,7 @@
 							<div class="total-money">
 								Total money: <span id="total">0.00</span>
 							</div>
-							<br> <input type="" name="next-step" class="next-step"
+							<br> <input type="button" name="next-step" class="next-step"
 								value="Proceed to Payment" /> <input type="button"
 								name="previous-step" class="previous-step" value="Back" />
 
@@ -427,8 +434,10 @@
 									<h3 id="payment-h3">Xác nhận thanh toán</h3>
 									<h4>Tên phim: ${movie}</h4>
 									<h5>Rạp chiếu: ${theater}</h5>
-									<p></p>
-									<p id="total-movie"></p>
+									<p id="displayDate"></p>
+									<p id="displayTime"></p>
+									<p style="font-size: 20px;"></p>
+									<p id="total-movie" style="font-size: 20px;"></p>
 									<div style="padding-top: 2%;">
 										<table>
 											<tr>
@@ -439,11 +448,18 @@
 												<th>Subtotal</th>
 											</tr>
 										</table>
-									</div>
+									</div>		
+									<div class="combined">
 
+									</div>
 									<div class="total-money">
+										<c:if test="${loggedIn == 1}">
+											<c:if test="${discount > 0.0}">
+												Giảm giá: <span id="discount">${discount}%</span> <br>
+											</c:if>
+										</c:if>										
 										Tổng Tiền: <span id="total-money"></span> <input type="text"
-											name="totalmoney" id="inputtotal" value="">
+											name="totalmoney" id="inputtotal" value="" hidden >
 									</div>
 								</div>
 							</div>
@@ -458,11 +474,28 @@
 		</div>
 	</div>
 	<script>
+		var currentDate = new Date();
+		var tomorrow = new Date();
+		tomorrow.setDate(currentDate.getDate() + 1);
+		var nextDate = new Date();
+		nextDate.setDate(currentDate.getDate() + 2);
+		var futureDate3Days = new Date();
+		futureDate3Days.setDate(currentDate.getDate() + 3);
+		var futureDate4Days = new Date();
+		futureDate4Days.setDate(currentDate.getDate() + 4);
+		var daysOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+		document.getElementById("dayOfWeek1").innerHTML = daysOfWeek[currentDate.getDay()];
+		document.getElementById("dayOfWeek2").innerHTML = daysOfWeek[tomorrow.getDay()];
+		document.getElementById("dayOfWeek3").innerHTML = daysOfWeek[nextDate.getDay()];
+		document.getElementById("dayOfWeek4").innerHTML = daysOfWeek[futureDate3Days.getDay()];
+		document.getElementById("dayOfWeek5").innerHTML = daysOfWeek[futureDate4Days.getDay()];
+	</script>
+	<script>
                document.addEventListener('DOMContentLoaded', function () {
                 var selectedSeats = [];
-                var seatPrice = 50000; // Giá mỗi ghế
-
-                // Lắng nghe sự kiện click trên tất cả các ghế
+				var seatPriceElement = document.getElementById('seatPrice');
+  				var seatPriceText = seatPriceElement.textContent || seatPriceElement.innerText;
+				var seatPrice = parseFloat(seatPriceText.replace(/[^0-9]/g, ''));
                 var seats = document.querySelectorAll('.seat');
                 seats.forEach(function (seat) {
                     seat.addEventListener('click', function () {
@@ -485,52 +518,65 @@
                             document.getElementById('selectedSeats').value = selectedSeats.join(',');
                             
                             // Cập nhật thông tin trên bảng thông tin đặt vé
-                            document.querySelector('.custom-table tr:nth-child(3) td').innerText = ': ' + selectedSeats.length;
-                            document.querySelector('.custom-table tr:nth-child(4) td').innerText = ': ' + selectedSeats.join(',');
+                            document.querySelector('.custom-table tr:nth-child(4) td').innerText = ': ' + selectedSeats.length;
+                            document.querySelector('.custom-table tr:nth-child(5) td').innerText = ': ' + selectedSeats.join(',');
 
                             // Tính toán và hiển thị tổng giá vé
                             var total = selectedSeats.length * seatPrice;
-                            document.querySelector('.custom-table tr:nth-child(5) td').innerText = ': ' + total;
+                            var formattedTotal = new Intl.NumberFormat('vi-VN').format(total);
+                            document.querySelector('.custom-table tr:nth-child(6) td').innerText = ': ' + formattedTotal;
                         }
                     });
                 });
             });
 
-            </script>
-
-
+     </script>
 
 	<script>
-                let prevId = "1";
+        let prevId = "1";
 
-                window.onload = function() {
-                    document.getElementById("screen-next-btn").disabled = true;
-                }
+        window.onload = function() {
+            document.getElementById("screen-next-btn").disabled = true;
+			myFunction(1);
+        }
 
-                function timeFunction() {
-                    document.getElementById("screen-next-btn").disabled = false;
-                }
-                function myFunction(id) {
-                    document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
-                    document.getElementById(id).style.background = "#df0e62";
-                    prevId = id;
+        function timeFunction(event) {
+			var selectedTime = event.target.value;
+			console.log(selectedTime);
+			document.getElementById("selectedTime").innerHTML = ": " + selectedTime;
+			document.getElementById("screen-next-btn").disabled = false;
+		}
+
+         function myFunction(id) {
+            document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
+            document.getElementById(id).style.background = "#df0e62";
+            prevId = id;
                     // Hide all sections
-                    document.querySelector('.show-currentDate').style.display = 'none';
-                    document.querySelector('.show-tomorowDate').style.display = 'none';
-                    document.querySelector('.show-nextDate').style.display = 'none';
+			var selectedDate = document.getElementById(id).dataset.date;
+			document.getElementById("selectedDate").innerHTML = ": " + selectedDate;
+            document.querySelector('.show-currentDate').style.display = 'none';
+            document.querySelector('.show-tomorowDate').style.display = 'none';
+            document.querySelector('.show-nextDate').style.display = 'none';
+			document.querySelector('.show-tomorowDate-futureDateDays').style.display = 'none';
+			document.querySelector('.next-step').style.display = 'block';
 
-                    // Show the selected section based on the clicked ID
-                    if (id === 1) {
-                        document.querySelector('.show-currentDate').style.display = 'block';
-                    } else if (id === 2) {
-                        document.querySelector('.show-tomorowDate').style.display = 'block';
-                    } else if (id === 3) {
-                        document.querySelector('.show-nextDate').style.display = 'block';
-                    }
-
-                    // Additional logic if needed
-                }
-            </script>
+            if (id === 1) {
+                document.querySelector('.show-currentDate').style.display = 'block';
+            } else if (id === 2) {
+                document.querySelector('.show-tomorowDate').style.display = 'block';
+            } else if (id === 3) {
+                 document.querySelector('.show-nextDate').style.display = 'block';
+            }
+			else if (id === 4) {
+                 document.querySelector('.show-tomorowDate-futureDateDays').style.display = 'block';
+				 document.querySelector('.next-step').style.display = 'none';
+            }
+			else if (id === 5) {
+                 document.querySelector('.show-tomorowDate-futureDateDays').style.display = 'block';
+				 document.querySelector('.next-step').style.display = 'none';
+            }
+         }
+    </script>
 
 	<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
 	<script type="text/javascript"
@@ -544,68 +590,139 @@
 	<script type="text/javascript" src="assets/js/concession-items.js"></script>
 
 	<script>
+		$(".next-step").one("click", function () {
+			var selectedSeatsText = $("#seats").text();
+			var total_movie_str = $("#totalseat").text().trim().replace(/[$:]/g, '');
+			var stringWithoutCommas = total_movie_str.replace(/\./g, '');
+			var total_movie = parseFloat(stringWithoutCommas) || 0;
+			var discountPercentage = parseFloat($("#discount").text()) || 0;
+			
+			updateSecondTable();
+			var total = parseFloat($("#total-money").text().replace(/\D/g, '')) || 0;
+			var discountedTotal = total_movie - (total_movie * discountPercentage );
+			console.log(discountedTotal);
+			total += discountedTotal;
+			$("#total-money").text(total.toLocaleString('vi-VN'));
+			$("#payment_div p:nth-child(6)").text('Ghế' + selectedSeatsText);
+			$("#payment_div p:nth-child(7)").text('Tổng tiền ghế' + total_movie_str);
+	
+			copyValueToInput();
+		});
+	
+		function updateSecondTable() {
+			$("#payment_div table tr:gt(0)").remove();
+			var total = 0;
+			var total_movie = parseFloat($("#total-movie").text().replace()) || 0;
+			
+			var combinedValues = "";
+			var selectedProducts = {};
 
-                $(".next-step").one("click", function () {
-                    var selectedSeatsText = $("#seats").text();
-                    var total_movie_str = $("#totalseat").text().trim().replace(/[$:]/g, '');
-                    var total_movie = parseFloat(total_movie_str) || 0;
-                    updateSecondTable();
-                    var total = parseFloat($("#total-money").text().replace('$', '')) || 0;
-                    total += total_movie;
-                    $("#total-money").text('$' + total.toFixed(2));
-                    $("#payment_div p:nth-child(4)").text('Ghế' + selectedSeatsText);
-                    $("#payment_div p:nth-child(5)").text('Tổng tiền ghế' + total_movie_str);
+			$(".product-row").each(function () {
+				var selectedQuantity = parseInt($(this).find(".quantity span").text());
+				var serviceName = $(this).find(".serviceName").text();
 
-                    copyValueToInput();
-                });
-                function updateSecondTable() {
-                    $("#payment_div table tr:gt(0)").remove(); // Xóa các hàng trừ hàng đầu tiên
-                    var total = 0;
-                    var total_movie = parseFloat($("#total-movie").text().replace('$', '')) || 0; // Lấy giá trị total_movie
+				if (selectedQuantity > 0 && !selectedProducts[serviceName]) {
+					combinedValues += serviceName + "+" + selectedQuantity + ",";
+					selectedProducts[serviceName] = true;
+				}
+			});
 
-                    $(".product-row").each(function (index) {
-                        var quantity = parseInt($(this).find(".quantity span").text());
+			combinedValues = combinedValues.replace(/,$/, "");
+			var clonedInputCombined = $("<input>").attr({
+				type: "text",
+				name: "order",  
+				class: "cloned-quantity copied-quantity",
+				value: combinedValues
+			});
+			$(".combined").empty();
 
-                        if (quantity > 0) {
-                            var clonedRow = $(this).clone();
-                            clonedRow.appendTo("#payment_div table");
-
-                            clonedRow.find("[id^='selected']").each(function () {
-                                var id = $(this).attr("id") + "_" + index;
-                                $(this).attr("id", id);
-                            });
-
-                            // Xóa giá trị input và chỉ hiển thị giá trị span
-                            clonedRow.find(".quantity input").val(""); // Xóa giá trị của input
-
-                            var subtotalId = "selectedSubtotal_" + index;
-                            var unitPriceId = "selectedUnitPrice_" + index;
-                            var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
-                            var unitPrice = parseFloat($("#" + unitPriceId).text().replace('$', '')) || 0;
-                            var totalForRow = subtotal * quantity;
-                            total += totalForRow;
-
-                            $("#" + subtotalId).text('$' + totalForRow.toFixed(2));
-                            clonedRow.find(".quantity input").hide(); // Ẩn input
-                            clonedRow.find(".quantity span").show(); // Hiển thị span
-                        }
-                    });
-
-                    $("#total-money").text('$' + total.toFixed(2));
-                }
-                function copyValueToInput() {
-                    // Lấy giá trị từ span và loại bỏ ký tự $
-                    var totalMoneySpan = document.getElementById('total-money');
-                    var totalMoneyValue = totalMoneySpan.innerText.replace('$', '').trim();
-                    
-                    // Gán giá trị từ span vào input
-                    var inputTotal = document.getElementById('inputtotal');
-                    inputTotal.value = totalMoneyValue;
-                }
-
-            </script>
+			clonedInputCombined.appendTo(".combined");
 
 
+			$(".product-row").each(function (index) {
+				var quantity = parseInt($(this).find(".quantity span").text());
+
+				if (quantity > 0) {
+					var clonedRow = $(this).clone();
+					clonedRow.appendTo("#payment_div table");
+
+					clonedRow.find("[id^='selected']").each(function () {
+						var id = $(this).attr("id") + "_" + index;
+						$(this).attr("id", id);
+					});
+
+					var subtotalId = "selectedSubtotal_" + index;
+					var unitPriceId = "selectedUnitPrice_" + index;
+					var subtotal = parseFloat($("#" + subtotalId).attr("data-subtotal")) || 0;
+					var unitPrice = parseFloat($("#" + unitPriceId).text().replace()) || 0;
+					var totalForRow = subtotal * quantity;
+					total += totalForRow;
+
+					$("#" + subtotalId).text(+ totalForRow.toFixed(2));
+					clonedRow.find(".quantity input").hide();
+					clonedRow.find(".quantity span").show();
+					clonedRow.find(".quantity input").val("");
+					clonedRow.find(".quantity").val(quantity);
+				}
+			});
+
+			var discountPercentage = parseFloat($("#discount").text()) || 0;
+			var discountedTotal = total - (total * discountPercentage);
+			$("#total-money").text(+ discountedTotal.toFixed(2));
+			// $("#total-money").text(+ total.toFixed(2));
+		}
+	
+		function copyValueToInput() {
+			var totalMoneySpan = document.getElementById('total-money');
+			var totalMoneyValue = totalMoneySpan.innerText.replace(/\D/g, '');
+	
+			var inputTotal = document.getElementById('inputtotal');
+			inputTotal.value = totalMoneyValue;
+
+			var selectedDate = document.getElementById("selectedDate").textContent;
+			var selectedTime = document.getElementById("selectedTime").textContent;
+			document.getElementById("displayDate").innerHTML = "Ngày " +selectedDate;
+			document.getElementById("displayTime").innerHTML = "Thời gian " + selectedTime;
+		}
+	</script>
+
+
+	<script type="text/javascript">
+	 document.addEventListener('DOMContentLoaded', function() {
+	        // Lấy tất cả các phần tử có class "screen-time selected"
+	        var buttons = document.querySelectorAll('.screen-time.selected');
+
+	        // Duyệt qua từng nút và thêm sự kiện click
+	        buttons.forEach(function(button) {
+	            button.addEventListener('click', function() {
+	                // Lấy giá trị của thẻ h5 có id="showID"
+	                var showID = this.nextElementSibling.textContent;
+
+	                // Cập nhật giá trị của trường input có name="showID"
+	                document.querySelector('input[name="showID"]').value = showID;
+
+	                // Gọi hàm timeFunction() nếu bạn muốn thực hiện thêm các thao tác khác
+	                timeFunction();
+	            });
+	        });
+	    });
+	</script>
+
+	<script type="text/javascript">
+	function updateSocId(socId) {
+        var inputElement = document.querySelector('input[name="socid"]');
+
+        var currentValue = inputElement.value;
+
+        if (currentValue.includes(socId)) {
+            var updatedValue = currentValue.replace(socId + ', ', '').replace(', ' + socId, '').replace(socId, '');
+        } else {
+            var updatedValue = currentValue === '' ? socId : currentValue + ', ' + socId;
+        }
+
+        inputElement.value = updatedValue;
+    }
+	</script>
 </body>
 
 </html>

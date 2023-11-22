@@ -69,12 +69,16 @@
 				</div>
 				<span style="font-size: 17px" class="text-danger">${mess}</span> 
 				<div class="form-group">
-					<input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" name="email" value="${email}" required="required">
-				</div>
+					<input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email" value="${email}" required="required">
+					<div class="invalid-feedback">Email không được để trống</div>
+				  </div>
 				<div class="form-group password-container">
-					<input type="password" class="form-control" placeholder="Password" name="password"  required="required">
-					<i class=" toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
-				</div>		
+					<input type="password" class="form-control" placeholder="Password" name="password" required="required">
+					<div class="invalid-feedback">Password không được để trống</div>
+					<i class="toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
+				</div>
+				  
+					  
 				<a href="forgotpassword">Quên mật khẩu?</a>
 				<button>Đăng Nhập</button>
 			</form>
@@ -131,21 +135,6 @@
 		});
 	</script>
 
-	<script>
-		function togglePassword(icon) {
-			var passwordInput = icon.previousElementSibling;
-			if (passwordInput.type === "password") {
-				passwordInput.type = "text";
-				icon.classList.remove("fa-eye");
-				icon.classList.add("fa-eye-slash");
-			} else {
-				passwordInput.type = "password";
-				icon.classList.remove("fa-eye-slash");
-				icon.classList.add("fa-eye");
-			}
-		}
-
-	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript" src="assets/js/sign-in.js"></script>

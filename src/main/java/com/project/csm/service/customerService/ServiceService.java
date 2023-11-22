@@ -44,4 +44,14 @@ public class ServiceService {
 		String formattedNextDayDate = dateFormat.format(nextDay);
 		return formattedNextDayDate;
 	}
+	
+	public String getFutureDate(int numberOfDays) {
+	    Calendar calendar = Calendar.getInstance();
+	    calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
+	    Date futureDate = calendar.getTime();
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+	    String formattedFutureDate = dateFormat.format(futureDate);
+	    return formattedFutureDate;
+	}
+
 }

@@ -142,84 +142,6 @@
 			</div>
 		</nav>
 	</div>
-	<!--/movies -->
-	<!--grids-sec1-->
-	<section class="w3l-grids">
-		<div class="grids-main py-4">
-			<div class="container py-lg-4">
-				<div class="headerhny-title">
-					<h3 class="hny-title">Phổ Biến</h3>
-				</div>
-				<div class="owl-four owl-carousel owl-theme">
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner1.jpg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">${listPopular.get(0).getName()}</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> ${listPopular.get(0).getDuration()} min </span> <span
-											class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<div class="box16 mt-4">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner2.jpg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">${listPopular.get(1).getName()}</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> ${listPopular.get(1).getDuration()} min </span> <span
-											class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner3.jpg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">${listPopular.get(2).getName()}</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> ${listPopular.get(2).getDuration()} min </span> <span
-											class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-						<div class="box16 mt-4">
-							<a href="#">
-								<figure>
-									<img class="img-fluid" src="assets/images/banner4.jpg" alt="">
-								</figure>
-								<div class="box-content">
-									<h3 class="title">${listPopular.get(3).getName()}</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> ${listPopular.get(3).getDuration()} min </span> <span
-											class="post fa fa-heart text-right"></span>
-									</h4>
-								</div> <span class="fa fa-play video-icon" aria-hidden="true"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--grids-sec1-->
 	<section class="w3l-grids">
 		<div class="grids-main py-5">
 			<div class="container py-lg-4">
@@ -241,7 +163,7 @@
 							<div class="box16 mb-0" onclick="location.href='details?name=${movie.name}';">
 								<figure>
 									<img class="img-fluid" src="assets/images/${movie.image}"
-										alt="">
+										alt="" style="height: 400px;">
 								</figure>
 								<a href=".Commando3" data-toggle="modal">
 									<div class="box-content">
@@ -257,241 +179,47 @@
 						</div>
 					</c:forEach>
 				</div>
-				<!-- ***********************************Adults Section ************************************** -->
-				<div class="w3l-title-grids">
-					<div class="headerhny-left">
-						<h3 class="hny-title">Người Lớn</h3>
-					</div>
-					<div class="headerhny-right text-lg-right">
-						<h4>
-							<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-						</h4>
+			</div>
+		</div>
+		</div>
+	</section>
+	<section class="w3l-grids">
+		<div class="grids-main py-5">
+			<div class="container py-lg-4">
+				<div class="headerhny-title">
+					<div class="w3l-title-grids">
+						<div class="headerhny-left">
+							<h3 class="hny-title">Gần Đây</h3>
+						</div>
+						<div class="headerhny-right text-lg-right">
+							<h4>
+								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
+							</h4>
+						</div>
 					</div>
 				</div>
 				<div class="w3l-populohny-grids">
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/m1.jpg" alt="">
-							</figure>
-							<a href=".Rocketman" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Người Hỏa Tiễn</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 1min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
+					<c:forEach items="${listLatest}" var="movie">
+						<div class="item vhny-grid">
+							<div class="box16 mb-0" onclick="location.href='details?name=${movie.name}';">
+								<figure>
+									<img class="img-fluid" src="assets/images/${movie.image}"
+										alt="" style="height: 400px;">
+								</figure>
+								<a href=".Commando3" data-toggle="modal">
+									<div class="box-content">
+										<h3 class="title">${movie.name}</h3>
+										<h4>
+											<span class="post"><span class="fa fa-clock-o">
+											</span> ${movie.duration} min</span> <span
+												class="post fa fa-heart text-right"></span>
+										</h4>
+									</div>
+								</a>
+							</div>
 						</div>
-					</div>
-
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/m2.jpg" alt="">
-							</figure>
-							<a href=".Doctorsleep" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Kí Ức Kinh Hoàng</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 32min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/ks1.png" alt="">
-							</figure>
-							<a href=".kabir" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Tình Yêu Của Đời Mình</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 52min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/m9.jpg" alt="">
-							</figure>
-							<a href=".Joker" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Gã Hề</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 2min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
-				<!-- ***********************************kids Section ************************************** -->
-				<div class="w3l-title-grids">
-					<div class="headerhny-left">
-						<h3 class="hny-title">Trẻ Em</h3>
-					</div>
-					<div class="headerhny-right text-lg-right">
-						<h4>
-							<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-						</h4>
-					</div>
-				</div>
-				<div class="w3l-populohny-grids">
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/tzp.png" alt="">
-							</figure>
-							<a href=".tzp" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Cậu Bé Đặc Biệt</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 44min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/cp.png" alt="">
-							</figure>
-							<a href=".Chillarparty" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Bữa Tiệc Dành Cho Trẻ Em</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 59min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/ganesha.png" alt="">
-							</figure>
-							<a href=".ganesha" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Truyền Thuyết Về Bal Ganesha</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 3 Hr 10min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/m8.jpg" alt="">
-							</figure>
-							<a href=".Toystory" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Câu Chuyện Đồ Chơi 4</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 1 Hr 59min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-
-				</div>
-				<!-- ***********************************Gujarati Section ************************************** -->
-				<div class="w3l-title-grids">
-					<div class="headerhny-left">
-						<h3 class="hny-title">Ấn Độ</h3>
-					</div>
-					<div class="headerhny-right text-lg-right">
-						<h4>
-							<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-						</h4>
-					</div>
-				</div>
-				<div class="w3l-populohny-grids">
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/gk.png" alt="">
-							</figure>
-							<a href=".gk" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Golkeri</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 8min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/gujjubhai.jpeg" alt="">
-							</figure>
-							<a href=".gujjubhai" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Gujjubhai : Sự Vĩ Đại</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 25min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/Thaijase.png" alt="">
-							</figure>
-							<a href=".thaijase" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Thai Jashe</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 35min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="item vhny-grid">
-						<div class="box16 mb-0" onclick="location.href='details.html';">
-							<figure>
-								<img class="img-fluid" src="assets/images/reva.png" alt="">
-							</figure>
-							<a href=".Reva" data-toggle="modal">
-								<div class="box-content">
-									<h3 class="title">Reva</h3>
-									<h4>
-										<span class="post"><span class="fa fa-clock-o">
-										</span> 2 Hr 38min </span> <span class="post fa fa-heart text-right"></span>
-									</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-
-				</div>
-
 			</div>
 			<div class="button-center text-center mt-3">
 				<a href="#" class="btn view-button">Xem Tất Cả<span
@@ -509,7 +237,6 @@
 						<ul class="resp-tabs-list hor_1">
 							<li>Phim Gần Đây</li>
 							<li>Phim Nổi Tiếng</li>
-							<li>Phim Xu Hướng</li>
 							<div class="clear"></div>
 						</ul>
 						<div class="resp-tabs-container hor_1">
@@ -837,138 +564,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="albums-content">
-								<div class="row">
-									<!--/set3-->
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m7.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Frozen 2</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m8.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Toy Story 4</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m9.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Joker</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<!--/set3-->
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m10.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Alita</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m11.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">The Lego</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m12.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">The Hustle</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -1007,7 +602,6 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">Phim Xu Hướng</a></li>
 										<li><a href="#">Phim Nổi Tiếng </a></li>
 										<li><a href="#">Phim Sắp Chiếu</a></li>
 										
