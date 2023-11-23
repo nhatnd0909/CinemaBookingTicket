@@ -119,7 +119,7 @@
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Logout</a>
+							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
 				</div>
@@ -304,7 +304,7 @@
 							<div class="box16 mb-0">
 								<a href="movies">
 									<figure>
-										<img class="img-fluid" src="assets/images/${allMovies.image}"
+										<img class="img-fluid" src="/assets/images/${allMovies.image}"
 											alt="" style="height: 300px">
 									</figure>
 									<div class="box-content">
@@ -321,7 +321,7 @@
 							</h3>
 							<p>Thể loại: ${allMovies.getGenre().getGenreName()}</p>
 							<div class="button-center text-center mt-4">
-								<a href="movies" class="btn watch-button">Xem bây giờ</a>
+								<a href="movies" class="btn watch-button">Đặt vé ngay</a>
 							</div>
 
 						</div>
@@ -434,9 +434,9 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián,Quận Thanh Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh Khê,TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
 									</ul>
 								</div>

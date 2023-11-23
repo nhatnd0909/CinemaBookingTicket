@@ -71,7 +71,7 @@
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Logout</a>
+							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
 				</div>
@@ -143,7 +143,7 @@
 			<div class="row100">
 				<div class="col">
 					<div class="submitbutton">
-						<button class="btn submitbtn" type="submit">Nộp</button>
+						<button class="btn submitbtn" type="submit">Gửi lời nhắn</button>
 					</div>
 				</div>
 			</div>

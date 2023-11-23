@@ -86,7 +86,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -121,7 +121,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -147,10 +147,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -308,19 +305,19 @@
 						<div class="card">
 							<div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Thêm Thứ Hạn</h4>
-                                    <p class="mb-0"><a href="/rankDashboard" style="text-decoration: none; color: inherit;"> Thứ Hạn</a> / <span>Thêm Mới</span></p>
+                                    <h4 class="card-title">Thêm Thứ Hạng</h4>
+                                    <p class="mb-0"><a href="/rankDashboard" style="text-decoration: none; color: inherit;"> Thứ Hạng</a> / <span>Thêm Mới</span></p>
                                 </div>
 								<form class="forms-sample" method="post" action="/rankDashboard/create">
 									<div class="form-group">
-										<label for="exampleInputName1">Thứ Hạn</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Rank" name="type" required="required">
+										<label for="exampleInputName1">Thứ Hạng</label> 
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Thứ Hạng" name="type" required="required">
 									</div>  
                                     <div class="form-group">
-										<label for="exampleInputName1">Giảm Giá</label> 
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Giảm Giá" name="discount" required="required">
+										<label for="exampleInputName1">Mức Giảm Giá</label> 
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Mức Giảm Giá" name="discount" required="required">
 									</div>                                                        
-									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
+									<button type="submit" class="btn btn-primary mr-2">Thêm mới</button>
 									<button class="btn btn-dark">Hủy</button>
 								</form>
 							</div>

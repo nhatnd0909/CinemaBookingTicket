@@ -57,14 +57,13 @@
 	<div class="container_signup_signin" id="container_signup_signin">
 		<form name="verify" action="verify" method="post"
 			onsubmit="return signUpValidateForm()">
-			<h2>Verify Email</h2>
-			<p>As an added security mesure, please enter the 6-character code
-				sent to your email.</p>
-			${mess} <input name="code" type="text" placeholder="Code" value="" />
+			<h2>Xác nhận Email</h2>
+			<p>Để tăng cường bảo mật, vui lòng nhập mã gồm 6 ký tự được gửi đến email của bạn.</p>
+			${mess} <input name="code" type="text" placeholder="Nhập mã" value="" />
 			<p>
-				<a href='#'>Resend Code</a>
+				<a href='#'>Gửi lại mã</a>
 			</p>
-			<button>Submit</button>
+			<button>Xác nhận</button>
 		</form>
 	</div>
 	<script type="text/javascript" src="assets/js/as-alert-message.min.js"></script>

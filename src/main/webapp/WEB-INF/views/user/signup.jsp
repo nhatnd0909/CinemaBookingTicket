@@ -60,7 +60,7 @@
 			<form name="sign-up-form" action="signup" method="post"
 				onsubmit="return signUpValidateForm()">
 
-				<h2>Create Account</h2>
+				<h2>Tạo tài khoản mới</h2>
 				<div class="social-container">
 					<a href="#" class="social"><i class="fab fa-facebook-f"></i></a> <a
 						href="#" class="social"><i class="fab fa-google-plus-g"></i></a> <a
@@ -69,7 +69,7 @@
 
 				<span style="font-size: 17px" class="text-danger">${mess}</span> 
 				<div class="form-group">
-					<input name="name" class="form-control" type="text" placeholder="Name" value="${name}" required="required" />
+					<input name="name" class="form-control" type="text" placeholder="Tên" value="${name}" required="required" />
 					<div class="invalid-feedback">Tên không được để trống</div>
 				  </div>
 				  <div class="form-group">
@@ -79,17 +79,17 @@
 				  <div class="form-group password-container" >
 					<input name="password" type="password"
 					  class="form-control"
-					  placeholder="Password"
+					  placeholder="Mật khẩu"
 					  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
 					  title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 ký tự đặc biệt"
 					  required="required" />
-					<div class="invalid-feedback">Password không được để trống</div>
+					<div class="invalid-feedback">Mật khẩu không được để trống</div>
 					<i class="toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
 				  </div>
 				  <div class="form-group password-container">
 					<input name="rePassword" type="password"
 					  class="form-control"
-					  placeholder="Re-Password"
+					  placeholder="Nhập lại mật khẩu"
 					  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
 					  title="Mật khẩu nhập lại phải khớp"
 					  required="required" />
@@ -104,8 +104,9 @@
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-left">
-					<h1>Chào Mừng Trở Lại!</h1>
-					<p>Để duy trì kết nối với chúng tôi, vui lòng đăng nhập với thông tin đăng nhập của bạn</p>
+					<h1>Chào mừng </h1>
+					<h1>trở lại!</h1>
+					<p>Đã có tài khoản? Đăng nhập và tiếp tục những trải nghiệm tuyệt vời của chúng tôi.</p>
 					<a href="/signin"><button class="ghost" id="signIn">Đăng nhập</button></a>
 					
 				</div>

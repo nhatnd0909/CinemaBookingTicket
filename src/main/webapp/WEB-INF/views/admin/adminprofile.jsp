@@ -54,8 +54,7 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                                 class="count bg-success"></span>
                         </div>
                         <div class="profile-name">
-                            <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                            <span>Gold Member</span>
+                            <h5 class="mb-0 font-weight-normal">Quản trị viên</h5>
                         </div>
                     </div>
                     <a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -70,8 +69,7 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                                 </div>
                             </div>
                             <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1 text-small">Account
-                                    settings</p>
+                                <p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
@@ -82,55 +80,12 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                                 </div>
                             </div>
                             <div class="preview-item-content">
-                                <p class="preview-subject ellipsis mb-1 text-small">Change
-                                    Password</p>
+                                <p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
                             </div>
                         </a>
                 </div>
             </li>
-            <li class="nav-item nav-category"><span class="nav-link">Navigation</span>
-            </li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/adminDashboard"> <span class="menu-icon"> <i
-                        class="mdi mdi-speedometer"></i>
-                </span> <span class="menu-title">Dashboard</span>
-            </a></li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/revenue"> <span class="menu-icon"> <i
-                        class="mdi mdi-cash-usd"></i>
-                </span> <span class="menu-title">Revenue Magagement</span>
-            </a></li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/movieDashboard"> <span class="menu-icon"> <i
-                        class="mdi mdi-playlist-play"></i>
-                </span> <span class="menu-title">Movie Management</span>
-            </a></li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/customerDashboard"> <span class="menu-icon"> <i
-                        class="mdi mdi-account-circle"></i>
-                </span> <span class="menu-title">Customer Management</span>
-            </a></li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/employeeDashboard"> <span class="menu-icon"> <i
-                        class="mdi mdi-account-circle"></i>
-                </span> <span class="menu-title">Employe Management</span>
-            </a></li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/theaterDashboard"> <span class="menu-icon"> <i
-                        class="mdi mdi-seal"></i>
-                </span> <span class="menu-title">Theater Management</span>
-            </a></li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/rankDashboard"> <span class="menu-icon"> <i
-                        class="mdi mdi-seal"></i>
-                </span> <span class="menu-title">Rank</span>
-            </a></li>
-            <li class="nav-item menu-items"><a class="nav-link"
-                href="/genreDashboard"> <span class="menu-icon"> <i
-                        class="mdi mdi-seal"></i>
-                </span> <span class="menu-title">Genre</span>
-            </a></li>
-        </ul>
+            
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -149,10 +104,7 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                 </button>
                 <ul class="navbar-nav w-100">
                     <li class="nav-item w-100">
-                        <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                            <input type="text" class="form-control"
-                                placeholder="Search products">
-                        </form>
+                        
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-nav-right">
@@ -262,8 +214,7 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                             <div class="navbar-profile">
                                 <img class="img-xs rounded-circle"
                                     src="/admin_assets/assets/images/faces/face15.jpg" alt="">
-                                <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry
-                                    Klein</p>
+                                <p class="mb-0 d-none d-sm-block navbar-profile-name">Quản trị viên</p>
                                 <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                             </div>
                     </a>
@@ -311,32 +262,32 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title">Profile</h4>
-                                <p class="mb-0"><a href="/adminDashboard" style="text-decoration: none; color: inherit;"> Dashboard</a> / <span>Profile</span></p>
+                                <h4 class="card-title">Hồ sơ</h4>
+                                <p class="mb-0"><a href="/adminDashboard" style="text-decoration: none; color: inherit;"> Bảng điều khiển</a> / <span>Hồ sơ</span></p>
                             </div>
                             <form class="forms-sample" method="post" action="">
                                 <div class="form-group">
-                                    <label for="exampleInputName1">User Name</label> 
-                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="User Name" name="type" required="required" value="">
+                                    <label for="exampleInputName1">Tên Tài Khoản</label> 
+                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Tên Tài Khoản" name="type" required="required" value="">
                                 </div>  
                                 <div class="form-group">
                                     <label for="exampleInputName1">Email</label> 
                                     <input type="text" class="form-control" id="exampleInputName1" placeholder="Email" name="type" required="required" value="">
                                 </div>  
                                 <div class="form-group">
-                                    <label for="exampleInputName1">Full Name</label> 
-                                    <input type="text" class="form-control" id="exampleInputName1"  placeholder="Full Name" name="type" required="required" value="">
+                                    <label for="exampleInputName1">Họ và tên</label> 
+                                    <input type="text" class="form-control" id="exampleInputName1"  placeholder="Họ và tên" name="type" required="required" value="">
                                 </div>  
                                 <div class="form-group">
-                                    <label for="exampleInputName1">Phone</label> 
-                                    <input type="text" class="form-control" id="exampleInputName1"  placeholder="Phone" name="type" required="required" value="">
+                                    <label for="exampleInputName1">Số điện thoại</label> 
+                                    <input type="text" class="form-control" id="exampleInputName1"  placeholder="Số điện thoại" name="type" required="required" value="">
                                 </div>  
                                 <div class="form-group">
-                                    <label for="exampleInputName1">Date of Birth</label> 
+                                    <label for="exampleInputName1">Ngày sinh</label> 
                                     <input type="date" class="form-control" id="exampleInputName1"  name="type" required="required" value="">
                                 </div>                                                       
-                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                <button class="btn btn-dark">Cancel</button>
+                                <button type="submit" class="btn btn-primary mr-2">Nộp</button>
+                                <button class="btn btn-dark">Hủy</button>
                             </form>
                         </div>
                     </div>

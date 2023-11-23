@@ -86,7 +86,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -121,7 +121,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -147,10 +147,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -313,22 +310,22 @@
                                 </div>
 								<form class="forms-sample" method="post" action="/theaterDashboard/create">
 									<div class="form-group">
-										<label for="nameInput">Tênl> 
-                                        <input type="text" class="form-control" id="nameInput" placeholder="Theater Name" name="name" required="required">
+										<label for="nameInput">Tên rạp</label> 
+                                        <input type="text" class="form-control" id="nameInput" placeholder="Tên rạp" name="name" required="required">
 									</div>  
                                     <div class="form-group">
-										<label for="addressInput">Địa Điểm</label> 
-                                        <input type="text" class="form-control" id="addressInput" placeholder="Theater's Address" name="address" required="required">
+										<label for="addressInput">Địa chỉ</label> 
+                                        <input type="text" class="form-control" id="addressInput" placeholder="Địa chỉ" name="address" required="required">
 									</div>
 									<div class="form-group">
-										<label for="numCinemaRoomInput">Số Phòng</label> 
-                                        <input type="text" class="form-control" id="numCinemaRoomInput" placeholder="Number of room" name="numCinemaRoom" required="required">
+										<label for="numCinemaRoomInput">Số phòng chiếu</label> 
+                                        <input type="text" class="form-control" id="numCinemaRoomInput" placeholder="Số phòng chiếu" name="numCinemaRoom" required="required">
 									</div>
 									<!-- <div class="form-group">
 										<label for="adminInput">Admin</label> 
                                         <input type="text" class="form-control" id="adminInput" placeholder="admin" name="admin" required="required">
 									</div> -->
-									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
+									<button type="submit" class="btn btn-primary mr-2">Thêm mới</button>
 									<button class="btn btn-dark">Hủy</button>
 								</form>
 							</div>

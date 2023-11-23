@@ -87,7 +87,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -122,7 +122,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -148,10 +148,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -331,14 +328,14 @@
 											minlength="1" maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Giám Đốc</label> <input
+										<label for="exampleInputName1">Đạo diễn</label> <input
 											type="text" class="form-control" id="exampleInputName1"
 											placeholder="Director" name="director"
 											value="${movie.director}" required minlength="1"
 											maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Thời Gian</label> <input
+										<label for="exampleInputName1">Thời Lượng</label> <input
 											type="number" class="form-control" id="exampleInputName1"
 											placeholder="Duration" name="duration"
 											value="${movie.duration}" />
@@ -364,13 +361,11 @@
 												id="fileInput" placeholder="Upload Image" name="image"
 												value="${movie.image}">
 										</div>
-										<p>
-											Chọn File: <span id="selectedFile">Không có file nào được chọn</span>
-										</p>
+										
 
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">Ngày Bắt Đầu</label> <input
+										<label for="exampleInputEmail3">Ngày Khởi Chiếu</label> <input
 											type="date" class="form-control" id="exampleInputEmail3"
 											name="startDate" value="${movie.startDate}">
 									</div>
@@ -380,7 +375,7 @@
 											name="endDate" value="${movie.endDate}">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">Doạn Giới Thiệu URL</label> <input
+										<label for="exampleInputEmail3">URL Trailer</label> <input
 											type="text" class="form-control" id="exampleInputEmail3"
 											placeholder="Trailer URL" name="urlTrailer"
 											value="${movie.urlTrailer}" required minlength="1"
@@ -390,7 +385,7 @@
 										<label for="exampleSelectGender">Trạng Thái</label> <select
 											class="form-control" id="exampleSelectGender" name="status"
 											value="${movie.status}">
-											<option value="On going">Hoạt Động</option>
+											<option value="On going">Đang Chiếu</option>
 											<option value="Coming soon">Sắp Ra Mắt</option>
 											<option value="Over">Không</option>
 										</select>
