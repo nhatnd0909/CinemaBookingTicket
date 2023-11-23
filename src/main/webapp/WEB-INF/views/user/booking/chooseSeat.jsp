@@ -61,7 +61,7 @@
 					</div>
                             ${loggedInAccount.getName()}
                             <div style="padding-left: 15px">
-						<a href="logout">Đăng Xuất</a>
+						<a href="logout">Logout</a>
 					</div>
 				</c:if>
 				<!-- toggle switch for light and dark theme -->
@@ -85,15 +85,15 @@
 		<div class="row">
 			<div class="col">
 				<div class="px-0 pt-4 pb-0 mt-3 mb-3">
-					<form id="form" method="post" action="submitOrder">
+					<form id="form" method="get" action="submitOrder">
 						<input name="showID" value="" hidden=""> <input
 							name="socid" type="text" value="" hidden="">
 
 						<ul id="progressbar" class="progressbar-class">
-							<li class="active" id="step1">Chọn Giờ Chiếu</li>
-							<li id="step2" class="not_active">Chọn Ghế Ngồi</li>
-							<li id="step3" class="not_active">Đồ Ăn và Đồ Uống</li>
-							<li id="step4" class="not_active">Xác Nhận</li>
+							<li class="active" id="step1">Show timing selection</li>
+							<li id="step2" class="not_active">Seat Selection</li>
+							<li id="step3" class="not_active">Concession Items</li>
+							<li id="step4" class="not_active">Confirm</li>
 
 						</ul>
 						<fieldset>
@@ -130,7 +130,8 @@
 										<div class="date-day" id="dayOfWeek5"></div>
 									</div>
 								</div>
-
+								<c:set var="movie" value="${sessionScope.movie}" />
+								<c:set var="theater" value="${sessionScope.theater}" />
 								<div class="show-currentDate">
 									<ul class="time-ul">
 										<c:forEach items="${listTRoom}" var="tRoom">
@@ -141,9 +142,11 @@
 													<c:forEach var="show" items="${listShowCurentDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<input type="button" class="screen-time selected"
+															<%-- 															<input type="button" class="screen-time selected"
 																onclick="timeFunction(event)" value="${show.startTime}">
-															<h5 style="display: none" id="showID">${show.showID}</h5>
+															<h5 style="display: none" id="showID">${show.showID}</h5> --%>
+															<a class="screen-time selected"
+																href="ticketBooking?movie=${movie}&theater=${theater}&roomID=${tRoom.roomID}&showID=${show.showID}">${show.startTime}</a>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -164,6 +167,7 @@
 															<input type="button" class="screen-time selected"
 																onclick="timeFunction(event)" value="${show.startTime}">
 															<h5 style="display: none" id="showID">${show.showID}</h5>
+
 														</c:if>
 													</c:forEach>
 												</div>
@@ -199,13 +203,13 @@
 										sau. Xin cám ơn!</b></h7>
 								</ul>
 							</div>
-							<input name="roomID" type="text">
-							<input id="screen-next-btn" type="button" name="next-step"
-								class="next-step" value="Tiếp tục" disabled />
+							<input name="roomID" type="text" value="1"> <input
+								id="screen-next-btn" type="button" name="next-step"
+								class="next-step" value="Continue Booking" disabled />
 						</fieldset>
 						<fieldset>
 							<div class="wrapper">
-								<h2>Chọn Ghế Ngồi</h2>
+								<h2>Seat Booking</h2>
 								<div class="theater">
 									<div class="wrapper-left-number">
 										<div class="row">
@@ -222,7 +226,7 @@
 										</div>
 									</div>
 									<div class="wrapper-left">
-										<div class="screen">MÀN HÌNH</div>
+										<div class="screen">SCREEN</div>
 
 										<div class="row content-row">
 											<div class="seat">A</div>
@@ -237,252 +241,109 @@
 											<div class="seat">J</div>
 										</div>
 
-										<!-- unavailable -->
+
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
 												<c:if
-													test="${seatOfCinema.seat.row eq 1 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
-												</c:if>
-											</c:forEach>
-										</div>
-										<div class="row">
-											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 2 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+													test="${seatOfCinema.seat.row eq 1 and seatOfCinema.theaterRoom.roomID eq 1}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h6 class="price-seat" id="seatPrice"
+														style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}
+													</h6>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 3 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+												<c:if test="${seatOfCinema.seat.row eq 2}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 4 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+												<c:if test="${seatOfCinema.seat.row eq 3}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 5 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+												<c:if test="${seatOfCinema.seat.row eq 4}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 6 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+												<c:if test="${seatOfCinema.seat.row eq 5}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 7 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+
+												<c:if test="${seatOfCinema.seat.row eq 6}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 8 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+
+												<c:if test="${seatOfCinema.seat.row eq 7}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 9 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+												<c:if test="${seatOfCinema.seat.row eq 8}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
 
 										<div class="row">
 											<c:forEach var="seatOfCinema" items="${listSOC}">
-												<c:if
-													test="${seatOfCinema.seat.row eq 10 and seatOfCinema.theaterRoom.roomID eq roomID}">
-													<c:choose>
-														<c:when
-															test="${listSeatOrder.contains(seatOfCinema.seat.name)}">
-															<!-- Seat is in the listSeatOrder -->
-															<div class="seat unavailable"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:when>
-														<c:otherwise>
-															<!-- Seat is not in the listSeatOrder -->
-															<div class="seat"
-																onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
-															<h6 class="price-seat" id="seatPrice"
-																style="display: none;">${seatOfCinema.seat.price.setScale(0, 3)}</h6>
-														</c:otherwise>
-													</c:choose>
+												<c:if test="${seatOfCinema.seat.row eq 9}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
+												</c:if>
+											</c:forEach>
+										</div>
+
+										<div class="row">
+											<c:forEach var="seatOfCinema" items="${listSOC}">
+												<c:if test="${seatOfCinema.seat.row eq 10}">
+													<div class="seat"
+														onclick="updateSocId('${seatOfCinema.socID}')">${seatOfCinema.seat.name}</div>
+													<h5 id="socID" style="display: none">${seatOfCinema.socID}</h5>
 												</c:if>
 											</c:forEach>
 										</div>
@@ -542,17 +403,17 @@
 							</div>
 
 							<br> <input type="button" name="next-step" class="next-step"
-								value="Đồ Ăn và Đồ Uống"> <input type="button"
+								value="Concession Items"> <input type="button"
 								name="previous-step" class="previous-step" value="Back" />
 						</fieldset>
 						<fieldset>
 							<table>
 								<tr>
-									<th>Hình ảnh</th>
-									<th>Tên</th>
-									<th>Đơn giá</th>
-									<th>Số lượng</th>
-									<th>Thành tiền</th>
+									<th>Image</th>
+									<th>Name</th>
+									<th>Unit Price</th>
+									<th>Quantity</th>
+									<th>Subtotal</th>
 								</tr>
 
 								<c:forEach items="${listService}" var="service" varStatus="loop">
@@ -583,7 +444,7 @@
 								Total money: <span id="total">0.00</span>
 							</div>
 							<br> <input type="button" name="next-step" class="next-step"
-								value="Tiếp tục Thanh Toán" /> <input type="button"
+								value="Proceed to Payment" /> <input type="button"
 								name="previous-step" class="previous-step" value="Back" />
 
 						</fieldset>
@@ -600,11 +461,11 @@
 									<div style="padding-top: 2%;">
 										<table>
 											<tr>
-												<th>Hình ảnh</th>
-												<th>Tên</th>
-												<th>Đơn giá</th>
-												<th>Số lượng</th>
-												<th>Thành tiền</th>
+												<th>Image</th>
+												<th>Name</th>
+												<th>Unit Price</th>
+												<th>Quantity</th>
+												<th>Subtotal</th>
 											</tr>
 										</table>
 									</div>
@@ -622,7 +483,7 @@
 								</div>
 							</div>
 							<input type="submit" name="submitPayment"
-								class="next-step pay-btn" value="Xác nhận Thanh toán" /> <input
+								class="next-step pay-btn" value="Confirm Payment" /> <input
 								type="button" name="previous-step" class="cancel-pay-btn"
 								value="Cancel Payment" onclick="location.href='home';" />
 						</fieldset>

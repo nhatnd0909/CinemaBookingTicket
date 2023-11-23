@@ -65,7 +65,7 @@
 					<!--/search-right-->
 					<div class="search-right">
 						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Search <span class="fa fa-search ml-3"
+							title="search">Tìm <span class="fa fa-search ml-3"
 							aria-hidden="true"></span></a>
 						<!-- search popup -->
 						<div id="search" class="pop-overlay">
@@ -208,7 +208,7 @@
 													<c:forEach items="${listTheater}" var="theater">
 														<button type="button" class="btn btn-primary"
 															data-bs-toggle="button"
-															onclick="location.href='ticketBooking?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
+															onclick="location.href='chooseseat?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
 													</c:forEach>
 												</div>
 											</div>

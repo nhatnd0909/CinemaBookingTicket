@@ -1,5 +1,6 @@
 package com.project.csm.service.customerService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,5 +59,16 @@ public class OrderService {
 				oRepository.delete(o);
 			}
 		}
+	}
+
+	public List<Order> getAllOrderByIDTicket(String idTicket) {
+		List<Order> list = getAllOrder();
+		List<Order> listReturn = new ArrayList<>();
+		for (Order o : list) {
+			if (o.getTicketID().equals(idTicket)) {
+				listReturn.add(o);
+			}
+		}
+		return listReturn;
 	}
 }

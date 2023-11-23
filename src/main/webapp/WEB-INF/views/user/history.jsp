@@ -57,10 +57,6 @@
 
 						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
-
-					<!--/search-right-->
-					<!--/search-right-->
-
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
@@ -186,139 +182,52 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">2</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">3</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">4</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">5</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">6</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
+												<c:forEach items="${listTicket}" var="ticket">
+													<tr>
+														<th scope="row">${ticket.ticketID}</th>
+														<td>${ticket.getShow().getMovie().getName()}</td>
+														<td>${ticket.getShow().getStartTime()}</td>
+														<td><script>
+															// Hàm để định dạng lại ngày
+															function formatDate(
+																	inputDate) {
+																var date = new Date(
+																		inputDate);
+																var formattedDate = date
+																		.toLocaleDateString('en-GB'); // Đặt ngôn ngữ theo yêu cầu của bạn
+																document
+																		.write(formattedDate);
+															}
 
-												<!--- table 2 -->
-												<tr>
-													<th scope="row">7</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">8</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">9</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">10</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">11</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">12</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
+															// Sử dụng hàm formatDate với giá trị từ JSP
+															var ticketDate = "${ticket.getShow().getDayTime()}";
+															formatDate(ticketDate);
+														</script></td>
+														<td style="text-align: center;"><a
+															href="history1?idTicket=${ticket.ticketID}">
+																<i class="fa fa-eye"></i>
+														</a></td>
+													</tr>
+												</c:forEach>
+
+
 											</tbody>
 										</table>
 										<nav aria-label="Page navigation example">
 											<ul class="pagination justify-content-end" id="pagination">
-												<li class="page-item disabled"><a class="page-link"
-													href="#" tabindex="-1">Trang trước</a></li>
-												<li class="page-item"><a class="page-link" href="#">1</a></li>
-												<li class="page-item"><a class="page-link" href="#">2</a></li>
-												<li class="page-item"><a class="page-link" href="#">3</a></li>
-												<li class="page-item"><a class="page-link" href="#">Trang sau</a>
-												</li>
+												<c:if test="${currentPage > 1}">
+													<li class="page-item"><a class="page-link" href="?page=${currentPage - 1}">Trang trước</a></li>
+												</c:if>
+												
+												<c:forEach begin="1" end="${totalPages}" varStatus="loop">
+													<li class="page-item ${loop.index == currentPage ? 'active' : ''}">
+														<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+													</li>
+												</c:forEach>
+										
+												<c:if test="${currentPage < totalPages}">
+													<li class="page-item"><a class="page-link" href="?page=${currentPage + 1}">Trang sau</a></li>
+												</c:if>
 											</ul>
 										</nav>
 									</div>
@@ -674,77 +583,6 @@
 		$("#imageUpload").change(function() {
 			readURL(this);
 		});
-	</script>
-	<script>
-		// Lấy tất cả các hàng trong tbody
-		var tableRows = document.querySelectorAll("tbody tr");
-		// Số bản ghi trên mỗi trang
-		var recordsPerPage = 6;
-		// Trang hiện tại, bắt đầu từ trang 1
-		var currentPage = 1;
-
-		// Hàm để hiển thị các hàng trên trang hiện tại
-		function displayCurrentPageRows() {
-			var start = (currentPage - 1) * recordsPerPage;
-			var end = start + recordsPerPage;
-
-			for (var i = 0; i < tableRows.length; i++) {
-				if (i >= start && i < end) {
-					tableRows[i].style.display = "table-row";
-				} else {
-					tableRows[i].style.display = "none";
-				}
-			}
-		}
-
-		// Hiển thị trang đầu tiên khi trang web được nạp
-		displayCurrentPageRows();
-
-		// Xử lý sự kiện khi nhấp vào nút "Next"
-		document.querySelector(".pagination .page-item:last-child .page-link")
-				.addEventListener(
-						"click",
-						function() {
-							if (currentPage < Math.ceil(tableRows.length
-									/ recordsPerPage)) {
-								currentPage++;
-								displayCurrentPageRows();
-							}
-							updatePaginationState();
-						});
-
-		// Xử lý sự kiện khi nhấp vào nút "Previous"
-		document.querySelector(".pagination .page-item:first-child .page-link")
-				.addEventListener("click", function() {
-					if (currentPage > 1) {
-						currentPage--;
-						displayCurrentPageRows();
-					}
-					updatePaginationState();
-				});
-
-		// Cập nhật trạng thái của nút "Next" và "Previous"
-		function updatePaginationState() {
-			var nextButton = document
-					.querySelector(".pagination .page-item:last-child");
-			var prevButton = document
-					.querySelector(".pagination .page-item:first-child");
-
-			if (currentPage === 1) {
-				prevButton.classList.add("disabled");
-			} else {
-				prevButton.classList.remove("disabled");
-			}
-
-			if (currentPage === Math.ceil(tableRows.length / recordsPerPage)) {
-				nextButton.classList.add("disabled");
-			} else {
-				nextButton.classList.remove("disabled");
-			}
-		}
-
-		// Khởi đầu cập nhật trạng thái của nút "Previous"
-		updatePaginationState();
 	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>

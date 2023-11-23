@@ -113,29 +113,61 @@
 										<div class="card card-style1 border-0">
 											<div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
 												<div class="row align-items-center">
-													<div class="col-lg-6 mb-4 mb-lg-0">
+													<div class="col-lg-5 mb-4 mb-lg-0">
 														<img
-															src="https://metiz.vn/media/poster_film/bi_t_i_nh_thu_4.jpg"
+															src="assets/images/${ticket.getShow().getMovie().getImage()}"
 															alt="..." width="240px">
 													</div>
-													<div class="col-lg-6 px-xl-10">
+													<div class="col-lg-7 px-xl-10">
 														<div class="title-container">
-															<h3 class="title-text">BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</h3>
+															<h3 class="title-text">${ticket.getShow().getMovie().getName()}</h3>
 														</div>
 														<ul class="list-unstyled mb-1-9">
 															<li class="mb-2 mb-xl-3 display-28"><span
+																class="display-26 text-secondary me-2 font-weight-600">Phòng
+																	chiếu:</span>
+																${ticket.getShow().getTheaterRoom().getTheater().getName()}
+																- ${ticket.getShow().getTheaterRoom().getName()}</li>
+															<li class="mb-2 mb-xl-3 display-28"><span
 																class="display-26 text-secondary me-2 font-weight-600">Giờ
-																	Chiếu:</span> 20:00 - 21:30</li>
+																	Chiếu:</span> ${ticket.getShow().getStartTime()} -
+																${ticket.getShow().getEndTime()}</li>
 															<li class="mb-2 mb-xl-3 display-28"><span
 																class="display-26 text-secondary me-2 font-weight-600">Ngày
-																	đặt:</span> 05/10/2023</li>
+																	Chiếu:</span> <script>
+																		// Hàm để định dạng lại ngày
+																		function formatDate(
+																				inputDate) {
+																			var date = new Date(
+																					inputDate);
+																			var formattedDate = date
+																					.toLocaleDateString('en-GB'); // Đặt ngôn ngữ theo yêu cầu của bạn
+																			document
+																					.write(formattedDate);
+																		}
+
+																		// Sử dụng hàm formatDate với giá trị từ JSP
+																		var ticketDate = "${ticket.getShow().getDayTime()}";
+																		formatDate(ticketDate);
+																	</script></li>
+
 															<li class="mb-2 mb-xl-3 display-28"><span
-																class="display-26 text-secondary me-2 font-weight-600">Số
-																	lượng:</span> 01</li>
+																class="display-26 text-secondary me-2 font-weight-600">Ghế</span>
+																${ticket.getListSeat()}</li>
 															<li class="mb-2 mb-xl-3 display-28"><span
 																class="display-26 text-secondary me-2 font-weight-600">Thời
-																	lượng:</span> 90 phút</li>
+																	lượng:</span> ${ticket.getShow().getMovie().getDuration()}
+																phút</li>
+															<li class="mb-2 mb-xl-3 display-28"><span
+																class="display-26 text-secondary me-2 font-weight-600">Dịch
+																	vụ</span></li>
+															<c:forEach items="${listOder}" var="order">
+																<li class="mb-2 mb-xl-3 display-28">
+																	${order.getAmount()} ${order.getService().getName()}
+																	size ${order.getService().getSize()}</li>
+															</c:forEach>
 														</ul>
+
 														<ul class="social-icon-style1 list-unstyled mb-0 ps-0">
 															<li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
 															<li><a href="#!"><i class="ti-facebook"></i></a></li>

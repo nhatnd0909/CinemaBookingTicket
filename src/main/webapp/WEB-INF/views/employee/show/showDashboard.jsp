@@ -62,9 +62,8 @@
 	color: #000;
 }
 
-.dropdown-content {
-	
-	text-align: center; /* Canh giữa nội dung */
+.day {
+	margin-left: 37px;
 }
 
 .dropdown-content a {
@@ -391,60 +390,84 @@
 
 										<div class="dropdown-content">
 											<div class="day">
-												<a href="#" class="active" id="hom-nay">Hôm nay</a> 
-									<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
-												<a href="#" id="ngay-mot">Ngày mốt</a> -->
-											</div>
-
-											<div class="time" >
-												<div class="time-slot">
-													<a href="/employee/show/detail?start=07:00:00&end=10:00:00&date=0&roomID=${theaterRoom.roomID}" style="padding: 10px 31px">7:00 - 10:00</a> 
-													<a href="/employee/show/detail?start=10:00:00&end=13:00:00&date=0&roomID=${theaterRoom.roomID}" style="padding: 10px 26px">10:00 - 13:00</a> 
-													<a href="/employee/show/detail?start=13:00:00&end=16:00:00&date=0&roomID=${theaterRoom.roomID}" style="padding: 10px 21px">13:00 - 16:00</a>
-												</div>
-												
-												<div class="time-slot">
-													<a href="/employee/show/detail?start=16:00:00&end=18:00:00&date=0&roomID=${theaterRoom.roomID}">16:00 - 18:00</a> 
-													<a href="/employee/show/detail?start=18:00:00&end=20:00:00&date=0&roomID=${theaterRoom.roomID}">18:00 - 20:00</a> 
-													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=0&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
-												</div>
-											</div>
-											
-											<div class="day">
-												<a href="#" class="active" id="hom-nay">Ngày mai</a> 
-									<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
+												<a href="#" class="active" id="hom-nay">Hôm nay</a>
+												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
 												<a href="#" id="ngay-mot">Ngày mốt</a> -->
 											</div>
 
 											<div class="time">
 												<div class="time-slot">
-													<a href="/employee/show/detail?start=07:00:00&end=10:00:00&date=1&roomID=${theaterRoom.roomID}" style="padding: 10px 31px">7:00 - 10:00</a> 
-													<a href="/employee/show/detail?start=10:00:00&end=13:00:00&date=1&roomID=${theaterRoom.roomID}" style="padding: 10px 26px">10:00 - 13:00</a> 
-													<a href="/employee/show/detail?start=13:00:00&end=16:00:00&date=1&roomID=${theaterRoom.roomID}" style="padding: 10px 21px">13:00 - 16:00</a>
+													<a
+														href="/employee/show/detail?start=07:00:00&end=10:00:00&date=0&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 31px">7:00 - 10:00</a> <a
+														href="/employee/show/detail?start=10:00:00&end=13:00:00&date=0&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 26px">10:00 - 13:00</a> <a
+														href="/employee/show/detail?start=13:00:00&end=16:00:00&date=0&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 21px">13:00 - 16:00</a>
 												</div>
+
 												<div class="time-slot">
-													<a href="/employee/show/detail?start=16:00:00&end=18:00:00&date=1&roomID=${theaterRoom.roomID}">16:00 - 18:00</a> 
-													<a href="/employee/show/detail?start=18:00:00&end=20:00:00&date=1&roomID=${theaterRoom.roomID}">18:00 - 20:00</a>
-													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=1&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
+													<a
+														href="/employee/show/detail?start=16:00:00&end=18:00:00&date=0&roomID=${theaterRoom.roomID}">16:00
+														- 18:00</a> <a
+														href="/employee/show/detail?start=18:00:00&end=20:00:00&date=0&roomID=${theaterRoom.roomID}">18:00
+														- 20:00</a> <a
+														href="/employee/show/detail?start=20:00:00&end=22:00:00&date=0&roomID=${theaterRoom.roomID}">20:00
+														- 22:00</a>
 												</div>
 											</div>
-											
+
 											<div class="day">
-												<a href="#" class="active" id="hom-nay">Ngày mốt</a> 
-									<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
+												<a href="#" class="active" id="hom-nay">Ngày mai</a>
+												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
 												<a href="#" id="ngay-mot">Ngày mốt</a> -->
 											</div>
 
 											<div class="time">
 												<div class="time-slot">
-													<a href="/employee/show/detail?start=07:00:00&end=10:00:00&date=2&roomID=${theaterRoom.roomID}" style="padding: 10px 31px">7:00 - 10:00</a> 
-													<a href="/employee/show/detail?start=10:00:00&end=13:00:00&date=2&roomID=${theaterRoom.roomID}" style="padding: 10px 26px">10:00 - 13:00</a> 
-													<a href="/employee/show/detail?start=13:00:00&end=16:00:00&date=2&roomID=${theaterRoom.roomID}" style="padding: 10px 21px">13:00 - 16:00</a>
+													<a
+														href="/employee/show/detail?start=07:00:00&end=10:00:00&date=1&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 31px">7:00 - 10:00</a> <a
+														href="/employee/show/detail?start=10:00:00&end=13:00:00&date=1&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 26px">10:00 - 13:00</a> <a
+														href="/employee/show/detail?start=13:00:00&end=16:00:00&date=1&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 21px">13:00 - 16:00</a>
 												</div>
 												<div class="time-slot">
-													<a href="/employee/show/detail?start=16:00:00&end=18:00:00&date=2&roomID=${theaterRoom.roomID}"">16:00 - 18:00</a> 
-													<a href="/employee/show/detail?start=18:00:00&end=20:00:00&date=2&roomID=${theaterRoom.roomID}"">18:00 - 20:00</a>
-													<a href="/employee/show/detail?start=20:00:00&end=22:00:00&date=2&roomID=${theaterRoom.roomID}">20:00 - 22:00</a>
+													<a
+														href="/employee/show/detail?start=16:00:00&end=18:00:00&date=1&roomID=${theaterRoom.roomID}">16:00
+														- 18:00</a> <a
+														href="/employee/show/detail?start=18:00:00&end=20:00:00&date=1&roomID=${theaterRoom.roomID}">18:00
+														- 20:00</a> <a
+														href="/employee/show/detail?start=20:00:00&end=22:00:00&date=1&roomID=${theaterRoom.roomID}">20:00
+														- 22:00</a>
+												</div>
+											</div>
+
+											<div class="day">
+												<a href="#" class="active" id="hom-nay">Ngày mốt</a>
+												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
+												<a href="#" id="ngay-mot">Ngày mốt</a> -->
+											</div>
+
+											<div class="time">
+												<div class="time-slot">
+													<a
+														href="/employee/show/detail?start=07:00:00&end=10:00:00&date=2&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 31px">7:00 - 10:00</a> <a
+														href="/employee/show/detail?start=10:00:00&end=13:00:00&date=2&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 26px">10:00 - 13:00</a> <a
+														href="/employee/show/detail?start=13:00:00&end=16:00:00&date=2&roomID=${theaterRoom.roomID}"
+														style="padding: 10px 21px">13:00 - 16:00</a>
+												</div>
+												<div class="time-slot">
+													<a
+														href="/employee/show/detail?start=16:00:00&end=18:00:00&date=2&roomID=${theaterRoom.roomID}"">16:00
+														- 18:00</a> <a
+														href="/employee/show/detail?start=18:00:00&end=20:00:00&date=2&roomID=${theaterRoom.roomID}"">18:00
+														- 20:00</a> <a
+														href="/employee/show/detail?start=20:00:00&end=22:00:00&date=2&roomID=${theaterRoom.roomID}">20:00
+														- 22:00</a>
 												</div>
 											</div>
 										</div>
@@ -488,6 +511,34 @@
 		<!-- Custom js for this page -->
 		<script src="/admin_assets/assets/js/dashboard.js"></script>
 		<!-- End custom js for this page -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var dropdownIcons = document
+						.querySelectorAll('.fas.fa-chevron-down');
+
+				dropdownIcons.forEach(function(icon) {
+					icon.addEventListener('click', function() {
+						var cardBody = this.closest('.card-body');
+						var dropdownContent = cardBody
+								.querySelector('.dropdown-content');
+
+						// Toggle the visibility of the dropdown content
+						if (dropdownContent.style.display === 'none'
+								|| dropdownContent.style.display === '') {
+							dropdownContent.style.display = 'block';
+						} else {
+							dropdownContent.style.display = 'none';
+						}
+					});
+
+					// Initially hide the dropdown content for all rooms
+					var cardBody = icon.closest('.card-body');
+					var dropdownContent = cardBody
+							.querySelector('.dropdown-content');
+					dropdownContent.style.display = 'none';
+				});
+			});
+		</script>
 </body>
 
 </html>
@@ -523,79 +574,3 @@
 			});
 		});
 	});
-	/* 	Xử lí suất chiếu */
-
-	/* document.addEventListener('DOMContentLoaded', function() {
-	 var links = document.querySelectorAll('.dropdown-content a');
-
-	 links.forEach(function(link) {
-	 link.addEventListener('click', function(event) {
-	 event.preventDefault(); // Prevent the default behavior of the link
-
-	 // Loại bỏ màu xanh từ tất cả các links
-	 links.forEach(function(link) {
-	 link.classList.remove('active');
-	 });
-
-	 // Thêm màu xanh cho link đã được click
-	 this.classList.add('active');
-
-	 // Lấy ID của link đã click
-	 var clickedId = this.getAttribute('id');
-
-	 // Ẩn tất cả các khoảng thời gian
-	 var allTimeSlots = document.querySelectorAll('.time');
-	 allTimeSlots.forEach(function(timeSlot) {
-	 timeSlot.style.display = 'none';
-	 });
-
-	 // Hiển thị khoảng thời gian tương ứng với ngày đã click
-	 var correspondingTimeSlot = document.getElementById(clickedId + '-time');
-	 correspondingTimeSlot.style.display = 'block';
-	 });
-	 });
-
-	 // Ẩn tất cả các khoảng thời gian khi trang được tải lần đầu tiên
-	 var allTimeSlots = document.querySelectorAll('.time');
-	 allTimeSlots.forEach(function(timeSlot) {
-	 timeSlot.style.display = 'none';
-	 });
-	 }); */
-	/* document.addEventListener("DOMContentLoaded", function() {
-		// Lấy ra các phần tử cần điều khiển
-		var homNayTime = document.getElementById("hom-nay-time");
-		var ngayMaiTime = document.getElementById("ngay-mai-time");
-		var ngayMotTime = document.getElementById("ngay-mot-time");
-		var homNayLink = document.getElementById("hom-nay");
-		var ngayMaiLink = document.getElementById("ngay-mai");
-		var ngayMotLink = document.getElementById("ngay-mot");
-
-		 Hàm ẩn tất cả các phần tử time
-		function hideAllTimes() {
-			homNayTime.style.display = "none";
-			ngayMaiTime.style.display = "none";
-			ngayMotTime.style.display = "none";
-		}
-
-		// Sự kiện click vào ngày hôm nay
-		homNayLink.addEventListener("click", function(event) {
-			event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ a
-			hideAllTimes();
-			homNayTime.style.display = "block";
-		});
-
-		// Sự kiện click vào ngày mai
-		ngayMaiLink.addEventListener("click", function(event) {
-			event.preventDefault();
-			hideAllTimes();
-			ngayMaiTime.style.display = "block";
-		});
-
-		// Sự kiện click vào ngày mốt
-		ngayMotLink.addEventListener("click", function(event) {
-			event.preventDefault();
-			hideAllTimes();
-			ngayMotTime.style.display = "block";
-		});
-	}); */
-</script>
