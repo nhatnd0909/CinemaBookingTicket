@@ -94,7 +94,7 @@
 							<li id="step2" class="not_active">Chọn Ghế Ngồi</li>
 							<li id="step3" class="not_active">Đồ Ăn và Đồ Uống</li>
 							<li id="step4" class="not_active">Xác Nhận</li>
-
+              <li id="step5" class="not_active">Thanh Toán</li>
 						</ul>
 						<fieldset>
 							<div id="screen-select-div">

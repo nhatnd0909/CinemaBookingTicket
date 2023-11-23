@@ -102,6 +102,18 @@ public class employeeShowMovie {
 		return listReturn;
 	}
 
+	public List<Show> getAllShowByTheaterDate(String date, String theater) throws ParseException {
+		List<Show> listShow = getAllShows();
+		List<Show> listReturn = new ArrayList<>();
+		for (Show s : listShow) {
+			Date dateCheck = parseDateString(date);
+			if (s.getDayTime().compareTo(dateCheck) == 0 && s.getEmployee().getTheater().getName().equals(theater)) {
+				listReturn.add(s);
+			}
+		}
+		return listReturn;
+	}
+
 	public Show getShowById(Long showID) {
 		List<Show> list = getAllShows();
 		for (Show s : list) {
