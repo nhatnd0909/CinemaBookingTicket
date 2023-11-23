@@ -60,9 +60,6 @@ public class ViewScheduleMovieController {
 		model.addAttribute("listShowCurentDate", listShowCurentDate);
 		model.addAttribute("listShowTomorowDate", listShowTomorowDate);
 		model.addAttribute("listShowNextDate", listShowNextDate);
-		for(Show s:listShowCurentDate) {
-			s.
-		}
 		return "/user/viewScheduleMovie";
 	}
 }

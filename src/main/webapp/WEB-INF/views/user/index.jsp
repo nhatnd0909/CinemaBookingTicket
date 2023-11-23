@@ -250,7 +250,7 @@ a.btn.dropdown-toggle:hover {
 					<c:forEach items="${popularMovies}" var="movie">
 						<div class="item vhny-grid">
 							<div class="box16">
-								<a href="movies">
+								<a href="details?name=${movie.name}">
 									<figure>
 										<img class="img-fluid" src="assets/images/${movie.image}"
 											alt="" style="height: 350px">
