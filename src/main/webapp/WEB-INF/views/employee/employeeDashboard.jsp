@@ -27,10 +27,23 @@
 <!-- inject:css -->
 <!-- endinject -->
 <!-- Layout styles -->
+<link rel="stylesheet" href="assets/css/style-starter.css">
+
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
+<style>
+.icon-log{
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+    padding-right: 5px;
+    }
+  .navbar-brand{
+  	color : #fff;
+  }
+</style>
 <style>
 .icon-log{
     font-size: 26px;
@@ -49,9 +62,9 @@
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
 				<a class="navbar-brand" href="#"><span
-					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> <a
-					class="sidebar-brand brand-logo-mini" href="/employee/Dashboard"><img
-					src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
 				<li class="nav-item profile">
