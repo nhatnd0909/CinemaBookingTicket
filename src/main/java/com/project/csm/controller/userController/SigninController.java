@@ -14,10 +14,12 @@ import com.project.csm.model.Admin;
 import com.project.csm.model.Customer;
 import com.project.csm.model.Employee;
 import com.project.csm.model.Movie;
+import com.project.csm.model.Theater;
 import com.project.csm.service.adminService.AdminService;
 import com.project.csm.service.customerService.AccountService;
 import com.project.csm.service.customerService.CustomerService;
 import com.project.csm.service.customerService.MovieService;
+import com.project.csm.service.customerService.TheaterService;
 import com.project.csm.service.employeeService.EmployeeService;
 
 import jakarta.servlet.http.HttpSession;
@@ -34,6 +36,8 @@ public class SigninController {
 	private EmployeeService employeeService;
 	@Autowired
 	private AdminService adminService;
+	@Autowired
+	private TheaterService theaterService;
 
 	@GetMapping("/signin")
 	public String showSignin(Model model) {
@@ -87,6 +91,8 @@ public class SigninController {
 		List<Movie> allMovies = movieService.getAllMovie();
 		model.addAttribute("allMovies", allMovies);
 
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
 		return "/user/index";
 	}
 
