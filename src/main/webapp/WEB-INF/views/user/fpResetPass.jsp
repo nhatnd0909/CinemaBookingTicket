@@ -57,13 +57,13 @@
 	<div class="container_signup_signin" id="container_signup_signin">
 		<form name="verify" action=ressetpass method="post"
 			onsubmit="return signUpValidateForm()">
-			<h2>Reset Password</h2>
-			<p>Reset Your Password</p>
+			<h2>Đặt Lại Mật Khẩu</h2>
+			<p>Đặt Lại Mật Khẩu của bạn</p>
 			${mess} 
 			<input name="email" type="text" value="${email}" readonly="readonly"/>
 			<input name="pass" type="password" placeholder="Enter New Password" value="" />
 			<input name="rePass" type="password" placeholder="Re Enter Password" value="" />
-			<button>Submit</button>
+			<button>Xác nhận</button>
 		</form>
 	</div>
 	<script type="text/javascript" src="assets/js/as-alert-message.min.js"></script>

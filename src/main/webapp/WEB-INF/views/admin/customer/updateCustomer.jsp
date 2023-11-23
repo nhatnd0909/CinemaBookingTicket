@@ -86,7 +86,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -121,7 +121,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -147,10 +147,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -334,7 +331,7 @@
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Full Name" name="name"  value="${customer.name}">
 									</div>
                                     <div class="form-group">
-										<label for="exampleInputName1">Địa Điểm</label> 
+										<label for="exampleInputName1">Địa Chỉ</label> 
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="address"  value="${customer.address}">
 									</div>
 									<div class="form-group">
@@ -348,9 +345,9 @@
                                         <input type="text" class="form-control" id="exampleInputName1" placeholder="Phone" name="phoneNumber"  value="${customer.phoneNumber}">
 									</div>
 									<div class="form-group">
-										<label for="allRanks">Chọn Một Thứ Hạn Khác</label>
+										<label for="allRanks">Chọn Một Thứ Hạng Khác</label>
 										<select class="form-control" id="allRanks" name="rankId">
-											<option value="">Chọn Thứ Hạn</option>
+											<option value="">Chọn Thứ Hạng</option>
 											<c:forEach items="${ranks}" var="rank">
 												<option value="${rank.rankID}">${rank.type}</option>
 											</c:forEach>

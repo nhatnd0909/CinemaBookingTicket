@@ -31,12 +31,12 @@
 			<div class="container">
 				<h1>
 					<a class="navbar-brand" href="home"><span
-						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a>
+						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz </a>
 				</h1>
 				<!-- if logo is image enable this   
-						<a class="navbar-brand" href="#home">
-							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-						</a> -->
+							<a class="navbar-brand" href="#home">
+								<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+							</a> -->
 				<button class="navbar-toggler collapsed" type="button"
 					data-toggle="collapse" data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,14 +48,14 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
+						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">About</a>
+						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
 
+						<li class="nav-item active"><a class="nav-link" href="about">Thông Tin</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
@@ -76,7 +76,7 @@
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Logout</a>
+							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
 				</div>
@@ -139,7 +139,7 @@
 														<path
 															d="M10 0.001C4.478 0.001 0 4.478 0 10s4.478 9.999 10 9.999c5.523 0 10 -4.477 10 -9.999S15.523 0.001 10 0.001zm0 2.99a3.308 3.308 0 1 1 0.001 6.615A3.308 3.308 0 0 1 10 2.991zm-0.003 14.395a7.339 7.339 0 0 1 -4.779 -1.763 1.409 1.409 0 0 1 -0.495 -1.072A3.336 3.336 0 0 1 8.075 11.217h3.848a3.331 3.331 0 0 1 3.347 3.335 1.406 1.406 0 0 1 -0.494 1.071 7.337 7.337 0 0 1 -4.779 1.763z" /></g></svg>
 													<a href="profileUser" class="text-muted font-size-sm">
-														Profile</a>
+														Hồ sơ</a>
 												</h6>
 											</li>
 											<li
@@ -160,7 +160,7 @@
 															stroke-width="0.12" stroke-linecap="round"
 															stroke-linejoin="round" />
 												</svg>
-													<a href="#" class="text-muted font-size-sm"> History</a>
+													<a href="#" class="text-muted font-size-sm"> Lịch sử đặt vé</a>
 												</h6>
 											</li>
 										</ul>
@@ -177,8 +177,8 @@
 													<th scope="col">#</th>
 													<th scope="col">Tên Phim</th>
 													<th scope="col">Giờ Chiếu</th>
-													<th scope="col">Ngày Chiếu</th>
-													<th scope="col">Action</th>
+													<th scope="col">Ngày đặt</th>
+													<th scope="col">Xem vé</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -216,7 +216,7 @@
 										<nav aria-label="Page navigation example">
 											<ul class="pagination justify-content-end" id="pagination">
 												<c:if test="${currentPage > 1}">
-													<li class="page-item"><a class="page-link" href="?page=${currentPage - 1}">Trước</a></li>
+													<li class="page-item"><a class="page-link" href="?page=${currentPage - 1}">Trang trước</a></li>
 												</c:if>
 												
 												<c:forEach begin="1" end="${totalPages}" varStatus="loop">
@@ -226,7 +226,7 @@
 												</c:forEach>
 										
 												<c:if test="${currentPage < totalPages}">
-													<li class="page-item"><a class="page-link" href="?page=${currentPage + 1}">Tiếp</a></li>
+													<li class="page-item"><a class="page-link" href="?page=${currentPage + 1}">Trang sau</a></li>
 												</c:if>
 											</ul>
 										</nav>

@@ -629,7 +629,7 @@
 									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
-											placeholder="Your Email Address" required="">
+											placeholder="Nhập email của bạn tại đây" required="">
 										<button>
 											<span class="fa fa-envelope-o"></span>
 										</button>

@@ -78,7 +78,7 @@
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Logout</a>
+							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
 				</div>
@@ -117,7 +117,7 @@
 				</div>
 				<div class="col-lg-6 ab-left pl-lg-4 mt-lg-0 mt-5">
 					<h3 class="hny-title">My Showz Entertainment</h3>
-					<p class="mt-3">- Nơi Kết Nối Niềm Đam Mê và Sáng Tạo! Chúng tôi là một công ty giải trí phim với sứ mệnh mang đến cho khán giả những trải nghiệm giải trí không giới hạn. 
+					<p class="mt-3"> Nơi Kết Nối Niềm Đam Mê và Sáng Tạo! Chúng tôi là một công ty giải trí phim với sứ mệnh mang đến cho khán giả những trải nghiệm giải trí không giới hạn. 
 					Với đội ngũ 7 thành viên tài năng và đam mê về phim ảnh, nghệ thuật và việc tạo ra những câu chuyện đáng nhớ luôn nằm trong trái tim mọi dự án.</p>
 					
 				</div>
@@ -137,7 +137,7 @@
 					<div class="counter_grid">
 						<div class="icon_info">
 							<p class="counter">165</p>
-							<h4>Shows</h4>
+							<h4>Lượt Trình Chiếu</h4>
 
 						</div>
 					</div>
@@ -155,7 +155,7 @@
 					<div class="counter_grid">
 						<div class="icon_info">
 							<p class="counter">5063</p>
-							<h4>No. of Users</h4>
+							<h4>Khách Hàng</h4>
 
 						</div>
 					</div>
@@ -169,7 +169,7 @@
 	<!-- Image Slider for MEET US Section-->
 	<div class="swiper-container"
 		style="background-color: var(--theme-bg);">
-		<h1 id="swiper-container-h1">Meet Our Team</h1>
+		<h1 id="swiper-container-h1">Đội Ngũ Thành Lập</h1>
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<div class="imgBx">
@@ -356,9 +356,9 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián,Quận Thanh Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh Khê,TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
 									</ul>
 								</div>
@@ -366,7 +366,7 @@
 									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
-											placeholder="Your Email Address" required="">
+											placeholder="Nhập email của bạn tại đây" required="">
 										<button>
 											<span class="fa fa-envelope-o"></span>
 										</button>
@@ -431,6 +431,8 @@
 
 		</section>
 	</footer>
+	
+	
 	<script src="assets/js/jquery-3.3.1.min.js"></script>
 	<!-- stats -->
 	<script src="assets/js/jquery.waypoints.min.js"></script>

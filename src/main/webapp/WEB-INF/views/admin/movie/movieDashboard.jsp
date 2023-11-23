@@ -134,7 +134,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
             </div>
           </li>
           <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+            <span class="nav-link">Chuyển hướng</span>
           </li>
           <li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -169,7 +169,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -201,13 +201,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
             </button>
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search products"
-                  />
-                </form>
+                
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
@@ -411,7 +405,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                           <tr>
                             <th>Tên Phim</th>
                             <!-- <th>Movie No</th> -->
-                            <th>Ngày Bắt Đầu</th>
+                            <th>Ngày Khởi Chiếu</th>
                             <th>Ngày Kết Thúc</th>
                             <th>Trạng Thái</th>
                           </tr>

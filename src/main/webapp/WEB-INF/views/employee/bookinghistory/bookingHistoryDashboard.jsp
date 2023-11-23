@@ -85,7 +85,7 @@
 						</div>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 
 				<li class="nav-item menu-items"><a class="nav-link"
@@ -101,12 +101,12 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/show"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Chương Trình</span>
+					</span> <span class="menu-title">Lịch chiếu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/bookinghistory"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">Lịch Sử Đặt </span>
+					</span> <span class="menu-title">Lịch Sử Đặt Vé </span>
 				</a></li>
 			</ul>
 		</nav>
@@ -127,10 +127,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">

@@ -24,19 +24,19 @@
 
 <body>
 	<div class="content">
-		<h2>Seat Booking</h2>
+		<h2>Đặt Chỗ ngồi</h2>
 		<div class="main">
 			<div class="demo">
 				<div id="seat-map">
-					<div class="front">SCREEN</div>
+					<div class="front">MÀN HÌNH</div>
 				</div>
 				<div class="booking-details">
 					<ul class="book-left">
-						<li>Movie</li>
-						<li>Time</li>
-						<li>Tickets</li>
-						<li>Total</li>
-						<li>Selected Seats</li>
+						<li>Tên Phim</li>
+						<li>Giờ chiếu</li>
+						<li>Vé</li>
+						<li>Tổng</li>
+						<li>Ghế đã chọn</li>
 					</ul>
 					<ul class="book-right">
 						<li>: Commando 3</li>
