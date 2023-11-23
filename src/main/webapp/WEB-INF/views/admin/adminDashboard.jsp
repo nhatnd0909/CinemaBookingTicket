@@ -51,8 +51,7 @@
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
 				<a class="navbar-brand" href="#"><span
 					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
-					<a
-					class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
 					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
