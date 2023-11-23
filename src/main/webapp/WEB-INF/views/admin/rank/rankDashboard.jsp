@@ -23,6 +23,7 @@
 	href="admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+<link rel="stylesheet" href="assets/css/style-starter.css">
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
@@ -34,15 +35,26 @@
 <link rel="shortcut icon" href="admin_assets/assets/images/favicon.png" />
 </head>
 
+<style>
+.icon-log{
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+    padding-right: 5px;
+    }
+  .navbar-brand{
+  	color : #fff;
+  }
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-				<a class="sidebar-brand brand-logo" href="adminDashboard.html"><img
-					src="admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
-					class="sidebar-brand brand-logo-mini" href="adminDashboard.html"><img
+				<a class="navbar-brand" href="#"><span
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
 					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
@@ -87,7 +99,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -122,7 +134,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -148,10 +160,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -311,7 +320,7 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="d-flex justify-content-between align-items-center">
-										<h4 class="card-title">Quản Lý Thứ Hạn</h4>
+										<h4 class="card-title">Quản Lý Thứ Hạng</h4>
 										<div class="mb-0 icon icon-box-success">
 											<a href="/rankDashboard/create" style="text-decoration: none; color: inherit;" > 
 												<span class="mdi mdi-library-plus"></span>
@@ -322,8 +331,8 @@
 										<table class="table">
 											<thead>
 												<tr>
-													<th>Thứ Hạn</th>
-													<th>Giảm Giá</th>
+													<th>Thứ Hạng</th>
+													<th>Mức Giảm Giá</th>
 													<th>Hành Động</th>
 												</tr>
 											</thead>

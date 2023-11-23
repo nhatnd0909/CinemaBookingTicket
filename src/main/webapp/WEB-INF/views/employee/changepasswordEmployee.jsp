@@ -26,22 +26,35 @@
 <!-- inject:css -->
 <!-- endinject -->
 <!-- Layout styles -->
+<link rel="stylesheet" href="assets/css/style-starter.css">
+
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
 <link rel="stylesheet" href="/admin_assets/assets/css/employeeService.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
 
+<style>
+.icon-log{
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+    padding-right: 5px;
+    }
+  .navbar-brand{
+  	color : #fff;
+  }
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-				<a class="sidebar-brand brand-logo" href="/employee/Dashboard"><img
-					src="/admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
-					class="sidebar-brand brand-logo-mini" href="/employee/Dashboard"><img
-					src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+				<a class="navbar-brand" href="#"><span
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
 				<li class="nav-item profile">
@@ -52,13 +65,13 @@
 									src="/admin_assets/assets/images/faces/face15.jpg" alt=""> <span
 									class="count bg-success"></span>
 							</div>
-							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Employe</h5>
+		<div class="profile-name">
+								<h5 class="mb-0 font-weight-normal">Nhân Viên</h5>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
 							class="mdi mdi-dots-vertical"></i></a>
-						<div
+                            <div
 							class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
 							aria-labelledby="profile-dropdown">
 							<a href="/employee/profile" class="dropdown-item preview-item">
@@ -68,8 +81,7 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Account
-										settings</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -80,39 +92,39 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Change
-										Password</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
 						</div>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dashboard</span>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/service"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
-					</span> <span class="menu-title">Service</span>
+					</span> <span class="menu-title">Dịch Vụ</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/show"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Show</span>
+					</span> <span class="menu-title">Lịch chiếu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/bookinghistory"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">User booking history</span>
+					</span> <span class="menu-title">Lịch Sử Đặt Vé </span>
 				</a></li>
 			</ul>
-		</nav>
+		</nav>					
+		
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<!-- partial:partials/_navbar.html -->
@@ -130,10 +142,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -286,28 +295,28 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Change Password</h4>
-                                    <p class="mb-0"><a href="/adminDashboard" style="text-decoration: none; color: inherit;"> Dashboard</a> / <span>Change Password</span></p>
+                                    <h4 class="card-title">Thay Đổi Mật Khẩu</h4>
+                                    <p class="mb-0"><a href="/adminDashboard" style="text-decoration: none; color: inherit;"> Bảng Điều Khiển</a> / <span>Thay Đổi Mật Khẩu</span></p>
                                 </div>
                                 <form class="forms-sample" method="post" action="">
 									<form class="forms-sample" method="post" action="">
 										<div class="form-group password-container">
-											<label for="exampleInputName1">Password</label> 
-											<input type="password" class="form-control" id="exampleInputName1" placeholder="Password" name="type" required="required" value="">
+											<label for="exampleInputName1">Mật Khẩu</label> 
+											<input type="password" class="form-control" id="exampleInputName1" placeholder="Nhập Mật khẩu hiện tại" name="type" required="required" value="">
 											<i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
 										</div>  
 										<div class="form-group password-container">
-											<label for="exampleInputName1">New Password</label> 
-											<input type="password" class="form-control" id="exampleInputName1" placeholder="New Password" name="type" required="required" value="">
+											<label for="exampleInputName1">Mật Khẩu Mới</label> 
+											<input type="password" class="form-control" id="exampleInputName1" placeholder="Nhập Mật khẩu Mới" name="type" required="required" value="">
 											<i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
 										</div>  
 										<div class="form-group password-container">
-											<label for="exampleInputName1">Confirm New Password</label> 
-											<input type="password" class="form-control" id="exampleInputName1"  placeholder="Confirm New Password" name="type" required="required" value="">
+											<label for="exampleInputName1">Xác nhận Mật Khẩu Mới</label> 
+											<input type="password" class="form-control" id="exampleInputName1"  placeholder="Xác nhận Mật Khẩu Mới" name="type" required="required" value="">
 											<i class="toggle-password mdi mdi-eye" onclick="togglePassword(this)"></i>
 										</div>                                                       
-										<button type="submit" class="btn btn-primary mr-2">Submit</button>
-										<button class="btn btn-dark">Cancel</button>
+										<button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
+										<button class="btn btn-dark">Hủy</button>
 									</form>
                                 </form>
                             </div>

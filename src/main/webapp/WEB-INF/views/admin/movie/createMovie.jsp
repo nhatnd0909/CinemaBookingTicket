@@ -23,6 +23,8 @@
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+<link rel="stylesheet" href="assets/css/style-starter.css">
+
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
@@ -48,16 +50,27 @@
 </style>
 </head>
 
+<style>
+.icon-log{
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+    padding-right: 5px;
+    }
+  .navbar-brand{
+  	color : #fff;
+  }
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-				<a class="sidebar-brand brand-logo" href="adminDashboard.html"><img
-					src="/admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
-					class="sidebar-brand brand-logo-mini" href="adminDashboard.html"><img
-					src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+				<a class="navbar-brand" href="#"><span
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
 				<li class="nav-item profile">
@@ -101,7 +114,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -136,7 +149,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -162,10 +175,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -331,32 +341,33 @@
 									<div class="form-group">
 										<label for="exampleInputName1">Tên Phim</label> <input
 											type="text" class="form-control" id="exampleInputName1"
-											placeholder="Name" name="name" required
+											placeholder="Tên phim" name="name" required
 											minlength="1" maxlength="255" />
 									</div>
 									<div class="form-group">
 										<label for="exampleInputName1">Diễn Viên</label> <input
 											type="text" class="form-control" id="exampleInputName1"
-											placeholder="Actor" name="actor" 
+											placeholder="Diễn Viên" name="actor" 
 											minlength="1" maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Giám Đốc</label> <input
+										<label for="exampleInputName1">Đạo Diễn</label> <input
 											type="text" class="form-control" id="exampleInputName1"
-											placeholder="Director" name="director"
+											placeholder="Đạo Diễn" name="director"
 											 required minlength="1"
 											maxlength="255" />
 									</div>
 									<div class="form-group">
-										<label for="exampleInputName1">Giám Đốc</label> <input
+										<label for="exampleInputName1">Thời Lượng</label> <input
 											type="number" class="form-control" id="exampleInputName1"
-											placeholder="Duration" name="duration"
+											placeholder="Thời Lượng" name="duration"
+											min="1"
 											 />
 									</div>
 									<div class="form-group">
 										<label for="exampleInputName1">Ngôn Ngữ</label> <input
 											type="text" class="form-control" id="exampleInputName1"
-											placeholder="Language" name="language"
+											placeholder="Ngôn Ngữ" name="language"
 										 required minlength="1"
 											maxlength="255" />
 									</div>
@@ -374,13 +385,11 @@
 												id="fileInput" placeholder="Upload Image" name="image"
 												>
 										</div>
-										<p>
-											Chọn File: <span id="selectedFile">Không có file nào được chọn</span>
-										</p>
+										
 									<div id="imagePreview" class="image-preview"></div>
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">Ngày Bắt Đầu</label> <input
+										<label for="exampleInputEmail3">Ngày Khởi Chiếu</label> <input
 											type="date" class="form-control" id="exampleInputEmail3"
 											name="startDate" >
 									</div>
@@ -390,7 +399,7 @@
 											name="endDate" >
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail3">Đoạn Giới Thiệu URL</label> <input
+										<label for="exampleInputEmail3">Trailer URL</label> <input
 											type="text" class="form-control" id="exampleInputEmail3"
 											placeholder="Trailer URL" name="urlTrailer"
 											required minlength="1"
@@ -400,13 +409,13 @@
 										<label for="exampleSelectGender">Trạng Thái</label> <select
 											class="form-control" id="exampleSelectGender" name="status"
 											>
-											<option value="On going">Hoạt Động</option>
+											<option value="On going">Đang chiếu</option>
 											<option value="Coming soon">Sắp Ra Mắt</option>
 											<option value="Over">Không</option>
 										</select>
 									</div>
 									                                                                  
-									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
+									<button type="submit" class="btn btn-primary mr-2">Thêm mới</button>
 									<!-- <button class="btn btn-primary mr-2" onclick="createEmployee()">Create</button> -->
 									<button class="btn btn-dark">Hủy</button>
 								</form>

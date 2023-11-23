@@ -126,7 +126,7 @@
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Logout</a>
+							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
 				</div>
@@ -210,7 +210,7 @@
 													<c:forEach items="${listTheater}" var="theater">
 														<button type="button" class="btn btn-primary"
 															data-bs-toggle="button"
-															onclick="location.href='ticketBooking?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
+															onclick="location.href='chooseseat?movie=${movie.name}&theater=${theater.name}';">${theater.name}</button>
 													</c:forEach>
 												</div>
 											</div>
@@ -260,49 +260,42 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">Movies</a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">English Movies</a></li>
-										<li><a href="#">Tailor</a></li>
-										<li><a href="#">Upcoming Movies</a></li>
-										<li><a href="contact">Contact Us</a></li>
+										<li><a href="#">Phim Xu Hướng</a></li>
+										<li><a href="#">Phim Nổi Tiếng </a></li>
+										<li><a href="#">Phim Sắp Chiếu</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Thông Tin Chung</h6>
 									<ul>
-										<li><a href="home">Home</a></li>
-										<li><a href="about">About</a></li>
-										<li><a href="#">Tv Series</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="signin">Login</a></li>
-										<li><a href="contact">Contact</a></li>
+										<li><a href="home">Trang Chủ</a></li>
+										<li><a href="about">Thông Tin</a></li>
+										<li><a href="signin">Đăng Nhập</a></li>
+										<li><a href="contact">Liên Hệ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Asia</a></li>
-										<li><a href="movies">France</a></li>
-										<li><a href="movies">Taiwan</a></li>
-										<li><a href="movies">United States</a></li>
-										<li><a href="movies">Korea</a></li>
-										<li><a href="movies">United Kingdom</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh Khê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Newsletter</h6>
+									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
-											placeholder="Your Email Address" required="">
+											placeholder="Nhập email của bạn tại đây" required="">
 										<button>
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Enter your email and receive the latest news, updates
-										and special offers from us.</p>
+										<p>Nhập email của bạn và nhận những tin tức, cập nhật mới nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+
 								</div>
 							</div>
 						</div>
@@ -314,7 +307,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2021 MyShowz. All rights reserved</p>
+							<p>&copy; 2023 MyShowz. All rights reserved</p>
 						</div>
 
 						<ul class="social text-lg-right">
@@ -331,10 +324,33 @@
 					</div>
 				</div>
 			</div>
+			<!-- copyright -->
 			<!-- move top -->
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script>
+				// When the user scrolls down 20px from the top of the document, show the button
+				window.onscroll = function() {
+					scrollFunction()
+				};
+
+				function scrollFunction() {
+					if (document.body.scrollTop > 20
+							|| document.documentElement.scrollTop > 20) {
+						document.getElementById("movetop").style.display = "block";
+					} else {
+						document.getElementById("movetop").style.display = "none";
+					}
+				}
+
+			</script>
+			
+
+		</section>
+	</footer>
+			
+			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {

@@ -31,12 +31,12 @@
 			<div class="container">
 				<h1>
 					<a class="navbar-brand" href="home"><span
-						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a>
+						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz </a>
 				</h1>
 				<!-- if logo is image enable this   
-						<a class="navbar-brand" href="#home">
-							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-						</a> -->
+							<a class="navbar-brand" href="#home">
+								<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+							</a> -->
 				<button class="navbar-toggler collapsed" type="button"
 					data-toggle="collapse" data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,60 +48,15 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="home">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="movies">Movies</a>
+						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">About</a>
+						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
 
+						<li class="nav-item active"><a class="nav-link" href="about">Thông Tin</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
-
-					<!--/search-right-->
-					<!--/search-right-->
-					<div class="search-right">
-						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Search <span class="fa fa-search ml-3"
-							aria-hidden="true"></span></a>
-						<!-- search popup -->
-						<div id="search" class="pop-overlay">
-							<div class="popup">
-								<form action="#" method="post" class="search-box">
-									<input type="search" placeholder="Search your Keyword"
-										name="search" required="required" autofocus="">
-									<button type="submit" class="btn">
-										<span class="fa fa-search" aria-hidden="true"></span>
-									</button>
-								</form>
-								<div class="browse-items">
-									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
-									<ul class="search-items">
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-									</ul>
-								</div>
-							</div>
-							<a class="close" href="#close">×</a>
-						</div>
-						<!-- /search popup -->
-						<!--/search-right-->
-
-					</div>
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
@@ -121,7 +76,7 @@
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Logout</a>
+							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
 				</div>
@@ -184,7 +139,7 @@
 														<path
 															d="M10 0.001C4.478 0.001 0 4.478 0 10s4.478 9.999 10 9.999c5.523 0 10 -4.477 10 -9.999S15.523 0.001 10 0.001zm0 2.99a3.308 3.308 0 1 1 0.001 6.615A3.308 3.308 0 0 1 10 2.991zm-0.003 14.395a7.339 7.339 0 0 1 -4.779 -1.763 1.409 1.409 0 0 1 -0.495 -1.072A3.336 3.336 0 0 1 8.075 11.217h3.848a3.331 3.331 0 0 1 3.347 3.335 1.406 1.406 0 0 1 -0.494 1.071 7.337 7.337 0 0 1 -4.779 1.763z" /></g></svg>
 													<a href="profileUser" class="text-muted font-size-sm">
-														Profile</a>
+														Hồ sơ</a>
 												</h6>
 											</li>
 											<li
@@ -205,7 +160,7 @@
 															stroke-width="0.12" stroke-linecap="round"
 															stroke-linejoin="round" />
 												</svg>
-													<a href="#" class="text-muted font-size-sm"> History</a>
+													<a href="#" class="text-muted font-size-sm"> Lịch sử đặt vé</a>
 												</h6>
 											</li>
 										</ul>
@@ -223,143 +178,56 @@
 													<th scope="col">Tên Phim</th>
 													<th scope="col">Giờ Chiếu</th>
 													<th scope="col">Ngày đặt</th>
-													<th scope="col">Action</th>
+													<th scope="col">Xem vé</th>
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">2</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">3</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">4</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">5</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">6</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
+												<c:forEach items="${listTicket}" var="ticket">
+													<tr>
+														<th scope="row">${ticket.ticketID}</th>
+														<td>${ticket.getShow().getMovie().getName()}</td>
+														<td>${ticket.getShow().getStartTime()}</td>
+														<td><script>
+															// Hàm để định dạng lại ngày
+															function formatDate(
+																	inputDate) {
+																var date = new Date(
+																		inputDate);
+																var formattedDate = date
+																		.toLocaleDateString('en-GB'); // Đặt ngôn ngữ theo yêu cầu của bạn
+																document
+																		.write(formattedDate);
+															}
 
-												<!--- table 2 -->
-												<tr>
-													<th scope="row">7</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">8</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">9</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">10</th>
-													<td>BIỆT ĐỘI ĐÁNH THUÊ 4 (T18)</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">11</th>
-													<td>NHÂN DUYÊN TIỀN ĐÌNH</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-												<tr>
-													<th scope="row">12</th>
-													<td>KUMANTHONG - QUỶ LINH NHI</td>
-													<td>20:00 - 21:30</td>
-													<td>05/10/2023</td>
-													<td style="text-align: center;"><a
-														href="history1.html" target="_blank"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
+															// Sử dụng hàm formatDate với giá trị từ JSP
+															var ticketDate = "${ticket.getShow().getDayTime()}";
+															formatDate(ticketDate);
+														</script></td>
+														<td style="text-align: center;"><a
+															href="history1?idTicket=${ticket.ticketID}">
+																<i class="fa fa-eye"></i>
+														</a></td>
+													</tr>
+												</c:forEach>
+
+
 											</tbody>
 										</table>
 										<nav aria-label="Page navigation example">
 											<ul class="pagination justify-content-end" id="pagination">
-												<li class="page-item disabled"><a class="page-link"
-													href="#" tabindex="-1">Previous</a></li>
-												<li class="page-item"><a class="page-link" href="#">1</a></li>
-												<li class="page-item"><a class="page-link" href="#">2</a></li>
-												<li class="page-item"><a class="page-link" href="#">3</a></li>
-												<li class="page-item"><a class="page-link" href="#">Next</a>
-												</li>
+												<c:if test="${currentPage > 1}">
+													<li class="page-item"><a class="page-link" href="?page=${currentPage - 1}">Trang trước</a></li>
+												</c:if>
+												
+												<c:forEach begin="1" end="${totalPages}" varStatus="loop">
+													<li class="page-item ${loop.index == currentPage ? 'active' : ''}">
+														<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+													</li>
+												</c:forEach>
+										
+												<c:if test="${currentPage < totalPages}">
+													<li class="page-item"><a class="page-link" href="?page=${currentPage + 1}">Trang sau</a></li>
+												</c:if>
 											</ul>
 										</nav>
 									</div>
@@ -715,77 +583,6 @@
 		$("#imageUpload").change(function() {
 			readURL(this);
 		});
-	</script>
-	<script>
-		// Lấy tất cả các hàng trong tbody
-		var tableRows = document.querySelectorAll("tbody tr");
-		// Số bản ghi trên mỗi trang
-		var recordsPerPage = 6;
-		// Trang hiện tại, bắt đầu từ trang 1
-		var currentPage = 1;
-
-		// Hàm để hiển thị các hàng trên trang hiện tại
-		function displayCurrentPageRows() {
-			var start = (currentPage - 1) * recordsPerPage;
-			var end = start + recordsPerPage;
-
-			for (var i = 0; i < tableRows.length; i++) {
-				if (i >= start && i < end) {
-					tableRows[i].style.display = "table-row";
-				} else {
-					tableRows[i].style.display = "none";
-				}
-			}
-		}
-
-		// Hiển thị trang đầu tiên khi trang web được nạp
-		displayCurrentPageRows();
-
-		// Xử lý sự kiện khi nhấp vào nút "Next"
-		document.querySelector(".pagination .page-item:last-child .page-link")
-				.addEventListener(
-						"click",
-						function() {
-							if (currentPage < Math.ceil(tableRows.length
-									/ recordsPerPage)) {
-								currentPage++;
-								displayCurrentPageRows();
-							}
-							updatePaginationState();
-						});
-
-		// Xử lý sự kiện khi nhấp vào nút "Previous"
-		document.querySelector(".pagination .page-item:first-child .page-link")
-				.addEventListener("click", function() {
-					if (currentPage > 1) {
-						currentPage--;
-						displayCurrentPageRows();
-					}
-					updatePaginationState();
-				});
-
-		// Cập nhật trạng thái của nút "Next" và "Previous"
-		function updatePaginationState() {
-			var nextButton = document
-					.querySelector(".pagination .page-item:last-child");
-			var prevButton = document
-					.querySelector(".pagination .page-item:first-child");
-
-			if (currentPage === 1) {
-				prevButton.classList.add("disabled");
-			} else {
-				prevButton.classList.remove("disabled");
-			}
-
-			if (currentPage === Math.ceil(tableRows.length / recordsPerPage)) {
-				nextButton.classList.add("disabled");
-			} else {
-				nextButton.classList.remove("disabled");
-			}
-		}
-
-		// Khởi đầu cập nhật trạng thái của nút "Previous"
-		updatePaginationState();
 	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>
