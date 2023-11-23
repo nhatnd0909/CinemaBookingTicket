@@ -23,6 +23,8 @@
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+	<link rel="stylesheet" href="assets/css/style-starter.css">
+	
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
@@ -33,16 +35,27 @@
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
 
+<style>
+.icon-log{
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+    padding-right: 5px;
+    }
+  .navbar-brand{
+  	color : #fff;
+  }
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-				<a class="sidebar-brand brand-logo" href="adminDashboard.html"><img
-					src="/admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
-					class="sidebar-brand brand-logo-mini" href="adminDashboard.html"><img
-					src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+				<a class="navbar-brand" href="#"><span
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
 				<li class="nav-item profile">
@@ -86,7 +99,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -121,7 +134,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -147,10 +160,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -313,22 +323,22 @@
                                 </div>
 								<form class="forms-sample" method="post" action="/theaterDashboard/update/${theater.theaterID}">
 									<div class="form-group">
-										<label for="nameInput">Tên</label> 
-                                        <input type="text" class="form-control" id="nameInput" placeholder="Theater Name" name="name" required="required" value="${theater.name}">
+										<label for="nameInput">Tên rạp</label> 
+                                        <input type="text" class="form-control" id="nameInput" placeholder="Tên rạp" name="name" required="required" value="${theater.name}">
 									</div>
 									<div class="form-group">
-										<label for="addressInput">Địa Điểm</label> 
-                                        <input type="text" class="form-control" id="addressInput" placeholder="Theater's Address" name="address" required="required" value="${theater.address}">
+										<label for="addressInput">Địa chỉ </label> 
+                                        <input type="text" class="form-control" id="addressInput" placeholder="Địa chỉ" name="address" required="required" value="${theater.address}">
 									</div>
 									<div class="form-group">
-										<label for="numCinemaRoomInput">Số Phòng</label> 
-                                        <input type="text" class="form-control" id="namnumCinemaRoomInputeInput" placeholder="Number of room" name="numCinemaRoom" required="required" value="${theater.numCinemaRoom}">
+										<label for="numCinemaRoomInput">Số phòng chiếu</label> 
+                                        <input type="text" class="form-control" id="namnumCinemaRoomInputeInput" placeholder="Số phòng chiếu" name="numCinemaRoom" required="required" value="${theater.numCinemaRoom}">
 									</div>
 									<c:if test="${not empty error}">
 										<div class="alert alert-danger">${error}</div>
 									</c:if>
 
-									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
+									<button type="submit" class="btn btn-primary mr-2">Cập nhật</button>
 									<button class="btn btn-dark">Hủy</button>
 								</form>
 							</div>

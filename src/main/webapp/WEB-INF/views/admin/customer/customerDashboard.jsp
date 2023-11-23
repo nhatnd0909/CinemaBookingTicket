@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Corona Admin</title>
+<title>MyShowz</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -25,6 +25,8 @@
 	href="admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+<link rel="stylesheet" href="assets/css/style-starter.css">
+
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
@@ -35,16 +37,26 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
+<style>
+.icon-log{
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+    padding-right: 5px;
+    }
+  .navbar-brand{
+  	color : #fff;
+  }
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-				<a class="sidebar-brand brand-logo" href="adminDashboard.html"><img
-					src="admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
-					class="sidebar-brand brand-logo-mini" href="adminDashboard.html"><img
+				<a class="navbar-brand" href="#"><span
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
 					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
@@ -89,7 +101,7 @@
 							</a>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
@@ -124,7 +136,7 @@
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/rankDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-seal"></i>
-					</span> <span class="menu-title">Quản Lý Thứ Hạn</span>
+					</span> <span class="menu-title">Quản Lý Thứ Hạng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/genreDashboard"> <span class="menu-icon"> <i
@@ -150,10 +162,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -327,9 +336,9 @@
 															<th>Tên</th>
 															<th>Số Điện Thoại</th>
 															<th>Giới Tính</th>
-															<th>Địa Điểm</th>
+															<th>Địa Chỉ</th>
 															<th>Ngày Sinh</th>
-															<th>Thứ Hạn</th>
+															<th>Thứ Hạng</th>
 															<th>Hành Động</th>
 														</tr>
 													</thead>
