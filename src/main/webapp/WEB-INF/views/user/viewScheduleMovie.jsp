@@ -79,7 +79,7 @@
 					</div>
 
 
-					<%-- <c:if test="${loggedIn eq 0}">
+					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
 							<!-- <li class="nav-item"> -->
@@ -101,7 +101,7 @@
 						<div style="padding-left: 15px">
 							<a href="logout">Logout</a>
 						</div>
-					</c:if> --%>
+					</c:if> 
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
@@ -546,7 +546,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="show-wait">
+                <div class="show-wait" style="display: none">
                     Hiện tại rạp phim của chúng tôi chưa ra suất chiếu mới. Vui lòng đợi vài ngày tới !!!
                 </div>
             </div>
