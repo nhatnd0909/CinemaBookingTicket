@@ -624,7 +624,7 @@
 							<input type="submit" name="submitPayment"
 								class="next-step pay-btn" value="Confirm Payment" /> <input
 								type="button" name="previous-step" class="cancel-pay-btn"
-								value="Cancel Payment" onclick="location.href='home';" />
+								value="Cancel Payment" onclick="location.href='chooseseat?movie=${movie}&theater=${theater}';" />
 						</fieldset>
 					</form>
 				</div>
