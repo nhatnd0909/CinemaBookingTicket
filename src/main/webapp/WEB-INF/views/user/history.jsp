@@ -216,7 +216,7 @@
 										<nav aria-label="Page navigation example">
 											<ul class="pagination justify-content-end" id="pagination">
 												<c:if test="${currentPage > 1}">
-													<li class="page-item"><a class="page-link" href="?page=${currentPage - 1}">Previous</a></li>
+													<li class="page-item"><a class="page-link" href="?page=${currentPage - 1}">Trước</a></li>
 												</c:if>
 												
 												<c:forEach begin="1" end="${totalPages}" varStatus="loop">
@@ -226,7 +226,7 @@
 												</c:forEach>
 										
 												<c:if test="${currentPage < totalPages}">
-													<li class="page-item"><a class="page-link" href="?page=${currentPage + 1}">Next</a></li>
+													<li class="page-item"><a class="page-link" href="?page=${currentPage + 1}">Tiếp</a></li>
 												</c:if>
 											</ul>
 										</nav>
@@ -584,77 +584,6 @@
 			readURL(this);
 		});
 	</script>
-	<!-- <script>
-		// Lấy tất cả các hàng trong tbody
-		var tableRows = document.querySelectorAll("tbody tr");
-		// Số bản ghi trên mỗi trang
-		var recordsPerPage = 6;
-		// Trang hiện tại, bắt đầu từ trang 1
-		var currentPage = 1;
-
-		// Hàm để hiển thị các hàng trên trang hiện tại
-		function displayCurrentPageRows() {
-			var start = (currentPage - 1) * recordsPerPage;
-			var end = start + recordsPerPage;
-
-			for (var i = 0; i < tableRows.length; i++) {
-				if (i >= start && i < end) {
-					tableRows[i].style.display = "table-row";
-				} else {
-					tableRows[i].style.display = "none";
-				}
-			}
-		}
-
-		// Hiển thị trang đầu tiên khi trang web được nạp
-		displayCurrentPageRows();
-
-		// Xử lý sự kiện khi nhấp vào nút "Next"
-		document.querySelector(".pagination .page-item:last-child .page-link")
-				.addEventListener(
-						"click",
-						function() {
-							if (currentPage < Math.ceil(tableRows.length
-									/ recordsPerPage)) {
-								currentPage++;
-								displayCurrentPageRows();
-							}
-							updatePaginationState();
-						});
-
-		// Xử lý sự kiện khi nhấp vào nút "Previous"
-		document.querySelector(".pagination .page-item:first-child .page-link")
-				.addEventListener("click", function() {
-					if (currentPage > 1) {
-						currentPage--;
-						displayCurrentPageRows();
-					}
-					updatePaginationState();
-				});
-
-		// Cập nhật trạng thái của nút "Next" và "Previous"
-		function updatePaginationState() {
-			var nextButton = document
-					.querySelector(".pagination .page-item:last-child");
-			var prevButton = document
-					.querySelector(".pagination .page-item:first-child");
-
-			if (currentPage === 1) {
-				prevButton.classList.add("disabled");
-			} else {
-				prevButton.classList.remove("disabled");
-			}
-
-			if (currentPage === Math.ceil(tableRows.length / recordsPerPage)) {
-				nextButton.classList.add("disabled");
-			} else {
-				nextButton.classList.remove("disabled");
-			}
-		}
-
-		// Khởi đầu cập nhật trạng thái của nút "Previous"
-		updatePaginationState();
-	</script> -->
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
