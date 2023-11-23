@@ -57,51 +57,6 @@
 
 						<li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
 					</ul>
-
-					<!--/search-right-->
-					<!--/search-right-->
-					<div class="search-right">
-						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Search <span class="fa fa-search ml-3"
-							aria-hidden="true"></span></a>
-						<!-- search popup -->
-						<div id="search" class="pop-overlay">
-							<div class="popup">
-								<form action="#" method="post" class="search-box">
-									<input type="search" placeholder="Search your Keyword"
-										name="search" required="required" autofocus="">
-									<button type="submit" class="btn">
-										<span class="fa fa-search" aria-hidden="true"></span>
-									</button>
-								</form>
-								<div class="browse-items">
-									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
-									<ul class="search-items">
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-									</ul>
-								</div>
-							</div>
-							<a class="close" href="#close">×</a>
-						</div>
-						<!-- /search popup -->
-						<!--/search-right-->
-
-					</div>
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
@@ -260,13 +215,19 @@
 										</table>
 										<nav aria-label="Page navigation example">
 											<ul class="pagination justify-content-end" id="pagination">
-												<li class="page-item disabled"><a class="page-link"
-													href="#" tabindex="-1">Previous</a></li>
-												<li class="page-item"><a class="page-link" href="#">1</a></li>
-												<li class="page-item"><a class="page-link" href="#">2</a></li>
-												<li class="page-item"><a class="page-link" href="#">3</a></li>
-												<li class="page-item"><a class="page-link" href="#">Next</a>
-												</li>
+												<c:if test="${currentPage > 1}">
+													<li class="page-item"><a class="page-link" href="?page=${currentPage - 1}">Previous</a></li>
+												</c:if>
+												
+												<c:forEach begin="1" end="${totalPages}" varStatus="loop">
+													<li class="page-item ${loop.index == currentPage ? 'active' : ''}">
+														<a class="page-link" href="?page=${loop.index}">${loop.index}</a>
+													</li>
+												</c:forEach>
+										
+												<c:if test="${currentPage < totalPages}">
+													<li class="page-item"><a class="page-link" href="?page=${currentPage + 1}">Next</a></li>
+												</c:if>
 											</ul>
 										</nav>
 									</div>
@@ -623,7 +584,7 @@
 			readURL(this);
 		});
 	</script>
-	<script>
+	<!-- <script>
 		// Lấy tất cả các hàng trong tbody
 		var tableRows = document.querySelectorAll("tbody tr");
 		// Số bản ghi trên mỗi trang
@@ -693,7 +654,7 @@
 
 		// Khởi đầu cập nhật trạng thái của nút "Previous"
 		updatePaginationState();
-	</script>
+	</script> -->
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
