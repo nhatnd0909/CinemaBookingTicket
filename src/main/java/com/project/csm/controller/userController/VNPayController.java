@@ -52,6 +52,8 @@ public class VNPayController {
 			@RequestParam("order") String order) {
 
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+
+		
 		if (loggedInAccount == null) {
 
 			return "redirect:/signin";
