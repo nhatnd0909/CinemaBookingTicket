@@ -345,11 +345,6 @@
 													+11%</p> -->
 											</div>
 										</div>
-										<!-- <div class="col-3">
-											<div class="icon icon-box-success">
-												<span class="mdi mdi-arrow-top-right icon-item"></span>
-											</div>
-										</div> -->
 									</div>
 									<h6 class="text-muted font-weight-normal">Số lượng phim</h6>
 								</div>
@@ -404,30 +399,7 @@
 						<div class="col-md-4 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<h4 class="card-title">Thanh toán trực tuyến</h4>
-									<canvas id="transaction-history" class="transaction-chart"></canvas>
-									<div
-										class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-										<div class="text-md-center text-xl-left">
-											<h6 class="mb-1">Thanh toán qua Paypal</h6>
-											<p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-										</div>
-										<div
-											class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-											<h6 class="font-weight-bold mb-0">$236</h6>
-										</div>
-									</div>
-									<div
-										class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-										<div class="text-md-center text-xl-left">
-											<h6 class="mb-1">Thanh toán qua VNPay</h6>
-											<p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-										</div>
-										<div
-											class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-											<h6 class="font-weight-bold mb-0">$593</h6>
-										</div>
-									</div>
+									<div id="piechart_div" style="border: 1px solid #ccc"></div>
 								</div>
 							</div>
 						</div>
@@ -507,6 +479,70 @@
 
 	<script type="text/javascript">
 		
+	</script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+
+							$
+									.ajax({
+										type : 'GET',
+										headers : {
+											Accept : "application/json; charset=utf-8",
+											"Content-Type" : "application/json; charset=utf-8"
+										},
+										url : '${pageContext.request.contextPath}/datapiechart',
+										success : function(result) {
+											google.charts.load('current', {
+												'packages' : [ 'corechart' ]
+											});
+											google.charts
+													.setOnLoadCallback(function() {
+														drawChart(result);
+													});
+										}
+									});
+
+							function drawChart(result) {
+
+								var data = new google.visualization.DataTable();
+								data.addColumn('string', 'Name');
+								data.addColumn('number', 'Quantity');
+								var dataArray = [];
+								$.each(result, function(i, obj) {
+									dataArray.push([ obj.name, obj.quantity ]);
+								});
+
+								data.addRows(dataArray);
+
+								var piechart_options = {
+									title : 'Số lượng vé các rạp bán trong tháng',
+									width : 350,
+									height : 300
+								};
+								var piechart = new google.visualization.PieChart(
+										document.getElementById('piechart_div'));
+								piechart.draw(data, piechart_options);
+
+								var barchart_options = {
+									title : 'Barchart: How Much Products Sold By Last Night',
+									width : 400,
+									height : 300,
+									legend : 'none'
+								};
+								var barchart = new google.visualization.BarChart(
+										document.getElementById('barchart_div'));
+								barchart.draw(data, barchart_options);
+							}
+
+						});
 	</script>
 </body>
 </html>
