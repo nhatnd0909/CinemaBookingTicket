@@ -38,12 +38,12 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="home">Trang
+								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="about">Thông
+								Tin</a></li>
 
 						<li class="nav-item active"><a class="nav-link"
 							href="contact">Liên Hệ</a></li>
@@ -93,41 +93,77 @@
 	</header>
 	<!-- Contact Us Form -->
 	<div class="container">
-		<h4> Chúng Tôi</h4>
 		<h3>Để Lại Lời Nhắn</h3>
-		<p>Nếu bạn có câu hỏi liên quan đến dịch vụ của chúng tôi, vui lòng  với chúng tôi bằng cách sử dụng mẫu dưới đây.</p>
+		<c:if test="${not empty mess}">
+			<p>${mess}</p>
+		</c:if>
+		<c:if test="${empty mess}">
+			<p>Nếu bạn có câu hỏi liên quan đến dịch vụ của chúng tôi, vui
+				lòng với chúng tôi bằng cách sử dụng mẫu dưới đây.</p>
+		</c:if>
 
-		<form name="contact-us-form" action="#"
+
+		<form name="contact" action="contact" method="post"
 			onsubmit="return validateForm()">
 			<div class="row100" id="fname-row100">
 				<div class="col">
 					<div class="inputBox" id="fname-inputBox">
-						<input type="text" name="fname" onclick="triggerAnim('fname')" />
-						<span class="text">Họ</span> <span class="line"
-							id="fname-line"></span>
+						<c:if test="${loggedIn eq 1}">
+							<input type="text" name="firstName" value="${lastName}"
+								onclick="triggerAnim('fname')" placeholder="Họ" />
+							<span class="line" id="fname-line"></span>
+						</c:if>
+						<c:if test="${loggedIn eq 0}">
+							<input type="text" name="firstName"
+								onclick="triggerAnim('fname')" placeholder="Họ" />
+							<span class="line" id="fname-line"></span>
+						</c:if>
 					</div>
 				</div>
 				<div class="col">
 					<div class="inputBox" id="lname-inputBox">
-						<input type="text" name="lname" onclick="triggerAnim('lname')" />
-						<span class="text">Tên</span> <span class="line"
-							id="lname-line"></span>
+						<c:if test="${loggedIn eq 1}">
+							<input type="text" name="name" value="${name}"
+								onclick="triggerAnim('lname')" placeholder="Tên" />
+							<span class="line" id="lname-line"></span>
+						</c:if>
+						<c:if test="${loggedIn eq 0}">
+							<input type="text" name="name" onclick="triggerAnim('lname')"
+								placeholder="Tên" />
+							<span class="line" id="lname-line"></span>
+						</c:if>
 					</div>
 				</div>
 			</div>
 			<div class="row100" id="email-row100">
 				<div class="col">
 					<div class="inputBox" id="email-inputBox">
-						<input type="email" name="email" pattern="[^ @]*@[^ @]*"
-							onclick="triggerAnim('email')" /> <span class="text">Email
-							</span> <span class="line" id="email-line"></span>
+						<c:if test="${loggedIn eq 1}">
+							<input type="email" name="email" pattern="[^ @]*@[^ @]*"
+								onclick="triggerAnim('email')"
+								value="${loggedInAccount.account.email}" placeholder="Email" />
+							<span class="line" id="email-line"></span>
+						</c:if>
+						<c:if test="${loggedIn eq 0}">
+							<input type="email" name="email" pattern="[^ @]*@[^ @]*"
+								onclick="triggerAnim('email')" placeholder="Email" />
+							<span class="line" id="email-line"></span>
+						</c:if>
 					</div>
 				</div>
 				<div class="col">
 					<div class="inputBox" id="tel-inputBox">
-						<input type="tel" name="m-num" onclick="triggerAnim('tel')" /> <span
-							class="text">Số Điện Thoại</span> <span class="line"
-							id="tel-line"></span>
+						<c:if test="${loggedIn eq 1}">
+							<input type="tel" name="phone"
+								value="${loggedInAccount.phoneNumber}"
+								onclick="triggerAnim('tel')" placeholder="Số điện thoại" />
+							<span class="line" id="tel-line"></span>
+						</c:if>
+						<c:if test="${loggedIn eq 0}">
+							<input type="tel" name="phone" onclick="triggerAnim('tel')"
+								placeholder="Số điện thoại" />
+							<span class="line" id="tel-line"></span>
+						</c:if>
 					</div>
 				</div>
 			</div>
