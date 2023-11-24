@@ -17,6 +17,16 @@ public class EmployeePageController {
 		return "/employee/bookinghistory/bookingHistoryDashboard"; 
 	}
 	
+	@GetMapping("/employee/contact")
+	public String contactDashboard() {
+		return "/employee/contact/contactDashboard"; 
+	}
+	
+	@GetMapping("/employee/detailBookingHistoryDashboard")
+	public String detailBookingHistoryDashboardEmployee() {
+		return "/employee/bookinghistory/detailBookingHistoryDashboard"; 
+	}
+	
 	@GetMapping("/employee/profile")
 	public String profileEmployee() {
 		return "/employee/profileEmployee";

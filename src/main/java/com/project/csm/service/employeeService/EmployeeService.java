@@ -26,10 +26,21 @@ public class EmployeeService {
 		}
 		return null;
 	}
+
 	public Employee getEmployeeByEmail(String email) {
 		List<Employee> list = getAllEmployee();
-		for(Employee e:list) {
-			if(e.getAccount().getEmail().equals(email)) {
+		for (Employee e : list) {
+			if (e.getAccount().getEmail().equals(email)) {
+				return e;
+			}
+		}
+		return null;
+	}
+
+	public Employee getEmployeeByIDAccount(Long idAccount) {
+		List<Employee> list = getAllEmployee();
+		for (Employee e : list) {
+			if (e.getAccount().getAccountID().compareTo(idAccount) == 0) {
 				return e;
 			}
 		}

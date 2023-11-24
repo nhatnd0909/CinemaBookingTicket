@@ -1,6 +1,7 @@
 package com.project.csm.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -38,6 +39,9 @@ public class Ticket {
 	@Column(name = "TotalPrice")
 	private BigDecimal totalPrice;
 
+	@Column(name = "BookingDate")
+	private Date bookingDate;
+
 	public Ticket() {
 		super();
 	}
@@ -63,6 +67,18 @@ public class Ticket {
 		this.customer = customer;
 		this.discount = discount;
 		this.totalPrice = totalPrice;
+	}
+
+	public Ticket(Show show, SeatOfCinema seatOfCinema, String listSeat, Customer customer, Double discount,
+			BigDecimal totalPrice, Date bookingDate) {
+		super();
+		this.show = show;
+		this.seatOfCinema = seatOfCinema;
+		this.listSeat = listSeat;
+		this.customer = customer;
+		this.discount = discount;
+		this.totalPrice = totalPrice;
+		this.bookingDate = bookingDate;
 	}
 
 	public String getTicketID() {
@@ -121,10 +137,19 @@ public class Ticket {
 		this.listSeat = listSeat;
 	}
 
+	public Date getBookingDate() {
+		return bookingDate;
+	}
+
+	public void setBookingDate(Date bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+
 	@Override
 	public String toString() {
 		return "Ticket [ticketID=" + ticketID + ", show=" + show + ", seatOfCinema=" + seatOfCinema + ", listSeat="
-				+ listSeat + ", customer=" + customer + ", discount=" + discount + ", totalPrice=" + totalPrice + "]";
+				+ listSeat + ", customer=" + customer + ", discount=" + discount + ", totalPrice=" + totalPrice
+				+ ", bookingDate=" + bookingDate + "]";
 	}
 
 }

@@ -132,6 +132,12 @@
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Lịch Sử Đặt </span>
 				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/employee/contact"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Liên hệ </span>
+				</a></li>
+				
 			</ul>
 		</nav>
 		<!-- partial -->
@@ -197,7 +203,7 @@
 									</div>
 									<div class="preview-item-content">
 										<p class="preview-subject ellipsis mb-1">Profile picture
-											updated</p>
+											updated</p>C
 										<p class="text-muted mb-0">18 Minutes ago</p>
 									</div>
 								</a>

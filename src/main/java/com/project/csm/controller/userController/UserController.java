@@ -1,18 +1,30 @@
 package com.project.csm.controller.userController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.project.csm.model.Customer;
+import com.project.csm.model.Theater;
 import com.project.csm.service.customerService.CustomerService;
+import com.project.csm.service.customerService.MovieService;
+import com.project.csm.service.customerService.TheaterService;
+import com.project.csm.service.employeeService.EmployeeService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
+	@Autowired
+	private MovieService movieService;
+	@Autowired
+	private TheaterService theaterService;
+	@Autowired
+	private EmployeeService employeeService;
 	@Autowired
 	private CustomerService customerService;
 
@@ -30,8 +42,22 @@ public class UserController {
 		} else {
 			loggedIn = 1;
 		}
+
+		int totalMovie = movieService.getAllMovie().size();
+		int totalTheater = theaterService.getAllTheater().size();
+		int totalEmployee = employeeService.getAllEmployee().size();
+		int totalUser = customerService.getAllCustomer().size();
+		model.addAttribute("totalMovie", totalMovie);
+		model.addAttribute("totalTheater", totalTheater);
+		model.addAttribute("totalEmployee", totalEmployee);
+		model.addAttribute("totalUser", totalUser);
+
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
+
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
+		
 		return "/user/about";
 	}
 
@@ -62,10 +88,6 @@ public class UserController {
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		return "/user/e-ticket";
 	}
-
-	
-
-
 
 	@GetMapping("/password")
 	public String showPassword(HttpSession session, Model model) {

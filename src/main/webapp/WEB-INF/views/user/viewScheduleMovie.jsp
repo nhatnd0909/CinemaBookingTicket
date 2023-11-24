@@ -24,7 +24,6 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
-
 </style>
 <body>
 	<header id="site-header" class="w3l-header fixed-top">
@@ -36,10 +35,6 @@
 					<a class="navbar-brand" href="#"><span
 						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a>
 				</h1>
-				<!-- if logo is image enable this   
-						<a class="navbar-brand" href="#">
-							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-						</a> -->
 				<button class="navbar-toggler collapsed" type="button"
 					data-toggle="collapse" data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -101,7 +96,7 @@
 						<div style="padding-left: 15px">
 							<a href="logout">Logout</a>
 						</div>
-					</c:if> 
+					</c:if>
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
@@ -120,438 +115,181 @@
 		</nav>
 	</header>
 	<div class="container mt-3">
-        <div class="col-md-12">
-            <div class="showtimes">
-                <div class="btn-group btn-block showtime-dates mb-3" id="dates">
-                    <a class="btn btn-light text-muted date active" data-date="2023-11-20" onclick="myFunction(1)">
-                        20/11
-                        <br>
-                        <span class="small text-nowrap">Th 2</span>
-                    </a>
-                    <a class="btn btn-light text-muted date" data-date="2023-11-21" onclick="myFunction(2)">
-                        21/11
-                        <br><span class="small text-nowrap">Th 3</span>
-                    </a>
-                    <a class="btn btn-light text-muted date" data-date="2023-11-22" onclick="myFunction(3)">
-                        22/11
-                        <br><span class="small text-nowrap">Th 4</span>
-                    </a>
-                    <a class="btn btn-light text-muted date" data-date="2023-11-23" onclick="myFunction(4)">
-                        23/11
-                        <br><span class="small text-nowrap">Th 5</span>
-                    </a>
-                    <a class="btn btn-light text-muted date" data-date="2023-11-24" onclick="myFunction(4)">
-                        24/11
-                        <br><span class="small text-nowrap">Th 6</span>
-                    </a>
-                    <a class="btn btn-light text-muted date" data-date="2023-11-25" onclick="myFunction(4)">
+		<div class="col-md-12">
+			<div class="showtimes">
+				<div class="btn-group btn-block showtime-dates mb-3" id="dates">
+					<a class="btn btn-light text-muted date active"
+						data-date="2023-11-20" onclick="myFunction(1)"> ${currentDate}
+						<br> <span class="small text-nowrap">Th 2</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-21"
+						onclick="myFunction(2)"> ${tomorow} <br> <span
+						class="small text-nowrap">Th 3</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-22"
+						onclick="myFunction(3)"> ${nextDate} <br> <span
+						class="small text-nowrap">Th 4</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-23"
+						onclick="myFunction(4)"> ${futureDate3Days} <br> <span
+						class="small text-nowrap">Th 5</span>
+					</a> <a class="btn btn-light text-muted date" data-date="2023-11-24"
+						onclick="myFunction(4)"> ${futureDate4Days} <br> <span
+						class="small text-nowrap">Th 6</span>
+					</a>
+					<!--                     <a class="btn btn-light text-muted date" data-date="2023-11-25" onclick="myFunction(4)">
                         25/11
                         <br><span class="small text-nowrap">Th 7</span>
-                    </a>
-                </div>
-                <!-- end schedule -->
-                <!--  -->
-                <div class="alert alert-warning mb-3">
-                    <i class="fa-solid fa-circle-info"></i> Nhấn vào suất chiếu để tiến hành mua vé
-                </div>
-                <!--  -->
-                <div class="show-currentDate">
+                    </a> -->
+				</div>
+				<!-- end schedule -->
+				<!--  -->
+				<div class="alert alert-warning mb-3">
+					<i class="fa-solid fa-circle-info"></i> Nhấn vào suất chiếu để tiến
+					hành mua vé
+				</div>
+				<!--  -->
+				<div class="show-currentDate">
+					<c:forEach items="${listMovie}" var="movie">
+						<div class="card card-sm mb-3">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-3 col-sm-2">
+										<a href="/phim/yeu-lai-vo-ngau/"> <img
+											src="assets/images/${movie.image}" alt="Yêu Lại Vợ Ngầu"
+											class="rounded img-fluid">
+										</a>
+									</div>
+									<div class="col ml-n2">
+										<h4 class="card-title mb-1 name">
+											<a href="/phim/yeu-lai-vo-ngau/"> ${movie.name} </a>
+										</h4>
 
-                    <div class="card card-sm mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 col-sm-2">
-                                    <a href="/phim/yeu-lai-vo-ngau/">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg" alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col ml-n2">
-                                    <h4 class="card-title mb-1 name">
-                                        <a href="/phim/yeu-lai-vo-ngau/">
-                                            Yêu Lại Vợ Ngầu
-                                        </a>
-                                    </h4>
+										<p class="card-text small text-muted mb-0">
+											${movie.duration} phút· <a href="/video/18158/"
+												data-toggle="modal" data-target="#videoModal"
+												data-video-id="18158" data-video-url="MPSIeZaf6eo"
+												data-remote="false">Trailer</a>
+										</p>
 
-                                    <p class="card-text small text-muted mb-0">
-                                        Love Reset · T16 · 120m ·
-                                        <a href="/video/18158/" data-toggle="modal" data-target="#videoModal" data-video-id="18158" data-video-url="MPSIeZaf6eo" data-remote="false">Trailer</a>
-                                    </p>
+										<div class="mt-2">
+											<div class="mb-1">
+												<label class="small mb-2 font-weight-bold d-block text-dark">
+													2D Phụ Đề Việt </label>
+												<!-- disabled -->
+												<c:forEach items="${listShowCurentDate}" var="show">
+													<c:if test="${show.movie.name eq movie.name}">
+														<a
+															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
+															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+															<span class="time">${show.startTime}</span> <span
+															class="amenity price"></span>
+														</a>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 
-                                    <div class="mt-2">
-                                        <div class="mb-1">
-                                            <label class="small mb-2 font-weight-bold d-block text-dark">
-                                                2D Phụ Đề Việt
-                                            </label>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">09:50</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">11:25</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" data-id="307949839" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price" data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
-                                                <span class="time">12:15</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">13:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">14:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">16:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">17:05</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:30</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">20:20</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">22:20</span>
-                                                <span class="amenity price"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-sm mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 col-sm-2">
-                                    <a href="/phim/yeu-lai-vo-ngau/">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg" alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col ml-n2">
-                                    <h4 class="card-title mb-1 name">
-                                        <a href="/phim/yeu-lai-vo-ngau/">
-                                            Yêu Lại Vợ Ngầu
-                                        </a>
-                                    </h4>
+				</div>
+				<div class="show-tomorowDate" style="display: none">
+					<c:forEach items="${listMovie}" var="movie">
+						<div class="card card-sm mb-3">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-3 col-sm-2">
+										<a href="/phim/yeu-lai-vo-ngau/"> <img
+											src="assets/images/${movie.image}" alt="Yêu Lại Vợ Ngầu"
+											class="rounded img-fluid">
+										</a>
+									</div>
+									<div class="col ml-n2">
+										<h4 class="card-title mb-1 name">
+											<a href="/phim/yeu-lai-vo-ngau/"> ${movie.name} </a>
+										</h4>
 
-                                    <p class="card-text small text-muted mb-0">
-                                        Love Reset · T16 · 120m ·
-                                        <a href="/video/18158/" data-toggle="modal" data-target="#videoModal" data-video-id="18158" data-video-url="MPSIeZaf6eo" data-remote="false">Trailer</a>
-                                    </p>
+										<p class="card-text small text-muted mb-0">
+											${movie.duration} phút· <a href="/video/18158/"
+												data-toggle="modal" data-target="#videoModal"
+												data-video-id="18158" data-video-url="MPSIeZaf6eo"
+												data-remote="false">Trailer</a>
+										</p>
 
-                                    <div class="mt-2">
-                                        <div class="mb-1">
-                                            <label class="small mb-2 font-weight-bold d-block text-dark">
-                                                2D Phụ Đề Việt
-                                            </label>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">09:50</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">11:25</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" data-id="307949839" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price" data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
-                                                <span class="time">12:15</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">13:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">14:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">16:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">17:05</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:30</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">20:20</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">22:20</span>
-                                                <span class="amenity price"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-sm mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 col-sm-2">
-                                    <a href="/phim/yeu-lai-vo-ngau/">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg" alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col ml-n2">
-                                    <h4 class="card-title mb-1 name">
-                                        <a href="/phim/yeu-lai-vo-ngau/">
-                                            Cua Lại Vợ Ngầu
-                                        </a>
-                                    </h4>
+										<div class="mt-2">
+											<div class="mb-1">
+												<label class="small mb-2 font-weight-bold d-block text-dark">
+													2D Phụ Đề Việt </label>
+												<!-- disabled -->
+												<c:forEach items="${listShowTomorowDate}" var="show">
+													<c:if test="${show.movie.name eq movie.name}">
+														<a
+															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
+															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+															<span class="time">${show.startTime}</span> <span
+															class="amenity price"></span>
+														</a>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+				<div class="show-nextDate" style="display: none">
+					<c:forEach items="${listMovie}" var="movie">
+						<div class="card card-sm mb-3">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-3 col-sm-2">
+										<a href="/phim/yeu-lai-vo-ngau/"> <img
+											src="assets/images/${movie.image}" alt="Yêu Lại Vợ Ngầu"
+											class="rounded img-fluid">
+										</a>
+									</div>
+									<div class="col ml-n2">
+										<h4 class="card-title mb-1 name">
+											<a href="/phim/yeu-lai-vo-ngau/"> ${movie.name} </a>
+										</h4>
 
-                                    <p class="card-text small text-muted mb-0">
-                                        Love Reset · T16 · 120m ·
-                                        <a href="/video/18158/" data-toggle="modal" data-target="#videoModal" data-video-id="18158" data-video-url="MPSIeZaf6eo" data-remote="false">Trailer</a>
-                                    </p>
+										<p class="card-text small text-muted mb-0">
+											${movie.duration} phút· <a href="/video/18158/"
+												data-toggle="modal" data-target="#videoModal"
+												data-video-id="18158" data-video-url="MPSIeZaf6eo"
+												data-remote="false">Trailer</a>
+										</p>
 
-                                    <div class="mt-2">
-                                        <div class="mb-1">
-                                            <label class="small mb-2 font-weight-bold d-block text-dark">
-                                                2D Phụ Đề Việt
-                                            </label>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">09:50</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">11:25</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" data-id="307949839" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price" data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
-                                                <span class="time">12:15</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">13:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">14:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">16:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">17:05</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:30</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">20:20</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">22:20</span>
-                                                <span class="amenity price"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-sm mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 col-sm-2">
-                                    <a href="/phim/yeu-lai-vo-ngau/">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg" alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col ml-n2">
-                                    <h4 class="card-title mb-1 name">
-                                        <a href="/phim/yeu-lai-vo-ngau/">
-                                            Yêu Lại Vợ Bầu
-                                        </a>
-                                    </h4>
-
-                                    <p class="card-text small text-muted mb-0">
-                                        Love Reset · T16 · 120m ·
-                                        <a href="/video/18158/" data-toggle="modal" data-target="#videoModal" data-video-id="18158" data-video-url="MPSIeZaf6eo" data-remote="false">Trailer</a>
-                                    </p>
-
-                                    <div class="mt-2">
-                                        <div class="mb-1">
-                                            <label class="small mb-2 font-weight-bold d-block text-dark">
-                                                2D Phụ Đề Việt
-                                            </label>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">09:50</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">11:25</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" data-id="307949839" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price" data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
-                                                <span class="time">12:15</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">13:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">14:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">16:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">17:05</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:30</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">20:20</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">22:20</span>
-                                                <span class="amenity price"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="show-tomorowDate">
-                    <div class="card card-sm mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 col-sm-2">
-                                    <a href="/phim/yeu-lai-vo-ngau/">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg" alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col ml-n2">
-                                    <h4 class="card-title mb-1 name">
-                                        <a href="/phim/yeu-lai-vo-ngau/">
-                                            Cua Lại Vợ Ngầu
-                                        </a>
-                                    </h4>
-
-                                    <p class="card-text small text-muted mb-0">
-                                        Love Reset · T16 · 120m ·
-                                        <a href="/video/18158/" data-toggle="modal" data-target="#videoModal" data-video-id="18158" data-video-url="MPSIeZaf6eo" data-remote="false">Trailer</a>
-                                    </p>
-
-                                    <div class="mt-2">
-                                        <div class="mb-1">
-                                            <label class="small mb-2 font-weight-bold d-block text-dark">
-                                                2D Phụ Đề Việt
-                                            </label>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">09:50</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">11:25</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" data-id="307949839" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price" data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
-                                                <span class="time">12:15</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">13:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">14:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">16:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">17:05</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:30</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">20:20</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">22:20</span>
-                                                <span class="amenity price"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="show-nextDate">
-                    <div class="card card-sm mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-3 col-sm-2">
-                                    <a href="/phim/yeu-lai-vo-ngau/">
-                                        <img src="https://cdn.moveek.com/storage/media/cache/mini/6538db4516a2d924012241.jpeg" alt="Yêu Lại Vợ Ngầu" class="rounded img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col ml-n2">
-                                    <h4 class="card-title mb-1 name">
-                                        <a href="/phim/yeu-lai-vo-ngau/">
-                                            Yêu Lại Vợ Bầu
-                                        </a>
-                                    </h4>
-
-                                    <p class="card-text small text-muted mb-0">
-                                        Love Reset · T16 · 120m ·
-                                        <a href="/video/18158/" data-toggle="modal" data-target="#videoModal" data-video-id="18158" data-video-url="MPSIeZaf6eo" data-remote="false">Trailer</a>
-                                    </p>
-
-                                    <div class="mt-2">
-                                        <div class="mb-1">
-                                            <label class="small mb-2 font-weight-bold d-block text-dark">
-                                                2D Phụ Đề Việt
-                                            </label>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">09:50</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">11:25</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" data-id="307949839" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price" data-reference="126710_57259898-4720-3ab2-825b-14e4dca0d0b2">
-                                                <span class="time">12:15</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime disabled btn-light is-ticketing is-show-price">
-                                                <span class="time">13:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">14:40</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">16:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">17:05</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:00</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">19:30</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">20:20</span>
-                                                <span class="amenity price"></span></a>
-                                            <a href="" class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-                                                <span class="time">22:20</span>
-                                                <span class="amenity price"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="show-wait" style="display: none">
-                    Hiện tại rạp phim của chúng tôi chưa ra suất chiếu mới. Vui lòng đợi vài ngày tới !!!
-                </div>
-            </div>
-        </div>
-    </div>
+										<div class="mt-2">
+											<div class="mb-1">
+												<label class="small mb-2 font-weight-bold d-block text-dark">
+													2D Phụ Đề Việt </label>
+												<!-- disabled -->
+												<c:forEach items="${listShowNextDate}" var="show">
+													<c:if test="${show.movie.name eq movie.name}">
+														<a
+															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
+															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
+															<span class="time">${show.startTime}</span> <span
+															class="amenity price"></span>
+														</a>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+				<div class="show-wait" style="display: none">Hiện tại rạp phim
+					của chúng tôi chưa ra suất chiếu mới. Vui lòng đợi vài ngày tới !!!</div>
+			</div>
+		</div>
+	</div>
 	<!-- footer -->
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">
@@ -681,42 +419,48 @@
 		</section>
 	</footer>
 	<script>
-        let prevId = 1;
+		let prevId = 1;
 
-        function myFunction(id) {
-            if (prevId !== id) {
-                let prevElement = document.querySelector('.btn[data-date="' + document.getElementById('dates').getElementsByTagName('a')[prevId - 1].getAttribute('data-date') + '"]');
-                if (prevElement) {
-                    prevElement.classList.remove('active');
-                }
-            }
+		function myFunction(id) {
+			if (prevId !== id) {
+				let prevElement = document.querySelector('.btn[data-date="'
+						+ document.getElementById('dates')
+								.getElementsByTagName('a')[prevId - 1]
+								.getAttribute('data-date') + '"]');
+				if (prevElement) {
+					prevElement.classList.remove('active');
+				}
+			}
 
-            // Add 'active' class to the clicked element
-            let currentElement = document.querySelector('.btn[data-date="' + document.getElementById('dates').getElementsByTagName('a')[id - 1].getAttribute('data-date') + '"]');
-            if (currentElement) {
-                currentElement.classList.add('active');
-            }
-            // document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
-            // document.getElementById(id).style.background = "#df0e62";
-            prevId = id;
-            // Hide all sections
-            document.querySelector('.show-currentDate').style.display = 'none';
-            document.querySelector('.show-tomorowDate').style.display = 'none';
-            document.querySelector('.show-nextDate').style.display = 'none';
-            document.querySelector('.show-wait').style.display = 'none';
+			// Add 'active' class to the clicked element
+			let currentElement = document.querySelector('.btn[data-date="'
+					+ document.getElementById('dates')
+							.getElementsByTagName('a')[id - 1]
+							.getAttribute('data-date') + '"]');
+			if (currentElement) {
+				currentElement.classList.add('active');
+			}
+			// document.getElementById(prevId).style.background = "rgb(243, 235, 235)";
+			// document.getElementById(id).style.background = "#df0e62";
+			prevId = id;
+			// Hide all sections
+			document.querySelector('.show-currentDate').style.display = 'none';
+			document.querySelector('.show-tomorowDate').style.display = 'none';
+			document.querySelector('.show-nextDate').style.display = 'none';
+			document.querySelector('.show-wait').style.display = 'none';
 
-            if (id === 1) {
-                document.querySelector('.show-currentDate').style.display = 'block';
-            } else if (id === 2) {
-                document.querySelector('.show-tomorowDate').style.display = 'block';
-            } else if (id === 3) {
-                document.querySelector('.show-nextDate').style.display = 'block';
-            } else if (id === 4) {
-                document.querySelector('.show-wait').style.display = 'block';
-            }
+			if (id === 1) {
+				document.querySelector('.show-currentDate').style.display = 'block';
+			} else if (id === 2) {
+				document.querySelector('.show-tomorowDate').style.display = 'block';
+			} else if (id === 3) {
+				document.querySelector('.show-nextDate').style.display = 'block';
+			} else if (id === 4) {
+				document.querySelector('.show-wait').style.display = 'block';
+			}
 
-        }
-    </script>
+		}
+	</script>
 	<script src="assets/js/jquery-1.9.1.min.js"></script>
 	<script src="assets/js/easyResponsiveTabs.js"></script>
 	<script type="text/javascript">

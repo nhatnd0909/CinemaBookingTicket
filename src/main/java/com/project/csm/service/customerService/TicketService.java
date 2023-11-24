@@ -1,6 +1,9 @@
 package com.project.csm.service.customerService;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -16,11 +19,15 @@ public class TicketService {
 	private TicketRepository tRepository;
 
 	public Ticket createNewTicket(Ticket ticket) {
+		ticket.setBookingDate(new Date());
 		return tRepository.save(ticket);
 	}
 
 	public List<Ticket> getAllTicket() {
-		return tRepository.findAll();
+		List<Ticket> tickets = tRepository.findAll();
+		Comparator<Ticket> byBookingDateDesc = Comparator.comparing(Ticket::getBookingDate).reversed();
+		Collections.sort(tickets, byBookingDateDesc);
+		return tickets;
 	}
 
 	public String createIDTicket() {
