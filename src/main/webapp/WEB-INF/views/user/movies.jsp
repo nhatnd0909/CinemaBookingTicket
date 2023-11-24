@@ -42,12 +42,13 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="home">Trang Chủ</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="home">Trang
+								Chủ</a></li>
 						<li class="nav-item active"><a class="nav-link" href="movies">Phim</a></li>
-						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
-						</li>
-						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
+						<li class="nav-item"><a class="nav-link" href="about">Thông
+								Tin</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên
+								Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
@@ -150,17 +151,18 @@
 						<div class="headerhny-left">
 							<h3 class="hny-title">Gần Đây</h3>
 						</div>
-						<div class="headerhny-right text-lg-right">
+						<!-- 						<div class="headerhny-right text-lg-right">
 							<h4>
 								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
 							</h4>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="w3l-populohny-grids">
 					<c:forEach items="${listLatest}" var="movie">
 						<div class="item vhny-grid">
-							<div class="box16 mb-0" onclick="location.href='details?name=${movie.name}';">
+							<div class="box16 mb-0"
+								onclick="location.href='details?name=${movie.name}';">
 								<figure>
 									<img class="img-fluid" src="assets/images/${movie.image}"
 										alt="" style="height: 400px;">
@@ -189,24 +191,20 @@
 				<div class="headerhny-title">
 					<div class="w3l-title-grids">
 						<div class="headerhny-left">
-							<h3 class="hny-title">Gần Đây</h3>
-						</div>
-						<div class="headerhny-right text-lg-right">
-							<h4>
-								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-							</h4>
+							<h3 class="hny-title">Tất Cả Phim</h3>
 						</div>
 					</div>
 				</div>
-				<div class="w3l-populohny-grids">
-					<c:forEach items="${listLatest}" var="movie">
+				<div class="w3l-populohny-grids" id="movieGrid">
+					<c:forEach items="${listMovie}" var="movie">
 						<div class="item vhny-grid">
-							<div class="box16 mb-0" onclick="location.href='details?name=${movie.name}';">
+							<div class="box16 mb-0"
+								onclick="location.href='details?name=${movie.name}';">
 								<figure>
 									<img class="img-fluid" src="assets/images/${movie.image}"
 										alt="" style="height: 400px;">
 								</figure>
-								<a href=".Commando3" data-toggle="modal">
+								<a href="" data-toggle="modal">
 									<div class="box-content">
 										<h3 class="title">${movie.name}</h3>
 										<h4>
@@ -222,7 +220,7 @@
 				</div>
 			</div>
 			<div class="button-center text-center mt-3">
-				<a href="#" class="btn view-button">Xem Tất Cả<span
+				<a  class="btn view-button" id="viewAllButton">Xem Tất Cả<span
 					class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
 			</div>
 		</div>
@@ -235,333 +233,64 @@
 					<!--Horizontal Tab-->
 					<div id="parentHorizontalTab">
 						<ul class="resp-tabs-list hor_1">
-							<li>Phim Gần Đây</li>
-							<li>Phim Nổi Tiếng</li>
+							<li>Phim Đang Chiếu</li>
+							<li>Phim Sắp Chiếu</li>
 							<div class="clear"></div>
 						</ul>
 						<div class="resp-tabs-container hor_1">
 							<div class="albums-content">
 								<div class="row">
 									<!--/set1-->
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"> <img src="assets/images/m6.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div>
-												</a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Long Shot</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m5.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Jumanji</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
+									<c:forEach items="${listOnGoing}" var="movie">
+										<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+											<div class="slider-info">
+												<div class="img-circle">
+													<a href="movies"><img
+														src="assets/images/${movie.image}" class="img-fluid"
+														alt="author image">
+														<div class="overlay-icon">
+															<span class="fa fa-play video-icon" aria-hidden="true"></span>
+														</div> </a>
+												</div>
+												<div class="message">
+													<p>${movie.language}</p>
+													<a class="author-book-title" href="movies">${movie.name}</a>
+													<h4>
+														<span class="post"><span class="fa fa-clock-o">
+														</span> ${movie.duration} phút</span> <span
+															class="post fa fa-heart text-right"></span>
+													</h4>
+												</div>
 											</div>
 										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m4.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Little Women</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m1.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Rocketman</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m2.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Doctor Sleep</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m3.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Knives Out</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/n1.jpg"
-													class="img-fluid" alt="author image"> <span
-													class="fa fa-play video-icon" aria-hidden="true"></span> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">No Time to
-													Die</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/n2.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Mulan</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/n3.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Free Guy</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
+									</c:forEach>
 								</div>
 							</div>
 							<div class="albums-content">
 								<div class="row">
 									<!--/set1-->
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m1.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
+									<c:forEach items="${listUpComing}" var="movie">
+										<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
+											<div class="slider-info">
+												<div class="img-circle">
+													<a href="movies"><img src="assets/images/${movie.image}"
+														class="img-fluid" alt="author image" style="height: 245px;">
+														<div class="overlay-icon">
 
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Rocketman</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m2.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Doctor Sleep</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
+															<span class="fa fa-play video-icon" aria-hidden="true"></span>
+														</div> </a>
+												</div>
+												<div class="message">
+													<p>${movie.language}</p>
+													<a class="author-book-title" href="movies">${movie.name}</a>
+													<h4>
+														<span class="post"><span class="fa fa-clock-o">
+														</span> ${movie.duration} phút </span> <span class="post fa fa-heart text-right"></span>
+													</h4>
+												</div>
 											</div>
 										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m3.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Knives Out</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m7.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Frozen 2</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m8.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Toy Story 4</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
-										<div class="slider-info">
-											<div class="img-circle">
-												<a href="movies"><img src="assets/images/m9.jpg"
-													class="img-fluid" alt="author image">
-													<div class="overlay-icon">
-
-														<span class="fa fa-play video-icon" aria-hidden="true"></span>
-													</div> </a>
-											</div>
-											<div class="message">
-												<p>English</p>
-												<a class="author-book-title" href="movies">Joker</a>
-												<h4>
-													<span class="post"><span class="fa fa-clock-o">
-													</span> 2 Hr 4min </span> <span class="post fa fa-heart text-right"></span>
-												</h4>
-											</div>
-										</div>
-
-									</div>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -604,7 +333,7 @@
 									<ul>
 										<li><a href="#">Phim Nổi Tiếng </a></li>
 										<li><a href="#">Phim Sắp Chiếu</a></li>
-										
+
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -619,22 +348,27 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián,Quận Thanh Khuê,TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành
+												Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián,Quận Thanh
+												Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
-											placeholder="Your Email Address" required="">
+											placeholder="Nhập email của bạn tại đây" required="">
 										<button>
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới
+										nhất và ưu đãi đặc biệt từ chúng tôi.</p>
 								</div>
 							</div>
 						</div>
@@ -667,6 +401,31 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					// Lấy danh sách các phần tử phim
+					var movies = document.querySelectorAll('#movieGrid .item');
+			
+					// Hiển thị chỉ 4 phim ban đầu
+					for (var i = 4; i < movies.length; i++) {
+						movies[i].style.display = 'none';
+					}
+			
+					// Bắt sự kiện khi nhấn vào nút "Xem Tất Cả"
+					document.getElementById('viewAllButton').addEventListener('click', function (event) {
+						event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
+			
+						// Hiển thị toàn bộ danh sách phim
+						for (var i = 0; i < movies.length; i++) {
+							movies[i].style.display = 'block';
+						}
+			
+						// Ẩn nút "Xem Tất Cả"
+						this.style.display = 'none';
+					});
+				});
+			</script>
+			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {

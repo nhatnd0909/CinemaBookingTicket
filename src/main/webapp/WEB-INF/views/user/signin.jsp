@@ -58,7 +58,7 @@
 		<div class="form-container sign-in-container">
 			<form name="signin" method="post" style="color: var(--theme-title);"
 				action="#" onsubmit="return signInValidateForm()">
-				<h1>Sign in</h1>
+				<h1>Đăng nhập</h1>
 				<div class="social-container">
 					<a href="#" class="social" style="color: var(--theme-title);"><i
 						class="fab fa-facebook-f"></i></a> <a href="#" class="social"
@@ -69,12 +69,12 @@
 				</div>
 				<span style="font-size: 17px" class="text-danger">${mess}</span> 
 				<div class="form-group">
-					<input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email" value="${email}" required="required">
+					<input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" name="email" value="${email}" required="required">
 					<div class="invalid-feedback">Email không được để trống</div>
 				  </div>
 				<div class="form-group password-container">
-					<input type="password" class="form-control" placeholder="Password" name="password" required="required">
-					<div class="invalid-feedback">Password không được để trống</div>
+					<input type="password" class="form-control" placeholder="Mật khẩu" name="password" required="required">
+					<div class="invalid-feedback">Mật khẩu không được để trống</div>
 					<i class="toggle-password fa fa-solid fa-eye" onclick="togglePassword(this)"></i>
 				</div>
 				  
@@ -86,7 +86,7 @@
 		<div class="overlay-container">
 			<div class="overlay">
 				<div class="overlay-panel overlay-right">
-					<h1>Xin Chào, Bạn!</h1>
+					<h1>Chào mừng bạn!</h1>
 					<p>Đăng kí và đặt vé ngay!!!</p>
 					<a href="/signup"><button class="ghost" id="signUp">Đăng Kí</button></a>
 				</div>

@@ -38,6 +38,12 @@ public class MovieController {
 
 		List<Movie> listLatest = movieService.getLatestMovie();
 		model.addAttribute("listLatest", listLatest);
+
+		List<Movie> listOnGoing = movieService.getMoiveOnGoing();
+		model.addAttribute("listOnGoing", listOnGoing);
+		
+		List<Movie> listUpComing = movieService.getMoiveUpComing();
+		model.addAttribute("listUpComing", listUpComing);
 		return "/user/movies";
 	}
 

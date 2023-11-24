@@ -20,8 +20,8 @@
 	<div class="ticket">
 		<div class="holes-top"></div>
 		<div class="title">
-			<p class="cinema">MyShowz Entertainment PRESENTS</p>
-			<p class="movie-title">Movie Name</p>
+			<p class="cinema">MyShowz Entertainment</p>
+			<p class="movie-title">Tên phim</p>
 		</div>
 		<div class="poster">
 			<img
@@ -31,9 +31,9 @@
 		<div class="info">
 			<table>
 				<tr>
-					<th>SCREEN</th>
-					<th>ROW</th>
-					<th>SEAT</th>
+					<th>RẠP</th>
+					<th>HÀNG</th>
+					<th>GHẾ</th>
 				</tr>
 				<tr>
 					<td class="bigger">18</td>
@@ -43,9 +43,9 @@
 			</table>
 			<table>
 				<tr>
-					<th>PRICE</th>
-					<th>DATE</th>
-					<th>TIME</th>
+					<th>GIÁ VÉ</th>
+					<th>NGÀY</th>
+					<th>SUẤT CHIẾU</th>
 				</tr>
 				<tr>
 					<td>Rs. 12.00</td>

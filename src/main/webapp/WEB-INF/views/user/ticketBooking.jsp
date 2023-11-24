@@ -61,7 +61,7 @@
 					</div>
                             ${loggedInAccount.getName()}
                             <div style="padding-left: 15px">
-						<a href="logout">Logout</a>
+						<a href="logout">Đăng Xuất</a>
 					</div>
 				</c:if>
 				<!-- toggle switch for light and dark theme -->
@@ -90,11 +90,11 @@
 							name="socid" type="text" value="" hidden="">
 
 						<ul id="progressbar" class="progressbar-class">
-							<li class="active" id="step1">Show timing selection</li>
-							<li id="step2" class="not_active">Seat Selection</li>
-							<li id="step3" class="not_active">Concession Items</li>
-							<li id="step4" class="not_active">Confirm</li>
-
+							<li class="active" id="step1">Chọn Giờ Chiếu</li>
+							<li id="step2" class="not_active">Chọn Ghế Ngồi</li>
+							<li id="step3" class="not_active">Đồ Ăn và Đồ Uống</li>
+							<li id="step4" class="not_active">Xác Nhận</li>
+              <li id="step5" class="not_active">Thanh Toán</li>
 						</ul>
 						<fieldset>
 							<div id="screen-select-div">
@@ -199,13 +199,13 @@
 										sau. Xin cám ơn!</b></h7>
 								</ul>
 							</div>
-							<input name="roomID" type="text" value="1"> <input
-								id="screen-next-btn" type="button" name="next-step"
-								class="next-step" value="Continue Booking" disabled />
+							<input name="roomID" type="text">
+							<input id="screen-next-btn" type="button" name="next-step"
+								class="next-step" value="Tiếp tục" disabled />
 						</fieldset>
 						<fieldset>
 							<div class="wrapper">
-								<h2>Seat Booking</h2>
+								<h2>Chọn Ghế Ngồi</h2>
 								<div class="theater">
 									<div class="wrapper-left-number">
 										<div class="row">
@@ -222,7 +222,7 @@
 										</div>
 									</div>
 									<div class="wrapper-left">
-										<div class="screen">SCREEN</div>
+										<div class="screen">MÀN HÌNH</div>
 
 										<div class="row content-row">
 											<div class="seat">A</div>
@@ -542,17 +542,17 @@
 							</div>
 
 							<br> <input type="button" name="next-step" class="next-step"
-								value="Concession Items"> <input type="button"
+								value="Đồ Ăn và Đồ Uống"> <input type="button"
 								name="previous-step" class="previous-step" value="Back" />
 						</fieldset>
 						<fieldset>
 							<table>
 								<tr>
-									<th>Image</th>
-									<th>Name</th>
-									<th>Unit Price</th>
-									<th>Quantity</th>
-									<th>Subtotal</th>
+									<th>Hình ảnh</th>
+									<th>Tên</th>
+									<th>Đơn giá</th>
+									<th>Số lượng</th>
+									<th>Thành tiền</th>
 								</tr>
 
 								<c:forEach items="${listService}" var="service" varStatus="loop">
@@ -583,7 +583,7 @@
 								Total money: <span id="total">0.00</span>
 							</div>
 							<br> <input type="button" name="next-step" class="next-step"
-								value="Proceed to Payment" /> <input type="button"
+								value="Tiếp tục Thanh Toán" /> <input type="button"
 								name="previous-step" class="previous-step" value="Back" />
 
 						</fieldset>
@@ -600,11 +600,11 @@
 									<div style="padding-top: 2%;">
 										<table>
 											<tr>
-												<th>Image</th>
-												<th>Name</th>
-												<th>Unit Price</th>
-												<th>Quantity</th>
-												<th>Subtotal</th>
+												<th>Hình ảnh</th>
+												<th>Tên</th>
+												<th>Đơn giá</th>
+												<th>Số lượng</th>
+												<th>Thành tiền</th>
 											</tr>
 										</table>
 									</div>
@@ -622,7 +622,7 @@
 								</div>
 							</div>
 							<input type="submit" name="submitPayment"
-								class="next-step pay-btn" value="Confirm Payment" /> <input
+								class="next-step pay-btn" value="Xác nhận Thanh toán" /> <input
 								type="button" name="previous-step" class="cancel-pay-btn"
 								value="Cancel Payment" onclick="location.href='chooseseat?movie=${movie}&theater=${theater}';" />
 						</fieldset>

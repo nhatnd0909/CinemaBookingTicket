@@ -1,0 +1,21 @@
+img.rounded.img-fluid {
+    width: 100%;
+}
+
+a.btn.btn-sm.btn-showtime.disabled.btn-light.is-ticketing.is-show-price {
+    padding: 21px;
+}
+
+a.btn.btn-sm.btn-showtime.btn-outline-dark.is-ticketing.is-show-price {
+    padding: 22px;
+}
+
+span.time {
+    font-size: 17px;
+}
+.col-md-12{
+	margin-top: 100px;
+}
+/*.active{
+	background-color: #dae0e5;
+}*/

@@ -57,11 +57,11 @@
 	<div class="container_signup_signin" id="container_signup_signin">
 		<form name="verify" action="forgotpassword" method="post"
 			onsubmit="return signUpValidateForm()">
-			<h2>Verify Email</h2>
-			<p>Enter your email to reset password</p>
+			<h2>Xác nhận Email</h2>
+			<p>Nhập vào Email của bạn để đặt lại mật khẩu</p>
 			${mess} 
 			<input name="email" type="text" placeholder="Email" value="" />
-			<button>Submit</button>
+			<button>Gửi</button>
 		</form>
 	</div>
 	<script type="text/javascript" src="assets/js/as-alert-message.min.js"></script>

@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Detail Show</title>
+<title>Nhân Viên</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -28,21 +28,34 @@
 <!-- inject:css -->
 <!-- endinject -->
 <!-- Layout styles -->
+<link rel="stylesheet" href="assets/css/style-starter.css">
+
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
 </head>
 
+<style>
+.icon-log{
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+    padding-right: 5px;
+    }
+  .navbar-brand{
+  	color : #fff;
+  }
+</style>
 <body>
 	<div class="container-scroller">
 		<!-- partial:partials/_sidebar.html -->
 		<nav class="sidebar sidebar-offcanvas" id="sidebar">
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-				<a class="sidebar-brand brand-logo" href="/employee/Dashboard"><img
-					src="/admin_assets/assets/images/logo.svg" alt="logo" /></a> <a
-					class="sidebar-brand brand-logo-mini" href="/employee/Dashboard"><img
-					src="/admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
+				<a class="navbar-brand" href="#"><span
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
+					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
 				<li class="nav-item profile">
@@ -54,7 +67,7 @@
 								<span class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Detail Show</h5>
+								<h5 class="mb-0 font-weight-normal">Nhân Viên</h5>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -69,51 +82,48 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Account
-										settings</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="/employee/changepassword"
-								class="dropdown-item preview-item">
+							<a href="/employee/changepassword" class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Change
-										Password</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
 						</div>
 					</div>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Navigation</span>
+				</li>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
-					</span> <span class="menu-title">Dashboard</span>
+					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/service"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
-					</span> <span class="menu-title">Service</span>
+					</span> <span class="menu-title">Dịch Vụ</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/show"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
-					</span> <span class="menu-title">Show</span>
+					</span> <span class="menu-title">Lịch chiếu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employee/bookinghistory"> <span class="menu-icon">
-							<i class="mdi mdi-account-circle"></i>
-					</span> <span class="menu-title">User booking history</span>
+					href="/employee/bookinghistory"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Lịch Sử Đặt Vé </span>
 				</a></li>
-			</ul>
 		</nav>
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
@@ -132,10 +142,7 @@
 					</button>
 					<ul class="navbar-nav w-100">
 						<li class="nav-item w-100">
-							<form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-								<input type="text" class="form-control"
-									placeholder="Search products">
-							</form>
+							
 						</li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
@@ -291,16 +298,14 @@
 									<h4 class="card-title">${room.name}</h4>
 									<p class="mb-0">
 										<a href="/employee/show"
-											style="text-decoration: none; color: inherit;"> Show</a> / <span>New
-											Show</span>
+											style="text-decoration: none; color: inherit;"> Lịch chiếu</a> / <span>Chi tiết lịch chiếu</span>
 									</p>
 								</div>
 								<form class="forms-sample" method="post" action="createShow">
 									<input type="text" name="roomID" value="${room.roomID}"
 										hidden="">
 									<div class="form-group row">
-										<label for="exampleInputName1" class="col-sm-2 col-form-label">Day
-											Time</label>
+										<label for="exampleInputName1" class="col-sm-2 col-form-label">Ngày</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control"
 												id="exampleInputName1" name="date" value="${dateReturn}">
@@ -310,26 +315,26 @@
 
 									<div class="form-group row">
 										<label for="exampleInputEmail3"
-											class="col-sm-2 col-form-label">Start Time</label>
+											class="col-sm-2 col-form-label">Giờ bắt đầu</label>
 										<div class="col-sm-10">
 											<input name="start" type="text" class="form-control"
-												id="exampleInputEmail3" placeholder="Start Time"
+												id="exampleInputEmail3" placeholder="Giờ bắt đầu"
 												required="required" value="${startTime}">
 										</div>
 									</div>
 
 									<div class="form-group row">
 										<label for="exampleInputEmail3"
-											class="col-sm-2 col-form-label">End Time</label>
+											class="col-sm-2 col-form-label">Giờ kết thúc</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control"
-												id="exampleInputEmail3" placeholder="Price" name="end"
+												id="exampleInputEmail3" placeholder="Giờ kết thúc" name="end"
 												required="required" value="${endTime}">
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="exampleSelectGender"
-											class="col-sm-2 col-form-label">Name Movie</label>
+											class="col-sm-2 col-form-label">Tên phim</label>
 										<div class="col-sm-10">
 											<select class="form-control" name="movieID"
 												required="required">
@@ -351,10 +356,10 @@
 									</div>
 									<div class="form-group row">
 										<label for="exampleInputEmail3"
-											class="col-sm-2 col-form-label">Price</label>
+											class="col-sm-2 col-form-label">Giá vé</label>
 										<div class="col-sm-10">
 											<c:if test="${comparePrice == 0}">
-												<input type="text" class="form-control" placeholder="Price"
+												<input type="text" class="form-control" placeholder="Giá "
 													name="price" required="required" value="">
 											</c:if>
 											<c:if test="${comparePrice != 0}">
@@ -363,8 +368,8 @@
 											</c:if>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-primary mr-2">Save</button>
-									<button type="submit" class="btn btn-primary mr-2">Cancel</button>
+									<button type="submit" class="btn btn-primary mr-2">Lưu lại</button>
+									<button type="submit" class="btn btn-primary mr-2">Hủy</button>
 
 								</form>
 							</div>

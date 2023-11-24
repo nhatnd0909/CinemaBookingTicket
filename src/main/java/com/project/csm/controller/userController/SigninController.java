@@ -14,11 +14,17 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import com.project.csm.model.Account;
+import com.project.csm.model.Admin;
 import com.project.csm.model.Customer;
+import com.project.csm.model.Employee;
 import com.project.csm.model.Movie;
+import com.project.csm.model.Theater;
+import com.project.csm.service.adminService.AdminService;
 import com.project.csm.service.customerService.AccountService;
 import com.project.csm.service.customerService.CustomerService;
 import com.project.csm.service.customerService.MovieService;
+import com.project.csm.service.customerService.TheaterService;
+import com.project.csm.service.employeeService.EmployeeService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -30,7 +36,13 @@ public class SigninController {
 	private CustomerService customerService;
 	@Autowired
 	private MovieService movieService;
-	
+	@Autowired
+	private EmployeeService employeeService;
+	@Autowired
+	private AdminService adminService;
+	@Autowired
+	private TheaterService theaterService;
+
 	@GetMapping("/signin")
 	public String showSignin(Model model) {
 		model.addAttribute("email", "");
@@ -54,25 +66,33 @@ public class SigninController {
         String selectedTheater = (String) session.getAttribute("selectedTheater");
 		Customer customer = customerService.findCustomerByEmail(email);
 		session.setAttribute("loggedInAccount", customer);
+
 		Account accountLoggedIn = accountService.findAccountByEmail(email);
 		session.setAttribute("accountLoggedIn", accountLoggedIn);
+
+		if (accountLoggedIn.getRole().equals("employee")) {
+			Employee employee = employeeService.getEmployeeByIdAccount(accountLoggedIn.getAccountID());
+			session.setAttribute("employee", employee);
+			return "redirect:/employee/Dashboard";
+		} else if (accountLoggedIn.getRole().equals("admin")) {
+			Admin admin = adminService.getAdminByAccountID(accountLoggedIn.getAccountID());
+			session.setAttribute("admin", admin);
+			return "redirect:/adminDashboard";
+		}
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 		int loggedIn = 0;
 		if (loggedInAccount == null) {
-			loggedIn = 0; 
+			loggedIn = 0;
 		} else {
-			loggedIn = 1; 
+			loggedIn = 1;
 		}
-		
-		System.out.println(selectedMovie);
-		System.out.println(selectedTheater);
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
-		
+
 		List<Movie> popularMovies = movieService.getPopularMovie();
 		model.addAttribute("popularMovies", popularMovies);
-		
+
 		List<Movie> allMovies = movieService.getAllMovie();
 		model.addAttribute("allMovies", allMovies);
 		
@@ -92,6 +112,5 @@ public class SigninController {
 			return "/user/index";			
 		}
 	}
-
 
 }

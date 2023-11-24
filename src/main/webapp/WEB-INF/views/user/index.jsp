@@ -15,9 +15,27 @@
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
-
+<!-- <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 </head>
+<style>
+a.btn.dropdown-toggle {
+	background: none;
+	text-transform: capitalize;
+	font-size: 16px;
+	font-weight: 600;
+	display: block;
+	line-height: 28px;
+	padding: 0 15px;
+	color: var(--theme-title);
+}
 
+a.btn.dropdown-toggle:hover {
+	color: #DF0E62
+}
+</style>
 <body>
 	<!-- header -->
 	<header id="site-header" class="w3l-header fixed-top">
@@ -44,60 +62,33 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="#">Trang Chủ</a></li>
+						<li class="nav-item active"><a class="nav-link" href="#">Trang
+								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="about">Thông
+								Tin</a></li>
 
 
-						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên
+								Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->
 					<!--/search-right-->
-					<div class="search-right">
-						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Tìm <span class="fa fa-search ml-3"
-							aria-hidden="true"></span></a>
-						<!-- search popup -->
-						<div id="search" class="pop-overlay">
-							<div class="popup">
-								<form action="#" method="post" class="search-box">
-									<input type="search" placeholder="Search your Keyword"
-										name="search" required="required" autofocus="">
-									<button type="submit" class="btn">
-										<span class="fa fa-search" aria-hidden="true"></span>
-									</button>
-								</form>
-								<div class="browse-items">
-									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
-									<ul class="search-items">
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-									</ul>
-								</div>
-							</div>
-							<a class="close" href="#close">×</a>
+					<!-- Example single danger button -->
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" href="#" role="button"
+							data-toggle="dropdown" aria-expanded="false"
+							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
+							Rạp</a>
+						<div class="dropdown-menu">
+							<c:forEach items="${listTheater}" var="theater">
+								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+							</c:forEach>
 						</div>
-						<!-- /search popup -->
-						<!--/search-right-->
-
 					</div>
+
 
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
@@ -119,7 +110,7 @@
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Logout</a>
+							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
 				</div>
@@ -259,13 +250,13 @@
 					<c:forEach items="${popularMovies}" var="movie">
 						<div class="item vhny-grid">
 							<div class="box16">
-								<a href="movies">
+								<a href="details?name=${movie.name}">
 									<figure>
 										<img class="img-fluid" src="assets/images/${movie.image}"
 											alt="" style="height: 350px">
 									</figure>
 									<div class="box-content">
-										<h3 class="title">${movie.name} </h3>
+										<h3 class="title">${movie.name}</h3>
 										<h4>
 											<span class="post"><span class="fa fa-clock-o">
 											</span> ${movie.duration} Min</span> <span
@@ -288,7 +279,7 @@
 				<div class="headerhny-title">
 					<div class="w3l-title-grids">
 						<div class="headerhny-left">
-							<h3 class="hny-title">Mới Phát Hành </h3>
+							<h3 class="hny-title">Mới Phát Hành</h3>
 						</div>
 						<div class="headerhny-right text-lg-right">
 							<h4>
@@ -300,11 +291,11 @@
 
 				<div class="owl-three owl-carousel owl-theme">
 					<c:forEach items="${allMovies}" var="allMovies">
-						<div class="item vhny-grid" >
+						<div class="item vhny-grid">
 							<div class="box16 mb-0">
 								<a href="movies">
 									<figure>
-										<img class="img-fluid" src="assets/images/${allMovies.image}"
+										<img class="img-fluid" src="/assets/images/${allMovies.image}"
 											alt="" style="height: 300px">
 									</figure>
 									<div class="box-content">
@@ -317,17 +308,17 @@
 								</a>
 							</div>
 							<h3>
-								<a class="title-gd" href="movies" >${allMovies.name}</a>
+								<a class="title-gd" href="movies">${allMovies.name}</a>
 							</h3>
 							<p>Thể loại: ${allMovies.getGenre().getGenreName()}</p>
 							<div class="button-center text-center mt-4">
-								<a href="movies" class="btn watch-button">Xem bây giờ</a>
+								<a href="movies" class="btn watch-button">Đặt vé ngay</a>
 							</div>
 
 						</div>
 					</c:forEach>
 				</div>
-				
+
 			</div>
 
 		</div>
@@ -419,7 +410,7 @@
 										<li><a href="#">Phim Xu Hướng</a></li>
 										<li><a href="#">Phim Nổi Tiếng </a></li>
 										<li><a href="#">Phim Sắp Chiếu</a></li>
-										
+
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -434,9 +425,9 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián,Quận Thanh Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh Khê,TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
 									</ul>
 								</div>
@@ -449,7 +440,8 @@
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-										<p>Nhập email của bạn và nhận những tin tức, cập nhật mới nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới
+										nhất và ưu đãi đặc biệt từ chúng tôi.</p>
 
 								</div>
 							</div>
@@ -708,18 +700,19 @@
 		});
 	</script>
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
+		document.addEventListener('DOMContentLoaded', function() {
 			// Lặp qua tất cả các phần tử có class 'title-gd'
 			var movieTitles = document.querySelectorAll('.title-gd');
-			
+
 			movieTitles.forEach(function(titleElement) {
 				var titleText = titleElement.innerText;
-	
+
 				var wordCount = titleText.split(' ').length;
 				if (wordCount < 8) {
-					titleElement.innerHTML = '<span class="line1">' + titleText + '</span><br><span class="line2">&nbsp;</span>';
+					titleElement.innerHTML = '<span class="line1">' + titleText
+							+ '</span><br><span class="line2">&nbsp;</span>';
 				}
-				
+
 			});
 		});
 	</script>

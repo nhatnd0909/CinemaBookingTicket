@@ -94,7 +94,7 @@
 							<li id="step2" class="not_active">Seat Selection</li>
 							<li id="step3" class="not_active">Concession Items</li>
 							<li id="step4" class="not_active">Confirm</li>
-
+							<li id="step5" class="not_active">Payment</li>
 						</ul>
 						<fieldset>
 							<div id="screen-select-div">
