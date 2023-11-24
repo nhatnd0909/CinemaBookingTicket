@@ -110,12 +110,14 @@
 					<div class="inputBox" id="fname-inputBox">
 						<c:if test="${loggedIn eq 1}">
 							<input type="text" name="firstName" value="${lastName}"
-								onclick="triggerAnim('fname')" placeholder="Họ" />
+								onclick="triggerAnim('fname')" placeholder="Họ"
+								required="required" />
 							<span class="line" id="fname-line"></span>
 						</c:if>
 						<c:if test="${loggedIn eq 0}">
 							<input type="text" name="firstName"
-								onclick="triggerAnim('fname')" placeholder="Họ" />
+								onclick="triggerAnim('fname')" placeholder="Họ"
+								required="required" />
 							<span class="line" id="fname-line"></span>
 						</c:if>
 					</div>
@@ -124,12 +126,13 @@
 					<div class="inputBox" id="lname-inputBox">
 						<c:if test="${loggedIn eq 1}">
 							<input type="text" name="name" value="${name}"
-								onclick="triggerAnim('lname')" placeholder="Tên" />
+								onclick="triggerAnim('lname')" placeholder="Tên"
+								required="required" />
 							<span class="line" id="lname-line"></span>
 						</c:if>
 						<c:if test="${loggedIn eq 0}">
 							<input type="text" name="name" onclick="triggerAnim('lname')"
-								placeholder="Tên" />
+								placeholder="Tên" required="required" />
 							<span class="line" id="lname-line"></span>
 						</c:if>
 					</div>
@@ -141,12 +144,14 @@
 						<c:if test="${loggedIn eq 1}">
 							<input type="email" name="email" pattern="[^ @]*@[^ @]*"
 								onclick="triggerAnim('email')"
-								value="${loggedInAccount.account.email}" placeholder="Email" />
+								value="${loggedInAccount.account.email}" placeholder="Email"
+								required="required" />
 							<span class="line" id="email-line"></span>
 						</c:if>
 						<c:if test="${loggedIn eq 0}">
 							<input type="email" name="email" pattern="[^ @]*@[^ @]*"
-								onclick="triggerAnim('email')" placeholder="Email" />
+								onclick="triggerAnim('email')" placeholder="Email"
+								required="required" />
 							<span class="line" id="email-line"></span>
 						</c:if>
 					</div>
@@ -156,12 +161,13 @@
 						<c:if test="${loggedIn eq 1}">
 							<input type="tel" name="phone"
 								value="${loggedInAccount.phoneNumber}"
-								onclick="triggerAnim('tel')" placeholder="Số điện thoại" />
+								onclick="triggerAnim('tel')" placeholder="Số điện thoại"
+								required="required" />
 							<span class="line" id="tel-line"></span>
 						</c:if>
 						<c:if test="${loggedIn eq 0}">
 							<input type="tel" name="phone" onclick="triggerAnim('tel')"
-								placeholder="Số điện thoại" />
+								placeholder="Số điện thoại" required="required" />
 							<span class="line" id="tel-line"></span>
 						</c:if>
 					</div>
@@ -170,7 +176,7 @@
 			<div class="row100">
 				<div class="col">
 					<div class="inputBox textarea">
-						<textarea name="msg"></textarea>
+						<textarea name="msg" required="required"></textarea>
 						<span class="text">Viết lời nhắn tại đây...</span> <span
 							class="line"></span>
 					</div>
