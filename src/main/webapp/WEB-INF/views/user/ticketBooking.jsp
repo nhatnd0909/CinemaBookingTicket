@@ -638,7 +638,7 @@
 		var nextDate = new Date();
 		nextDate.setDate(currentDate.getDate() + 2);
 		var futureDate3Days = new Date();
-		futureDate3Days.setDate(currentDate.getDate() + 3);
+		futureDate3Days.setDate(currentDate.getDate() + 3);	
 		var futureDate4Days = new Date();
 		futureDate4Days.setDate(currentDate.getDate() + 4);
 		var daysOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];

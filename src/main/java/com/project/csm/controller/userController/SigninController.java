@@ -8,6 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import com.project.csm.model.Account;
 import com.project.csm.model.Customer;
@@ -46,6 +50,8 @@ public class SigninController {
 			model.addAttribute("email", email);
 			return "/user/signin";
 		}
+		String selectedMovie = (String) session.getAttribute("selectedMovie");
+        String selectedTheater = (String) session.getAttribute("selectedTheater");
 		Customer customer = customerService.findCustomerByEmail(email);
 		session.setAttribute("loggedInAccount", customer);
 		Account accountLoggedIn = accountService.findAccountByEmail(email);
@@ -59,6 +65,8 @@ public class SigninController {
 			loggedIn = 1; 
 		}
 		
+		System.out.println(selectedMovie);
+		System.out.println(selectedTheater);
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		
@@ -68,7 +76,21 @@ public class SigninController {
 		List<Movie> allMovies = movieService.getAllMovie();
 		model.addAttribute("allMovies", allMovies);
 		
-		return "/user/index";
+		
+		try {
+	        selectedMovie = URLEncoder.encode(selectedMovie, "UTF-8");
+	        selectedTheater = URLEncoder.encode(selectedTheater, "UTF-8");
+	    } catch (UnsupportedEncodingException e) {
+	        e.printStackTrace(); // Handle the exception according to your application's requirements
+	    }
+		
+		
+		if(selectedMovie != null && selectedTheater != null) {
+		    return "redirect:/chooseseat?movie=" + selectedMovie + "&theater=" + selectedTheater;
+		}
+		else {
+			return "/user/index";			
+		}
 	}
 
 

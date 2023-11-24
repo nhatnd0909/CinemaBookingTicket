@@ -13,35 +13,67 @@ prefix="c"%>
       href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
   </head>
   <body>
-    <div class="cardWrap">
-      <div class="card cardLeft">
-        <h1>Startup Cinema</h1>
-        <div class="title">
-          <h2>How I met your Mother</h2>
-          <span>movie</span>
+    <div class="ticket">
+      <div class="left">
+        <div class="image">
+          <p class="admit-one">
+            <span>ADMIT ONE</span>
+            <span>ADMIT ONE</span>
+            <span>ADMIT ONE</span>
+          </p>
+          <div class="ticket-number">
+            <p>#20200702</p>
+          </div>
         </div>
-        <div class="name">
-          <h2>Vladimir Kudinov</h2>
-          <span>name</span>
-        </div>
-        <div class="seat">
-          <h2>156</h2>
-          <span>seat</span>
-        </div>
-        <div class="time">
-          <h2>12:00</h2>
-          <span>time</span>
+        <div class="ticket-info">
+          <p class="date">
+            <span>WEDNESDAY</span>
+            <span class="nov-10">JUNE 28th</span>
+            <span>2023</span>
+          </p>
+          <div class="show-name">
+            <h1>#WarriorNunSaved</h1>
+            <h2>Warrior Nun Cast & Crew</h2>
+            <h2>Halo Bearers</h2>
+          </div>
+          <div class="time">
+            <p>07:16 AM <span>TO</span> TBD</p>
+          </div>
+          <div class="tagline">
+            <p>IN THIS LIFE OR THE NEXT</p>
+          </div>
+          <p class="location">
+            <span>THE CAT'S CRADLE</span>
+            <span class="separator"><i class="fa-solid fa-cross"></i></span
+            ><span>ANDALUCÍA, SPAIN</span>
+          </p>
         </div>
       </div>
-      <div class="card cardRight">
-        <div class="eye"></div>
-        <div class="number">
-          <h3>156</h3>
-          <span>seat</span>
+      <div class="right">
+        <p class="admit-one">
+          <span>ADMIT ONE</span>
+          <span>ADMIT ONE</span>
+          <span>ADMIT ONE</span>
+        </p>
+        <div class="right-info-container">
+          <div class="show-name">
+            <h1>#WarriorNunSaved</h1>
+          </div>
+          <div class="time">
+            <p>28.06.2023</p>
+            <p>07:16 AM <span>TO</span> TBD</p>
+          </div>
+          <div class="barcode">
+            <img src="https://i.imgur.com/DiBJvTA.png" alt="QR code" />
+          </div>
+          <p class="ticket-number">#20200702</p>
         </div>
-        <div class="barcode"></div>
       </div>
     </div>
   </body>
