@@ -147,7 +147,8 @@ public class VNPayController {
 			int times = loggedInAccount.getTimes();
 			customerService.updateRank(loggedInAccount, times);
 
-			Payment payment = new Payment(new Date(), ticket, (int) session.getAttribute("orderTotalInt"));
+			Payment payment = new Payment(new Date(), ticket, (int) session.getAttribute("orderTotalInt"),
+					ticket.getShow().getTheaterRoom().getTheater().getName());
 			paymentService.createNewPayment(payment);
 		} else {
 			Ticket ticket = (Ticket) session.getAttribute("ticket");

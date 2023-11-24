@@ -421,13 +421,49 @@
 													</div>
 													<div class="preview-item-content d-sm-flex flex-grow">
 														<div class="flex-grow">
-															<h6 class="preview-subject">Starlight Đà Nẵng</h6>
+															<h6 class="preview-subject">Theater Đà Nẵng</h6>
 															<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/
 																Đà Nẵng</p>
 														</div>
 														<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-															<h3 class="preview-subject">123$</h3>
-															<p class="text-muted mb-0">Doanh thu Tháng 11</p>
+															<h3 class="preview-subject">${totalDN} VND</h3>
+															<p class="text-muted mb-0">Doanh thu Tháng ${currentMonth}</p>
+														</div>
+													</div>
+												</div>
+												<div class="preview-item border-bottom">
+													<div class="preview-thumbnail">
+														<div class="preview-icon bg-success">
+															<i class="mdi mdi-cloud-download"></i>
+														</div>
+													</div>
+													<div class="preview-item-content d-sm-flex flex-grow">
+														<div class="flex-grow">
+															<h6 class="preview-subject">Theater Huế</h6>
+															<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/
+																Đà Nẵng</p>
+														</div>
+														<div class="mr-auto text-sm-right pt-2 pt-sm-0">
+															<h3 class="preview-subject">${totalH} VND</h3>
+															<p class="text-muted mb-0">Doanh thu Tháng ${currentMonth}</p>
+														</div>
+													</div>
+												</div>
+												<div class="preview-item border-bottom">
+													<div class="preview-thumbnail">
+														<div class="preview-icon bg-info">
+															<i class="mdi mdi-clock"></i>
+														</div>
+													</div>
+													<div class="preview-item-content d-sm-flex flex-grow">
+														<div class="flex-grow">
+															<h6 class="preview-subject">Theater Quảng Nam</h6>
+															<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/
+																Đà Nẵng</p>
+														</div>
+														<div class="mr-auto text-sm-right pt-2 pt-sm-0">
+															<h3 class="preview-subject">${totalQN} VND</h3>
+															<p class="text-muted mb-0">Doanh thu Tháng ${currentMonth}</p>
 														</div>
 													</div>
 												</div>

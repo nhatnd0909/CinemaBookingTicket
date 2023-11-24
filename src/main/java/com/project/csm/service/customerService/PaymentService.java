@@ -48,4 +48,25 @@ public class PaymentService {
 		return totalByMonth;
 	}
 
+	public int calculateTotalByMonthTheater(String inputDate, String theaterName) {
+		int totalByMonth = 0;
+		List<Payment> payments = getAllPayment();
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			Date targetDate = dateFormat.parse(inputDate);
+			for (Payment payment : payments) {
+				// Lấy ngày của payment
+				Date paymentDate = payment.getDate();
+
+				// So sánh tháng của ngày payment với tháng của ngày đầu vào
+				if (isSameMonth(targetDate, paymentDate) && payment.getTheaterName().equals(theaterName)) {
+
+					totalByMonth += payment.getTotal();
+
+				}
+			}
+		} catch (Exception e) {
+		}
+		return totalByMonth;
+	}
 }

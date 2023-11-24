@@ -43,6 +43,13 @@ public class AdminPageController {
 
 		List<Theater> listTheater = theaterService.getAllTheater();
 		model.addAttribute("listTheater", listTheater);
+
+		int totalDN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Đà Nẵng");
+		int totalH = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Huế");
+		int totalQN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Quảng Nam");
+		model.addAttribute("totalDN", totalDN);
+		model.addAttribute("totalH", totalH);
+		model.addAttribute("totalQN", totalQN);
 		return "admin/adminDashboard";
 	}
 
@@ -58,15 +65,28 @@ public class AdminPageController {
 		return "admin/chart";
 	}
 
-//	@GetMapping("/movieDashboard")
-//	public String showMovieAdmin() {
-//
-//		return "admin/movieDashboard";
-//	}
-
 	@GetMapping("/revenue")
-	public String showRevenue() {
+	public String showRevenue(Model model) {
+		int totalByMonth = paymentService.calculateTotalByMonth(sService.getCurrentDate());
+		model.addAttribute("totalByMonth", totalByMonth);
+		int totalMovies = movieService.getAllMovie().size();
+		model.addAttribute("totalMovies", totalMovies);
+		int totalCustomer = customerService.getAllCustomer().size();
+		model.addAttribute("totalCustomer", totalCustomer);
+		int totalTickets = ticketService.getTicketsByMonth(sService.getCurrentDate()).size();
+		model.addAttribute("totalTickets", totalTickets);
+		String currentMonth = sService.getCurrentDate().split("-")[1];
+		model.addAttribute("currentMonth", currentMonth);
 
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
+
+		int totalDN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Đà Nẵng");
+		int totalH = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Huế");
+		int totalQN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Quảng Nam");
+		model.addAttribute("totalDN", totalDN);
+		model.addAttribute("totalH", totalH);
+		model.addAttribute("totalQN", totalQN);
 		return "admin/revenue";
 	}
 

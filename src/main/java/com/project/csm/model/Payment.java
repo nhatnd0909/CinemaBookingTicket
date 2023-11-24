@@ -35,6 +35,9 @@ public class Payment {
 	@Column(name = "Total")
 	private int total;
 
+	@Column(name = "Theater")
+	private String theaterName;
+
 	public Payment() {
 		super();
 	}
@@ -44,6 +47,14 @@ public class Payment {
 		this.date = date;
 		this.ticket = ticket;
 		this.total = total;
+	}
+
+	public Payment(Date date, Ticket ticket, int total, String theaterName) {
+		super();
+		this.date = date;
+		this.ticket = ticket;
+		this.total = total;
+		this.theaterName = theaterName;
 	}
 
 	public Long getPaymentID() {
@@ -78,9 +89,18 @@ public class Payment {
 		this.total = total;
 	}
 
+	public String getTheaterName() {
+		return theaterName;
+	}
+
+	public void setTheaterName(String theaterName) {
+		this.theaterName = theaterName;
+	}
+
 	@Override
 	public String toString() {
-		return "Payment [paymentID=" + paymentID + ", date=" + date + ", ticket=" + ticket + ", total=" + total + "]";
+		return "Payment [paymentID=" + paymentID + ", date=" + date + ", ticket=" + ticket + ", total=" + total
+				+ ", theaterName=" + theaterName + "]";
 	}
 
 }
