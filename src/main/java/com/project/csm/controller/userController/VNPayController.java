@@ -2,6 +2,7 @@ package com.project.csm.controller.userController;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.project.csm.config.VNPayService;
 import com.project.csm.model.Customer;
 import com.project.csm.model.Order;
+import com.project.csm.model.Payment;
 import com.project.csm.model.SeatOfCinema;
 import com.project.csm.model.Service;
 import com.project.csm.model.Show;
 import com.project.csm.model.Ticket;
 import com.project.csm.service.customerService.CustomerService;
 import com.project.csm.service.customerService.OrderService;
+import com.project.csm.service.customerService.PaymentService;
 import com.project.csm.service.customerService.SeatOfCinemaService;
 import com.project.csm.service.customerService.ServiceService;
 import com.project.csm.service.customerService.TicketService;
@@ -43,6 +46,8 @@ public class VNPayController {
 	private ServiceService serviceService;
 	@Autowired
 	private CustomerService customerService;
+	@Autowired
+	private PaymentService paymentService;
 
 	@GetMapping("/submitOrder")
 	public String vnpayHome() {
@@ -113,6 +118,7 @@ public class VNPayController {
 
 		double orderTotalDouble = Double.parseDouble(orderTotal);
 		int orderTotalInt = (int) Math.round(orderTotalDouble);
+		session.setAttribute("orderTotalInt", orderTotalInt);
 		String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 		String vnpayUrl = vnPayService.createOrder(orderTotalInt, "Thanh toan dat ve xem phim", baseUrl);
 		return "redirect:" + vnpayUrl;
@@ -140,6 +146,9 @@ public class VNPayController {
 
 			int times = loggedInAccount.getTimes();
 			customerService.updateRank(loggedInAccount, times);
+
+			Payment payment = new Payment(new Date(), ticket, (int) session.getAttribute("orderTotalInt"));
+			paymentService.createNewPayment(payment);
 		} else {
 			Ticket ticket = (Ticket) session.getAttribute("ticket");
 			String idTicket = ticket.getTicketID();

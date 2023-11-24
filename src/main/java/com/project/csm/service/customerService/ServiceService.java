@@ -68,4 +68,5 @@ public class ServiceService {
 	public BigDecimal multiplyIntByBigDecimal(int intValue, BigDecimal bigDecimalValue) {
 		return new BigDecimal(intValue).multiply(bigDecimalValue);
 	}
+	
 }
