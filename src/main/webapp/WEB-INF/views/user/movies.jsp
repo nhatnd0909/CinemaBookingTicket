@@ -193,14 +193,9 @@
 						<div class="headerhny-left">
 							<h3 class="hny-title">Tất Cả Phim</h3>
 						</div>
-						<!-- <div class="headerhny-right text-lg-right">
-							<h4>
-								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-							</h4>
-						</div> -->
 					</div>
 				</div>
-				<div class="w3l-populohny-grids">
+				<div class="w3l-populohny-grids" id="movieGrid">
 					<c:forEach items="${listMovie}" var="movie">
 						<div class="item vhny-grid">
 							<div class="box16 mb-0"
@@ -209,7 +204,7 @@
 									<img class="img-fluid" src="assets/images/${movie.image}"
 										alt="" style="height: 400px;">
 								</figure>
-								<a href=".Commando3" data-toggle="modal">
+								<a href="" data-toggle="modal">
 									<div class="box-content">
 										<h3 class="title">${movie.name}</h3>
 										<h4>
@@ -225,7 +220,7 @@
 				</div>
 			</div>
 			<div class="button-center text-center mt-3">
-				<a href="#" class="btn view-button">Xem Tất Cả<span
+				<a  class="btn view-button" id="viewAllButton">Xem Tất Cả<span
 					class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
 			</div>
 		</div>
@@ -279,7 +274,7 @@
 											<div class="slider-info">
 												<div class="img-circle">
 													<a href="movies"><img src="assets/images/${movie.image}"
-														class="img-fluid" alt="author image">
+														class="img-fluid" alt="author image" style="height: 245px;">
 														<div class="overlay-icon">
 
 															<span class="fa fa-play video-icon" aria-hidden="true"></span>
@@ -406,6 +401,31 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					// Lấy danh sách các phần tử phim
+					var movies = document.querySelectorAll('#movieGrid .item');
+			
+					// Hiển thị chỉ 4 phim ban đầu
+					for (var i = 4; i < movies.length; i++) {
+						movies[i].style.display = 'none';
+					}
+			
+					// Bắt sự kiện khi nhấn vào nút "Xem Tất Cả"
+					document.getElementById('viewAllButton').addEventListener('click', function (event) {
+						event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
+			
+						// Hiển thị toàn bộ danh sách phim
+						for (var i = 0; i < movies.length; i++) {
+							movies[i].style.display = 'block';
+						}
+			
+						// Ẩn nút "Xem Tất Cả"
+						this.style.display = 'none';
+					});
+				});
+			</script>
+			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {

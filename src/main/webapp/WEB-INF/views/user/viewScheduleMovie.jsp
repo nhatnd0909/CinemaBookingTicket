@@ -119,20 +119,20 @@
 			<div class="showtimes">
 				<div class="btn-group btn-block showtime-dates mb-3" id="dates">
 					<a class="btn btn-light text-muted date active"
-						data-date="2023-11-20" onclick="myFunction(1)"> ${currentDate}
-						<br> <span class="small text-nowrap">Th 2</span>
-					</a> <a class="btn btn-light text-muted date" data-date="2023-11-21"
-						onclick="myFunction(2)"> ${tomorow} <br> <span
-						class="small text-nowrap">Th 3</span>
-					</a> <a class="btn btn-light text-muted date" data-date="2023-11-22"
-						onclick="myFunction(3)"> ${nextDate} <br> <span
-						class="small text-nowrap">Th 4</span>
-					</a> <a class="btn btn-light text-muted date" data-date="2023-11-23"
-						onclick="myFunction(4)"> ${futureDate3Days} <br> <span
-						class="small text-nowrap">Th 5</span>
-					</a> <a class="btn btn-light text-muted date" data-date="2023-11-24"
-						onclick="myFunction(4)"> ${futureDate4Days} <br> <span
-						class="small text-nowrap">Th 6</span>
+						data-date="" onclick="myFunction(1)"> ${currentDate}
+						<br> <span class="small text-nowrap" id="dayOfWeek1"></span>
+					</a> <a class="btn btn-light text-muted date" data-date=""
+						onclick="myFunction(2)"> ${tomorow} 
+						<br> <span class="small text-nowrap" id="dayOfWeek2"></span>
+					</a> <a class="btn btn-light text-muted date" data-date=""
+						onclick="myFunction(3)"> ${nextDate} 
+						<br> <span class="small text-nowrap" id="dayOfWeek3"></span>
+					</a> <a class="btn btn-light text-muted date" data-date=""
+						onclick="myFunction(4)"> ${futureDate3Days}
+						 <br> <span class="small text-nowrap" id="dayOfWeek4"></span>
+					</a> <a class="btn btn-light text-muted date" data-date=""
+						onclick="myFunction(4)"> ${futureDate4Days}
+						 <br> <span class="small text-nowrap" id="dayOfWeek5"></span>
 					</a>
 					<!--                     <a class="btn btn-light text-muted date" data-date="2023-11-25" onclick="myFunction(4)">
                         25/11
@@ -393,6 +393,23 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script>
+				var currentDate = new Date();
+				var tomorrow = new Date();
+				tomorrow.setDate(currentDate.getDate() + 1);
+				var nextDate = new Date();
+				nextDate.setDate(currentDate.getDate() + 2);
+				var futureDate3Days = new Date();
+				futureDate3Days.setDate(currentDate.getDate() + 3);
+				var futureDate4Days = new Date();
+				futureDate4Days.setDate(currentDate.getDate() + 4);
+				var daysOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
+				document.getElementById("dayOfWeek1").innerHTML = daysOfWeek[currentDate.getDay()];
+				document.getElementById("dayOfWeek2").innerHTML = daysOfWeek[tomorrow.getDay()];
+				document.getElementById("dayOfWeek3").innerHTML = daysOfWeek[nextDate.getDay()];
+				document.getElementById("dayOfWeek4").innerHTML = daysOfWeek[futureDate3Days.getDay()];
+				document.getElementById("dayOfWeek5").innerHTML = daysOfWeek[futureDate4Days.getDay()];
+			</script>
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {
