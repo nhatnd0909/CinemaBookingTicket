@@ -15,7 +15,22 @@
 	rel="stylesheet">
 
 </head>
+<style>
+a.btn.dropdown-toggle {
+	background: none;
+	text-transform: capitalize;
+	font-size: 16px;
+	font-weight: 600;
+	display: block;
+	line-height: 28px;
+	padding: 0 15px;
+	color: var(--theme-title);
+}
 
+a.btn.dropdown-toggle:hover {
+	color: #DF0E62
+}
+</style>
 <body>
 	<!-- header -->
 	<header id="site-header" class="w3l-header fixed-top">
@@ -53,46 +68,16 @@
 
 					<!--/search-right-->
 					<!--/search-right-->
-					<div class="search-right">
-						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Tìm <span class="fa fa-search ml-3"
-							aria-hidden="true"></span></a>
-						<!-- search popup -->
-						<div id="search" class="pop-overlay">
-							<div class="popup">
-								<form action="#" method="post" class="search-box">
-									<input type="search" placeholder="Search your Keyword"
-										name="search" required="required" autofocus="">
-									<button type="submit" class="btn">
-										<span class="fa fa-search" aria-hidden="true"></span>
-									</button>
-								</form>
-								<div class="browse-items">
-									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
-									<ul class="search-items">
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-									</ul>
-								</div>
-							</div>
-							<a class="close" href="#close">×</a>
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" href="#" role="button"
+							data-toggle="dropdown" aria-expanded="false"
+							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
+							Rạp</a>
+						<div class="dropdown-menu">
+							<c:forEach items="${listTheater}" var="theater">
+								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+							</c:forEach>
 						</div>
-						<!-- /search popup -->
-						<!--/search-right-->
 					</div>
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"

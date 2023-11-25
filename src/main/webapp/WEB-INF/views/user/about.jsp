@@ -19,7 +19,22 @@
 	rel="stylesheet">
 
 </head>
+<style>
+a.btn.dropdown-toggle {
+	background: none;
+	text-transform: capitalize;
+	font-size: 16px;
+	font-weight: 600;
+	display: block;
+	line-height: 28px;
+	padding: 0 15px;
+	color: var(--theme-title);
+}
 
+a.btn.dropdown-toggle:hover {
+	color: #DF0E62
+}
+</style>
 <body>
 	<!-- header -->
 	<header id="site-header" class="w3l-header fixed-top">
@@ -60,7 +75,18 @@
 
 					<!--/search-right-->
 					<!--/search-right-->
-
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" href="#" role="button"
+							data-toggle="dropdown" aria-expanded="false"
+							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
+							Rạp</a>
+						<div class="dropdown-menu">
+							<c:forEach items="${listTheater}" var="theater">
+								<a class="dropdown-item"
+									href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+							</c:forEach>
+						</div>
+					</div>
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
@@ -119,8 +145,11 @@
 				</div>
 				<div class="col-lg-6 ab-left pl-lg-4 mt-lg-0 mt-5">
 					<h3 class="hny-title">My Showz Entertainment</h3>
-					<p class="mt-3"> Nơi Kết Nối Niềm Đam Mê và Sáng Tạo! Chúng tôi là một công ty giải trí phim với sứ mệnh mang đến cho khán giả những trải nghiệm giải trí không giới hạn. 
-					Với đội ngũ 7 thành viên tài năng và đam mê về phim ảnh, nghệ thuật và việc tạo ra những câu chuyện đáng nhớ luôn nằm trong trái tim mọi dự án.</p>
+					<p class="mt-3">Nơi Kết Nối Niềm Đam Mê và Sáng Tạo! Chúng tôi
+						là một công ty giải trí phim với sứ mệnh mang đến cho khán giả
+						những trải nghiệm giải trí không giới hạn. Với đội ngũ 7 thành
+						viên tài năng và đam mê về phim ảnh, nghệ thuật và việc tạo ra
+						những câu chuyện đáng nhớ luôn nằm trong trái tim mọi dự án.</p>
 				</div>
 			</div>
 
@@ -347,10 +376,14 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián, Quận Thanh Khê,TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành
+												Sơn, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh
+												Khê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -423,8 +456,8 @@
 
 		</section>
 	</footer>
-	
-	
+
+
 	<script src="assets/js/jquery-3.3.1.min.js"></script>
 	<!-- stats -->
 	<script src="assets/js/jquery.waypoints.min.js"></script>

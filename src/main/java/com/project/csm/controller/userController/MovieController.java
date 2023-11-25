@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.project.csm.model.Customer;
 import com.project.csm.model.Movie;
+import com.project.csm.model.Theater;
 import com.project.csm.service.customerService.MovieService;
+import com.project.csm.service.customerService.TheaterService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -17,6 +19,8 @@ import jakarta.servlet.http.HttpSession;
 public class MovieController {
 	@Autowired
 	private MovieService movieService;
+	@Autowired
+	private TheaterService theaterService;
 
 	@GetMapping("/movies")
 	public String showMovie(HttpSession session, Model model) {
@@ -44,6 +48,10 @@ public class MovieController {
 		
 		List<Movie> listUpComing = movieService.getMoiveUpComing();
 		model.addAttribute("listUpComing", listUpComing);
+		
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
+		
 		return "/user/movies";
 	}
 
