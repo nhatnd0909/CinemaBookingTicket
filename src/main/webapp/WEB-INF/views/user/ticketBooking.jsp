@@ -624,7 +624,7 @@
 							<input type="submit" name="submitPayment"
 								class="next-step pay-btn" value="Xác nhận Thanh toán" /> <input
 								type="button" name="previous-step" class="cancel-pay-btn"
-								value="Cancel Payment" onclick="location.href='home';" />
+								value="Cancel Payment" onclick="location.href='chooseseat?movie=${movie}&theater=${theater}';" />
 						</fieldset>
 					</form>
 				</div>
@@ -638,7 +638,7 @@
 		var nextDate = new Date();
 		nextDate.setDate(currentDate.getDate() + 2);
 		var futureDate3Days = new Date();
-		futureDate3Days.setDate(currentDate.getDate() + 3);
+		futureDate3Days.setDate(currentDate.getDate() + 3);	
 		var futureDate4Days = new Date();
 		futureDate4Days.setDate(currentDate.getDate() + 4);
 		var daysOfWeek = ["Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];

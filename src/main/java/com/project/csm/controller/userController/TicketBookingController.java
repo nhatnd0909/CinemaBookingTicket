@@ -80,14 +80,15 @@ public class TicketBookingController {
 		model.addAttribute("listShowTomorowDate", listShowTomorowDate);
 		model.addAttribute("listShowNextDate", listShowNextDate);
 
-		//////////////////////////////////////////////////////////////////
 		List<SeatOfCinema> listSOC = sOfCinemaService.getAllSeat();
 		model.addAttribute("listSOC", listSOC);
 		model.addAttribute("roomID", roomID);
 
 		List<String> listSeatOrder = ticketService.getTicketByRoomID(Long.parseLong(roomID), Long.parseLong(showID));
 		model.addAttribute("listSeatOrder", listSeatOrder);
-
+		session.setAttribute("selectedMovie", movie);
+        session.setAttribute("selectedTheater", theater);
+        
 		return "/user/ticketBooking";
 	}
 }
