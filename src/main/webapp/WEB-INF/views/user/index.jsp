@@ -113,6 +113,32 @@ a.btn.dropdown-toggle:hover {
 							<a href="logout">Đăng xuất</a>
 						</div>
 					</c:if>
+					<c:if test="${loggedIn eq 2}">
+						<div class="Login_SignUp" 
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="employee/Dashboard"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+						Employee
+						<div style="padding-left: 15px">
+							<a href="logout">Đăng xuất</a>
+						</div>
+					</c:if>
+					<c:if test="${loggedIn eq 3}">
+						<div class="Login_SignUp" 
+							style="font-size: 2rem; display: inline-block; position: relative;">
+							<!-- <li class="nav-item"> -->
+							<a class="nav-link" href="adminDashboard"><i
+								class="fa fa-user-circle-o"></i></a>
+							<!-- </li> -->
+						</div>
+						Admin
+						<div style="padding-left: 15px">
+							<a href="logout">Đăng xuất</a>
+						</div>
+					</c:if>
 				</div>
 				<!-- toggle switch for light and dark theme -->
 				<div class="mobile-position">
