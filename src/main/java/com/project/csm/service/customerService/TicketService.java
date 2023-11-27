@@ -1,5 +1,6 @@
 package com.project.csm.service.customerService;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -86,5 +87,29 @@ public class TicketService {
 			}
 		}
 		return null;
+	}
+
+	public boolean isSameMonth(Date date1, Date date2) {
+		SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+		return monthFormat.format(date1).equals(monthFormat.format(date2));
+	}
+
+	public List<Ticket> getTicketsByMonth(String inputDate) {
+		List<Ticket> tickets = getAllTicket();
+		List<Ticket> ticketsByMonth = new ArrayList<>();
+
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			Date targetDate = dateFormat.parse(inputDate);
+			for (Ticket ticket : tickets) {
+				Date bookingDate = ticket.getBookingDate();
+				if (isSameMonth(targetDate, bookingDate)) {
+					ticketsByMonth.add(ticket);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ticketsByMonth;
 	}
 }

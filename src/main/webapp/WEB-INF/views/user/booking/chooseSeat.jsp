@@ -164,10 +164,11 @@
 													<c:forEach var="show" items="${listShowTomorowDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<input type="button" class="screen-time selected"
+															<%-- 															<input type="button" class="screen-time selected"
 																onclick="timeFunction(event)" value="${show.startTime}">
-															<h5 style="display: none" id="showID">${show.showID}</h5>
-
+															<h5 style="display: none" id="showID">${show.showID}</h5> --%>
+															<a class="screen-time selected"
+																href="ticketBooking?movie=${movie}&theater=${theater}&roomID=${tRoom.roomID}&showID=${show.showID}">${show.startTime}</a>
 														</c:if>
 													</c:forEach>
 												</div>
@@ -185,9 +186,8 @@
 													<c:forEach var="show" items="${listShowNextDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<input type="button" class="screen-time selected"
-																onclick="timeFunction(event)" value="${show.startTime}">
-															<h5 style="display: none" id="showID">${show.showID}</h5>
+															<a class="screen-time selected"
+																href="ticketBooking?movie=${movie}&theater=${theater}&roomID=${tRoom.roomID}&showID=${show.showID}">${show.startTime}</a>
 														</c:if>
 													</c:forEach>
 												</div>

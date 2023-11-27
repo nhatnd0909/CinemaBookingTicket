@@ -61,19 +61,7 @@ public class UserController {
 		return "/user/about";
 	}
 
-	@GetMapping("/contact")
-	public String showContact(HttpSession session, Model model) {
-		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
-		int loggedIn = 0;
-		if (loggedInAccount == null) {
-			loggedIn = 0;
-		} else {
-			loggedIn = 1;
-		}
-		model.addAttribute("loggedIn", loggedIn);
-		model.addAttribute("loggedInAccount", loggedInAccount);
-		return "/user/contactUs";
-	}
+	
 
 	@GetMapping("/e-ticket")
 	public String showETicket(HttpSession session, Model model) {
