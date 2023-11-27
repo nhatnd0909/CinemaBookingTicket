@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +48,7 @@
 .navbar-brand {
 	color: #fff;
 }
+
 .input-group {
 	width: 20%;
 }
@@ -313,11 +315,13 @@
 											<input type="text" class="form-control"
 												placeholder="Tìm kiếm...">
 											<div class="input-group-append">
-												<button class="input-group-text"><i
-													class="fa fa-search"></i></button>
+												<button class="input-group-text">
+													<i class="fa fa-search"></i>
+												</button>
 											</div>
 										</div>
 									</div>
+
 									<div class="table-responsive">
 										<table class="table">
 											<thead>
@@ -332,20 +336,20 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Nguyễn Xuân Quang</td>
-													<td>Thor</td>
-													<td>2</td>
-													<td>7:00:00</td>
-													<td>2023-09-12</td>
-													<td style="padding-left: 50px;"><a
-														href="detailBookingHistoryDashboard"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-											</tbody>
-
+												<c:forEach var="ticket" items="${lisTickets}">
+													<tr>
+														<td>${ticket.ticketID}</td>
+														<td>${ticket.getCustomer().getName()}</td>
+														<td>${ticket.getShow().getMovie().getName()}</td>
+														<td>${ticket.getShow().getTheaterRoom().getName()}</td>
+														<td>${ticket.getShow().getStartTime()}</td>
+														<td>${ticket.getShow().getDayTime()}</td>
+														<td style="padding-left: 50px;"><a
+															href="detailBookingHistoryDashboard"> <i
+																class="fa fa-eye"></i>
+														</a></td>
+													</tr>
+												</c:forEach>
 										</table>
 									</div>
 								</div>

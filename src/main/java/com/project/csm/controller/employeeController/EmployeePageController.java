@@ -12,10 +12,10 @@ public class EmployeePageController {
 	}
 	
 	
-	@GetMapping("/employee/bookinghistory")
-	public String bookingHistoryEmployee() {
-		return "/employee/bookinghistory/bookingHistoryDashboard"; 
-	}
+//	@GetMapping("/employee/bookinghistory")
+//	public String bookingHistoryEmployee() {
+//		return "/employee/bookinghistory/bookingHistoryDashboard"; 
+//	}
 	
 	@GetMapping("/employee/contact")
 	public String contactDashboard() {
