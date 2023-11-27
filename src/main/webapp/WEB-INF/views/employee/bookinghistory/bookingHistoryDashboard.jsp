@@ -312,10 +312,10 @@
 									<div class="d-flex justify-content-between align-items-center">
 										<h4 class="card-title">Quản Lý Lịch Sử Đặt Vé</h4>
 										<div class="input-group">
-											<input type="text" class="form-control"
+											<input id="searchInput" type="text" class="form-control"
 												placeholder="Tìm kiếm...">
 											<div class="input-group-append">
-												<button class="input-group-text">
+												<button id="searchButton" class="input-group-text">
 													<i class="fa fa-search"></i>
 												</button>
 											</div>
@@ -345,8 +345,8 @@
 														<td>${ticket.getShow().getStartTime()}</td>
 														<td>${ticket.getShow().getDayTime()}</td>
 														<td style="padding-left: 50px;"><a
-															href="detailBookingHistoryDashboard"> <i
-																class="fa fa-eye"></i>
+															href="detailBookingHistoryDashboard?ticketID=${ticket.ticketID}">
+																<i class="fa fa-eye"></i>
 														</a></td>
 													</tr>
 												</c:forEach>
@@ -389,6 +389,39 @@
 	<!-- Custom js for this page -->
 	<script src="/admin_assets/assets/js/dashboard.js"></script>
 	<!-- End custom js for this page -->
+	<script type="text/javascript">
+		document
+				.getElementById("searchButton")
+				.addEventListener(
+						"click",
+						function() {
+							// Lấy giá trị từ ô input
+							var searchValue = document
+									.getElementById("searchInput").value;
+
+							// Lặp qua từng hàng trong bảng
+							var rows = document.querySelectorAll("tbody tr");
+							rows
+									.forEach(function(row) {
+										// Lấy giá trị từ cột ticketID trong hàng
+										var ticketID = row
+												.querySelector("td:first-child").innerText;
+
+										// Kiểm tra xem ô input có trống hay không
+										if (searchValue.trim() === "") {
+											// Nếu ô input trống, hiển thị tất cả các hàng
+											row.style.display = "table-row";
+										} else {
+											// Nếu không trống, so sánh giá trị với giá trị tìm kiếm và ẩn/hiển thị hàng tương ứng
+											if (ticketID === searchValue) {
+												row.style.display = "table-row";
+											} else {
+												row.style.display = "none";
+											}
+										}
+									});
+						});
+	</script>
 </body>
 
 </html>
