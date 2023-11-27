@@ -124,6 +124,11 @@
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Lịch Sử Đặt Vé </span>
 				</a></li>
+				<li class="nav-item menu-items"><a class="nav-link"
+					href="/employee/contact"> <span class="menu-icon"> <i
+							class="mdi mdi-account-circle"></i>
+					</span> <span class="menu-title">Liên hệ </span>
+				</a></li>
 				
 		</nav>
 		<!-- partial -->

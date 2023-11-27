@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Corona Show</title>
+<title>Corona Contact</title>
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -24,9 +23,6 @@
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.css">
 <link rel="stylesheet"
 	href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <!-- End plugin css for this page -->
 <!-- inject:css -->
 <!-- endinject -->
@@ -36,90 +32,25 @@
 <link rel="stylesheet" href="/admin_assets/assets/css/style.css">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="/admin_assets/assets/images/favicon.png" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <style>
-.card-title {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.icon-log {
+	font-size: 26px;
+	color: #fff;
+	text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+	padding-right: 5px;
 }
 
-.card-title .room-name {
-	margin: 0;
-}
-
-.card {
-	margin-bottom: 20px;
-}
-
-.card-title i {
-	font-size: 1.25em;
-	color: #000;
-}
-
-.card-title .arrow-icon i {
-	font-size: 1.25em;
-	color: #000;
-}
-
-.day {
-	margin-left: 37px;
-}
-
-.dropdown-content a {
-	display: inline-block; /* Hiển thị các mục trên cùng một dòng */
-	font-size: 1.5em; /* Điều chỉnh kích thước font */
-	padding: 10px 50px; /* Điều chỉnh padding */
-	text-decoration: none;
+.navbar-brand {
 	color: #fff;
 }
 
-.dropdown-content a.active {
-	color: #007bff; /* Màu xanh */
+.input-group {
+	width: 20%;
 }
-
-.time {
-	margin-top: 20px;
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: 270px;
-	background:
-}
-
-.time-slot {
-	display: flex;
-	margin: 20px 0;
-}
-
-.time-slot a {
-	border: 1px solid #fff;
-	margin-right: 30px;
-	margin-bottom: 10px;
-	display: inline-block;
-	padding: 10px 20px;
-	text-decoration: none;
-	color: #fff;
-}
-
-.day a {
-	border: 1px solid #fff;
-	margin-right: 30px;
-}
-
-#ngay-mai-time {
-	display: none;
-}
-</style>
-<style>
-.icon-log{
-    font-size: 26px;
-    color: #fff;
-    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
-    padding-right: 5px;
-    }
-  .navbar-brand{
-  	color : #fff;
-  }
 </style>
 <body>
 	<div class="container-scroller">
@@ -128,8 +59,8 @@
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
 				<a class="navbar-brand" href="#"><span
-					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
-					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> <a
+					class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
 					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
@@ -142,7 +73,7 @@
 								<span class="count bg-success"></span>
 							</div>
 							<div class="profile-name">
-								<h5 class="mb-0 font-weight-normal">Nhân viên</h5>
+								<h5 class="mb-0 font-weight-normal">Nhân Viên</h5>
 							</div>
 						</div>
 						<a href="#" id="profile-dropdown" data-toggle="dropdown"><i
@@ -157,27 +88,29 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt
+										Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="/employee/changepassword" class="dropdown-item preview-item">
+							<a href="/employee/changepassword"
+								class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay
+										Đổi Mật Khẩu</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
 						</div>
 					</div>
 				</li>
-				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
-				</li>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển
+						hướng</span></li>
 
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
@@ -195,8 +128,8 @@
 					</span> <span class="menu-title">Lịch chiếu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employee/bookinghistory"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
+					href="/employee/bookinghistory"> <span class="menu-icon">
+							<i class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Lịch Sử Đặt Vé </span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
@@ -204,6 +137,7 @@
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Liên hệ </span>
 				</a></li>
+			</ul>
 		</nav>
 		<!-- partial -->
 		<div class="container-fluid page-body-wrapper">
@@ -221,9 +155,7 @@
 						<span class="mdi mdi-menu"></span>
 					</button>
 					<ul class="navbar-nav w-100">
-						<li class="nav-item w-100">
-							
-						</li>
+						<li class="nav-item w-100"></li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
 						<li class="nav-item dropdown"><a
@@ -329,14 +261,15 @@
 								<div class="navbar-profile">
 									<img class="img-xs rounded-circle"
 										src="/admin_assets/assets/images/faces/face15.jpg" alt="">
-									<p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+									<p class="mb-0 d-none d-sm-block navbar-profile-name">Nhân
+										Viên</p>
 									<i class="mdi mdi-menu-down d-none d-sm-block"></i>
 								</div>
 						</a>
 							<div
 								class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
 								aria-labelledby="profileDropdown">
-								<h6 class="p-3 mb-0">Profile</h6>
+								<h6 class="p-3 mb-0">Hồ Sơ</h6>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item preview-item">
 									<div class="preview-thumbnail">
@@ -345,7 +278,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Settings</p>
+										<p class="preview-subject mb-1">Cài Đặt</p>
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
@@ -356,7 +289,7 @@
 										</div>
 									</div>
 									<div class="preview-item-content">
-										<p class="preview-subject mb-1">Log out</p>
+										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
 							</div></li>
@@ -371,132 +304,89 @@
 			<!-- partial -->
 			<div class="main-panel">
 				<div class="content-wrapper">
-					<div class="page-header">
-						<h3 class="page-title">${nameTheater}</h3>
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">Bảng điều khiển</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Lịch chiếu</li>
-							</ol>
-						</nav>
-					</div>
-					<c:forEach items="${listTheaterRoom}" var="theaterRoom">
-						<div class="row">
-							<div class="col-lg-12 grid-margin">
-								<div class="card">
-									<div class="card-body">
-										<div class="card-title">
-											<h2 class="room-name">
-												${theaterRoom.name}
-												</h4>
-												<i class="fas fa-chevron-down" id="dropdown-icon"
-													style="color: #fff"></i>
-										</div>
-
-										<div class="dropdown-content">
-											<div class="day">
-												<a href="#" class="active" id="hom-nay">Hôm nay</a>
-												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
-												<a href="#" id="ngay-mot">Ngày mốt</a> -->
-											</div>
-
-											<div class="time">
-												<div class="time-slot">
-													<a
-														href="/employee/show/detail?start=07:00:00&end=10:00:00&date=0&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 31px">7:00 - 10:00</a> <a
-														href="/employee/show/detail?start=10:00:00&end=13:00:00&date=0&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 26px">10:00 - 13:00</a> <a
-														href="/employee/show/detail?start=13:00:00&end=16:00:00&date=0&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 21px">13:00 - 16:00</a>
-												</div>
-
-												<div class="time-slot">
-													<a
-														href="/employee/show/detail?start=16:00:00&end=18:00:00&date=0&roomID=${theaterRoom.roomID}">16:00
-														- 18:00</a> <a
-														href="/employee/show/detail?start=18:00:00&end=20:00:00&date=0&roomID=${theaterRoom.roomID}">18:00
-														- 20:00</a> <a
-														href="/employee/show/detail?start=20:00:00&end=22:00:00&date=0&roomID=${theaterRoom.roomID}">20:00
-														- 22:00</a>
-												</div>
-											</div>
-
-											<div class="day">
-												<a href="#" class="active" id="hom-nay">Ngày mai</a>
-												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
-												<a href="#" id="ngay-mot">Ngày mốt</a> -->
-											</div>
-
-											<div class="time">
-												<div class="time-slot">
-													<a
-														href="/employee/show/detail?start=07:00:00&end=10:00:00&date=1&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 31px">7:00 - 10:00</a> <a
-														href="/employee/show/detail?start=10:00:00&end=13:00:00&date=1&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 26px">10:00 - 13:00</a> <a
-														href="/employee/show/detail?start=13:00:00&end=16:00:00&date=1&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 21px">13:00 - 16:00</a>
-												</div>
-												<div class="time-slot">
-													<a
-														href="/employee/show/detail?start=16:00:00&end=18:00:00&date=1&roomID=${theaterRoom.roomID}">16:00
-														- 18:00</a> <a
-														href="/employee/show/detail?start=18:00:00&end=20:00:00&date=1&roomID=${theaterRoom.roomID}">18:00
-														- 20:00</a> <a
-														href="/employee/show/detail?start=20:00:00&end=22:00:00&date=1&roomID=${theaterRoom.roomID}">20:00
-														- 22:00</a>
-												</div>
-											</div>
-
-											<div class="day">
-												<a href="#" class="active" id="hom-nay">Ngày mốt</a>
-												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
-												<a href="#" id="ngay-mot">Ngày mốt</a> -->
-											</div>
-
-											<div class="time">
-												<div class="time-slot">
-													<a
-														href="/employee/show/detail?start=07:00:00&end=10:00:00&date=2&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 31px">7:00 - 10:00</a> <a
-														href="/employee/show/detail?start=10:00:00&end=13:00:00&date=2&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 26px">10:00 - 13:00</a> <a
-														href="/employee/show/detail?start=13:00:00&end=16:00:00&date=2&roomID=${theaterRoom.roomID}"
-														style="padding: 10px 21px">13:00 - 16:00</a>
-												</div>
-												<div class="time-slot">
-													<a
-														href="/employee/show/detail?start=16:00:00&end=18:00:00&date=2&roomID=${theaterRoom.roomID}"">16:00
-														- 18:00</a> <a
-														href="/employee/show/detail?start=18:00:00&end=20:00:00&date=2&roomID=${theaterRoom.roomID}"">18:00
-														- 20:00</a> <a
-														href="/employee/show/detail?start=20:00:00&end=22:00:00&date=2&roomID=${theaterRoom.roomID}">20:00
-														- 22:00</a>
-												</div>
+					<div class="row">
+						<div class="col-12 grid-margin">
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex justify-content-between align-items-center">
+										<h4 class="card-title">Quản Lý Liên Hệ</h4>
+										<div class="input-group">
+											<input type="text" class="form-control"
+												placeholder="Tìm kiếm...">
+											<div class="input-group-append">
+												<button class="input-group-text">
+													<i class="fa fa-search"></i>
+												</button>
 											</div>
 										</div>
+									</div>
+									<div class="table-responsive">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Tên khách hàng</th>
+													<th>Email</th>
+													<th>Nội dung</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Nguyễn Xuân Quang</td>
+													<td>123@gmail.com</td>
+													<td>ádkjasdklashdsa</td>
+													<td>2023-09-12</td>
+													<td style="padding-left: 50px;"><a href="#"
+														data-toggle="modal" data-target="#myModal"> <i
+															class="fa fa-eye"></i>
+													</a></td>
+												</tr>
+											</tbody>
+
+										</table>
 									</div>
 								</div>
 							</div>
 						</div>
-					</c:forEach>
-					<!-- content-wrapper ends -->
-					<!-- partial:partials/_footer.html -->
-
-					<!-- partial -->
+					</div>
 				</div>
-				<!-- main-panel ends -->
+				<!-- content-wrapper ends -->
+				<!-- partial -->
 			</div>
-			<!-- page-body-wrapper ends -->
+			<!-- main-panel ends -->
 		</div>
-
-		<!-- container-scroller -->
-		<!-- plugins:js -->
-		<script src="/admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
-		<!-- endinject -->
-		<!-- Plugin js for this page -->
-		<!-- <script src="/admin_assets/assets/vendors/chart.js/Chart.min.js"></script>
+		<!-- page-body-wrapper ends -->
+	</div>
+	<!-- container-scroller -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Nội dung</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<textarea rows="4" cols="50"
+						placeholder="Describe yourself here..."></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- plugins:js -->
+	<script src="/admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
+	<!-- endinject -->
+	<!-- Plugin js for this page -->
+	<script src="/admin_assets/assets/vendors/chart.js/Chart.min.js"></script>
 	<script
 		src="/admin_assets/assets/vendors/progressbar.js/progressbar.min.js"></script>
 	<script
@@ -504,78 +394,23 @@
 	<script
 		src="/admin_assets/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 	<script
-		src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script> -->
-		<!-- End plugin js for this page -->
-		<!-- inject:js -->
-		<script src="/admin_assets/assets/js/off-canvas.js"></script>
-		<script src="/admin_assets/assets/js/hoverable-collapse.js"></script>
-		<script src="/admin_assets/assets/js/misc.js"></script>
-		<script src="/admin_assets/assets/js/settings.js"></script>
-		<script src="/admin_assets/assets/js/todolist.js"></script>
-		<!-- endinject -->
-		<!-- Custom js for this page -->
-		<script src="/admin_assets/assets/js/dashboard.js"></script>
-		<!-- End custom js for this page -->
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				var dropdownIcons = document
-						.querySelectorAll('.fas.fa-chevron-down');
+		src="/admin_assets/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+	<!-- End plugin js for this page -->
+	<!-- inject:js -->
+	<script src="/admin_assets/assets/js/off-canvas.js"></script>
+	<script src="/admin_assets/assets/js/hoverable-collapse.js"></script>
+	<script src="/admin_assets/assets/js/misc.js"></script>
+	<script src="/admin_assets/assets/js/settings.js"></script>
+	<script src="/admin_assets/assets/js/todolist.js"></script>
+	<!-- endinject -->
+	<!-- Custom js for this page -->
+	<script src="/admin_assets/assets/js/dashboard.js"></script>
+	<!-- End custom js for this page -->
+	<!-- Bootstrap and jQuery JS -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-				dropdownIcons.forEach(function(icon) {
-					icon.addEventListener('click', function() {
-						var cardBody = this.closest('.card-body');
-						var dropdownContent = cardBody
-								.querySelector('.dropdown-content');
-
-						// Toggle the visibility of the dropdown content
-						if (dropdownContent.style.display === 'none'
-								|| dropdownContent.style.display === '') {
-							dropdownContent.style.display = 'block';
-						} else {
-							dropdownContent.style.display = 'none';
-						}
-					});
-
-					// Initially hide the dropdown content for all rooms
-					var cardBody = icon.closest('.card-body');
-					var dropdownContent = cardBody
-							.querySelector('.dropdown-content');
-					dropdownContent.style.display = 'none';
-				});
-			});
-		</script>
 </body>
 
 </html>
-<script>
-	/* 
-	document.addEventListener('DOMContentLoaded', function() {
-		var dropdownIcon = document.getElementById('dropdown-icon');
-		var dropdownContent = document.getElementById('dropdown-content');
-
-		dropdownIcon.addEventListener('click', function() {
-			if (dropdownContent.style.display === 'none'
-					|| dropdownContent.style.display === '') {
-				dropdownContent.style.display = 'block';
-			} else {
-				dropdownContent.style.display = 'none';
-			}
-		});
-	});	
-	 */
-	/* Xử lí màu */
-	document.addEventListener('DOMContentLoaded', function() {
-		var links = document.querySelectorAll('.dropdown-content a');
-
-		links.forEach(function(link) {
-			link.addEventListener('click', function() {
-				// Loại bỏ màu xanh từ tất cả các links
-				links.forEach(function(link) {
-					link.classList.remove('active');
-				});
-
-				// Thêm màu xanh cho link đã được click
-				this.classList.add('active');
-			});
-		});
-	});

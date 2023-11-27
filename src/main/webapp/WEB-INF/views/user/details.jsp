@@ -51,14 +51,16 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="home">Trang Chủ</a></li>
+						<li class="nav-item active"><a class="nav-link" href="home">Trang
+								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="about">Thông Tin</a>
-						</li>
+						<li class="nav-item"><a class="nav-link" href="about">Thông
+								Tin</a></li>
 
 
-						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact">Liên
+								Hệ</a></li>
 					</ul>
 
 					<!--/search-right-->

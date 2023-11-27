@@ -15,7 +15,22 @@
 	rel="stylesheet">
 
 </head>
+<style>
+a.btn.dropdown-toggle {
+	background: none;
+	text-transform: capitalize;
+	font-size: 16px;
+	font-weight: 600;
+	display: block;
+	line-height: 28px;
+	padding: 0 15px;
+	color: var(--theme-title);
+}
 
+a.btn.dropdown-toggle:hover {
+	color: #DF0E62
+}
+</style>
 <body>
 	<!-- header -->
 	<header id="site-header" class="w3l-header fixed-top">
@@ -53,46 +68,16 @@
 
 					<!--/search-right-->
 					<!--/search-right-->
-					<div class="search-right">
-						<a href="#search" class="btn search-hny mr-lg-3 mt-lg-0 mt-4"
-							title="search">Tìm <span class="fa fa-search ml-3"
-							aria-hidden="true"></span></a>
-						<!-- search popup -->
-						<div id="search" class="pop-overlay">
-							<div class="popup">
-								<form action="#" method="post" class="search-box">
-									<input type="search" placeholder="Search your Keyword"
-										name="search" required="required" autofocus="">
-									<button type="submit" class="btn">
-										<span class="fa fa-search" aria-hidden="true"></span>
-									</button>
-								</form>
-								<div class="browse-items">
-									<h3 class="hny-title two mt-md-5 mt-4">Browse all:</h3>
-									<ul class="search-items">
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-										<li><a href="movies">Action</a></li>
-										<li><a href="movies">Drama</a></li>
-										<li><a href="movies">Family</a></li>
-										<li><a href="movies">Thriller</a></li>
-										<li><a href="movies">Commedy</a></li>
-										<li><a href="movies">Romantic</a></li>
-										<li><a href="movies">Tv-Series</a></li>
-										<li><a href="movies">Horror</a></li>
-									</ul>
-								</div>
-							</div>
-							<a class="close" href="#close">×</a>
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" href="#" role="button"
+							data-toggle="dropdown" aria-expanded="false"
+							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
+							Rạp</a>
+						<div class="dropdown-menu">
+							<c:forEach items="${listTheater}" var="theater">
+								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+							</c:forEach>
 						</div>
-						<!-- /search popup -->
-						<!--/search-right-->
 					</div>
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
@@ -193,14 +178,9 @@
 						<div class="headerhny-left">
 							<h3 class="hny-title">Tất Cả Phim</h3>
 						</div>
-						<!-- <div class="headerhny-right text-lg-right">
-							<h4>
-								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-							</h4>
-						</div> -->
 					</div>
 				</div>
-				<div class="w3l-populohny-grids">
+				<div class="w3l-populohny-grids" id="movieGrid">
 					<c:forEach items="${listMovie}" var="movie">
 						<div class="item vhny-grid">
 							<div class="box16 mb-0"
@@ -209,7 +189,7 @@
 									<img class="img-fluid" src="assets/images/${movie.image}"
 										alt="" style="height: 400px;">
 								</figure>
-								<a href=".Commando3" data-toggle="modal">
+								<a href="" data-toggle="modal">
 									<div class="box-content">
 										<h3 class="title">${movie.name}</h3>
 										<h4>
@@ -225,7 +205,7 @@
 				</div>
 			</div>
 			<div class="button-center text-center mt-3">
-				<a href="#" class="btn view-button">Xem Tất Cả<span
+				<a  class="btn view-button" id="viewAllButton">Xem Tất Cả<span
 					class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
 			</div>
 		</div>
@@ -279,7 +259,7 @@
 											<div class="slider-info">
 												<div class="img-circle">
 													<a href="movies"><img src="assets/images/${movie.image}"
-														class="img-fluid" alt="author image">
+														class="img-fluid" alt="author image" style="height: 245px;">
 														<div class="overlay-icon">
 
 															<span class="fa fa-play video-icon" aria-hidden="true"></span>
@@ -406,6 +386,31 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					// Lấy danh sách các phần tử phim
+					var movies = document.querySelectorAll('#movieGrid .item');
+			
+					// Hiển thị chỉ 4 phim ban đầu
+					for (var i = 4; i < movies.length; i++) {
+						movies[i].style.display = 'none';
+					}
+			
+					// Bắt sự kiện khi nhấn vào nút "Xem Tất Cả"
+					document.getElementById('viewAllButton').addEventListener('click', function (event) {
+						event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
+			
+						// Hiển thị toàn bộ danh sách phim
+						for (var i = 0; i < movies.length; i++) {
+							movies[i].style.display = 'block';
+						}
+			
+						// Ẩn nút "Xem Tất Cả"
+						this.style.display = 'none';
+					});
+				});
+			</script>
+			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {
