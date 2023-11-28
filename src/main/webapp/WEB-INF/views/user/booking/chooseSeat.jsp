@@ -203,9 +203,9 @@
 										sau. Xin cám ơn!</b></h7>
 								</ul>
 							</div>
-							<input name="roomID" type="text" value="1"> <input
+							<input name="roomID" type="text" value="1" style="display: none;"> <input
 								id="screen-next-btn" type="button" name="next-step"
-								class="next-step" value="Continue Booking" disabled />
+								class="next-step" value="Tiếp tục" disabled  />
 						</fieldset>
 						<fieldset>
 							<div class="wrapper">
@@ -473,7 +473,7 @@
 									<div class="total-money">
 										<c:if test="${loggedIn == 1}">
 											<c:if test="${discount > 0.0}">
-												Giảm giá: <span id="discount">${discount}%</span>
+												Giảm giá: <span id="discount">${discount}</span>
 												<br>
 											</c:if>
 										</c:if>
@@ -485,7 +485,7 @@
 							<input type="submit" name="submitPayment"
 								class="next-step pay-btn" value="Confirm Payment" /> <input
 								type="button" name="previous-step" class="cancel-pay-btn"
-								value="Cancel Payment" onclick="location.href='home';" />
+								value="" onclick="location.href='home';" />
 						</fieldset>
 					</form>
 				</div>
@@ -653,7 +653,8 @@
 			combinedValues = combinedValues.replace(/,$/, "");
 			var clonedInputCombined = $("<input>").attr({
 				type: "text",
-				name: "order",  
+				name: "order",
+				style:"display:none",
 				class: "cloned-quantity copied-quantity",
 				value: combinedValues
 			});

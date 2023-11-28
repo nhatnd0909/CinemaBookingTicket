@@ -199,7 +199,7 @@
 										sau. Xin cám ơn!</b></h7>
 								</ul>
 							</div>
-							<input name="roomID" type="text">
+							<input name="roomID" type="text" style="display: none;">
 							<input id="screen-next-btn" type="button" name="next-step"
 								class="next-step" value="Tiếp tục" disabled />
 						</fieldset>
@@ -543,7 +543,7 @@
 
 							<br> <input type="button" name="next-step" class="next-step"
 								value="Đồ Ăn và Đồ Uống"> <input type="button"
-								name="previous-step" class="previous-step" value="Back" />
+								name="previous-step" class="previous-step" value="Quay lại" />
 						</fieldset>
 						<fieldset>
 							<table>
@@ -580,11 +580,11 @@
 								</c:forEach>
 							</table>
 							<div class="total-money">
-								Total money: <span id="total">0.00</span>
+								Tổng: <span id="total">0.00</span>
 							</div>
 							<br> <input type="button" name="next-step" class="next-step"
 								value="Tiếp tục Thanh Toán" /> <input type="button"
-								name="previous-step" class="previous-step" value="Back" />
+								name="previous-step" class="previous-step" value="Quay lại" />
 
 						</fieldset>
 						<fieldset>
@@ -624,7 +624,7 @@
 							<input type="submit" name="submitPayment"
 								class="next-step pay-btn" value="Xác nhận Thanh toán" /> <input
 								type="button" name="previous-step" class="cancel-pay-btn"
-								value="Cancel Payment" onclick="location.href='chooseseat?movie=${movie}&theater=${theater}';" />
+								value="Hủy thanh toán" onclick="location.href='chooseseat?movie=${movie}&theater=${theater}';" />
 						</fieldset>
 					</form>
 				</div>
@@ -793,6 +793,7 @@
 			var clonedInputCombined = $("<input>").attr({
 				type: "text",
 				name: "order",  
+				style:"display:none",
 				class: "cloned-quantity copied-quantity",
 				value: combinedValues
 			});
