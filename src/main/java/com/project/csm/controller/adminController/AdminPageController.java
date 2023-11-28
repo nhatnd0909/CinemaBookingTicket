@@ -30,8 +30,7 @@ public class AdminPageController {
 
 	@GetMapping("/adminDashboard")
 	public String showAdminDashboard(Model model) {
-		int totalByMonth = paymentService.calculateTotalByMonth(sService.getCurrentDate());
-		model.addAttribute("totalByMonth", totalByMonth);
+
 		int totalMovies = movieService.getAllMovie().size();
 		model.addAttribute("totalMovies", totalMovies);
 		int totalCustomer = customerService.getAllCustomer().size();
@@ -47,6 +46,7 @@ public class AdminPageController {
 		int totalDN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Đà Nẵng");
 		int totalH = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Huế");
 		int totalQN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Quảng Nam");
+		model.addAttribute("totalByMonth", totalDN + totalH + totalQN);
 		model.addAttribute("totalDN", totalDN);
 		model.addAttribute("totalH", totalH);
 		model.addAttribute("totalQN", totalQN);
@@ -67,8 +67,7 @@ public class AdminPageController {
 
 	@GetMapping("/revenue")
 	public String showRevenue(Model model) {
-		int totalByMonth = paymentService.calculateTotalByMonth(sService.getCurrentDate());
-		model.addAttribute("totalByMonth", totalByMonth);
+
 		int totalMovies = movieService.getAllMovie().size();
 		model.addAttribute("totalMovies", totalMovies);
 		int totalCustomer = customerService.getAllCustomer().size();
@@ -84,6 +83,7 @@ public class AdminPageController {
 		int totalDN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Đà Nẵng");
 		int totalH = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Huế");
 		int totalQN = paymentService.calculateTotalByMonthTheater(sService.getCurrentDate(), "Theater Quảng Nam");
+		model.addAttribute("totalByMonth", totalDN + totalH + totalQN);
 		model.addAttribute("totalDN", totalDN);
 		model.addAttribute("totalH", totalH);
 		model.addAttribute("totalQN", totalQN);
