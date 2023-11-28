@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.csm.model.Account;
 import com.project.csm.model.Theater;
 import com.project.csm.service.customerService.CustomerService;
 import com.project.csm.service.customerService.MovieService;
 import com.project.csm.service.customerService.PaymentService;
 import com.project.csm.service.customerService.ServiceService;
 import com.project.csm.service.customerService.TicketService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AdminPageController {
@@ -29,7 +33,11 @@ public class AdminPageController {
 	private com.project.csm.service.customerService.TheaterService theaterService;
 
 	@GetMapping("/adminDashboard")
-	public String showAdminDashboard(Model model) {
+	public String showAdminDashboard(Model model, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("admin")) {
+			return "redirect:/";
+		}
 
 		int totalMovies = movieService.getAllMovie().size();
 		model.addAttribute("totalMovies", totalMovies);
@@ -66,8 +74,11 @@ public class AdminPageController {
 	}
 
 	@GetMapping("/revenue")
-	public String showRevenue(Model model) {
-
+	public String showRevenue(Model model, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("admin")) {
+			return "redirect:/";
+		}
 		int totalMovies = movieService.getAllMovie().size();
 		model.addAttribute("totalMovies", totalMovies);
 		int totalCustomer = customerService.getAllCustomer().size();
