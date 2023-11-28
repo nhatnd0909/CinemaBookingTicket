@@ -26,6 +26,8 @@ public class Contact {
 
 	@Column(name = "Content")
 	private String content;
+	@Column(name = "Status")
+	private String status;
 
 	public Contact() {
 		super();
@@ -46,6 +48,15 @@ public class Contact {
 		this.email = email;
 		this.phone = phone;
 		this.content = content;
+	}
+
+	public Contact(String name, String email, String phone, String content, String status) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.content = content;
+		this.status = status;
 	}
 
 	public Long getContactID() {
@@ -88,10 +99,18 @@ public class Contact {
 		this.content = content;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "Contact [contactID=" + contactID + ", name=" + name + ", email=" + email + ", phone=" + phone
-				+ ", content=" + content + "]";
+				+ ", content=" + content + ", status=" + status + "]";
 	}
 
 }

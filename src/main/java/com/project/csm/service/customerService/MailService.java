@@ -30,4 +30,14 @@ public class MailService {
 
 		mailSender.send(simpleMailMessage);
 	}
+
+	public void sendMailReply(String mail, String content) {
+		SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+		simpleMailMessage.setFrom(fromMail);
+		simpleMailMessage.setSubject("Reply mail:");
+		simpleMailMessage.setText(content);
+		simpleMailMessage.setTo(mail);
+
+		mailSender.send(simpleMailMessage);
+	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -331,19 +332,32 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Nguyễn Xuân Quang</td>
-													<td>123@gmail.com</td>
-													<td>ádkjasdklashdsa</td>
-													<td>2023-09-12</td>
-													<td style="padding-left: 50px;"><a href="#"
-														data-toggle="modal" data-target="#myModal"> <i
-															class="fa fa-eye"></i>
-													</a></td>
-												</tr>
-											</tbody>
+												<c:forEach var="contact" items="${listContact}">
 
+													<tr>
+														<td>${contact.contactID}</td>
+														<td>${contact.name}</td>
+														<td>${contact.email}</td>
+														<td>${contact.content}</td>
+														<td style="padding-left: 50px;"><a href="#"
+															data-toggle="modal" data-target="#myModal"> <i
+																class="fa fa-eye"></i>
+														</a></td>
+													</tr>
+													<form action="replyContact" method="get">
+													<tr>
+
+														<td></td>
+														<td colspan="2"><textarea rows="5" cols="50"
+																name="content" required="required"></textarea></td>
+
+														<td><input type="text" name="idContact"
+															value="${contact.contactID}" hidden="">
+															<button>Trả Lời</button></td>
+													</tr>
+													</form>
+												</c:forEach>
+											</tbody>
 										</table>
 									</div>
 								</div>

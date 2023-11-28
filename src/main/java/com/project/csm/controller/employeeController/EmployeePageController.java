@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.csm.model.Contact;
 import com.project.csm.model.Order;
 import com.project.csm.model.Ticket;
+import com.project.csm.service.customerService.ContactService;
+import com.project.csm.service.customerService.MailService;
 import com.project.csm.service.customerService.OrderService;
 import com.project.csm.service.customerService.TicketService;
 
@@ -19,6 +22,10 @@ public class EmployeePageController {
 	private TicketService ticketService;
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private ContactService contactService;
+	@Autowired
+	private MailService mailService;
 
 	@GetMapping("/employee/Dashboard")
 	public String employeeDashboard() {
@@ -26,8 +33,18 @@ public class EmployeePageController {
 	}
 
 	@GetMapping("/employee/contact")
-	public String contactDashboard() {
+	public String contactDashboard(Model model) {
+		List<Contact> listContact = contactService.getUnrepContact();
+		model.addAttribute("listContact", listContact);
 		return "/employee/contact/contactDashboard";
+	}
+
+	@GetMapping("/employee/replyContact")
+	public String reply(Model model, @RequestParam String idContact, @RequestParam String content) {
+		Contact contact = contactService.getContactByID(Long.parseLong(idContact));
+		mailService.sendMailReply(contact.getEmail(), content);
+		contactService.updateContact(contact);
+		return "redirect:/employee/contact";
 	}
 
 	@GetMapping("/employee/detailBookingHistoryDashboard")
