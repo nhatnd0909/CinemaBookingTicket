@@ -554,7 +554,7 @@
 											src="assets/images/${service.urlImageService}"
 											alt="${service.name}"></td>
 
-										<td class="serviceName" id="selectedProductName_${loop.index}">${service.name}size${service.size}</td>
+										<td class="serviceName" id="selectedProductName_${loop.index}">${service.name} size ${service.size}</td>
 										<td id="selectedUnitPrice_${loop.index}"
 											class="formatted-price">${service.price.setScale(0, 3)}
 										</td>

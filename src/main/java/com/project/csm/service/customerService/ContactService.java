@@ -24,6 +24,15 @@ public class ContactService {
 		return contactRepository.save(contact);
 	}
 
+	public List<Contact> getContact() {
+		List<Contact> listUnrep = getUnrepContact();
+		List<Contact> listRep = getRepContact();
+		for (Contact c : listRep) {
+			listUnrep.add(c);
+		}
+		return listUnrep;
+	}
+
 	public List<Contact> getAllContact() {
 		return contactRepository.findAll();
 	}
@@ -33,6 +42,17 @@ public class ContactService {
 		List<Contact> listReturn = new ArrayList<>();
 		for (Contact c : list) {
 			if (c.getStatus().equals("Chưa trả lời")) {
+				listReturn.add(c);
+			}
+		}
+		return listReturn;
+	}
+
+	public List<Contact> getRepContact() {
+		List<Contact> list = getAllContact();
+		List<Contact> listReturn = new ArrayList<>();
+		for (Contact c : list) {
+			if (c.getStatus().equals("Đã trả lời")) {
 				listReturn.add(c);
 			}
 		}
