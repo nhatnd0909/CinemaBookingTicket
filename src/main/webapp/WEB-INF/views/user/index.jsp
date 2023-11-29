@@ -110,7 +110,7 @@ a.btn.dropdown-toggle:hover {
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Đăng xuất</a>
+							<a href="/logout">Đăng xuất</a>
 						</div>
 					</c:if>
 					<c:if test="${loggedIn eq 2}">

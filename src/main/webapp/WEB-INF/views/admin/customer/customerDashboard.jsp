@@ -292,7 +292,7 @@
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item preview-item">
+								<a class="dropdown-item preview-item" href="/logout">
 									<div class="preview-thumbnail">
 										<div class="preview-icon bg-dark rounded-circle">
 											<i class="mdi mdi-logout text-danger"></i>
@@ -302,8 +302,6 @@
 										<p class="preview-subject mb-1">Đăng Xuất</p>
 									</div>
 								</a>
-								<div class="dropdown-divider"></div>
-								<p class="p-3 mb-0 text-center">Cài Đặt Nâng Cao</p>
 							</div></li>
 					</ul>
 					<button
