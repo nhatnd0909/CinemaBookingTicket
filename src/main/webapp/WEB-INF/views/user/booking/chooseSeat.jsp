@@ -25,6 +25,14 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700"
 	rel="stylesheet">
+	<style>
+		.disabled-link {
+			pointer-events: none;
+			color: #999; 
+			text-decoration: none;
+		}
+
+	</style>
 </head>
 
 <body>
@@ -138,14 +146,14 @@
 											<li class="time-li">
 												<div class="screens">${tRoom.name}</div>
 												<h3 style="display: none;">${tRoom.roomID}</h3>
-												<div class="time-btn">
+												<div class="time-btn"> 
 													<c:forEach var="show" items="${listShowCurentDate}">
 														<c:if
 															test="${show.getTheaterRoom().getName() eq tRoom.name}">
-															<%-- 															<input type="button" class="screen-time selected"
-																onclick="timeFunction(event)" value="${show.startTime}">
+															<%-- 															<input type="button"  class="screen-time selected"
+																onclick="timeFunction(event)" value="${show.startTime}" >
 															<h5 style="display: none" id="showID">${show.showID}</h5> --%>
-															<a class="screen-time selected"
+															<a class="screen-time selected-startTime"
 																href="ticketBooking?movie=${movie}&theater=${theater}&roomID=${tRoom.roomID}&showID=${show.showID}">${show.startTime}</a>
 														</c:if>
 													</c:forEach>
@@ -492,6 +500,28 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+		var inputElements = document.querySelectorAll('.screen-time.selected-startTime');
+		var currentTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
+		// var currentTime = new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" });
+		var currentHours = new Date(currentTime).getHours();
+
+		inputElements.forEach(function(element) {
+			var timeString = element.innerText;
+			var [hours, minutes, seconds] = timeString.split(':').map(Number);
+			var dateObject = new Date(1970, 0, 1, hours, minutes, seconds).getHours();
+			if (dateObject < currentHours) {
+				element.classList.add("disabled-link");
+			}
+			console.log(dateObject);
+		});
+
+		console.log(currentHours);
+
+	</script>
+	
+	
 	<script>
 		var currentDate = new Date();
 		var tomorrow = new Date();

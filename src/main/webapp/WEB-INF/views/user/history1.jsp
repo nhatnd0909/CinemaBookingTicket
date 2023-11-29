@@ -104,100 +104,100 @@
 	<section class="w3l-grids">
 		<div class="grids-main py-5">
 			<div class="container py-lg-3">
-				<div class="headerhny-title"></div>
+				<div class="headerhny-title"><a href="/history">&#8592;</a></div>
 				<div class="container">
 					<div class="main-body">
-				<div class="row" id="downloadImage" >
-					<div class="left">
-						<div class="col-lg-5 mb-4 mb-lg-0">
-							<img
-								src="assets/images/${ticket.getShow().getMovie().getImage()}"
-								alt="..." width="240px">
-						</div>
-						<div class="ticket-info">
-							<p class="date">
-								<span
-									class="display-26 text-secondary me-2 font-weight-600">Ngày
-										Chiếu:</span> <script>
-											function formatDate(
-													inputDate) {
-												var date = new Date(
-														inputDate);
-												var formattedDate = date
-														.toLocaleDateString('en-GB');
-												document
-														.write(formattedDate);
-											}
-											var ticketDate = "${ticket.getShow().getDayTime()}";
-											formatDate(ticketDate);
-										</script>
-							</p>
-							<div class="show-name">
-								<h2>${ticket.getShow().getMovie().getName()}</h2>
+						<div class="row" id="downloadImage" >
+							<div class="left">
+								<div class="col-lg-5 mb-4 mb-lg-0">
+									<img
+										src="assets/images/${ticket.getShow().getMovie().getImage()}"
+										alt="..." width="240px">
+								</div>
+								<div class="ticket-info">
+									<p class="date">
+										<span
+											class="display-26 text-secondary me-2 font-weight-600">Ngày
+												Chiếu:</span> <script>
+													function formatDate(
+															inputDate) {
+														var date = new Date(
+																inputDate);
+														var formattedDate = date
+																.toLocaleDateString('en-GB');
+														document
+																.write(formattedDate);
+													}
+													var ticketDate = "${ticket.getShow().getDayTime()}";
+													formatDate(ticketDate);
+												</script>
+									</p>
+									<div class="show-name">
+										<h2 style="font-size: 1.5rem;">${ticket.getShow().getMovie().getName()}</h2>
+									</div>
+									<div class="time">
+										<p>Phòng chiếu:</span>${ticket.getShow().getTheaterRoom().getTheater().getName()}- ${ticket.getShow().getTheaterRoom().getName()}</p>
+									</div>									
+									<div class="time">
+										<p>Giờ Chiếu:</span> ${ticket.getShow().getStartTime()} -${ticket.getShow().getEndTime()}</p>
+									</div>
+									<div class="time">
+										<p>Dịch vụ:
+											<c:forEach items="${listOder}" var="order">
+												<li class="mb-2 mb-xl-3 display-28">
+													${order.getAmount()} ${order.getService().getName()}
+													size ${order.getService().getSize()}
+												</li>
+											</c:forEach>
+										</p>
+									</div>
+									<div class="tagline">
+										<p>Ghế: <span>${ticket.getListSeat()}</span></p>
+									</div>
+									<p class="location"><span></span>
+										<span class="separator"><i class="fa-solid fa-cross"></i></span><span></span>
+									</p>
+								</div>
 							</div>
-							<div class="time">
-								<p>Phòng chiếu:</span>${ticket.getShow().getTheaterRoom().getTheater().getName()}- ${ticket.getShow().getTheaterRoom().getName()}</p>
-							</div>									
-							<div class="time">
-								<p>Giờ Chiếu:</span> ${ticket.getShow().getStartTime()} -${ticket.getShow().getEndTime()}</p>
-							</div>
-							<div class="time">
-								<p>Dịch vụ:
-									 <c:forEach items="${listOder}" var="order">
-										<li class="mb-2 mb-xl-3 display-28">
-											${order.getAmount()} ${order.getService().getName()}
-											size ${order.getService().getSize()}
-										</li>
-									</c:forEach>
+							<div class="right">
+								<p class="admit-one">
+									<span>ADMIT ONE</span>
+									<span>ADMIT ONE</span>
+									<span>ADMIT ONE</span>
 								</p>
-							</div>
-							<div class="tagline">
-								<p>Ghế: <span>${ticket.getListSeat()}</span></p>
-							</div>
-							<p class="location"><span></span>
-								<span class="separator"><i class="fa-solid fa-cross"></i></span><span></span>
-							</p>
-						</div>
-					</div>
-					<div class="right">
-						<p class="admit-one">
-							<span>ADMIT ONE</span>
-							<span>ADMIT ONE</span>
-							<span>ADMIT ONE</span>
-						</p>
-						<div class="right-info-container">
-							<div class="show-name">
-								<h1>${ticket.getShow().getMovie().getName()}</h1>
-							</div>
-							<div class="time">
-								<p><span
-									class="display-26 text-secondary me-2 font-weight-600">Ngày
-										Chiếu</span> <script>
-											function formatDate(
-													inputDate) {
-												var date = new Date(
-														inputDate);
-												var formattedDate = date
-														.toLocaleDateString('en-GB');
-												document
-														.write(formattedDate);
-											}
-											var ticketDate = "${ticket.getShow().getDayTime()}";
-											formatDate(ticketDate);
-										</script></p>
-								<p>${ticket.getShow().getStartTime()} -${ticket.getShow().getEndTime()}</p>
-							</div>
-							<div class="barcode" id="qrcode-container">
-							</div>
-							<p class="ticket-number">
-								#${ticket.ticketID}
-							</p>
-							<div class="submitbutton">
-								<button type="button" class="btn btn-primary" onclick="downloadImage()">Download Image</button>
+								<div class="right-info-container">
+									<div class="show-name">
+										<h1>${ticket.getShow().getMovie().getName()}</h1>
+									</div>
+									<div class="time">
+										<p><span
+											class="display-26 text-secondary me-2 font-weight-600">Ngày
+												Chiếu</span> <script>
+													function formatDate(
+															inputDate) {
+														var date = new Date(
+																inputDate);
+														var formattedDate = date
+																.toLocaleDateString('en-GB');
+														document
+																.write(formattedDate);
+													}
+													var ticketDate = "${ticket.getShow().getDayTime()}";
+													formatDate(ticketDate);
+												</script></p>
+										<p>${ticket.getShow().getStartTime()} -${ticket.getShow().getEndTime()}</p>
+									</div>
+									<div class="barcode" id="qrcode-container">
+									</div>
+									<p class="ticket-number">
+										#${ticket.ticketID}
+									</p>
+									<div class="submitbutton">
+										<button type="button" class="btn btn-primary" onclick="downloadImage()">Download Image</button>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
 					</div>
 				</div>
 			</div>

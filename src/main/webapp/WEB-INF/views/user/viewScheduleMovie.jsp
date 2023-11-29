@@ -22,6 +22,13 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.disabled-link {
+			pointer-events: none;
+			color: #999; 
+			text-decoration: none;
+		}
+	</style>
 </head>
 <style>
 </style>
@@ -178,8 +185,8 @@
 													<c:if test="${show.movie.name eq movie.name}">
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
-															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-															<span class="time">${show.startTime}</span> <span
+															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price startTime">
+															<span class="time startTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -393,6 +400,26 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<script>
+			var inputElements = document.querySelectorAll('.startTime');
+			var currentTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
+			// var currentTime = new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" });
+			var currentHours = new Date(currentTime).getHours();
+
+			inputElements.forEach(function(element) {
+				var timeString = element.innerText;
+				var [hours, minutes, seconds] = timeString.split(':').map(Number);
+				var dateObject = new Date(1970, 0, 1, hours, minutes, seconds).getHours();
+				if (dateObject < currentHours) {
+					element.classList.add("disabled-link");
+				}
+				console.log(dateObject);
+			});
+
+			console.log(currentHours);
+
+		</script>
 			<script>
 				var currentDate = new Date();
 				var tomorrow = new Date();
