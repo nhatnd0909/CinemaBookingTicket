@@ -12,8 +12,10 @@ import com.project.csm.model.Customer;
 import com.project.csm.model.Movie;
 import com.project.csm.model.Order;
 import com.project.csm.model.Show;
+import com.project.csm.model.Theater;
 import com.project.csm.model.Ticket;
 import com.project.csm.service.customerService.OrderService;
+import com.project.csm.service.customerService.TheaterService;
 import com.project.csm.service.customerService.TicketService;
 
 import jakarta.servlet.http.HttpSession;
@@ -24,7 +26,8 @@ public class DetailHistoryController {
 	private TicketService ticketService;
 	@Autowired
 	private OrderService orderService;
-
+	@Autowired
+	private TheaterService theaterService;
 	@GetMapping("/history1")
 	public String showHistory1(HttpSession session, Model model, @RequestParam String idTicket) {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
@@ -39,7 +42,8 @@ public class DetailHistoryController {
 
 		Ticket ticket = ticketService.getTicketByID(idTicket);
 		model.addAttribute("ticket", ticket);
-
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
 		List<Order> listOder = orderService.getAllOrderByIDTicket(idTicket);
 		model.addAttribute("listOder", listOder);
 		

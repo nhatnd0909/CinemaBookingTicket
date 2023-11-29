@@ -39,7 +39,7 @@
 			class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
 			<div class="container">
 				<h1>
-					<a class="navbar-brand" href="#"><span
+					<a class="navbar-brand" href="/"><span
 						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a>
 				</h1>
 				<button class="navbar-toggler collapsed" type="button"
@@ -53,7 +53,7 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="#">Trang
+						<li class="nav-item active"><a class="nav-link" href="/">Trang
 								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
