@@ -1,6 +1,8 @@
 package com.project.csm.controller.userController;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,7 +93,11 @@ public class TicketBookingController {
 		session.setAttribute("selectedMovie", movie);
 		session.setAttribute("selectedTheater", theater);
 		Show show = employeeShowMovie.getShowById(Long.parseLong(showID));
-		model.addAttribute("showDate", show.getDayTime().toString().split(" ")[0]);
+		Date showDate = show.getDayTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		String formattedDate = sdf.format(showDate);
+		model.addAttribute("showDate", formattedDate);
+//		model.addAttribute("showDate", show.getDayTime().toString().split(" ")[0]);
 		model.addAttribute("showTime", show.getStartTime());
 		model.addAttribute("showID", showID);
 		return "/user/ticketBooking";
