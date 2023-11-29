@@ -34,6 +34,8 @@ public class TicketBookingController {
 	private SeatOfCinemaService sOfCinemaService;
 	@Autowired
 	private TicketService ticketService;
+	@Autowired
+	private employeeShowMovie employeeShowMovie;
 
 	@GetMapping("/ticketBooking")
 	public String showTicketBooking(HttpSession session, Model model, @RequestParam String movie,
@@ -87,8 +89,11 @@ public class TicketBookingController {
 		List<String> listSeatOrder = ticketService.getTicketByRoomID(Long.parseLong(roomID), Long.parseLong(showID));
 		model.addAttribute("listSeatOrder", listSeatOrder);
 		session.setAttribute("selectedMovie", movie);
-        session.setAttribute("selectedTheater", theater);
-        
+		session.setAttribute("selectedTheater", theater);
+		Show show = employeeShowMovie.getShowById(Long.parseLong(showID));
+		model.addAttribute("showDate", show.getDayTime().toString().split(" ")[0]);
+		model.addAttribute("showTime", show.getStartTime());
+		model.addAttribute("showID", showID);
 		return "/user/ticketBooking";
 	}
 }
