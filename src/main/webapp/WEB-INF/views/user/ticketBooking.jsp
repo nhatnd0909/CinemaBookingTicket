@@ -94,11 +94,11 @@
 							<li id="step2" class="not_active">Chọn Ghế Ngồi</li>
 							<li id="step3" class="not_active">Đồ Ăn và Đồ Uống</li>
 							<li id="step4" class="not_active">Xác Nhận</li>
-              <li id="step5" class="not_active">Thanh Toán</li>
+              				<li id="step5" class="not_active">Thanh Toán</li>
 						</ul>
 						<fieldset>
 							<div id="screen-select-div">
-								<h2>Show time Selection</h2>
+								<h2>Lựa chọn thời gian</h2>
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
 									<div class="carousel-cell" id="1" data-date="${currentDate}"
@@ -612,7 +612,8 @@
 									<div class="total-money">
 										<c:if test="${loggedIn == 1}">
 											<c:if test="${discount > 0.0}">
-												Giảm giá: <span id="discount">${discount}%</span>
+												Giảm giá: <span id="123"></span>
+												<span id="discount" style="display: none;">${discount}%</span>
 												<br>
 											</c:if>
 										</c:if>
@@ -631,6 +632,18 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		// Đảm bảo rằng mã JavaScript được thực thi sau khi tất cả các phần tử đã được tải
+		document.addEventListener('DOMContentLoaded', function() {
+			var discountValue = parseFloat(document.getElementById('discount').textContent);
+			console.log(discountValue);
+			if (!isNaN(discountValue)) {
+				var calculatedDiscount = parseInt(discountValue * 100);
+				document.getElementById('123').textContent = calculatedDiscount + "%";
+			}
+		});
+	</script>
+	
 	<script>
 		var currentDate = new Date();
 		var tomorrow = new Date();
@@ -760,6 +773,12 @@
 			var discountPercentage = parseFloat($("#discount").text()) || 0;
 			
 			updateSecondTable();
+			var copyValue = $(".cloned-quantity").val();
+			if (!copyValue || copyValue.trim() === "") {
+       		 $("#payment_div table").hide();}
+			  else {
+					$("#payment_div table").show();
+				}
 			var total = parseFloat($("#total-money").text().replace(/\D/g, '')) || 0;
 			var discountedTotal = total_movie - (total_movie * discountPercentage );
 			console.log(discountedTotal);

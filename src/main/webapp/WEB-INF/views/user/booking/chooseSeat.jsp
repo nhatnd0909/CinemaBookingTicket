@@ -90,15 +90,15 @@
 							name="socid" type="text" value="" hidden="">
 
 						<ul id="progressbar" class="progressbar-class">
-							<li class="active" id="step1">Show timing selection</li>
-							<li id="step2" class="not_active">Seat Selection</li>
-							<li id="step3" class="not_active">Concession Items</li>
-							<li id="step4" class="not_active">Confirm</li>
-							<li id="step5" class="not_active">Payment</li>
+							<li class="active" id="step1">Chọn Giờ Chiếu</li>
+							<li id="step2" class="not_active">Chọn Ghế Ngồi</li>
+							<li id="step3" class="not_active">Đồ Ăn và Đồ Uống</li>
+							<li id="step4" class="not_active">Xác Nhận</li>
+              				<li id="step5" class="not_active">Thanh Toán</li>
 						</ul>
 						<fieldset>
 							<div id="screen-select-div">
-								<h2>Show time Selection</h2>
+								<h2>Lựa chọn thời gian</h2>
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
 									<div class="carousel-cell" id="1" data-date="${currentDate}"

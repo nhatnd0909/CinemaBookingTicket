@@ -40,14 +40,15 @@ public class EmployeeServiceController {
 
 	@PostMapping("/employee/service/create")
 	public String postCreateEmployeeService(@ModelAttribute Service service,
-			@RequestParam("imageFile") MultipartFile imageFile) {
-		try {
-			employeeServiceService.createService(service, imageFile);
-			return "redirect:/employee/service";
-		} catch (IOException e) {
-			return "createServiceForm";
-		}
+	        @RequestParam("imageFile") MultipartFile imageFile) {
+	    try {
+	        employeeServiceService.createService(service, imageFile);
+	        return "redirect:/employee/service";
+	    } catch (IOException e) {
+	        return "/employee/service/createService";
+	    }
 	}
+
 
 	@GetMapping("/employee/service/update/{serviceID}")
 	public String getUpdateEmployeeService(@PathVariable Long serviceID, Model model) {
