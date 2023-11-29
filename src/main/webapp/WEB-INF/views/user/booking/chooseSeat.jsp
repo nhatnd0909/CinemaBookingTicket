@@ -31,7 +31,12 @@
 			color: #999; 
 			text-decoration: none;
 		}
-
+		.screen-select-div{
+			padding: 20px;
+		}
+		.wrapper{
+			padding: 10px;
+		}
 	</style>
 </head>
 
@@ -105,7 +110,7 @@
               				<li id="step5" class="not_active">Thanh Toán</li>
 						</ul>
 						<fieldset>
-							<div id="screen-select-div">
+							<div id="screen-select-div" class="screen-select-div">
 								<h2>Lựa chọn thời gian</h2>
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
