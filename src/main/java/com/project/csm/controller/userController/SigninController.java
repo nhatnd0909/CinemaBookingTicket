@@ -64,7 +64,7 @@ public class SigninController {
 		if (accountLoggedIn.getRole().equals("employee")) {
 			Employee employee = employeeService.getEmployeeByIdAccount(accountLoggedIn.getAccountID());
 			session.setAttribute("employee", employee);
-			return "redirect:/employee/Dashboard";
+			return "redirect:/employee/bookinghistory";
 		} else if (accountLoggedIn.getRole().equals("admin")) {
 			Admin admin = adminService.getAdminByAccountID(accountLoggedIn.getAccountID());
 			session.setAttribute("admin", admin);

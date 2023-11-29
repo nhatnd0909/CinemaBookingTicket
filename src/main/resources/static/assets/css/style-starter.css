@@ -217,6 +217,7 @@ img {
 }
 
 svg {
+  margin-right: 10px;
   overflow: hidden;
   vertical-align: middle;
 }

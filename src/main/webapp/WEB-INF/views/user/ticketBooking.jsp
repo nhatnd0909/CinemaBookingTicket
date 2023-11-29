@@ -26,7 +26,15 @@
 	href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700"
 	rel="stylesheet">
 </head>
+<style>
+.screen-select-div {
+	padding: 20px;
+}
 
+.wrapper {
+	padding: 10px;
+}
+</style>
 <body>
 	<header id="site-header" class="w3l-header fixed-top">
 
@@ -97,7 +105,7 @@
 							<li id="step5" class="not_active">Thanh Toán</li>
 						</ul>
 						<fieldset>
-							<div id="screen-select-div">
+							<div id="screen-select-div" class="screen-select-div">
 								<h2>Lựa chọn thời gian</h2>
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
@@ -538,7 +546,7 @@
 								value="Đồ Ăn và Đồ Uống"> <input type="button"
 								name="previous-step" class="previous-step" value="Quay lại" />
 						</fieldset>
-						<fieldset>
+						<fieldset style="padding: 20px;">
 							<table>
 								<tr>
 									<th>Hình ảnh</th>
