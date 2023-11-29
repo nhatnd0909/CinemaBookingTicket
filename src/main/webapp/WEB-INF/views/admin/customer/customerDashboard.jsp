@@ -103,11 +103,11 @@
 				</li>
 				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
-				<li class="nav-item menu-items"><a class="nav-link"
+<!-- 				<li class="nav-item menu-items"><a class="nav-link"
 					href="adminDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
 					</span> <span class="menu-title">Bảng Điều Khiển</span>
-				</a></li>
+				</a></li> -->
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="revenue"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>

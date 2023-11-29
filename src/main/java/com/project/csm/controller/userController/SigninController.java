@@ -68,7 +68,7 @@ public class SigninController {
 		} else if (accountLoggedIn.getRole().equals("admin")) {
 			Admin admin = adminService.getAdminByAccountID(accountLoggedIn.getAccountID());
 			session.setAttribute("admin", admin);
-			return "redirect:/adminDashboard";
+			return "redirect:/revenue";
 		}
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
