@@ -56,7 +56,17 @@
 
 						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
-
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" href="#" role="button"
+							data-toggle="dropdown" aria-expanded="false"
+							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
+							Rạp</a>
+						<div class="dropdown-menu">
+							<c:forEach items="${listTheater}" var="theater">
+								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+							</c:forEach>
+						</div>
+					</div>
 					<!--/search-right-->
 					<!--/search-right-->
 

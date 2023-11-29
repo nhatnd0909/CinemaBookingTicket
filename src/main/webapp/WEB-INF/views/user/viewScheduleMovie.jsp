@@ -39,7 +39,7 @@
 			class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
 			<div class="container">
 				<h1>
-					<a class="navbar-brand" href="#"><span
+					<a class="navbar-brand" href="/"><span
 						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a>
 				</h1>
 				<button class="navbar-toggler collapsed" type="button"
@@ -53,7 +53,7 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="#">Trang
+						<li class="nav-item active"><a class="nav-link" href="/">Trang
 								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
@@ -187,7 +187,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price startTime">
-															<span class="time startTime">${show.startTime}</span> <span
+															<span class="time startTime displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -234,7 +234,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-															<span class="time">${show.startTime}</span> <span
+															<span class="time displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -280,7 +280,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-															<span class="time">${show.startTime}</span> <span
+															<span class="time displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -401,8 +401,17 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
-			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-			<script>
+		<script>
+				document.querySelectorAll('.card.card-sm.mb-3').forEach(function(card) {
+					var span = card.querySelector('.time.displayTime');
+					if (!span) {
+						card.style.display = 'none';
+					}
+				});
+		</script>
+			
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<script>
 			var inputElements = document.querySelectorAll('.startTime');
 			var currentTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
 			// var currentTime = new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" });

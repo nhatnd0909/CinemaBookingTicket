@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.model.Customer;
+import com.project.csm.model.Theater;
 import com.project.csm.model.Ticket;
 import com.project.csm.service.customerService.CustomerService;
+import com.project.csm.service.customerService.TheaterService;
 import com.project.csm.service.customerService.TicketService;
 
 import jakarta.servlet.http.HttpSession;
@@ -22,7 +24,8 @@ public class HistoryBookingController {
 	private CustomerService customerService;
 	@Autowired
 	private TicketService ticketService;
-
+	@Autowired
+	private TheaterService theaterService;
 	@GetMapping("/history")
 	public String showHistory(@RequestParam(defaultValue = "1") int page, HttpSession session, Model model) {
 	    Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
@@ -44,7 +47,8 @@ public class HistoryBookingController {
 	            .skip((page - 1) * pageSize)
 	            .limit(pageSize)
 	            .collect(Collectors.toList());
-
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
 	    model.addAttribute("listTicket", paginatedTickets);
 	    model.addAttribute("currentPage", page);
 	    model.addAttribute("totalPages", totalPages);

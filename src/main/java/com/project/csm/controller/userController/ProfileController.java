@@ -2,6 +2,7 @@ package com.project.csm.controller.userController;
 
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.model.Customer;
+import com.project.csm.model.Theater;
 import com.project.csm.service.customerService.CustomerService;
+import com.project.csm.service.customerService.TheaterService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -19,7 +22,8 @@ import jakarta.servlet.http.HttpSession;
 public class ProfileController {
 	@Autowired
 	private CustomerService customerService;
-
+	@Autowired
+	private TheaterService theaterService;
 	@GetMapping("/profileUser")
 	public String showProfileUser(HttpSession session, Model model) {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
@@ -43,7 +47,8 @@ public class ProfileController {
 		}
 
 		model.addAttribute("dob", dob);
-
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
 		String maxDate = customerService.parseDatetoString(new Date());
 		model.addAttribute("maxDate", maxDate);
 
