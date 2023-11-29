@@ -318,7 +318,7 @@
                                         <input type="file" class="form-control" id="exampleInputPassword4" placeholder="Password" name="imageFile" onchange="previewImage()">
 									</div> 
                                     <div id="imagePreview" class="image-preview" style="display: block;">
-                                        <img src="/admin_assets/assets/images/serivce/${imageUrl}" alt="image">
+                                        <img src="/assets/images/${imageUrl}" alt="image">
                                     </div>                                                                 
 									<button type="submit" class="btn btn-primary mr-2">Nộp</button>
 								</form>

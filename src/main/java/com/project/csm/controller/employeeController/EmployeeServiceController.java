@@ -60,9 +60,10 @@ public class EmployeeServiceController {
 			employeeServiceService.createService(service, imageFile);
 			return "redirect:/employee/service";
 		} catch (IOException e) {
-			return "createServiceForm";
+			return "/employee/service/createService";
 		}
 	}
+
 
 	@GetMapping("/employee/service/update/{serviceID}")
 	public String getUpdateEmployeeService(@PathVariable Long serviceID, Model model, HttpSession session) {
@@ -96,7 +97,7 @@ public class EmployeeServiceController {
 			employeeServiceService.updateService(existingService);
 			return "redirect:/employee/service";
 		} catch (Exception e) {
-			return "updateServiceForm";
+			return "/employee/service/updateService";
 		}
 	}
 

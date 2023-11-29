@@ -98,7 +98,49 @@ href="/admin_assets/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
                         </a>
                 </div>
             </li>
-            
+            <li class="nav-item nav-category"><span class="nav-link">Chuyển
+                hướng</span></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/adminDashboard"> <span class="menu-icon"> <i
+                        class="mdi mdi-speedometer"></i>
+                </span> <span class="menu-title">Bảng Điều Khiển</span>
+            </a></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/revenue"> <span class="menu-icon"> <i
+                        class="mdi mdi-cash-usd"></i>
+                </span> <span class="menu-title">Quản Lý Doanh Thu</span>
+            </a></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/movieDashboard"> <span class="menu-icon"> <i
+                        class="mdi mdi-playlist-play"></i>
+                </span> <span class="menu-title">Quản Lý Phim</span>
+            </a></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/customerDashboard"> <span class="menu-icon"> <i
+                        class="mdi mdi-account-circle"></i>
+                </span> <span class="menu-title">Quản Lý Khách Hàng</span>
+            </a></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/employeeDashboard"> <span class="menu-icon"> <i
+                        class="mdi mdi-account-circle"></i>
+                </span> <span class="menu-title">Quản Lý Nhân Viên</span>
+            </a></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/theaterDashboard"> <span class="menu-icon"> <i
+                        class="mdi mdi-seal"></i>
+                </span> <span class="menu-title">Quản Lý Rạp</span>
+            </a></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/rankDashboard"> <span class="menu-icon"> <i
+                        class="mdi mdi-seal"></i>
+                </span> <span class="menu-title">Quản Lý Thứ Hạng</span>
+            </a></li>
+            <li class="nav-item menu-items"><a class="nav-link"
+                href="/genreDashboard"> <span class="menu-icon"> <i
+                        class="mdi mdi-seal"></i>
+                </span> <span class="menu-title">Quản Lý Thể Loại</span>
+            </a></li>
+        </ul>  
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">

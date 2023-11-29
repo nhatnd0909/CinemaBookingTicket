@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.project.csm.model.Customer;
 import com.project.csm.model.Movie;
 import com.project.csm.model.Show;
+import com.project.csm.model.Theater;
 import com.project.csm.service.customerService.MovieService;
 import com.project.csm.service.customerService.ServiceService;
+import com.project.csm.service.customerService.TheaterService;
 import com.project.csm.service.employeeService.employeeShowMovie;
 
 import jakarta.servlet.http.HttpSession;
@@ -30,6 +32,8 @@ public class ViewScheduleMovieController {
 	private ServiceService sService;
 	@Autowired
 	private employeeShowMovie eShowMovie;
+	@Autowired
+	private TheaterService theaterService;
 
 	@GetMapping("/view-schedule-movie")
 	public String ViewScheduleMovie(Model model, HttpSession session, @RequestParam String theater)
@@ -58,6 +62,9 @@ public class ViewScheduleMovieController {
 		model.addAttribute("futureDate4Days", futureDate4Days);
 		model.addAttribute("listMovie", listMovie);
 
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
+		
 		List<Show> listShowCurentDate = eShowMovie.getAllShowByTheaterDate(currentDate, theater);
 		List<Show> listShowTomorowDate = eShowMovie.getAllShowByTheaterDate(tomorow, theater);
 		List<Show> listShowNextDate = eShowMovie.getAllShowByTheaterDate(nextDate, theater);

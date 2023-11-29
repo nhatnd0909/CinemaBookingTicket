@@ -34,7 +34,7 @@ public class employeeServiceService {
 	    processImage(service, imageFile);
 	    serviceRepository.save(service);
 	}
-	
+
 	public void updateService(com.project.csm.model.Service service ) {
         serviceRepository.save(service);
     }
@@ -45,22 +45,11 @@ public class employeeServiceService {
 	
 	public void processImage(com.project.csm.model.Service service, MultipartFile imageFile) throws IOException {
 	    if (imageFile != null && !imageFile.isEmpty()) {
-	    	String fileName = imageFile.getOriginalFilename();
-	        String uploadDir = "src/main/resources/static/assets/images/";
-	        Path filePath = Paths.get(uploadDir, fileName);
-	        
-	        if (service.getUrlImageService() != null) {
-	            String oldFileName = service.getUrlImageService();
-	            Path oldFilePath = Paths.get(uploadDir, oldFileName);
-	            Files.deleteIfExists(oldFilePath);
-	        }
-
-	        try (InputStream inputStream = imageFile.getInputStream()) {
-	            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-	            service.setUrlImageService(fileName);
-	        }
+	        String fileName = imageFile.getOriginalFilename();
+	        service.setUrlImageService(fileName);
 	    }
 	}
+
 
 	
 

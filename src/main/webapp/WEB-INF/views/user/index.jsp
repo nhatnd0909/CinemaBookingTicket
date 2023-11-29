@@ -727,20 +727,22 @@ a.btn.dropdown-toggle:hover {
 	</script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
-			// Lặp qua tất cả các phần tử có class 'title-gd'
-			var movieTitles = document.querySelectorAll('.title-gd');
+				// Lặp qua tất cả các phần tử có class 'title-gd'
+				var movieTitles = document.querySelectorAll('.title-gd');
 
-			movieTitles.forEach(function(titleElement) {
-				var titleText = titleElement.innerText;
+				movieTitles.forEach(function(titleElement) {
+					var titleText = titleElement.innerText;
 
-				var wordCount = titleText.split(' ').length;
-				if (wordCount < 8) {
-					titleElement.innerHTML = '<span class="line1">' + titleText
-							+ '</span><br><span class="line2">&nbsp;</span>';
-				}
+					var charCount = titleText.length;
 
+					console.log("Title text:", titleText);
+					console.log("Character count:", charCount);
+
+					if (charCount < 31) {
+						titleElement.innerHTML = '<span class="line1">' + titleText + '</span><br><span class="line2">&nbsp;</span>';
+					}
+				});
 			});
-		});
 	</script>
 	<script src="assets/js/bootstrap.min.js"></script>
 </body>

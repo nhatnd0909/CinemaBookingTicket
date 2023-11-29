@@ -67,9 +67,9 @@
 							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
 							Rạp</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="view-schedule-movie">Action</a> <a
-								class="dropdown-item" href="#">Another action</a> <a
-								class="dropdown-item" href="#">Something else here</a>
+							<c:forEach items="${listTheater}" var="theater">
+								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+							</c:forEach>
 						</div>
 					</div>
 

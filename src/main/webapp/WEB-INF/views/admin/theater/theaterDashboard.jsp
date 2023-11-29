@@ -363,8 +363,8 @@
 																		</a>
 																	</div>		
 																	<div class="badge badge-outline-success">
-																		<a href="<c:url value='/showRooms/${theater.theaterID}'/>" style="text-decoration: none; color: inherit;">
-																			<p style="font-size: 14px; margin: 0;">Quản lý phòng hiếu</p>
+																		<a href="<c:url value='/showRooms/${theater.theaterID}'/>" style="text-decoration: none; color: inherit; ">
+																			<p style="font-size: 14px; margin: 0;line-height: 1;">Quản lý phòng chiếu</p>
 																		</a>
 																	 </div>																
 																</td>
