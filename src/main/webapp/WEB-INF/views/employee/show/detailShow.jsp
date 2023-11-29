@@ -354,17 +354,17 @@
 
 										</div>
 									</div>
-									<div class="form-group row">
-										<label for="exampleInputEmail3"
+									<div class="form-group row" style="display: none;">
+										<label for="exampleInputPrice"
 											class="col-sm-2 col-form-label">Giá vé</label>
 										<div class="col-sm-10">
 											<c:if test="${comparePrice == 0}">
 												<input type="text" class="form-control" placeholder="Giá "
-													name="price" required="required" value="">
+													name="price" required="required" value="100000" style="display: none;" >
 											</c:if>
 											<c:if test="${comparePrice != 0}">
 												<input type="text" class="form-control" placeholder="Price"
-													name="price" required="required" value="${price}">
+													name="price" required="required" value="${price}" style="display: none;">
 											</c:if>
 										</div>
 									</div>
@@ -410,7 +410,6 @@
 	<!-- Custom js for this page -->
 	<script src="/admin_assets/assets/js/dashboard.js"></script>
 
-	<!-- End custom js for this page -->
 </body>
 
 </html>

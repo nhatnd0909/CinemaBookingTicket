@@ -1,5 +1,7 @@
 package com.project.csm.controller.userController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.csm.model.Contact;
 import com.project.csm.model.Customer;
+import com.project.csm.model.Theater;
 import com.project.csm.service.customerService.ContactService;
+import com.project.csm.service.customerService.TheaterRoomService;
+import com.project.csm.service.customerService.TheaterService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -17,6 +22,8 @@ import jakarta.servlet.http.HttpSession;
 public class ContactController {
 	@Autowired
 	private ContactService contactService;
+	@Autowired
+	private TheaterService theaterService;
 
 	@GetMapping("/contact")
 	public String showContact(HttpSession session, Model model) {
@@ -32,6 +39,8 @@ public class ContactController {
 			name = loggedInAccount.getName().substring(position, loggedInAccount.getName().length());
 			loggedIn = 1;
 		}
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		model.addAttribute("lastName", lastName);
@@ -58,7 +67,8 @@ public class ContactController {
 		model.addAttribute("loggedInAccount", loggedInAccount);
 		model.addAttribute("lastName", firstName);
 		model.addAttribute("name", name);
-
+		List<Theater> listTheater = theaterService.getAllTheater();
+		model.addAttribute("listTheater", listTheater);
 		model.addAttribute("mess", "Cảm ơn " + name
 				+ " đã để lại lời nhắn cho chúng tôi. Chúng tôi sẽ phản hồi cho bạn trong thời gian sớm nhất");
 		return "/user/contactUs";

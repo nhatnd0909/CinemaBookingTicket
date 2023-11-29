@@ -734,7 +734,7 @@ a.btn.dropdown-toggle:hover {
 				var titleText = titleElement.innerText;
 
 				var wordCount = titleText.split(' ').length;
-				if (wordCount < 8) {
+				if (wordCount < 7) {
 					titleElement.innerHTML = '<span class="line1">' + titleText
 							+ '</span><br><span class="line2">&nbsp;</span>';
 				}

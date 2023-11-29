@@ -12,6 +12,7 @@
 
 <link rel="stylesheet" href="assets/css/style-starter.css">
 <link rel="stylesheet" href="assets/css/profileuser.css">
+<link rel="stylesheet" href="assets/css/history.css">
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
@@ -106,83 +107,97 @@
 				<div class="headerhny-title"></div>
 				<div class="container">
 					<div class="main-body">
-						<div class="row">
-							<div class="col-lg-10">
-								<div class="card">
-									<div class="col-lg-12 mb-4 mb-sm-5">
-										<div class="card card-style1 border-0">
-											<div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
-												<div class="row align-items-center">
-													<div class="col-lg-5 mb-4 mb-lg-0">
-														<img
-															src="assets/images/${ticket.getShow().getMovie().getImage()}"
-															alt="..." width="240px">
-													</div>
-													<div class="col-lg-7 px-xl-10">
-														<div class="title-container">
-															<h3 class="title-text">${ticket.getShow().getMovie().getName()}</h3>
-														</div>
-														<ul class="list-unstyled mb-1-9">
-															<li class="mb-2 mb-xl-3 display-28"><span
-																class="display-26 text-secondary me-2 font-weight-600">Phòng
-																	chiếu:</span>
-																${ticket.getShow().getTheaterRoom().getTheater().getName()}
-																- ${ticket.getShow().getTheaterRoom().getName()}</li>
-															<li class="mb-2 mb-xl-3 display-28"><span
-																class="display-26 text-secondary me-2 font-weight-600">Giờ
-																	Chiếu:</span> ${ticket.getShow().getStartTime()} -
-																${ticket.getShow().getEndTime()}</li>
-															<li class="mb-2 mb-xl-3 display-28"><span
-																class="display-26 text-secondary me-2 font-weight-600">Ngày
-																	Chiếu:</span> <script>
-																		// Hàm để định dạng lại ngày
-																		function formatDate(
-																				inputDate) {
-																			var date = new Date(
-																					inputDate);
-																			var formattedDate = date
-																					.toLocaleDateString('en-GB'); // Đặt ngôn ngữ theo yêu cầu của bạn
-																			document
-																					.write(formattedDate);
-																		}
-
-																		// Sử dụng hàm formatDate với giá trị từ JSP
-																		var ticketDate = "${ticket.getShow().getDayTime()}";
-																		formatDate(ticketDate);
-																	</script></li>
-
-															<li class="mb-2 mb-xl-3 display-28"><span
-																class="display-26 text-secondary me-2 font-weight-600">Ghế</span>
-																${ticket.getListSeat()}</li>
-															<li class="mb-2 mb-xl-3 display-28"><span
-																class="display-26 text-secondary me-2 font-weight-600">Thời
-																	lượng:</span> ${ticket.getShow().getMovie().getDuration()}
-																phút</li>
-															<li class="mb-2 mb-xl-3 display-28"><span
-																class="display-26 text-secondary me-2 font-weight-600">Dịch
-																	vụ</span></li>
-															<c:forEach items="${listOder}" var="order">
-																<li class="mb-2 mb-xl-3 display-28">
-																	${order.getAmount()} ${order.getService().getName()}
-																	size ${order.getService().getSize()}</li>
-															</c:forEach>
-														</ul>
-
-														<ul class="social-icon-style1 list-unstyled mb-0 ps-0">
-															<li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
-															<li><a href="#!"><i class="ti-facebook"></i></a></li>
-															<li><a href="#!"><i class="ti-pinterest"></i></a></li>
-															<li><a href="#!"><i class="ti-instagram"></i></a></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
+				<div class="row" id="downloadImage" >
+					<div class="left">
+						<div class="col-lg-5 mb-4 mb-lg-0">
+							<img
+								src="assets/images/${ticket.getShow().getMovie().getImage()}"
+								alt="..." width="240px">
+						</div>
+						<div class="ticket-info">
+							<p class="date">
+								<span
+									class="display-26 text-secondary me-2 font-weight-600">Ngày
+										Chiếu:</span> <script>
+											function formatDate(
+													inputDate) {
+												var date = new Date(
+														inputDate);
+												var formattedDate = date
+														.toLocaleDateString('en-GB');
+												document
+														.write(formattedDate);
+											}
+											var ticketDate = "${ticket.getShow().getDayTime()}";
+											formatDate(ticketDate);
+										</script>
+							</p>
+							<div class="show-name">
+								<h2>${ticket.getShow().getMovie().getName()}</h2>
+							</div>
+							<div class="time">
+								<p>Phòng chiếu:</span>${ticket.getShow().getTheaterRoom().getTheater().getName()}- ${ticket.getShow().getTheaterRoom().getName()}</p>
+							</div>									
+							<div class="time">
+								<p>Giờ Chiếu:</span> ${ticket.getShow().getStartTime()} -${ticket.getShow().getEndTime()}</p>
+							</div>
+							<div class="time">
+								<p>Dịch vụ:
+									 <c:forEach items="${listOder}" var="order">
+										<li class="mb-2 mb-xl-3 display-28">
+											${order.getAmount()} ${order.getService().getName()}
+											size ${order.getService().getSize()}
+										</li>
+									</c:forEach>
+								</p>
+							</div>
+							<div class="tagline">
+								<p>Ghế: <span>${ticket.getListSeat()}</span></p>
+							</div>
+							<p class="location"><span></span>
+								<span class="separator"><i class="fa-solid fa-cross"></i></span><span></span>
+							</p>
+						</div>
+					</div>
+					<div class="right">
+						<p class="admit-one">
+							<span>ADMIT ONE</span>
+							<span>ADMIT ONE</span>
+							<span>ADMIT ONE</span>
+						</p>
+						<div class="right-info-container">
+							<div class="show-name">
+								<h1>${ticket.getShow().getMovie().getName()}</h1>
+							</div>
+							<div class="time">
+								<p><span
+									class="display-26 text-secondary me-2 font-weight-600">Ngày
+										Chiếu</span> <script>
+											function formatDate(
+													inputDate) {
+												var date = new Date(
+														inputDate);
+												var formattedDate = date
+														.toLocaleDateString('en-GB');
+												document
+														.write(formattedDate);
+											}
+											var ticketDate = "${ticket.getShow().getDayTime()}";
+											formatDate(ticketDate);
+										</script></p>
+								<p>${ticket.getShow().getStartTime()} -${ticket.getShow().getEndTime()}</p>
+							</div>
+							<div class="barcode" id="qrcode-container">
+							</div>
+							<p class="ticket-number">
+								#${ticket.ticketID}
+							</p>
+							<div class="submitbutton">
+								<button type="button" class="btn btn-primary" onclick="downloadImage()">Download Image</button>
 							</div>
 						</div>
+					</div>
+				</div>
 					</div>
 				</div>
 			</div>
@@ -318,6 +333,42 @@
 		</section>
 	</footer>
 </body>
+<!-- Thêm thư viện qrcode.js từ CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+    function generateQRCode(ticketData, elementId) {
+        var qrCode = new QRCode(document.getElementById(elementId), {
+			text: JSON.stringify(ticketData),
+            width: 128,
+            height: 128
+        });
+    }
+	var ticketData = {
+        ticketID: "${ticket.ticketID}",
+        movieName: "${ticket.getShow().getMovie().getName()}",
+        showDate: "2023-01-01",
+		showService: "${ticket.getListSeat()}"
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+        generateQRCode(ticketData, 'qrcode-container');
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+    function downloadImage() {
+        var container = document.querySelector('#downloadImage');
+        html2canvas(container).then(function (canvas) {
+            // Convert canvas to data URL
+            var imageData = canvas.toDataURL("image/png");
+            var link = document.createElement('a');
+            link.href = imageData;
+            link.download = 'downloaded_image.png';
+            link.click();
+        });
+    }
+</script>
+
 <!-- responsive tabs -->
 <script src="assets/js/jquery-1.9.1.min.js"></script>
 <script src="assets/js/easyResponsiveTabs.js"></script>
@@ -534,5 +585,6 @@
 		readURL(this);
 	});
 </script>
+
 <script src="assets/js/bootstrap.min.js"></script>
 </html>
