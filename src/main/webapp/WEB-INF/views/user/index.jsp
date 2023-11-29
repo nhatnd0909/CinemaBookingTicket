@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>HomePage</title>
 
-<link rel="stylesheet" href="assets/css/style-starter.css">
+<link rel="stylesheet" href="/assets/css/style-starter.css">
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
@@ -278,7 +278,7 @@ a.btn.dropdown-toggle:hover {
 							<div class="box16">
 								<a href="details?name=${movie.name}">
 									<figure>
-										<img class="img-fluid" src="assets/images/${movie.image}"
+										<img class="img-fluid" src="/assets/images/${movie.image}"
 											alt="" style="height: 350px">
 									</figure>
 									<div class="box-content">
@@ -321,7 +321,7 @@ a.btn.dropdown-toggle:hover {
 							<div class="box16 mb-0">
 								<a href="movies">
 									<figure>
-										<img class="img-fluid" src="/assets/images/${allMovies.image}"
+										<img class="img-fluid" src="//assets/images/${allMovies.image}"
 											alt="" style="height: 300px">
 									</figure>
 									<div class="box-content">
@@ -412,19 +412,19 @@ a.btn.dropdown-toggle:hover {
 							<div class="row footer-about">
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner1.jpg" alt=""></a>
+										src="/assets/images/banner1.jpg" alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner2.jpg" alt=""></a>
+										src="/assets/images/banner2.jpg" alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner3.jpg" alt=""></a>
+										src="/assets/images/banner3.jpg" alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner4.jpg" alt=""></a>
+										src="/assets/images/banner4.jpg" alt=""></a>
 								</div>
 							</div>
 							<div class="row footer-links">
@@ -527,8 +527,8 @@ a.btn.dropdown-toggle:hover {
 		</section>
 	</footer>
 	<!-- responsive tabs -->
-	<script src="assets/js/jquery-1.9.1.min.js"></script>
-	<script src="assets/js/easyResponsiveTabs.js"></script>
+	<script src="/assets/js/jquery-1.9.1.min.js"></script>
+	<script src="/assets/js/easyResponsiveTabs.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//Horizontal Tab
@@ -548,8 +548,8 @@ a.btn.dropdown-toggle:hover {
 		});
 	</script>
 	<!--/theme-change-->
-	<script src="assets/js/theme-change.js"></script>
-	<script src="assets/js/owl.carousel.js"></script>
+	<script src="/assets/js/theme-change.js"></script>
+	<script src="/assets/js/owl.carousel.js"></script>
 	<!-- script for banner slider-->
 	<script>
 		$(document).ready(function() {
@@ -652,7 +652,7 @@ a.btn.dropdown-toggle:hover {
 		})
 	</script>
 	<!-- script for owlcarousel -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="/assets/js/jquery.magnific-popup.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('.popup-with-zoom-anim').magnificPopup({
@@ -744,7 +744,7 @@ a.btn.dropdown-toggle:hover {
 				});
 			});
 	</script>
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>
