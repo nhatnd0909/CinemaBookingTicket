@@ -36,15 +36,16 @@
 </head>
 
 <style>
-.icon-log{
-    font-size: 26px;
-    color: #fff;
-    text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
-    padding-right: 5px;
-    }
-  .navbar-brand{
-  	color : #fff;
-  }
+.icon-log {
+	font-size: 26px;
+	color: #fff;
+	text-shadow: 2px 2px 0 var(--theme-rose), 4px 4px 0 var(--theme-rose);
+	padding-right: 5px;
+}
+
+.navbar-brand {
+	color: #fff;
+}
 </style>
 <body>
 	<div class="container-scroller">
@@ -53,8 +54,8 @@
 			<div
 				class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
 				<a class="navbar-brand" href="#"><span
-					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> 
-					<a class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
+					class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a> <a
+					class="sidebar-brand brand-logo-mini" href="adminDashboard"><img
 					src="admin_assets/assets/images/logo-mini.svg" alt="logo" /></a>
 			</div>
 			<ul class="nav">
@@ -82,18 +83,21 @@
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt Tài Khoản</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Cài Đặt
+										Tài Khoản</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="/employee/changepassword" class="dropdown-item preview-item">
+							<a href="/employee/changepassword"
+								class="dropdown-item preview-item">
 								<div class="preview-thumbnail">
 									<div class="preview-icon bg-dark rounded-circle">
 										<i class="mdi mdi-onepassword  text-info"></i>
 									</div>
 								</div>
 								<div class="preview-item-content">
-									<p class="preview-subject ellipsis mb-1 text-small">Thay Đổi Mật Khẩu</p>
+									<p class="preview-subject ellipsis mb-1 text-small">Thay
+										Đổi Mật Khẩu</p>
 								</div>
 							</a>
 							<div class="dropdown-divider"></div>
@@ -101,8 +105,8 @@
 					</div>
 				</li>
 				</li>
-				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
-				</li>
+				<li class="nav-item nav-category"><span class="nav-link">Chuyển
+						hướng</span></li>
 
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
@@ -120,8 +124,8 @@
 					</span> <span class="menu-title">Lịch chiếu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="/employee/bookinghistory"> <span class="menu-icon"> <i
-							class="mdi mdi-account-circle"></i>
+					href="/employee/bookinghistory"> <span class="menu-icon">
+							<i class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Lịch Sử Đặt Vé </span>
 				</a></li>
 		</nav>
@@ -141,9 +145,7 @@
 						<span class="mdi mdi-menu"></span>
 					</button>
 					<ul class="navbar-nav w-100">
-						<li class="nav-item w-100">
-							
-						</li>
+						<li class="nav-item w-100"></li>
 					</ul>
 					<ul class="navbar-nav navbar-nav-right">
 						<li class="nav-item dropdown"><a
@@ -298,7 +300,8 @@
 									<h4 class="card-title">${room.name}</h4>
 									<p class="mb-0">
 										<a href="/employee/show"
-											style="text-decoration: none; color: inherit;"> Lịch chiếu</a> / <span>Chi tiết lịch chiếu</span>
+											style="text-decoration: none; color: inherit;"> Lịch
+											chiếu</a> / <span>Chi tiết lịch chiếu</span>
 									</p>
 								</div>
 								<form class="forms-sample" method="post" action="createShow">
@@ -328,8 +331,8 @@
 											class="col-sm-2 col-form-label">Giờ kết thúc</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control"
-												id="exampleInputEmail3" placeholder="Giờ kết thúc" name="end"
-												required="required" value="${endTime}">
+												id="exampleInputEmail3" placeholder="Giờ kết thúc"
+												name="end" required="required" value="${endTime}">
 										</div>
 									</div>
 									<div class="form-group row">
@@ -355,21 +358,28 @@
 										</div>
 									</div>
 									<div class="form-group row" style="display: none;">
-										<label for="exampleInputPrice"
-											class="col-sm-2 col-form-label">Giá vé</label>
+										<label for="exampleInputPrice" class="col-sm-2 col-form-label">Giá
+											vé</label>
 										<div class="col-sm-10">
 											<c:if test="${comparePrice == 0}">
 												<input type="text" class="form-control" placeholder="Giá "
-													name="price" required="required" value="100000" style="display: none;" >
+													name="price" required="required" value="100000"
+													style="display: none;">
 											</c:if>
 											<c:if test="${comparePrice != 0}">
 												<input type="text" class="form-control" placeholder="Price"
-													name="price" required="required" value="${price}" style="display: none;">
+													name="price" required="required" value="${price}"
+													style="display: none;">
 											</c:if>
 										</div>
 									</div>
-									<button type="submit" class="btn btn-primary mr-2">Lưu lại</button>
-									<button type="submit" class="btn btn-primary mr-2">Hủy</button>
+									<c:if test="${comparePrice == 0}">
+										<button type="submit" class="btn btn-primary mr-2">Lưu
+											lại</button>
+									</c:if>
+
+									<a href="/employee/show"> <input type="button"
+										class="btn btn-primary mr-2" value="Hủy"></a>
 
 								</form>
 							</div>

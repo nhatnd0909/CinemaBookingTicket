@@ -19,6 +19,7 @@ import com.project.csm.model.Movie;
 import com.project.csm.model.Show;
 import com.project.csm.model.TheaterRoom;
 import com.project.csm.service.customerService.MovieService;
+import com.project.csm.service.customerService.ServiceService;
 import com.project.csm.service.customerService.TheaterRoomService;
 import com.project.csm.service.employeeService.EmployeeService;
 import com.project.csm.service.employeeService.employeeShowMovie;
@@ -36,6 +37,8 @@ public class EmployeeShowController {
 	private TheaterRoomService theaterRoomService;
 	@Autowired
 	private MovieService movieService;
+	@Autowired
+	private ServiceService serviceService;
 
 	@GetMapping("/employee/show")
 	public String showEmployeeService(Model model, HttpSession session) {
@@ -52,6 +55,12 @@ public class EmployeeShowController {
 		model.addAttribute("nameTheater", nameTheater);
 		model.addAttribute("listTheaterRoom", listTheaterRoom);
 
+		String toDay = serviceService.getCurrentDate();
+		String tomorow = serviceService.getTomorrowDate();
+		String nextDate = serviceService.getNextDayDate();
+		model.addAttribute("toDay", toDay);
+		model.addAttribute("tomorow", tomorow);
+		model.addAttribute("nextDate", nextDate);
 		return "/employee/show/showDashboard";
 
 	}
