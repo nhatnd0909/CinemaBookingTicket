@@ -211,9 +211,9 @@
 										sau. Xin cám ơn!</b></h7>
 								</ul>
 							</div>
-							<input name="roomID" type="text" value="1" style="display: none;"> <input
+							<!-- <input name="roomID" type="text" value="1" style="display: none;"> <input
 								id="screen-next-btn" type="button" name="next-step"
-								class="next-step" value="Tiếp tục" disabled  />
+								class="next-step" value="Tiếp tục" disabled  /> -->
 						</fieldset>
 						<fieldset>
 							<div class="wrapper">

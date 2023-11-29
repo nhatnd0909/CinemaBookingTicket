@@ -88,25 +88,24 @@
 					<form id="form" method="post" action="submitOrder">
 						<input name="showID" value="" hidden=""> <input
 							name="socid" type="text" value="" hidden="">
-
+						<input type="text" name="showID" value="${showID}" hidden="">
 						<ul id="progressbar" class="progressbar-class">
 							<li class="active" id="step1">Chọn Giờ Chiếu</li>
 							<li id="step2" class="not_active">Chọn Ghế Ngồi</li>
 							<li id="step3" class="not_active">Đồ Ăn và Đồ Uống</li>
 							<li id="step4" class="not_active">Xác Nhận</li>
-              				<li id="step5" class="not_active">Thanh Toán</li>
+							<li id="step5" class="not_active">Thanh Toán</li>
 						</ul>
 						<fieldset>
 							<div id="screen-select-div">
 								<h2>Lựa chọn thời gian</h2>
 								<div class="carousel carousel-nav"
 									data-flickity='{"contain": true, "pageDots": false }'>
-									<div class="carousel-cell" id="1" data-date="${currentDate}"
-										onclick="myFunction(1)">
-										<div class="date-numeric">${currentDate}</div>
-										<div class="date-day" id="dayOfWeek1"></div>
+									<div class="carousel-cell" id="1">
+										<div class="date-numeric">${showDate}</div>
+										<!-- <div class="date-day" id="dayOfWeek1"></div> -->
 									</div>
-									<div class="carousel-cell" id="2" data-date="${tomorow}"
+									<%-- <div class="carousel-cell" id="2" data-date="${tomorow}"
 										onclick="myFunction(2)">
 										<div class="date-numeric">${tomorow}</div>
 										<div class="date-day" id="dayOfWeek2"></div>
@@ -128,29 +127,23 @@
 										data-date="${futureDate4Days}" onclick="myFunction(5)">
 										<div class="date-numeric">${futureDate4Days}</div>
 										<div class="date-day" id="dayOfWeek5"></div>
-									</div>
+									</div> --%>
 								</div>
 
 								<div class="show-currentDate">
 									<ul class="time-ul">
-										<c:forEach items="${listTRoom}" var="tRoom">
 											<li class="time-li">
-												<div class="screens">${tRoom.name}</div>
-												<h3 style="display: none;">${tRoom.roomID}</h3>
+												<h3 style="display: none;">${showTime}</h3>
 												<div class="time-btn">
-													<c:forEach var="show" items="${listShowCurentDate}">
-														<c:if
-															test="${show.getTheaterRoom().getName() eq tRoom.name}">
 															<input type="button" class="screen-time selected"
-																onclick="timeFunction(event)" value="${show.startTime}">
-															<h5 style="display: none" id="showID">${show.showID}</h5>
-														</c:if>
-													</c:forEach>
+																onclick="timeFunction(event)" value="${showTime}">
 												</div>
 											</li>
-										</c:forEach>
 									</ul>
 								</div>
+								
+								
+								
 								<div class="show-tomorowDate" style="display: none">
 									<ul class="time-ul">
 										<c:forEach items="${listTRoom}" var="tRoom">
@@ -497,7 +490,7 @@
 													</tr>
 													<tr>
 														<th>Ngày:</th>
-														<td id="selectedDate">:</td>
+														<td id="">: ${showDate}</td>
 													</tr>
 													<tr>
 														<th>Thời Gian</th>
@@ -625,7 +618,8 @@
 							<input type="submit" name="submitPayment"
 								class="next-step pay-btn" value="Xác nhận Thanh toán" /> <input
 								type="button" name="previous-step" class="cancel-pay-btn"
-								value="Hủy thanh toán" onclick="location.href='chooseseat?movie=${movie}&theater=${theater}';" />
+								value="Hủy thanh toán"
+								onclick="location.href='chooseseat?movie=${movie}&theater=${theater}';" />
 						</fieldset>
 					</form>
 				</div>
@@ -643,7 +637,7 @@
 			}
 		});
 	</script>
-	
+
 	<script>
 		var currentDate = new Date();
 		var tomorrow = new Date();
