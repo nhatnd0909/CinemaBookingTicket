@@ -395,7 +395,7 @@
 
 										<div class="dropdown-content">
 											<div class="day">
-												<a href="#" class="active" id="hom-nay">Hôm nay</a>
+												<a href="#" class="active" id="hom-nay">${toDay}</a>
 												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
 												<a href="#" id="ngay-mot">Ngày mốt</a> -->
 											</div>
@@ -423,7 +423,7 @@
 											</div>
 
 											<div class="day">
-												<a href="#" class="active" id="hom-nay">Ngày mai</a>
+												<a href="#" class="active" id="hom-nay">${tomorow}</a>
 												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
 												<a href="#" id="ngay-mot">Ngày mốt</a> -->
 											</div>
@@ -450,7 +450,7 @@
 											</div>
 
 											<div class="day">
-												<a href="#" class="active" id="hom-nay">Ngày mốt</a>
+												<a href="#" class="active" id="hom-nay">${nextDate}</a>
 												<!-- 			<a href="#" id="ngay-mai">Ngày mai</a> 
 												<a href="#" id="ngay-mot">Ngày mốt</a> -->
 											</div>
