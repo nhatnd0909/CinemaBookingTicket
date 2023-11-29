@@ -84,7 +84,8 @@ a.btn.dropdown-toggle:hover {
 							Rạp</a>
 						<div class="dropdown-menu">
 							<c:forEach items="${listTheater}" var="theater">
-								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+								<a class="dropdown-item"
+									href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
 							</c:forEach>
 						</div>
 					</div>
@@ -114,7 +115,7 @@ a.btn.dropdown-toggle:hover {
 						</div>
 					</c:if>
 					<c:if test="${loggedIn eq 2}">
-						<div class="Login_SignUp" 
+						<div class="Login_SignUp"
 							style="font-size: 2rem; display: inline-block; position: relative;">
 							<!-- <li class="nav-item"> -->
 							<a class="nav-link" href="employee/Dashboard"><i
@@ -127,7 +128,7 @@ a.btn.dropdown-toggle:hover {
 						</div>
 					</c:if>
 					<c:if test="${loggedIn eq 3}">
-						<div class="Login_SignUp" 
+						<div class="Login_SignUp"
 							style="font-size: 2rem; display: inline-block; position: relative;">
 							<!-- <li class="nav-item"> -->
 							<a class="nav-link" href="adminDashboard"><i
@@ -334,13 +335,12 @@ a.btn.dropdown-toggle:hover {
 								</a>
 							</div>
 							<h3>
-								<a class="title-gd" href="movies">${allMovies.name}</a>
+								<a class="title-gd" href="details?name=${allMovies.name}">${allMovies.name}</a>
 							</h3>
 							<p>Thể loại: ${allMovies.getGenre().getGenreName()}</p>
 							<div class="button-center text-center mt-4">
 								<a href="movies" class="btn watch-button">Đặt vé ngay</a>
 							</div>
-
 						</div>
 					</c:forEach>
 				</div>
@@ -451,10 +451,14 @@ a.btn.dropdown-toggle:hover {
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián, Quận Thanh Khê,TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành
+												Sơn, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh
+												Khê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -727,22 +731,23 @@ a.btn.dropdown-toggle:hover {
 	</script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
-				// Lặp qua tất cả các phần tử có class 'title-gd'
-				var movieTitles = document.querySelectorAll('.title-gd');
+			// Lặp qua tất cả các phần tử có class 'title-gd'
+			var movieTitles = document.querySelectorAll('.title-gd');
 
-				movieTitles.forEach(function(titleElement) {
-					var titleText = titleElement.innerText;
+			movieTitles.forEach(function(titleElement) {
+				var titleText = titleElement.innerText;
 
-					var charCount = titleText.length;
+				var charCount = titleText.length;
 
-					console.log("Title text:", titleText);
-					console.log("Character count:", charCount);
+				console.log("Title text:", titleText);
+				console.log("Character count:", charCount);
 
-					if (charCount < 31) {
-						titleElement.innerHTML = '<span class="line1">' + titleText + '</span><br><span class="line2">&nbsp;</span>';
-					}
-				});
+				if (charCount < 31) {
+					titleElement.innerHTML = '<span class="line1">' + titleText
+							+ '</span><br><span class="line2">&nbsp;</span>';
+				}
 			});
+		});
 	</script>
 	<script src="/assets/js/bootstrap.min.js"></script>
 </body>

@@ -20,10 +20,6 @@ import com.project.csm.service.employeeService.employeeShowMovie;
 
 import jakarta.servlet.http.HttpSession;
 
-import com.project.csm.model.Customer;
-
-import jakarta.servlet.http.HttpSession;
-
 @Controller
 public class ViewScheduleMovieController {
 	@Autowired
