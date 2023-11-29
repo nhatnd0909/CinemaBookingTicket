@@ -1,7 +1,6 @@
 package com.project.csm.controller.employeeController;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.project.csm.model.Account;
 import com.project.csm.model.Service;
 import com.project.csm.service.employeeService.employeeServiceService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class EmployeeServiceController {
@@ -26,7 +29,11 @@ public class EmployeeServiceController {
 	private employeeServiceService employeeServiceService;
 
 	@GetMapping("/employee/service")
-	public String showEmployeeService(Model model) {
+	public String showEmployeeService(Model model, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
 		List<Service> services = employeeServiceService.getAllServices();
 		model.addAttribute("services", services);
 		System.out.println(services);
@@ -34,24 +41,36 @@ public class EmployeeServiceController {
 	}
 
 	@GetMapping("/employee/service/create")
-	public String getCreateEmployeeService() {
+	public String getCreateEmployeeService(HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
 		return "/employee/service/createService";
 	}
 
 	@PostMapping("/employee/service/create")
 	public String postCreateEmployeeService(@ModelAttribute Service service,
-	        @RequestParam("imageFile") MultipartFile imageFile) {
-	    try {
-	        employeeServiceService.createService(service, imageFile);
-	        return "redirect:/employee/service";
-	    } catch (IOException e) {
-	        return "/employee/service/createService";
-	    }
+			@RequestParam("imageFile") MultipartFile imageFile, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
+		try {
+			employeeServiceService.createService(service, imageFile);
+			return "redirect:/employee/service";
+		} catch (IOException e) {
+			return "createServiceForm";
+		}
 	}
 
 
 	@GetMapping("/employee/service/update/{serviceID}")
-	public String getUpdateEmployeeService(@PathVariable Long serviceID, Model model) {
+	public String getUpdateEmployeeService(@PathVariable Long serviceID, Model model, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
 		Service services = employeeServiceService.getServiceById(serviceID);
 		model.addAttribute("services", services);
 		String imageUrl = services.getUrlImageService();
@@ -62,7 +81,11 @@ public class EmployeeServiceController {
 
 	@PostMapping("/employee/service/update/{serviceID}")
 	public String postUpdateEmployeeService(@PathVariable Long serviceID, @ModelAttribute Service updatedService,
-			@RequestParam("imageFile") MultipartFile imageFile) {
+			@RequestParam("imageFile") MultipartFile imageFile, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
 		try {
 			Service existingService = employeeServiceService.getServiceById(serviceID);
 			existingService.setName(updatedService.getName());

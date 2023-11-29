@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.project.csm.model.Account;
 import com.project.csm.model.Customer;
 import com.project.csm.model.Movie;
 import com.project.csm.model.Theater;
@@ -25,12 +26,19 @@ public class HomeController {
 	@GetMapping("/")
 	public String showDefaultPage(HttpSession session, Model model) {
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
+		Account accountLoggedIn = (Account) session.getAttribute("accountLoggedIn");
 		int loggedIn = 0;
-		if (loggedInAccount == null) {
+		if (accountLoggedIn == null) {
 			loggedIn = 0;
-		} else {
+		} else if (accountLoggedIn.getRole().equals("user")) {
 			loggedIn = 1;
+		} else if (accountLoggedIn.getRole().equals("employee")) {
+			loggedIn = 2;
+		} else if (accountLoggedIn.getRole().equals("admin")) {
+			loggedIn = 3;
 		}
+		model.addAttribute("accountLoggedIn", accountLoggedIn);
+		
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 
@@ -43,6 +51,7 @@ public class HomeController {
 		List<Theater> listTheater = theaterService.getAllTheater();
 		model.addAttribute("listTheater", listTheater);
 
+		
 		return "/user/index";
 	}
 }

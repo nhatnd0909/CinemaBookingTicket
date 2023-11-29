@@ -1,5 +1,6 @@
 package com.project.csm.service.customerService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,12 @@ public class ContactService {
 	private ContactRepository contactRepository;
 
 	public Contact createContact(Contact contact) {
+		contact.setStatus("Chưa trả lời");
+		return contactRepository.save(contact);
+	}
+
+	public Contact updateContact(Contact contact) {
+		contact.setStatus("Đã trả lời");
 		return contactRepository.save(contact);
 	}
 
@@ -21,4 +28,24 @@ public class ContactService {
 		return contactRepository.findAll();
 	}
 
+	public List<Contact> getUnrepContact() {
+		List<Contact> list = getAllContact();
+		List<Contact> listReturn = new ArrayList<>();
+		for (Contact c : list) {
+			if (c.getStatus().equals("Chưa trả lời")) {
+				listReturn.add(c);
+			}
+		}
+		return listReturn;
+	}
+
+	public Contact getContactByID(Long idContact) {
+		List<Contact> list = getAllContact();
+		for (Contact c : list) {
+			if (c.getContactID().compareTo(idContact) == 0) {
+				return c;
+			}
+		}
+		return null;
+	}
 }

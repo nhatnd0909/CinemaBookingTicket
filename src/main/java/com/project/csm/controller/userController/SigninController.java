@@ -8,22 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 import com.project.csm.model.Account;
 import com.project.csm.model.Admin;
 import com.project.csm.model.Customer;
 import com.project.csm.model.Employee;
 import com.project.csm.model.Movie;
-import com.project.csm.model.Theater;
 import com.project.csm.service.adminService.AdminService;
 import com.project.csm.service.customerService.AccountService;
 import com.project.csm.service.customerService.CustomerService;
 import com.project.csm.service.customerService.MovieService;
-import com.project.csm.service.customerService.TheaterService;
 import com.project.csm.service.employeeService.EmployeeService;
 
 import jakarta.servlet.http.HttpSession;
@@ -40,8 +34,6 @@ public class SigninController {
 	private EmployeeService employeeService;
 	@Autowired
 	private AdminService adminService;
-	@Autowired
-	private TheaterService theaterService;
 
 	@GetMapping("/signin")
 	public String showSignin(Model model) {
@@ -62,14 +54,13 @@ public class SigninController {
 			model.addAttribute("email", email);
 			return "/user/signin";
 		}
-		String selectedMovie = (String) session.getAttribute("selectedMovie");
-        String selectedTheater = (String) session.getAttribute("selectedTheater");
+//		String selectedMovie = (String) session.getAttribute("selectedMovie");
+//        String selectedTheater = (String) session.getAttribute("selectedTheater");
 		Customer customer = customerService.findCustomerByEmail(email);
 		session.setAttribute("loggedInAccount", customer);
 
 		Account accountLoggedIn = accountService.findAccountByEmail(email);
 		session.setAttribute("accountLoggedIn", accountLoggedIn);
-
 		if (accountLoggedIn.getRole().equals("employee")) {
 			Employee employee = employeeService.getEmployeeByIdAccount(accountLoggedIn.getAccountID());
 			session.setAttribute("employee", employee);
@@ -95,22 +86,20 @@ public class SigninController {
 
 		List<Movie> allMovies = movieService.getAllMovie();
 		model.addAttribute("allMovies", allMovies);
-		
-		
-		try {
-	        selectedMovie = URLEncoder.encode(selectedMovie, "UTF-8");
-	        selectedTheater = URLEncoder.encode(selectedTheater, "UTF-8");
-	    } catch (UnsupportedEncodingException e) {
-	        e.printStackTrace(); // Handle the exception according to your application's requirements
-	    }
-		
-		
-		if(selectedMovie != null && selectedTheater != null) {
-		    return "redirect:/chooseseat?movie=" + selectedMovie + "&theater=" + selectedTheater;
-		}
-		else {
-			return "/user/index";			
-		}
+
+//		try {
+//	        selectedMovie = URLEncoder.encode(selectedMovie, "UTF-8");
+//	        selectedTheater = URLEncoder.encode(selectedTheater, "UTF-8");
+//	    } catch (UnsupportedEncodingException e) {
+//	        e.printStackTrace(); // Handle the exception according to your application's requirements
+//	    }
+
+		/*
+		 * if(selectedMovie != null && selectedTheater != null) { return
+		 * "redirect:/chooseseat?movie=" + selectedMovie + "&theater=" +
+		 * selectedTheater; } else { return "/user/index"; }
+		 */
+		return "redirect:/";
 	}
 
 }

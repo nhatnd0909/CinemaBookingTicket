@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,10 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.project.csm.model.Account;
 import com.project.csm.model.Employee;
 import com.project.csm.model.Theater;
-
 import com.project.csm.service.adminService.adminAccountService;
 import com.project.csm.service.adminService.adminEmployeeService;
 import com.project.csm.service.adminService.adminTheaterService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AdminEmployeeController {
@@ -36,7 +35,12 @@ public class AdminEmployeeController {
 	private adminEmployeeService employeeService;
 
 	@GetMapping("/employeeDashboard")
-	public String showEmployeeAdmin(Model model, @RequestParam(defaultValue = "0") int page) {
+	public String showEmployeeAdmin(Model model, @RequestParam(defaultValue = "0") int page, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("admin")) {
+			return "redirect:/";
+		}
+
 		List<Account> employeeAccounts = accountService.getEmployees();
 		List<Employee> allEmployees = employeeService.getAllEmployees();
 		int pageSize = 5;

@@ -3,8 +3,6 @@ package com.project.csm.controller.employeeController;
 import java.math.BigDecimal;
 import java.sql.Time;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +39,10 @@ public class EmployeeShowController {
 
 	@GetMapping("/employee/show")
 	public String showEmployeeService(Model model, HttpSession session) {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
 		Account accountLoggedIn = (Account) session.getAttribute("accountLoggedIn");
 		Employee employee = eService.getEmployeeByIdAccount(accountLoggedIn.getAccountID());
 		List<TheaterRoom> listTheaterRoom = theaterRoomService
@@ -56,7 +58,11 @@ public class EmployeeShowController {
 
 	@GetMapping("/employee/show/detail")
 	public String showEmployeeShow(Model model, @RequestParam String start, @RequestParam String end,
-			@RequestParam String date, @RequestParam Long roomID) throws ParseException {
+			@RequestParam String date, @RequestParam Long roomID, HttpSession session) throws ParseException {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
 		List<Movie> listMovie = movieService.getMoiveOnGoing();
 
 		String dateReturn = employeeShowMovie.getDate(date);
@@ -79,7 +85,7 @@ public class EmployeeShowController {
 			movieID = movie.getMovieID();
 
 		}
-		
+
 		model.addAttribute("comparePrice", comparePrice);
 		model.addAttribute("room", room);
 		model.addAttribute("dateReturn", dateReturn);
@@ -97,6 +103,10 @@ public class EmployeeShowController {
 	public String createNewShow(@RequestParam Long roomID, @RequestParam String date, @RequestParam String start,
 			@RequestParam String end, @RequestParam String movieID, @RequestParam String price, Model model,
 			HttpSession session) throws ParseException {
+		Account account = (Account) session.getAttribute("accountLoggedIn");
+		if (account == null || !account.getRole().equals("employee")) {
+			return "redirect:/";
+		}
 		Account accountLoggedIn = (Account) session.getAttribute("accountLoggedIn");
 		// Employee
 		Employee employee = eService.getEmployeeByEmail(accountLoggedIn.getEmail());
