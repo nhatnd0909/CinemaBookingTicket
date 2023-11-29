@@ -321,7 +321,7 @@ a.btn.dropdown-toggle:hover {
 							<div class="box16 mb-0">
 								<a href="movies">
 									<figure>
-										<img class="img-fluid" src="//assets/images/${allMovies.image}"
+										<img class="img-fluid" src="/assets/images/${allMovies.image}"
 											alt="" style="height: 300px">
 									</figure>
 									<div class="box-content">
