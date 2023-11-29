@@ -111,7 +111,7 @@ a.btn.dropdown-toggle:hover {
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Đăng xuất</a>
+							<a href="/logout">Đăng xuất</a>
 						</div>
 					</c:if>
 					<c:if test="${loggedIn eq 2}">
@@ -266,11 +266,6 @@ a.btn.dropdown-toggle:hover {
 						<div class="headerhny-left">
 							<h3 class="hny-title">Phim Phổ Biến</h3>
 						</div>
-						<div class="headerhny-right text-lg-right">
-							<h4>
-								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-							</h4>
-						</div>
 					</div>
 				</div>
 				<div class="w3l-populohny-grids">
@@ -307,11 +302,6 @@ a.btn.dropdown-toggle:hover {
 					<div class="w3l-title-grids">
 						<div class="headerhny-left">
 							<h3 class="hny-title">Mới Phát Hành</h3>
-						</div>
-						<div class="headerhny-right text-lg-right">
-							<h4>
-								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-							</h4>
 						</div>
 					</div>
 				</div>

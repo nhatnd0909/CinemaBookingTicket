@@ -186,7 +186,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price startTime">
-															<span class="time startTime">${show.startTime}</span> <span
+															<span class="time startTime displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -233,7 +233,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-															<span class="time">${show.startTime}</span> <span
+															<span class="time displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -279,7 +279,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-															<span class="time">${show.startTime}</span> <span
+															<span class="time displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -400,7 +400,16 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
-			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<script>
+				document.querySelectorAll('.card.card-sm.mb-3').forEach(function(card) {
+					var span = card.querySelector('.time.displayTime');
+					if (!span) {
+						card.style.display = 'none';
+					}
+				});
+		</script>
+			
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 		<script>
 			var inputElements = document.querySelectorAll('.startTime');
 			var currentTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
