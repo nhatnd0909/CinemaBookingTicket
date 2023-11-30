@@ -204,6 +204,7 @@
 		</div>
 	</section>
 
+	<!-- footer-66 -->
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">
 			<div class="footer-hny-grids py-5">
@@ -232,49 +233,46 @@
 
 
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">Movies</a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">English Movies</a></li>
-										<li><a href="#">Tailor</a></li>
-										<li><a href="#">Upcoming Movies</a></li>
-										<li><a href="contact">Contact Us</a></li>
+										<li><a href="#">Phim Nổi Tiếng </a></li>
+										<li><a href="#">Phim Sắp Chiếu</a></li>
+
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Thông Tin Chung</h6>
 									<ul>
-										<li><a href="home">Home</a></li>
-										<li><a href="about">About</a></li>
-										<li><a href="#">Tv Series</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="signin">Login</a></li>
-										<li><a href="contact">Contact</a></li>
+										<li><a href="home">Trang Chủ</a></li>
+										<li><a href="about">Thông Tin</a></li>
+										<li><a href="signin">Đăng Nhập</a></li>
+										<li><a href="contact">Liên Hệ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Asia</a></li>
-										<li><a href="movies">France</a></li>
-										<li><a href="movies">Taiwan</a></li>
-										<li><a href="movies">United States</a></li>
-										<li><a href="movies">Korea</a></li>
-										<li><a href="movies">United Kingdom</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành
+												Sơn,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián,Quận Thanh
+												Khuê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Newsletter</h6>
+									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
-											placeholder="Your Email Address" required="">
+											placeholder="Nhập email của bạn tại đây" required="">
 										<button>
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Enter your email and receive the latest news, updates
-										and special offers from us.</p>
+									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới
+										nhất và ưu đãi đặc biệt từ chúng tôi.</p>
 								</div>
 							</div>
 						</div>
@@ -286,7 +284,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2021 MyShowz. All rights reserved</p>
+							<p>&copy; 2023 MyShowz. All rights reserved</p>
 						</div>
 
 						<ul class="social text-lg-right">
@@ -307,6 +305,31 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					// Lấy danh sách các phần tử phim
+					var movies = document.querySelectorAll('#movieGrid .item');
+			
+					// Hiển thị chỉ 4 phim ban đầu
+					for (var i = 4; i < movies.length; i++) {
+						movies[i].style.display = 'none';
+					}
+			
+					// Bắt sự kiện khi nhấn vào nút "Xem Tất Cả"
+					document.getElementById('viewAllButton').addEventListener('click', function (event) {
+						event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
+			
+						// Hiển thị toàn bộ danh sách phim
+						for (var i = 0; i < movies.length; i++) {
+							movies[i].style.display = 'block';
+						}
+			
+						// Ẩn nút "Xem Tất Cả"
+						this.style.display = 'none';
+					});
+				});
+			</script>
+			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {
