@@ -232,7 +232,7 @@ a.btn.dropdown-toggle:hover {
 												<div class="img-circle">
 													<a href="movies"><img
 														src="assets/images/${movie.image}" class="img-fluid"
-														alt="author image">
+														alt="author image" style="height: 245px;">
 														<div class="overlay-icon">
 															<span class="fa fa-play video-icon" aria-hidden="true"></span>
 														</div> </a>
