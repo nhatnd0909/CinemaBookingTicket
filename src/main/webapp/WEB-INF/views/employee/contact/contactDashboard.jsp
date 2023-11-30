@@ -113,11 +113,11 @@
 				<li class="nav-item nav-category"><span class="nav-link">Chuyển
 						hướng</span></li>
 
-				<li class="nav-item menu-items"><a class="nav-link"
+				<!-- 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
 					</span> <span class="menu-title">Bảng Điều Khiển</span>
-				</a></li>
+				</a></li> -->
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/service"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
@@ -283,7 +283,7 @@
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item preview-item">
+								<a class="dropdown-item preview-item" href="/logout">
 									<div class="preview-thumbnail">
 										<div class="preview-icon bg-dark rounded-circle">
 											<i class="mdi mdi-logout text-danger"></i>
@@ -345,16 +345,16 @@
 														</a></td>
 													</tr>
 													<form action="replyContact" method="get">
-													<tr>
-
-														<td></td>
-														<td colspan="2"><textarea rows="5" cols="50"
-																name="content" required="required"></textarea></td>
-
-														<td><input type="text" name="idContact"
-															value="${contact.contactID}" hidden="">
-															<button>Trả Lời</button></td>
-													</tr>
+														<tr>
+															<td></td>
+															<c:if test="${contact.status eq 'Chưa trả lời'}">
+																<td colspan="2"><textarea rows="5" cols="50"
+																		name="content" required="required"></textarea></td>
+																<td><input type="text" name="idContact"
+																	value="${contact.contactID}" hidden="">
+																	<button>Trả Lời</button></td>
+															</c:if>
+														</tr>
 													</form>
 												</c:forEach>
 											</tbody>

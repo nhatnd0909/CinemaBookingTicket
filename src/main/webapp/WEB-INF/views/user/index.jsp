@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>HomePage</title>
 
-<link rel="stylesheet" href="assets/css/style-starter.css">
+<link rel="stylesheet" href="/assets/css/style-starter.css">
 <link
 	href="//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,600&display=swap"
 	rel="stylesheet">
@@ -84,7 +84,8 @@ a.btn.dropdown-toggle:hover {
 							Rạp</a>
 						<div class="dropdown-menu">
 							<c:forEach items="${listTheater}" var="theater">
-								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+								<a class="dropdown-item"
+									href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
 							</c:forEach>
 						</div>
 					</div>
@@ -110,11 +111,11 @@ a.btn.dropdown-toggle:hover {
 						</div>
 						${loggedInAccount.getName()}
 						<div style="padding-left: 15px">
-							<a href="logout">Đăng xuất</a>
+							<a href="/logout">Đăng xuất</a>
 						</div>
 					</c:if>
 					<c:if test="${loggedIn eq 2}">
-						<div class="Login_SignUp" 
+						<div class="Login_SignUp"
 							style="font-size: 2rem; display: inline-block; position: relative;">
 							<!-- <li class="nav-item"> -->
 							<a class="nav-link" href="employee/Dashboard"><i
@@ -127,7 +128,7 @@ a.btn.dropdown-toggle:hover {
 						</div>
 					</c:if>
 					<c:if test="${loggedIn eq 3}">
-						<div class="Login_SignUp" 
+						<div class="Login_SignUp"
 							style="font-size: 2rem; display: inline-block; position: relative;">
 							<!-- <li class="nav-item"> -->
 							<a class="nav-link" href="adminDashboard"><i
@@ -265,11 +266,6 @@ a.btn.dropdown-toggle:hover {
 						<div class="headerhny-left">
 							<h3 class="hny-title">Phim Phổ Biến</h3>
 						</div>
-						<div class="headerhny-right text-lg-right">
-							<h4>
-								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-							</h4>
-						</div>
 					</div>
 				</div>
 				<div class="w3l-populohny-grids">
@@ -278,7 +274,7 @@ a.btn.dropdown-toggle:hover {
 							<div class="box16">
 								<a href="details?name=${movie.name}">
 									<figure>
-										<img class="img-fluid" src="assets/images/${movie.image}"
+										<img class="img-fluid" src="/assets/images/${movie.image}"
 											alt="" style="height: 350px">
 									</figure>
 									<div class="box-content">
@@ -307,11 +303,6 @@ a.btn.dropdown-toggle:hover {
 						<div class="headerhny-left">
 							<h3 class="hny-title">Mới Phát Hành</h3>
 						</div>
-						<div class="headerhny-right text-lg-right">
-							<h4>
-								<a class="show-title" href="movies">Hiển Thị Tất Cả</a>
-							</h4>
-						</div>
 					</div>
 				</div>
 
@@ -334,13 +325,12 @@ a.btn.dropdown-toggle:hover {
 								</a>
 							</div>
 							<h3>
-								<a class="title-gd" href="movies">${allMovies.name}</a>
+								<a class="title-gd" href="details?name=${allMovies.name}">${allMovies.name}</a>
 							</h3>
 							<p>Thể loại: ${allMovies.getGenre().getGenreName()}</p>
 							<div class="button-center text-center mt-4">
 								<a href="movies" class="btn watch-button">Đặt vé ngay</a>
 							</div>
-
 						</div>
 					</c:forEach>
 				</div>
@@ -412,19 +402,19 @@ a.btn.dropdown-toggle:hover {
 							<div class="row footer-about">
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner1.jpg" alt=""></a>
+										src="/assets/images/banner1.jpg" alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner2.jpg" alt=""></a>
+										src="/assets/images/banner2.jpg" alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner3.jpg" alt=""></a>
+										src="/assets/images/banner3.jpg" alt=""></a>
 								</div>
 								<div class="col-md-3 col-6 footer-img mb-lg-0 mb-4">
 									<a href="movies"><img class="img-fluid"
-										src="assets/images/banner4.jpg" alt=""></a>
+										src="/assets/images/banner4.jpg" alt=""></a>
 								</div>
 							</div>
 							<div class="row footer-links">
@@ -451,10 +441,14 @@ a.btn.dropdown-toggle:hover {
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành Sơn, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà, TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián, Quận Thanh Khê,TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng Nam</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành
+												Sơn, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh
+												Khê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -527,8 +521,8 @@ a.btn.dropdown-toggle:hover {
 		</section>
 	</footer>
 	<!-- responsive tabs -->
-	<script src="assets/js/jquery-1.9.1.min.js"></script>
-	<script src="assets/js/easyResponsiveTabs.js"></script>
+	<script src="/assets/js/jquery-1.9.1.min.js"></script>
+	<script src="/assets/js/easyResponsiveTabs.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//Horizontal Tab
@@ -548,8 +542,8 @@ a.btn.dropdown-toggle:hover {
 		});
 	</script>
 	<!--/theme-change-->
-	<script src="assets/js/theme-change.js"></script>
-	<script src="assets/js/owl.carousel.js"></script>
+	<script src="/assets/js/theme-change.js"></script>
+	<script src="/assets/js/owl.carousel.js"></script>
 	<!-- script for banner slider-->
 	<script>
 		$(document).ready(function() {
@@ -652,7 +646,7 @@ a.btn.dropdown-toggle:hover {
 		})
 	</script>
 	<!-- script for owlcarousel -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="/assets/js/jquery.magnific-popup.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('.popup-with-zoom-anim').magnificPopup({
@@ -727,24 +721,25 @@ a.btn.dropdown-toggle:hover {
 	</script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
-				// Lặp qua tất cả các phần tử có class 'title-gd'
-				var movieTitles = document.querySelectorAll('.title-gd');
+			// Lặp qua tất cả các phần tử có class 'title-gd'
+			var movieTitles = document.querySelectorAll('.title-gd');
 
-				movieTitles.forEach(function(titleElement) {
-					var titleText = titleElement.innerText;
+			movieTitles.forEach(function(titleElement) {
+				var titleText = titleElement.innerText;
 
-					var charCount = titleText.length;
+				var charCount = titleText.length;
 
-					console.log("Title text:", titleText);
-					console.log("Character count:", charCount);
+				console.log("Title text:", titleText);
+				console.log("Character count:", charCount);
 
-					if (charCount < 31) {
-						titleElement.innerHTML = '<span class="line1">' + titleText + '</span><br><span class="line2">&nbsp;</span>';
-					}
-				});
+				if (charCount < 31) {
+					titleElement.innerHTML = '<span class="line1">' + titleText
+							+ '</span><br><span class="line2">&nbsp;</span>';
+				}
 			});
+		});
 	</script>
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -186,7 +186,7 @@
 			<div class="row100">
 				<div class="col">
 					<div class="inputBox textarea">
-						<textarea name="msg" required="required"></textarea>
+						<textarea name="msg" required="required" maxlength="250"></textarea>
 						<span class="text">Viết lời nhắn tại đây...</span> <span
 							class="line"></span>
 					</div>
