@@ -107,22 +107,22 @@
 					</span> <span class="menu-title">Bảng Điều Khiển</span>
 				</a></li> -->
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="revenue"> <span class="menu-icon"> <i
+					href="/revenue"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
 					</span> <span class="menu-title">Quản Lý Doanh Thu</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="movieDashboard"> <span class="menu-icon"> <i
+					href="/movieDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-playlist-play"></i>
 					</span> <span class="menu-title">Quản Lý Phim</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="customerDashboard"> <span class="menu-icon"> <i
+					href="/customerDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Quản Lý Khách Hàng</span>
 				</a></li>
 				<li class="nav-item menu-items"><a class="nav-link"
-					href="employeeDashboard"> <span class="menu-icon"> <i
+					href="/employeeDashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-account-circle"></i>
 					</span> <span class="menu-title">Quản Lý Nhân Viên</span>
 				</a></li>

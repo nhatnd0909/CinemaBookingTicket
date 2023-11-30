@@ -242,21 +242,12 @@
 							<div class="row footer-links">
 
 
-<<<<<<< HEAD
-										<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Phim</h6>
-									<ul>
-										<li><a href="#">Phim Xu Hướng</a></li>
-										<li><a href="#">Phim Nổi Tiếng </a></li>
-										<li><a href="#">Phim Sắp Chiếu</a></li>
-=======
+
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Phim</h6>
 									<ul>
 										<li><a href="#">Phim Nổi Tiếng </a></li>
 										<li><a href="#">Phim Sắp Chiếu</a></li>
-
->>>>>>> d43083c8d52d22e00adf5e44f5ec0a6f78f80e39
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
@@ -324,30 +315,6 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
-			<script>
-				document.addEventListener('DOMContentLoaded', function () {
-					// Lấy danh sách các phần tử phim
-					var movies = document.querySelectorAll('#movieGrid .item');
-			
-					// Hiển thị chỉ 4 phim ban đầu
-					for (var i = 4; i < movies.length; i++) {
-						movies[i].style.display = 'none';
-					}
-			
-					// Bắt sự kiện khi nhấn vào nút "Xem Tất Cả"
-					document.getElementById('viewAllButton').addEventListener('click', function (event) {
-						event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
-			
-						// Hiển thị toàn bộ danh sách phim
-						for (var i = 0; i < movies.length; i++) {
-							movies[i].style.display = 'block';
-						}
-			
-						// Ẩn nút "Xem Tất Cả"
-						this.style.display = 'none';
-					});
-				});
-			</script>
 			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
@@ -387,10 +354,10 @@
     }
 	var ticketData = {
         ticketID: "${ticket.ticketID}",
-        movieName: "${ticket.getShow().getMovie().getName()}",
-        showDate: "2023-01-01",
-		showService: "${ticket.getListSeat()}"
+		showService: "${ticket.getListSeat()}",
+		// movieName: "${ticket.getShow().getMovie().getName()}",
     };
+	console.log(ticketData);
     document.addEventListener("DOMContentLoaded", function () {
         generateQRCode(ticketData, 'qrcode-container');
     });
@@ -401,7 +368,6 @@
     function downloadImage() {
         var container = document.querySelector('#downloadImage');
         html2canvas(container).then(function (canvas) {
-            // Convert canvas to data URL
             var imageData = canvas.toDataURL("image/png");
             var link = document.createElement('a');
             link.href = imageData;
