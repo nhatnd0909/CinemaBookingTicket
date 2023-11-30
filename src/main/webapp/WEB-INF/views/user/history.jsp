@@ -266,51 +266,48 @@
 							</div>
 							<div class="row footer-links">
 
-
-								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Movies</h6>
+		<div class="col-md-3 col-sm-6 sub-two-right mt-5">
+									<h6>Phim</h6>
 									<ul>
-										<li><a href="#">Movies</a></li>
-										<li><a href="#">Videos</a></li>
-										<li><a href="#">English Movies</a></li>
-										<li><a href="#">Tailor</a></li>
-										<li><a href="#">Upcoming Movies</a></li>
-										<li><a href="contact">Contact Us</a></li>
+										<li><a href="#">Phim Xu Hướng</a></li>
+										<li><a href="#">Phim Nổi Tiếng </a></li>
+										<li><a href="#">Phim Sắp Chiếu</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Information</h6>
+									<h6>Thông Tin Chung</h6>
 									<ul>
-										<li><a href="home">Home</a></li>
-										<li><a href="about">About</a></li>
-										<li><a href="#">Tv Series</a></li>
-										<li><a href="#">Blogs</a></li>
-										<li><a href="signin">Login</a></li>
-										<li><a href="contact">Contact</a></li>
+										<li><a href="home">Trang Chủ</a></li>
+										<li><a href="about">Thông Tin</a></li>
+										<li><a href="signin">Đăng Nhập</a></li>
+										<li><a href="contact">Liên Hệ</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Locations</h6>
+									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Asia</a></li>
-										<li><a href="movies">France</a></li>
-										<li><a href="movies">Taiwan</a></li>
-										<li><a href="movies">United States</a></li>
-										<li><a href="movies">Korea</a></li>
-										<li><a href="movies">United Kingdom</a></li>
+										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành
+												Sơn, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
+												TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián, Quận Thanh
+												Khê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
+												Nam</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
-									<h6>Newsletter</h6>
+									<h6>Bản Tin</h6>
 									<form action="#" class="subscribe mb-3" method="post">
 										<input type="email" name="email"
-											placeholder="Your Email Address" required="">
+											placeholder="Nhập email của bạn tại đây" required="">
 										<button>
 											<span class="fa fa-envelope-o"></span>
 										</button>
 									</form>
-									<p>Enter your email and receive the latest news, updates
-										and special offers from us.</p>
+									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới
+										nhất và ưu đãi đặc biệt từ chúng tôi.</p>
+
 								</div>
 							</div>
 						</div>

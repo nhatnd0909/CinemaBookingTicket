@@ -76,7 +76,7 @@ a.btn.dropdown-toggle:hover {
 					<!--/search-right-->
 					<!--/search-right-->
 					<div class="dropdown">
-						<a class="btn dropdown-toggle" href="#" role="button"
+							<a class="btn dropdown-toggle" href="#" role="button"
 							data-toggle="dropdown" aria-expanded="false"
 							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
 							Rạp</a>
