@@ -57,6 +57,17 @@
 
 						<li class="nav-item"><a class="nav-link" href="contact">Liên Hệ</a></li>
 					</ul>
+					<div class="dropdown">
+						<a class="btn dropdown-toggle" href="#" role="button"
+							data-toggle="dropdown" aria-expanded="false"
+							style="font-size: 16px; font-weight: 600; line-height: 28px; text-transform: capitalize; padding: 0 15px;">
+							Rạp</a>
+						<div class="dropdown-menu">
+							<c:forEach items="${listTheater}" var="theater">
+								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+							</c:forEach>
+						</div>
+					</div>
 					<c:if test="${loggedIn eq 0}">
 						<div class="Login_SignUp" id="login"
 							style="font-size: 2rem; display: inline-block; position: relative;">
@@ -240,6 +251,7 @@
 		</div>
 	</section>
 
+	<!-- footer-66 -->
 	<footer class="w3l-footer">
 		<section class="footer-inner-main">
 			<div class="footer-hny-grids py-5">
@@ -286,12 +298,12 @@
 								<div class="col-md-3 col-sm-6 sub-two-right mt-5">
 									<h6>Địa Điểm</h6>
 									<ul>
-										<li><a href="movies">Phường Hòa Hải, Quận Ngũ Hành
-												Sơn, TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Hòa Hải,Quận Ngũ Hành
+												Sơn,TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Hải Bắc, Quận Sơn Trà,
 												TP Đà Nẵng</a></li>
-										<li><a href="movies">Phường Chính Gián, Quận Thanh
-												Khê,TP Đà Nẵng</a></li>
+										<li><a href="movies">Phường Chính Gián,Quận Thanh
+												Khuê,TP Đà Nẵng</a></li>
 										<li><a href="movies">Phường An Xuân, TP Tam Kỳ, Quảng
 												Nam</a></li>
 									</ul>
@@ -307,7 +319,6 @@
 									</form>
 									<p>Nhập email của bạn và nhận những tin tức, cập nhật mới
 										nhất và ưu đãi đặc biệt từ chúng tôi.</p>
-
 								</div>
 							</div>
 						</div>
@@ -319,7 +330,7 @@
 				<div class="container">
 					<div class="copyright-footer">
 						<div class="columns text-lg-left">
-							<p>&copy; 2021 MyShowz. All rights reserved</p>
+							<p>&copy; 2023 MyShowz. All rights reserved</p>
 						</div>
 
 						<ul class="social text-lg-right">
@@ -340,6 +351,31 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					// Lấy danh sách các phần tử phim
+					var movies = document.querySelectorAll('#movieGrid .item');
+			
+					// Hiển thị chỉ 4 phim ban đầu
+					for (var i = 4; i < movies.length; i++) {
+						movies[i].style.display = 'none';
+					}
+			
+					// Bắt sự kiện khi nhấn vào nút "Xem Tất Cả"
+					document.getElementById('viewAllButton').addEventListener('click', function (event) {
+						event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
+			
+						// Hiển thị toàn bộ danh sách phim
+						for (var i = 0; i < movies.length; i++) {
+							movies[i].style.display = 'block';
+						}
+			
+						// Ẩn nút "Xem Tất Cả"
+						this.style.display = 'none';
+					});
+				});
+			</script>
+			
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {

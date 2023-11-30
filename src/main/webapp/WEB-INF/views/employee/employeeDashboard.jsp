@@ -112,11 +112,11 @@
 				<li class="nav-item nav-category"><span class="nav-link">Chuyển hướng</span>
 				</li>
 
-				<li class="nav-item menu-items"><a class="nav-link"
+<!-- 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/Dashboard"> <span class="menu-icon"> <i
 							class="mdi mdi-speedometer"></i>
 					</span> <span class="menu-title">Bảng Điều Khiển</span>
-				</a></li>
+				</a></li> -->
 				<li class="nav-item menu-items"><a class="nav-link"
 					href="/employee/service"> <span class="menu-icon"> <i
 							class="mdi mdi-cash-usd"></i>
@@ -284,7 +284,7 @@
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item preview-item">
+								<a class="dropdown-item preview-item" href="/logout">
 									<div class="preview-thumbnail">
 										<div class="preview-icon bg-dark rounded-circle">
 											<i class="mdi mdi-logout text-danger"></i>

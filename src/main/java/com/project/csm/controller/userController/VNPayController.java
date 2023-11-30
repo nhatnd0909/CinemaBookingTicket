@@ -56,9 +56,9 @@ public class VNPayController {
 
 	@PostMapping("/submitOrder")
 	public String submidOrder(@RequestParam("totalmoney") String orderTotal, HttpServletRequest request,
-			HttpSession session, @RequestParam("showID") Long showID, @RequestParam("socid") String socid,
+			HttpSession session, @RequestParam("showID") String showID, @RequestParam("socid") String socid,
 			@RequestParam("order") String order) {
-
+		showID = showID.substring(1, showID.length());
 		Customer loggedInAccount = (Customer) session.getAttribute("loggedInAccount");
 
 		
@@ -90,7 +90,7 @@ public class VNPayController {
 		// TicketID
 		String ticketID = tService.createIDTicket();
 		// Show
-		Show show = esmovie.getShowById(showID);
+		Show show = esmovie.getShowById(Long.parseLong(showID));
 
 		Ticket ticket = new Ticket(ticketID, show, seat, loggedInAccount, discount, total);
 		/// ticket

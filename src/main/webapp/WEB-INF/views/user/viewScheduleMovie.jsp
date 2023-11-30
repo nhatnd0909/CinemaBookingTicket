@@ -22,13 +22,13 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<style>
-		.disabled-link {
-			pointer-events: none;
-			color: #999; 
-			text-decoration: none;
-		}
-	</style>
+<style>
+.disabled-link {
+	pointer-events: none;
+	color: #999;
+	text-decoration: none;
+}
+</style>
 </head>
 <style>
 </style>
@@ -39,7 +39,7 @@
 			class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
 			<div class="container">
 				<h1>
-					<a class="navbar-brand" href="#"><span
+					<a class="navbar-brand" href="/"><span
 						class="fa fa-play icon-log" aria-hidden="true"></span> MyShowz</a>
 				</h1>
 				<button class="navbar-toggler collapsed" type="button"
@@ -53,7 +53,7 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="#">Trang
+						<li class="nav-item active"><a class="nav-link" href="/">Trang
 								Chủ</a></li>
 						<li class="nav-item"><a class="nav-link" href="movies">Phim</a>
 						</li>
@@ -75,7 +75,8 @@
 							Rạp</a>
 						<div class="dropdown-menu">
 							<c:forEach items="${listTheater}" var="theater">
-								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+								<a class="dropdown-item"
+									href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
 							</c:forEach>
 						</div>
 					</div>
@@ -125,21 +126,21 @@
 		<div class="col-md-12">
 			<div class="showtimes">
 				<div class="btn-group btn-block showtime-dates mb-3" id="dates">
-					<a class="btn btn-light text-muted date active"
-						data-date="" onclick="myFunction(1)"> ${currentDate}
-						<br> <span class="small text-nowrap" id="dayOfWeek1"></span>
+					<a class="btn btn-light text-muted date active" data-date=""
+						onclick="myFunction(1)"> ${currentDate} <br> <span
+						class="small text-nowrap" id="dayOfWeek1"></span>
 					</a> <a class="btn btn-light text-muted date" data-date=""
-						onclick="myFunction(2)"> ${tomorow} 
-						<br> <span class="small text-nowrap" id="dayOfWeek2"></span>
+						onclick="myFunction(2)"> ${tomorow} <br> <span
+						class="small text-nowrap" id="dayOfWeek2"></span>
 					</a> <a class="btn btn-light text-muted date" data-date=""
-						onclick="myFunction(3)"> ${nextDate} 
-						<br> <span class="small text-nowrap" id="dayOfWeek3"></span>
+						onclick="myFunction(3)"> ${nextDate} <br> <span
+						class="small text-nowrap" id="dayOfWeek3"></span>
 					</a> <a class="btn btn-light text-muted date" data-date=""
-						onclick="myFunction(4)"> ${futureDate3Days}
-						 <br> <span class="small text-nowrap" id="dayOfWeek4"></span>
+						onclick="myFunction(4)"> ${futureDate3Days} <br> <span
+						class="small text-nowrap" id="dayOfWeek4"></span>
 					</a> <a class="btn btn-light text-muted date" data-date=""
-						onclick="myFunction(4)"> ${futureDate4Days}
-						 <br> <span class="small text-nowrap" id="dayOfWeek5"></span>
+						onclick="myFunction(4)"> ${futureDate4Days} <br> <span
+						class="small text-nowrap" id="dayOfWeek5"></span>
 					</a>
 					<!--                     <a class="btn btn-light text-muted date" data-date="2023-11-25" onclick="myFunction(4)">
                         25/11
@@ -186,7 +187,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price startTime">
-															<span class="time startTime">${show.startTime}</span> <span
+															<span class="time startTime displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -233,7 +234,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-															<span class="time">${show.startTime}</span> <span
+															<span class="time displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -279,7 +280,7 @@
 														<a
 															href="ticketBooking?movie=${movie.name}&theater=${show.getTheaterRoom().getTheater().getName()}&roomID=${show.getTheaterRoom().getRoomID()}&showID=${show.getShowID()}"
 															class="btn btn-sm btn-showtime btn-outline-dark is-ticketing is-show-price">
-															<span class="time">${show.startTime}</span> <span
+															<span class="time displayTime">${show.startTime}</span> <span
 															class="amenity price"></span>
 														</a>
 													</c:if>
@@ -400,7 +401,16 @@
 			<button onclick="topFunction()" id="movetop" title="Go to top">
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
-			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+		<script>
+				document.querySelectorAll('.card.card-sm.mb-3').forEach(function(card) {
+					var span = card.querySelector('.time.displayTime');
+					if (!span) {
+						card.style.display = 'none';
+					}
+				});
+		</script>
+			
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 		<script>
 			var inputElements = document.querySelectorAll('.startTime');
 			var currentTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
@@ -420,6 +430,7 @@
 			console.log(currentHours);
 
 		</script>
+
 			<script>
 				var currentDate = new Date();
 				var tomorrow = new Date();
@@ -462,6 +473,26 @@
 
 		</section>
 	</footer>
+	<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Lấy tất cả các nút ngày
+    var dateButtons = document.querySelectorAll(".date");
+
+    // Gán sự kiện click cho từng nút ngày
+    dateButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        // Loại bỏ class 'active' từ tất cả các nút ngày
+        dateButtons.forEach(function (btn) {
+          btn.classList.remove("active");
+        });
+
+        // Thêm class 'active' vào nút ngày được click
+        button.classList.add("active");
+      });
+    });
+  });
+</script>
+
 	<script>
 		let prevId = 1;
 

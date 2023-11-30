@@ -31,7 +31,7 @@ public class MovieService {
 
 	public List<Movie> getLatestMovie() {
 		List<Movie> listReturn = new ArrayList<>();
-		List<Movie> listMovie = getAllMovie();
+		List<Movie> listMovie = getMoiveOnGoing();
 		for (int i = 0; i < 4 && i < listMovie.size(); i++) {
 			listReturn.add(listMovie.get(i));
 		}

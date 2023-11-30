@@ -45,7 +45,7 @@ public class EmployeePageController {
 		if (account == null || !account.getRole().equals("employee")) {
 			return "redirect:/";
 		}
-		List<Contact> listContact = contactService.getUnrepContact();
+		List<Contact> listContact = contactService.getContact();
 		model.addAttribute("listContact", listContact);
 		return "/employee/contact/contactDashboard";
 	}

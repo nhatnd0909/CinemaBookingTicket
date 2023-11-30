@@ -42,7 +42,7 @@ public class HomeController {
 		model.addAttribute("loggedIn", loggedIn);
 		model.addAttribute("loggedInAccount", loggedInAccount);
 
-		List<Movie> popularMovies = movieService.getPopularMovie();
+		List<Movie> popularMovies = movieService.getLatestMovie();
 		model.addAttribute("popularMovies", popularMovies);
 
 		List<Movie> allMovies = movieService.getAllMovie();

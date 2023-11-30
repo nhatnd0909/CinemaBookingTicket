@@ -75,7 +75,8 @@ a.btn.dropdown-toggle:hover {
 							Rạp</a>
 						<div class="dropdown-menu">
 							<c:forEach items="${listTheater}" var="theater">
-								<a class="dropdown-item" href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
+								<a class="dropdown-item"
+									href="view-schedule-movie?theater=${theater.name}">${theater.name}</a>
 							</c:forEach>
 						</div>
 					</div>
@@ -205,7 +206,7 @@ a.btn.dropdown-toggle:hover {
 				</div>
 			</div>
 			<div class="button-center text-center mt-3">
-				<a  class="btn view-button" id="viewAllButton">Xem Tất Cả<span
+				<a class="btn view-button" id="viewAllButton">Xem Tất Cả<span
 					class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
 			</div>
 		</div>
@@ -239,7 +240,8 @@ a.btn.dropdown-toggle:hover {
 												</div>
 												<div class="message">
 													<p>${movie.language}</p>
-													<a class="author-book-title" href="movies">${movie.name}</a>
+													<a class="author-book-title"
+														href="details?name=${movie.name}">${movie.name}</a>
 													<h4>
 														<span class="post"><span class="fa fa-clock-o">
 														</span> ${movie.duration} phút</span> <span
@@ -258,8 +260,9 @@ a.btn.dropdown-toggle:hover {
 										<div class="col-lg-4 new-relise-gd mt-lg-0 mt-0">
 											<div class="slider-info">
 												<div class="img-circle">
-													<a href="movies"><img src="assets/images/${movie.image}"
-														class="img-fluid" alt="author image" style="height: 245px;">
+													<a href="movies"><img
+														src="assets/images/${movie.image}" class="img-fluid"
+														alt="author image" style="height: 245px;">
 														<div class="overlay-icon">
 
 															<span class="fa fa-play video-icon" aria-hidden="true"></span>
@@ -267,10 +270,12 @@ a.btn.dropdown-toggle:hover {
 												</div>
 												<div class="message">
 													<p>${movie.language}</p>
-													<a class="author-book-title" href="movies">${movie.name}</a>
+													<a class="author-book-title"
+														href="details?name=${movie.name}">${movie.name}</a>
 													<h4>
 														<span class="post"><span class="fa fa-clock-o">
-														</span> ${movie.duration} phút </span> <span class="post fa fa-heart text-right"></span>
+														</span> ${movie.duration} phút </span> <span
+															class="post fa fa-heart text-right"></span>
 													</h4>
 												</div>
 											</div>
@@ -387,30 +392,31 @@ a.btn.dropdown-toggle:hover {
 				<span class="fa fa-arrow-up" aria-hidden="true"></span>
 			</button>
 			<script>
-				document.addEventListener('DOMContentLoaded', function () {
+				document.addEventListener('DOMContentLoaded', function() {
 					// Lấy danh sách các phần tử phim
 					var movies = document.querySelectorAll('#movieGrid .item');
-			
+
 					// Hiển thị chỉ 4 phim ban đầu
 					for (var i = 4; i < movies.length; i++) {
 						movies[i].style.display = 'none';
 					}
-			
+
 					// Bắt sự kiện khi nhấn vào nút "Xem Tất Cả"
-					document.getElementById('viewAllButton').addEventListener('click', function (event) {
-						event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
-			
-						// Hiển thị toàn bộ danh sách phim
-						for (var i = 0; i < movies.length; i++) {
-							movies[i].style.display = 'block';
-						}
-			
-						// Ẩn nút "Xem Tất Cả"
-						this.style.display = 'none';
-					});
+					document.getElementById('viewAllButton').addEventListener(
+							'click', function(event) {
+								event.preventDefault(); // Ngăn chặn hành động mặc định của nút "Xem Tất Cả"
+
+								// Hiển thị toàn bộ danh sách phim
+								for (var i = 0; i < movies.length; i++) {
+									movies[i].style.display = 'block';
+								}
+
+								// Ẩn nút "Xem Tất Cả"
+								this.style.display = 'none';
+							});
 				});
 			</script>
-			
+
 			<script>
 				// When the user scrolls down 20px from the top of the document, show the button
 				window.onscroll = function() {

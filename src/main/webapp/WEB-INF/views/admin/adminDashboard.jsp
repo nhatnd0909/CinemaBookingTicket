@@ -289,7 +289,7 @@
 									</div>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item preview-item">
+								<a class="dropdown-item preview-item" href="/logout">
 									<div class="preview-thumbnail">
 										<div class="preview-icon bg-dark rounded-circle">
 											<i class="mdi mdi-logout text-danger"></i>
@@ -318,7 +318,7 @@
 									<div class="row">
 										<div class="col-9">
 											<div class="d-flex align-items-center align-self-start">
-												<h3 class="mb-0" id="moneyMonth">${totalByMonth}VND</h3>
+												<h3 class="mb-0" id="moneyMonth">${totalByMonth}</h3>
 												<!-- <p class="text-success ml-2 mb-0 font-weight-medium">
 													+3.5%</p> -->
 											</div>
@@ -426,7 +426,7 @@
 																Đà Nẵng</p>
 														</div>
 														<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-															<h3 class="preview-subject">${totalDN} VND</h3>
+															<h3 class="preview-subject" id="moneyDN" >${totalDN} </h3>
 															<p class="text-muted mb-0">Doanh thu Tháng ${currentMonth}</p>
 														</div>
 													</div>
@@ -439,12 +439,12 @@
 													</div>
 													<div class="preview-item-content d-sm-flex flex-grow">
 														<div class="flex-grow">
-															<h6 class="preview-subject">Theater Huế</h6>
+															<h6 class="preview-subject" >Theater Huế</h6>
 															<p class="text-muted mb-0">Hòa Cường Nam/ Hải Châu/
 																Đà Nẵng</p>
 														</div>
 														<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-															<h3 class="preview-subject">${totalH} VND</h3>
+															<h3 class="preview-subject" id="moneyHue">${totalH} </h3>
 															<p class="text-muted mb-0">Doanh thu Tháng ${currentMonth}</p>
 														</div>
 													</div>
@@ -462,7 +462,7 @@
 																Đà Nẵng</p>
 														</div>
 														<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-															<h3 class="preview-subject">${totalQN} VND</h3>
+															<h3 class="preview-subject" id="moneyQN">${totalQN} </h3>
 															<p class="text-muted mb-0">Doanh thu Tháng ${currentMonth}</p>
 														</div>
 													</div>
@@ -487,6 +487,19 @@
 		</div>
 		<!-- page-body-wrapper ends -->
 	</div>
+	<script>
+		function formatAndDisplay(id) {
+            var moneyText = document.getElementById(id).innerText;
+            var formattedMoney = parseFloat(moneyText.replace(/[^0-9.-]+/g, ''));
+            var formattedMoneyWithVND = formattedMoney.toLocaleString('en-US', { minimumFractionDigits: 0 }) + ' VND';
+            document.getElementById(id).innerText = formattedMoneyWithVND;
+        }
+		formatAndDisplay('moneyMonth');
+        formatAndDisplay('moneyDN');
+		formatAndDisplay('moneyHue');
+		formatAndDisplay('moneyQN');
+	</script>
+	
 	<!-- container-scroller -->
 	<!-- plugins:js -->
 	<script src="admin_assets/assets/vendors/js/vendor.bundle.base.js"></script>
